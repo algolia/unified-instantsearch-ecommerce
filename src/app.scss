@@ -1,0 +1,42 @@
+* {
+  font-family: system-ui;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+#euip-wrapper {
+  background-color: #fff;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+
+  .euip {
+    width: 1120px;
+    margin: 0 auto;
+
+    &--searchBar {
+
+    }
+
+    &--categorieSuggestions {
+
+    }
+
+    &--leftColumn {
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+    }
+
+    &--rightColumn {
+      display: inline-block;
+      vertical-align: top;
+      width: 75%;
+    }
+  }
+}
