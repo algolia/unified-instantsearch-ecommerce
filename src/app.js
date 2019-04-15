@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 
+import algoliasearch from 'algoliasearch/lite';
+import { InstantSearch } from 'react-instantsearch-dom';
+
 import './app.scss';
 
 import FakeSearchBar from './FakeSearchBar';
+import SearchBar from './SearchBar';
+import CategorySuggestions from './CategorySuggestions';
+import LeftColumn from './LeftColumn';
+import RightColumn from './RightColumn';
+
+const searchClient = algoliasearch('testingKGR8YDKK66', '184ad8b85ddf60550a7a38ec812606d0');
 
 class App extends Component {
   constructor(props) {
@@ -27,66 +36,16 @@ class App extends Component {
           <FakeSearchBar onInputClick={() => this.toggleDisplay(true)} />
 
           {overlayDisplayed &&
-              <div id="euip-wrapper">
-                <div className="euip">
-                  <div className="euip--searchBar">
-                    <h3>Searchbar</h3>
-                  </div>
-                  <div className="euip--categorieSuggestions">
-                    <h3>Category Suggestions</h3>
-                  </div>
-                  <div className="euip--leftColumn">
-                    <h3>Left Column</h3>
-                  </div>
-                  <div className="euip--rightColumn">
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
-                    <h3>Right Column</h3>
+              <InstantSearch searchClient={searchClient} indexName="products">
+                <div id="euip-wrapper">
+                  <div className="euip">
+                    <SearchBar />
+                    <CategorySuggestions />
+                    <LeftColumn />
+                    <RightColumn />
                   </div>
                 </div>
-              </div>
+              </InstantSearch>
           }
         </React.Fragment>
     );

@@ -6,7 +6,7 @@ class FakeSearchBar extends React.Component {
         const { onInputClick } = this.props;
 
         return ReactDOM.createPortal(
-            <input id="euip-fake-input" type="text" placeholder="Fake input here…" onClick={onInputClick} />,
+            <input id="euip-fake-input" type="text" placeholder="Que recherchez-vous… ?" onClick={(e) => { e.target.blur(); onInputClick(); }} />,
             document.getElementById('fake-id-placeholder')
         );
     }

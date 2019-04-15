@@ -9,21 +9,21 @@ h1, h2, h3, h4 {
 #euip-wrapper {
   background-color: #fff;
   position: fixed;
-  top: 80px;
+  top: 175px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 175px);
   overflow-y: scroll;
 
   .euip {
-    width: 1120px;
+    width: 64rem;
     margin: 0 auto;
 
     &--searchBar {
 
     }
 
-    &--categorieSuggestions {
+    &--categorySuggestions {
 
     }
 
