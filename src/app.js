@@ -7,7 +7,6 @@ import './app.scss';
 
 import FakeSearchBar from './FakeSearchBar';
 import SearchBar from './SearchBar';
-import CategorySuggestions from './CategorySuggestions';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 
@@ -40,7 +39,6 @@ class App extends Component {
                 <div id="euip-wrapper">
                   <div className="euip">
                     <SearchBar />
-                    <CategorySuggestions />
                     <LeftColumn />
                     <RightColumn />
                   </div>

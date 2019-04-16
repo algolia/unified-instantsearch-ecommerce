@@ -5,7 +5,7 @@ class RightColumn extends React.Component {
 
     render() {
         return (
-            <div className="euip--rightColumn">
+            <div className="euip-rightColumn">
                     <Hits />
             </div>
         )
