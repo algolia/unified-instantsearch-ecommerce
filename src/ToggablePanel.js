@@ -22,9 +22,10 @@ const toggablePanel = (WrappedComponent) => {
             const { opened } = this.state;
 
             return (
-                <div onClick={this.togglePanel}>
+                <div>
                     <Panel header={WrappedComponent.header} className={opened ? 'opened' : 'closed'}>
                         {opened && <WrappedComponent {...this.props} opened={opened} />}
+                        <span className="ais-Panel-collapse" onClick={this.togglePanel} />
                     </Panel>
                 </div>
             )

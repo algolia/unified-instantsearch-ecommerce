@@ -80,6 +80,7 @@ h1, h2, h3, h4 {
     }
 
     .ais-Panel {
+      position: relative;
       border-top: 1px solid #eaeaea;
       padding: 12px 0;
       color: #21243d;
@@ -103,7 +104,7 @@ h1, h2, h3, h4 {
         .ais-Panel-header:after {
           position: absolute;
           top: 1px;
-          right: 14px;
+          right: 0;
           font-weight: normal;
           font-size: 16px;
           color: #c7c7c7;
@@ -120,6 +121,95 @@ h1, h2, h3, h4 {
         .ais-Panel-header:after {
           content: "-";
         }
+      }
+
+      &-collapse {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        height: 28px;
+        cursor: pointer;
+      }
+    }
+
+    .ais-RefinementList {
+      padding: 8px 0;
+
+      &-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        font-size: 12px;
+        line-height: 2.2;
+      }
+    }
+
+    .ais-SearchBox {
+      &-form {
+        input {
+          margin-bottom: 8px;
+          border: none;
+          outline: none;
+          background: #f3f3f3;
+          font-size: 12px;
+          padding: 10px 12px;
+          width: 100%;
+        }
+      }
+
+      &-submit, &-reset {
+        display: none;
+      }
+    }
+
+    .ais-Hits {
+      &-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      &-item {
+        display: inline-block;
+        width: calc(33.33% - 24px);
+        border: none;
+        padding: 8px 12px;
+      }
+
+      &-image {
+        display: block;
+        text-align: center;
+        height: 260px;
+
+        > img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &-content {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      &-category {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #949494;
+      }
+
+      &-title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      &-price {
+        font-weight: bold;
+        font-size: 15px;
+        margin-top: 4px;
       }
     }
   }

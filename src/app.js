@@ -17,7 +17,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      overlayDisplayed: false
+      overlayDisplayed: true
     };
 
     this.toggleDisplay = this.toggleDisplay.bind(this);
