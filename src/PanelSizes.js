@@ -1,9 +1,14 @@
 import React from 'react';
+import GroupSizeRefinementList from 'instantsearch-group-size-refinement-list-react';
 
 import toggablePanel from './ToggablePanel';
 
 const PanelSizes = () => (
-    <p>Panel Content</p>
+    <GroupSizeRefinementList
+        attribute="size"
+        patterns={[/^((X?(S|L))|M|XXL|XXXL|[2-5]XL)$/im]}
+        showMore={true}
+    />
 );
 
 PanelSizes.header = "Sizes";

@@ -1,9 +1,12 @@
 import React from 'react';
+import ColorRefinementList from 'instantsearch-color-refinement-list-react';
 
 import toggablePanel from './ToggablePanel';
 
 const PanelColors = () => (
-    <p>Panel Content</p>
+    <ColorRefinementList
+        attribute="color"
+    />
 );
 
 PanelColors.header = "Colors";
