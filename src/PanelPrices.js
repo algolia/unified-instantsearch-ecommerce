@@ -1,9 +1,10 @@
 import React from 'react';
 
 import toggablePanel from './ToggablePanel';
+import RangeSlider from './RangeSlider'
 
 const PanelPrices = () => (
-    <p>Panel Content</p>
+    <RangeSlider attribute="price" />
 );
 
 PanelPrices.header = "Price";

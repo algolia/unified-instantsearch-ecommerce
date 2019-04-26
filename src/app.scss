@@ -214,3 +214,76 @@ h1, h2, h3, h4 {
     }
   }
 }
+
+.ais-RangeSlider .rheostat-handle {
+  width: 19px;
+  height: 19px;
+  border: solid 2px #5468ff;
+  top: -6px;
+  margin-left: -10px;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.ais-RangeSlider-wrapper {
+  position: relative;
+  padding: 10px 0;
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: nowrap
+}
+
+.ais-RangeSlider {
+  flex: 3 3 200px;
+  position: relative;
+  top: 5px;
+}
+
+.ais-RangeSlider-numbers {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -5px;
+  width: 100%;
+}
+
+.ais-RangeSlider .rheostat-horizontal .rheostat-handle {
+  top: -6px;
+}
+
+.ais-RangeSlider .rheostat-progress {
+  height: 5px;
+  top: 1px;
+  background: #5468ff;
+  position: absolute;
+}
+
+.ais-RangeSlider--marker {
+  display: none;
+}
+
+.ais-RangeSlider--body {
+  padding: 0 11px 0 16px;
+}
+
+.ais-RangeSlider .rheostat-background {
+  height: 3px;
+  top: 2px;
+  width: 100%;
+  background-color: #ddd;
+  border: none;
+  position: relative
+}
+
+.ais-RangeSlider--tooltip {
+  background: transparent;
+}
+
+.ais-RangeSlider-wrapper .value {
+  flex: 1 1 40px;
+  padding: 0 10px;
+  text-align: center;
+}

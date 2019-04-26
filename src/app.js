@@ -31,21 +31,21 @@ class App extends Component {
     const { overlayDisplayed } = this.state;
 
     return (
-        <React.Fragment>
-          <FakeSearchBar onInputClick={() => this.toggleDisplay(true)} />
+      <React.Fragment>
+        <FakeSearchBar onInputClick={() => this.toggleDisplay(true)} />
 
-          {overlayDisplayed &&
-              <InstantSearch searchClient={searchClient} indexName="products">
-                <div id="euip-wrapper">
-                  <div className="euip">
-                    <SearchBar />
-                    <LeftColumn />
-                    <RightColumn />
-                  </div>
-                </div>
-              </InstantSearch>
-          }
-        </React.Fragment>
+        {overlayDisplayed &&
+          <InstantSearch searchClient={searchClient} indexName="products">
+            <div id="euip-wrapper">
+              <div className="euip">
+                <SearchBar />
+                <LeftColumn />
+                <RightColumn />
+              </div>
+            </div>
+          </InstantSearch>
+        }
+      </React.Fragment>
     );
   }
 }
