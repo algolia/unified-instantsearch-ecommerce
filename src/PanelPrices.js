@@ -1,6 +1,6 @@
 import React from 'react';
 
-import toggablePanel from './ToggablePanel';
+import toggablePanel from './shared/ToggablePanel';
 
 const PanelPrices = () => (
     <p>Panel Content</p>
