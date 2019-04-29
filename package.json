@@ -6,12 +6,12 @@
     "algoliasearch": "^3.32.1",
     "instantsearch-color-refinement-list-react": "^0.1.6-a",
     "instantsearch-group-size-refinement-list-react": "^0.1.6",
+    "instantsearch-rheostat-range-slider-react": "0.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-instantsearch-dom": "^5.4.0",
-    "react-scripts": "2.1.8",
-    "rheostat": "^2.2.0"
+    "react-scripts": "2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
