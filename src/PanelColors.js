@@ -10,5 +10,6 @@ const PanelColors = () => (
 );
 
 PanelColors.header = "Colors";
+PanelColors.attribute = "color"
 
 export default toggablePanel(PanelColors);

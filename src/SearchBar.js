@@ -1,17 +1,19 @@
 import React from 'react';
 
+import PredictiveSearchBox from 'instantsearch-predictive-search-box-react';
+
 class SearchBar extends React.Component {
 
     render() {
         return (
             <div className="euip-searchBar">
-                <div className="euip-searchBar-inner">
-                    <input type="text"
-                           className="euip-searchBar-input"
-                           placeholder="Rechercher un produit, une marque, une catégorie…"
-                           autoFocus
-                    />
-                </div>
+                <PredictiveSearchBox
+                    translations={{ placeholder: "Search for anything" }}
+                    suggestionsIndex="products-query-suggestions"
+                    appID="testingKGR8YDKK66"
+                    apiKey="184ad8b85ddf60550a7a38ec812606d0"
+                    maxSuggestions={30}
+                />
             </div>
         )
     }
