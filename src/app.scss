@@ -63,20 +63,55 @@ h1, h2, h3, h4 {
 
     }
 
+    &-RefinementsTags {
+      list-style: none;
+      padding: 0 12px;
+      margin: 0 0 18px !important;
+
+      &-tag {
+        display: inline-block;
+        font-size: 14px;
+        border: 1px solid #c1c1c1;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        border-radius: 4px;
+        color: #333;
+        cursor: pointer;
+        position: relative;
+        padding: 4px 22px 4px 8px;
+        text-transform: capitalize;
+        user-select: none;
+
+        em {
+          font-weight: bold;
+          font-style: normal;
+        }
+
+        &:after {
+          content: "✕";
+          position: absolute;
+          top: 5px;
+          right: 7px;
+          font-size: 12px;
+        }
+      }
+    }
+
     &-leftColumn, &-rightColumn {
       margin-top: 136px;
+      padding: 0 12px;
     }
 
     &-leftColumn {
       display: inline-block;
       vertical-align: top;
-      width: 25%;
+      width: calc(25% - 24px);
     }
 
     &-rightColumn {
       display: inline-block;
       vertical-align: top;
-      width: 75%;
+      width: calc(75% - 24px);
     }
 
     .ais-Panel {
@@ -143,6 +178,10 @@ h1, h2, h3, h4 {
         font-size: 12px;
         line-height: 2.2;
       }
+
+      &-labelText {
+        margin-left: 6px;
+      }
     }
 
     .ais-SearchBox {
@@ -171,9 +210,10 @@ h1, h2, h3, h4 {
 
       &-item {
         display: inline-block;
+        vertical-align: bottom;
         width: calc(33.33% - 24px);
         border: none;
-        padding: 8px 12px;
+        padding: 0 12px 48px;
       }
 
       &-image {
@@ -184,7 +224,7 @@ h1, h2, h3, h4 {
         > img {
           height: 100%;
           width: 100%;
-          object-fit: contain;
+          object-fit: cover;
         }
       }
 
