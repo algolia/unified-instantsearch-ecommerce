@@ -9,5 +9,6 @@ const PanelBrands = () => (
 );
 
 PanelBrands.header = "Brands";
+PanelBrands.attribute = "brand"
 
 export default toggablePanel(PanelBrands);

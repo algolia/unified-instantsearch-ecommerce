@@ -8,5 +8,6 @@ const PanelPrices = () => (
 );
 
 PanelPrices.header = "Price";
+PanelPrices.attribute = "price"
 
 export default toggablePanel(PanelPrices);

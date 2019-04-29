@@ -7,5 +7,6 @@ const PanelCategories = () => (
 );
 
 PanelCategories.header = "Categories";
+PanelCategories.attribute = "category"
 
 export default toggablePanel(PanelCategories);
