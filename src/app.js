@@ -13,9 +13,9 @@ import { searchClient, createURL, urlToSearchState, searchStateToUrl } from './s
 class App extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
-      overlayDisplayed: true,
+      overlayDisplayed: props.location.state && props.location.state.query,
       searchState: urlToSearchState(props.location),
       lastLocation: props.location
     };
