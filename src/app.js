@@ -13,9 +13,9 @@ import { searchClient, createURL, urlToSearchState, searchStateToUrl } from './s
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
-      overlayDisplayed: props.location.state && props.location.state.query,
+      overlayDisplayed: true,
       searchState: urlToSearchState(props.location),
       lastLocation: props.location
     };
@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (props.location !== state.lastLocation) {
+    if (typeof props.location.state === 'undefined' || props.location !== state.lastLocation) {
       return {
         searchState: urlToSearchState(props.location),
         lastLocation: props.location,
