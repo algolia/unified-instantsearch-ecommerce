@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (props.location !== state.lastLocation) {
+    if (typeof props.location.state === 'undefined' || props.location !== state.lastLocation) {
       return {
         searchState: urlToSearchState(props.location),
         lastLocation: props.location,
