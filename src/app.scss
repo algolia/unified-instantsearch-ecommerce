@@ -15,6 +15,43 @@ h1, h2, h3, h4 {
   height: calc(100vh - 175px);
   overflow-y: scroll;
 
+  .ais-PredictiveSearchBox {
+    height: 100%;
+    background-color: #fff;
+    height: 52px;
+    border-radius: 6px;
+    box-shadow: 0 20px 44px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+
+    &-input {
+      width: 95%;
+      margin-top: 4px;
+      margin-left: 10px;
+      font-size: 20px;
+      font-family: system-ui;
+      padding: 10px;
+      background: none;
+      border: none;
+      color: #333;
+    }
+
+    .ais-PredictiveBox {
+      position: absolute;
+      font-size: 20px;
+      font-family: system-ui;
+      padding: 10px;
+      top: 4px;
+      left: 10px;
+    }
+
+    .ais-SuggestionTag {
+      padding: 8px 6px;
+      em {
+        text-decoration: none;
+      }
+    }
+  }
+
   .euip {
     width: 64rem;
     margin: 0 auto;
@@ -252,5 +289,9 @@ h1, h2, h3, h4 {
         margin-top: 4px;
       }
     }
+  }
+
+  .ais-RheostatRangeSlider {
+    top: 5px;
   }
 }

@@ -1,11 +1,13 @@
 import React from 'react';
+import RheostatRangeSlider from 'instantsearch-rheostat-range-slider-react';
 
 import toggablePanel from './shared/ToggablePanel';
 
 const PanelPrices = () => (
-    <p>Panel Content</p>
+    <RheostatRangeSlider attribute="price" />
 );
 
 PanelPrices.header = "Price";
+PanelPrices.attribute = "price"
 
 export default toggablePanel(PanelPrices);

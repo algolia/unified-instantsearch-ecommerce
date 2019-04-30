@@ -56,27 +56,27 @@ class App extends Component {
     const { overlayDisplayed, searchState } = this.state;
 
     return (
-        <React.Fragment>
-          <FakeSearchBar onInputClick={() => this.toggleDisplay(true)} />
+      <React.Fragment>
+        <FakeSearchBar onInputClick={() => this.toggleDisplay(true)} />
 
-          {overlayDisplayed &&
-              <InstantSearch
+        {overlayDisplayed &&
+          <InstantSearch
                   searchClient={searchClient}
                   indexName="products"
                   searchState={searchState}
                   onSearchStateChange={this.onSearchStateChange}
                   createURL={createURL}
               >
-                <div id="euip-wrapper">
-                  <div className="euip">
-                    <SearchBar />
-                    <LeftColumn />
-                    <RightColumn />
-                  </div>
-                </div>
-              </InstantSearch>
-          }
-        </React.Fragment>
+            <div id="euip-wrapper">
+              <div className="euip">
+                <SearchBar />
+                <LeftColumn />
+                <RightColumn />
+              </div>
+            </div>
+          </InstantSearch>
+        }
+      </React.Fragment>
     );
   }
 }
