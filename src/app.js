@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { InstantSearch } from 'react-instantsearch-dom';
+import { InstantSearch, Configure } from 'react-instantsearch-dom';
 
 import './app.scss';
 
-import FakeSearchBar from './FakeSearchBar';
-import SearchBar from './SearchBar';
-import LeftColumn from './LeftColumn';
-import RightColumn from './RightColumn';
+import FakeSearchBar from './top/FakeSearchBar';
+import SearchBar from './top/SearchBar';
+import LeftColumn from './left-column/LeftColumn';
+import RightColumn from './right-column/RightColumn';
 
 import { searchClient, createURL, urlToSearchState, searchStateToUrl } from './shared/Tools';
 
@@ -22,6 +22,7 @@ class App extends Component {
 
     this.toggleDisplay = this.toggleDisplay.bind(this);
     this.onSearchStateChange = this.onSearchStateChange.bind(this);
+    this.getInstantSearchConfiguration = this.getInstantSearchConfiguration.bind(this);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -48,8 +49,26 @@ class App extends Component {
     this.setState({ searchState });
   };
 
-  toggleDisplay(overlayDisplayed = true) {
+  toggleDisplay = (overlayDisplayed = true) => {
     this.setState({ overlayDisplayed });
+  };
+
+  getInstantSearchConfiguration = () => {
+    const { searchState: { refinementList } } = this.state;
+
+    const ruleContexts = Object.keys(refinementList).reduce((all, refinementName) => {
+      for (const refinementValue of refinementList[refinementName]) {
+        all = [...all, `${refinementName}-${refinementValue.toLowerCase().replace(/ /g,"_")}`];
+      }
+
+      return all;
+    }, [ ]);
+
+    return {
+      analytics: true,
+      clickAnalytics:true,
+      ruleContexts
+    };
   };
 
   render() {
@@ -65,8 +84,8 @@ class App extends Component {
                   indexName="products"
                   searchState={searchState}
                   onSearchStateChange={this.onSearchStateChange}
-                  createURL={createURL}
-              >
+                  createURL={createURL}>
+            <Configure {...this.getInstantSearchConfiguration()} />
             <div id="euip-wrapper">
               <div className="euip">
                 <SearchBar />

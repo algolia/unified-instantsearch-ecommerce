@@ -1,7 +1,7 @@
 import React from 'react';
 import GroupSizeRefinementList from 'instantsearch-group-size-refinement-list-react';
 
-import toggablePanel from './shared/ToggablePanel';
+import toggablePanel from './../shared/ToggablePanel';
 
 const PanelSizes = () => (
     <GroupSizeRefinementList

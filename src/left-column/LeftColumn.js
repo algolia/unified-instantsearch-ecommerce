@@ -1,7 +1,6 @@
 import React from 'react';
 
 import PanelBrands from './PanelBrands';
-import PanelCategories from './PanelCategories';
 import PanelColors from './PanelColors';
 import PanelSizes from './PanelSizes';
 import PanelPrices from './PanelPrices';
@@ -12,7 +11,6 @@ class LeftColumn extends React.Component {
         return (
             <div className="euip-leftColumn">
                 <PanelBrands />
-                <PanelCategories />
                 <PanelColors />
                 <PanelSizes />
                 <PanelPrices />
