@@ -28,6 +28,7 @@ let SearchBar = ({ currentRefinement, refine }) => (
     </div>
 );
 
+
 if (!config.QUERY_SUGGESTIONS) {
     SearchBar = connectSearchBox(SearchBar);
 }
