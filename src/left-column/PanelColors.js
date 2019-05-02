@@ -1,7 +1,7 @@
 import React from 'react';
 import ColorRefinementList from 'instantsearch-color-refinement-list-react';
 
-import toggablePanel from './shared/ToggablePanel';
+import toggablePanel from './../shared/ToggablePanel';
 
 const PanelColors = () => (
     <ColorRefinementList
