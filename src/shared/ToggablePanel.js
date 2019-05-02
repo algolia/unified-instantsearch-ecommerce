@@ -31,9 +31,9 @@ const toggablePanel = (WrappedComponent) => {
                         {opened &&
                             <WrappedComponent {...this.props} opened={opened} />
                         }
-
+              
                         {opened && <WrappedComponent {...this.props} opened={opened} />}
-
+              
                         <span className="ais-Panel-collapse" onClick={this.togglePanel} />
                     </Panel>
                 </div>
