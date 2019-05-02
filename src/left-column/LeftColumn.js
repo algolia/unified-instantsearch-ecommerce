@@ -1,23 +1,29 @@
 import React from 'react';
 
-import PanelBrands from './PanelBrands';
-import PanelColors from './PanelColors';
-import PanelSizes from './PanelSizes';
-import PanelPrices from './PanelPrices';
+import PanelBasic from './PanelBasic';
+import PanelColor from './PanelColor';
+import PanelSize from './PanelSize';
+import PanelPrice from './PanelPrice';
 
-class LeftColumn extends React.Component {
+import config from './../config.json';
 
-    render() {
-        return (
-            <div className="euip-leftColumn">
-                <PanelBrands />
-                <PanelColors />
-                <PanelSizes />
-                <PanelPrices />
-            </div>
-        )
-    }
+const PANELS = {
+    basic: PanelBasic,
+    color: PanelColor,
+    size: PanelSize,
+    price: PanelPrice
+};
 
-}
+const LeftColumn = () => {
+    const refinements = config.REFINEMENTS;
+
+    return (
+        <div className="euip-leftColumn">
+            {refinements.map((refinement, idx) => (
+                React.createElement(PANELS[refinement.type], { key: idx, ...refinement })
+            ))}
+        </div>
+    )
+};
 
 export default LeftColumn;
