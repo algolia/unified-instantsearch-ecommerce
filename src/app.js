@@ -8,19 +8,21 @@ import SearchBar from './top/SearchBar';
 import LeftColumn from './left-column/LeftColumn';
 import RightColumn from './right-column/RightColumn';
 
-import { searchClient, createURL, urlToSearchState, searchStateToUrl } from './shared/Tools';
+import { searchClient, createURL, urlToSearchState, searchStateToUrl, shouldDisplayOverlayAtLauch } from './shared/Tools';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
+    const searchState = urlToSearchState(props.location);
+
     this.state = {
-      overlayDisplayed: true,
-      searchState: urlToSearchState(props.location),
-      lastLocation: props.location
+      searchState: searchState,
+      lastLocation: props.location,
+      overlayDisplayed: shouldDisplayOverlayAtLauch(searchState)
     };
 
-    this.toggleDisplay = this.toggleDisplay.bind(this);
+    this.displaySearchOverlay = this.displaySearchOverlay.bind(this);
     this.onSearchStateChange = this.onSearchStateChange.bind(this);
     this.getInstantSearchConfiguration = this.getInstantSearchConfiguration.bind(this);
   }
@@ -49,7 +51,7 @@ class App extends Component {
     this.setState({ searchState });
   };
 
-  toggleDisplay = (overlayDisplayed = true) => {
+  displaySearchOverlay = (overlayDisplayed = true) => {
     this.setState({ overlayDisplayed });
   };
 
@@ -76,7 +78,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <FakeSearchBar onInputClick={() => this.toggleDisplay(true)} />
+        <FakeSearchBar onInputClick={() => this.displaySearchOverlay(true)} />
 
         {overlayDisplayed &&
           <InstantSearch
