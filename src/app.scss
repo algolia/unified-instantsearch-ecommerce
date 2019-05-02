@@ -33,7 +33,7 @@ h1, h2, h3, h4 {
       &-inner {
         height: 52px;
         border-radius: 6px;
-        box-shadow: 0 20px 44px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 7px 13px -3px rgba(195, 195, 195, 0.3), 0 2px 4px 0 rgba(25, 25, 25, 0.4), inset 0 -2px 0 0 #cecece;
         background-color: #fff;
       }
 
@@ -98,7 +98,7 @@ h1, h2, h3, h4 {
     }
 
     &-leftColumn, &-rightColumn {
-      margin-top: 136px;
+      margin-top: 120px;
       padding: 0 12px;
     }
 
