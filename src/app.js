@@ -8,7 +8,7 @@ import SearchBar from './top/SearchBar';
 import LeftColumn from './left-column/LeftColumn';
 import RightColumn from './right-column/RightColumn';
 
-import { searchClient, createURL, urlToSearchState, searchStateToUrl, shouldDisplayOverlayAtLauch } from './shared/Tools';
+import { searchClient, createURL, urlToSearchState, searchStateToUrl, shouldDisplayOverlayAtLaunch } from './shared/Tools';
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       searchState: searchState,
       lastLocation: props.location,
-      overlayDisplayed: shouldDisplayOverlayAtLauch(searchState)
+      overlayDisplayed: shouldDisplayOverlayAtLaunch(searchState)
     };
 
     this.displaySearchOverlay = this.displaySearchOverlay.bind(this);
