@@ -15,7 +15,8 @@
     "react-dom": "^16.8.6",
     "react-instantsearch-dom": "^5.4.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "search-insights": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

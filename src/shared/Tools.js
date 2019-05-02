@@ -45,7 +45,7 @@ export const urlToSearchState = ({ search }) => {
 
 export const searchStateToUrl = ({ location }, searchState) => searchState ? `${location.pathname}${createURL(searchState)}` : '';
 
-export const shouldDisplayOverlayAtLauch = searchState => {
+export const shouldDisplayOverlayAtLaunch = searchState => {
     const { query, refinementList, page } = searchState;
 
     if (typeof page === 'undefined') {

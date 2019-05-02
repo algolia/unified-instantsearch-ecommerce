@@ -20,14 +20,13 @@ let SearchBar = ({ currentRefinement, refine }) => (
                 <PredictiveSearchBox
                     translations={{ placeholder: "Rechercher un produit, une marque, une catégorie…" }}
                     suggestionsIndex="products-query-suggestions"
-                    appID={config.ALGOLIA_APP_ID}
-                    apiKey={config.ALGOLIA_SEARCH_API_KEY}
+                    appID="testingKGR8YDKK66"
+                    apiKey="184ad8b85ddf60550a7a38ec812606d0"
                     maxSuggestions={30} />
             }
         </div>
     </div>
 );
-
 
 if (!config.QUERY_SUGGESTIONS) {
     SearchBar = connectSearchBox(SearchBar);
