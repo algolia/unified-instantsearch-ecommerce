@@ -8,6 +8,7 @@ import SearchBar from './top/SearchBar';
 import LeftColumn from './left-column/LeftColumn';
 import RightColumn from './right-column/RightColumn';
 
+import config from './config.json';
 import { searchClient, createURL, urlToSearchState, searchStateToUrl, shouldDisplayOverlayAtLauch } from './shared/Tools';
 
 class App extends Component {
@@ -46,6 +47,10 @@ class App extends Component {
           searchStateToUrl(this.props, searchState),
           searchState
       );
+
+      if (config.GOOGLE_ANALYTICS) {
+        window.ga('send', 'pageView', `?query=${searchState.query}`);
+      }
     }, 400);
 
     this.setState({ searchState });
