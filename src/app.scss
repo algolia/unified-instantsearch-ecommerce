@@ -63,6 +63,15 @@ h1, h2, h3, h4 {
 
     }
 
+    .ais-QueryRuleCustomData {
+      padding: 100px 0 20px 0;
+      height: 100px;
+    }
+
+    &-Banner--content {
+      width: 100%;
+    }
+
     &-RefinementsTags {
       list-style: none;
       padding: 0 12px;
@@ -98,7 +107,6 @@ h1, h2, h3, h4 {
     }
 
     &-leftColumn, &-rightColumn {
-      margin-top: 136px;
       padding: 0 12px;
     }
 
@@ -203,7 +211,7 @@ h1, h2, h3, h4 {
     }
 
     .ais-PredictiveSearchBox {
-      height: 52px;
+      min-height: 52px;
       border-radius: 6px;
       box-shadow: 0 20px 44px 0 rgba(0, 0, 0, 0.2);
       background-color: #fff;

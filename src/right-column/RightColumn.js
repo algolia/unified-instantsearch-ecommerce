@@ -1,13 +1,13 @@
 import React from 'react';
 import { connectHits, connectStateResults, Pagination } from 'react-instantsearch-dom';
-
 import CurrentRefinementsTags from './CurrentRefinementsTags';
+
 import { trackClickOnHit } from './../shared/Analytics'
 
 const Hit = ({ hit, idx, searchResults }) => {
     return (
         <div className="ais-Hits-item"
-            onClick={() =>  trackClickOnHit(
+            onClick={() => trackClickOnHit(
                 searchResults.index,
                 'Click on product',
                 searchResults.queryID,

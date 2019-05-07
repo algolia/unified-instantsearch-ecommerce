@@ -5,6 +5,7 @@ import './app.scss';
 
 import FakeSearchBar from './top/FakeSearchBar';
 import SearchBar from './top/SearchBar';
+import UserDataBanner from './top/UserDataBanner';
 import LeftColumn from './left-column/LeftColumn';
 import RightColumn from './right-column/RightColumn';
 
@@ -44,8 +45,8 @@ class App extends Component {
 
     this.debouncedSetState = setTimeout(() => {
       this.props.history.push(
-          searchStateToUrl(this.props, searchState),
-          searchState
+        searchStateToUrl(this.props, searchState),
+        searchState
       );
 
       if (config.GOOGLE_ANALYTICS) {
@@ -65,15 +66,15 @@ class App extends Component {
 
     const ruleContexts = Object.keys(refinementList).reduce((all, refinementName) => {
       for (const refinementValue of refinementList[refinementName]) {
-        all = [...all, `${refinementName}-${refinementValue.toLowerCase().replace(/ /g,"_")}`];
+        all = [...all, `${refinementName}-${refinementValue.toLowerCase().replace(/ /g, "_")}`];
       }
 
       return all;
-    }, [ ]);
+    }, []);
 
     return {
       analytics: true,
-      clickAnalytics:true,
+      clickAnalytics: true,
       ruleContexts
     };
   };
@@ -87,15 +88,16 @@ class App extends Component {
 
         {overlayDisplayed &&
           <InstantSearch
-                  searchClient={searchClient}
-                  indexName="products"
-                  searchState={searchState}
-                  onSearchStateChange={this.onSearchStateChange}
-                  createURL={createURL}>
+            searchClient={searchClient}
+            indexName="products"
+            searchState={searchState}
+            onSearchStateChange={this.onSearchStateChange}
+            createURL={createURL}>
             <Configure {...this.getInstantSearchConfiguration()} />
             <div id="euip-wrapper">
               <div className="euip">
                 <SearchBar />
+                <UserDataBanner />
                 <LeftColumn />
                 <RightColumn />
               </div>
