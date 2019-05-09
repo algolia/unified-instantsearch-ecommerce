@@ -1,14 +1,17 @@
 import React from 'react';
-
 import { QueryRuleCustomData } from 'react-instantsearch-dom';
 
-const UserDataBanner = () =>
+const UserDataBanner = ({ toggleResults }) =>
     <QueryRuleCustomData>
-        {({ items }) =>
-            items.map(({ banner, title, link }) => {
+        {({ items }) => {
+            if (!items.length)
+                toggleResults(true)
+            return items.map(({ banner, title, link, displaySearchResults }) => {
                 if (!banner) {
                     return null;
                 }
+
+                toggleResults(displaySearchResults !== undefined ? displaySearchResults : true)
 
                 return (
                     <a href={link} key={title}>
@@ -16,7 +19,7 @@ const UserDataBanner = () =>
                     </a>
                 );
             })
-        }
+        }}
     </QueryRuleCustomData>
 
 export default UserDataBanner;

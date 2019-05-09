@@ -2,6 +2,8 @@ import React from 'react';
 import { connectHits, connectStateResults, Pagination } from 'react-instantsearch-dom';
 import CurrentRefinementsTags from './CurrentRefinementsTags';
 
+import ColumnContainer from '../containers/ColumnContainer'
+
 import { trackClickOnHit } from './../shared/Analytics'
 
 const Hit = ({ hit, idx, searchResults }) => {
@@ -41,6 +43,6 @@ const RightColumn = () => (
         <Hits />
         <Pagination />
     </div>
-);
+)
 
-export default RightColumn;
+export default () => <ColumnContainer><RightColumn /></ColumnContainer>;

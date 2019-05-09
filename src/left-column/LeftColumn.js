@@ -1,23 +1,19 @@
 import React from 'react';
 
+import ColumnContainer from '../containers/ColumnContainer'
+
 import PanelBrands from './PanelBrands';
 import PanelColors from './PanelColors';
 import PanelSizes from './PanelSizes';
 import PanelPrices from './PanelPrices';
 
-class LeftColumn extends React.Component {
+const LeftColumn = () => (
+    <div className="euip-leftColumn">
+        <PanelBrands />
+        <PanelColors />
+        <PanelSizes />
+        <PanelPrices />
+    </div>
+)
 
-    render() {
-        return (
-            <div className="euip-leftColumn">
-                <PanelBrands />
-                <PanelColors />
-                <PanelSizes />
-                <PanelPrices />
-            </div>
-        )
-    }
-
-}
-
-export default LeftColumn;
+export default () => <ColumnContainer><LeftColumn /></ColumnContainer>;

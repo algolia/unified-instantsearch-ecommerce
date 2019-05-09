@@ -5,9 +5,9 @@ import './app.scss';
 
 import FakeSearchBar from './top/FakeSearchBar';
 import SearchBar from './top/SearchBar';
-import UserDataBanner from './top/UserDataBanner';
-import LeftColumn from './left-column/LeftColumn';
+import UserDataBannerContainer from './containers/UserDataBannerContainer';
 import RightColumn from './right-column/RightColumn';
+import LeftColumn from './left-column/LeftColumn';
 
 import config from './config.json';
 import { searchClient, createURL, urlToSearchState, searchStateToUrl, shouldDisplayOverlayAtLaunch } from './shared/Tools';
@@ -97,7 +97,7 @@ class App extends Component {
             <div id="euip-wrapper">
               <div className="euip">
                 <SearchBar />
-                <UserDataBanner />
+                <UserDataBannerContainer />
                 <LeftColumn />
                 <RightColumn />
               </div>
