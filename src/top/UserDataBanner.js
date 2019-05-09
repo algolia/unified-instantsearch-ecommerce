@@ -6,19 +6,22 @@ const UserDataBanner = ({ toggleResults }) =>
         {({ items }) => {
             if (!items.length)
                 toggleResults(true)
-            return items.map(({ banner, title, link, displaySearchResults }) => {
+            return items.reduce((acc, { banner, title, link, displaySearchResults }) => {
                 if (!banner) {
-                    return null;
+                    return acc;
                 }
 
-                toggleResults(displaySearchResults !== undefined ? displaySearchResults : true)
+                if (acc.length === 0) {
+                    toggleResults(displaySearchResults !== undefined ? displaySearchResults : true)
 
-                return (
-                    <a href={link} key={title}>
-                        <img className="euip-Banner--content" src={banner} alt={title} />
-                    </a>
-                );
-            })
+                    acc.push(
+                        <a href={link} key={title}>
+                            <img className="euip-Banner--content" src={banner} alt={title} />
+                        </a>
+                    );
+                }
+                return acc
+            }, [])
         }}
     </QueryRuleCustomData>
 

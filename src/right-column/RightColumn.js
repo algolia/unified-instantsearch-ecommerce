@@ -45,4 +45,5 @@ const RightColumn = () => (
     </div>
 )
 
+
 export default () => <ColumnContainer><RightColumn /></ColumnContainer>;
