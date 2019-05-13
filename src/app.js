@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
-import { InstantSearch, Configure } from 'react-instantsearch-dom';
+import { InstantSearch } from 'react-instantsearch-dom';
 
-import './app.scss';
+import config from './config.json';
 
 import FakeSearchBar from './top/FakeSearchBar';
 import SearchBar from './top/SearchBar';
 import LeftColumn from './left-column/LeftColumn';
 import RightColumn from './right-column/RightColumn';
 
-import config from './config.json';
-import { searchClient, createURL, urlToSearchState, searchStateToUrl, shouldDisplayOverlayAtLaunch } from './shared/Tools';
+import Configuration from './shared/Configuration';
+import QueryRulesHandler from './shared/QueryRulesHandler';
+import {
+  searchClient,
+  createURL,
+  urlToSearchState,
+  searchStateToUrl,
+  shouldDisplayOverlayAtLaunch,
+} from './shared/Tools';
+
+import './app.scss';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +34,6 @@ class App extends Component {
 
     this.displaySearchOverlay = this.displaySearchOverlay.bind(this);
     this.onSearchStateChange = this.onSearchStateChange.bind(this);
-    this.getInstantSearchConfiguration = this.getInstantSearchConfiguration.bind(this);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -60,24 +68,6 @@ class App extends Component {
     this.setState({ overlayDisplayed });
   };
 
-  getInstantSearchConfiguration = () => {
-    const { searchState: { refinementList } } = this.state;
-
-    const ruleContexts = Object.keys(refinementList).reduce((all, refinementName) => {
-      for (const refinementValue of refinementList[refinementName]) {
-        all = [...all, `${refinementName}-${refinementValue.toLowerCase().replace(/ /g,"_")}`];
-      }
-
-      return all;
-    }, [ ]);
-
-    return {
-      analytics: true,
-      clickAnalytics:true,
-      ruleContexts
-    };
-  };
-
   render() {
     const { overlayDisplayed, searchState } = this.state;
 
@@ -86,13 +76,13 @@ class App extends Component {
         <FakeSearchBar onInputClick={() => this.displaySearchOverlay(true)} />
 
         {overlayDisplayed &&
-          <InstantSearch
-                  searchClient={searchClient}
-                  indexName="products"
-                  searchState={searchState}
-                  onSearchStateChange={this.onSearchStateChange}
-                  createURL={createURL}>
-            <Configure {...this.getInstantSearchConfiguration()} />
+          <InstantSearch searchClient={searchClient}
+                         indexName="products"
+                         searchState={searchState}
+                         onSearchStateChange={this.onSearchStateChange}
+                         createURL={createURL}>
+            <Configuration searchState={searchState} />
+            <QueryRulesHandler searchState={searchState} />
             <div id="euip-wrapper">
               <div className="euip">
                 <SearchBar />
