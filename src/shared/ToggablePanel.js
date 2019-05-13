@@ -8,7 +8,8 @@ const toggablePanel = (WrappedComponent) => {
             super(props);
 
             this.state = {
-                opened: !props.closed
+                opened: !props.closed,
+                header: props.header
             };
 
             this.togglePanel = this.togglePanel.bind(this);
@@ -19,11 +20,13 @@ const toggablePanel = (WrappedComponent) => {
         };
 
         render() {
-            const { opened } = this.state;
+            const { opened, header } = this.state;
+
             return (
                 <div>
-                    <Panel header={WrappedComponent.header} className={opened ? 'opened' : 'closed'}>
+                    <Panel header={header} className={opened ? 'opened' : 'closed'}>
                         <WrappedComponent {...this.props} opened={opened} />
+
                         <span className="ais-Panel-collapse" onClick={this.togglePanel} />
                     </Panel>
                 </div>

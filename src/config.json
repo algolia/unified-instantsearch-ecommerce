@@ -2,5 +2,37 @@
   "ALGOLIA_APP_ID": "testingKGR8YDKK66",
   "ALGOLIA_SEARCH_API_KEY": "184ad8b85ddf60550a7a38ec812606d0",
   "QUERY_SUGGESTIONS": false,
-  "GOOGLE_ANALYTICS": false
+  "GOOGLE_ANALYTICS": false,
+  "REFINEMENTS": [
+    {
+      "type": "basic",
+      "attribute": "brand",
+      "header": "Marques",
+      "extra": {
+        "searchable": true
+      }
+    },
+    {
+      "type": "color",
+      "attribute": "color",
+      "header": "Couleur"
+    },
+    {
+      "type": "size",
+      "attribute": "size",
+      "header": "Tailles",
+      "extra": {
+        "patterns": [
+          "/^((X?(S|L))|M|XXL|XXXL|[2-5]XL)$/im"
+        ],
+        "showMore": true,
+        "sortSizesByNbResults": false
+      }
+    },
+    {
+      "type": "price",
+      "attribute": "price",
+      "header": "Prix"
+    }
+  ]
 }
