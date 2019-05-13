@@ -35,4 +35,9 @@ const toggablePanel = (WrappedComponent) => {
     }
 };
 
+toggablePanel.propTypes = {
+    header: PropTypes.string.isRequired,
+    attribute: PropTypes.string.isRequired,
+};
+
 export default toggablePanel;
