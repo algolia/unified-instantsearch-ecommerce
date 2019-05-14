@@ -4,12 +4,13 @@ import { InstantSearch } from 'react-instantsearch-dom';
 import config from './config.json';
 
 import FakeSearchBar from './top/FakeSearchBar';
-import SearchBar from './top/SearchBar';
+import Top from './top/Top';
 import LeftColumn from './left-column/LeftColumn';
 import RightColumn from './right-column/RightColumn';
 
 import Configuration from './shared/Configuration';
 import QueryRulesHandler from './shared/QueryRulesHandler';
+import QueryRulesBanner from './shared/QueryRulesBanner';
 import {
   searchClient,
   createURL,
@@ -29,11 +30,13 @@ class App extends Component {
     this.state = {
       searchState: searchState,
       lastLocation: props.location,
-      overlayDisplayed: shouldDisplayOverlayAtLaunch(searchState)
+      overlayDisplayed: shouldDisplayOverlayAtLaunch(searchState),
+      searchResultsDisplayed: true
     };
 
-    this.displaySearchOverlay = this.displaySearchOverlay.bind(this);
     this.onSearchStateChange = this.onSearchStateChange.bind(this);
+    this.displayOverlay = this.displayOverlay.bind(this);
+    this.displaySearchResults = this.displaySearchResults.bind(this);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -64,16 +67,22 @@ class App extends Component {
     this.setState({ searchState });
   };
 
-  displaySearchOverlay = (overlayDisplayed = true) => {
+  displayOverlay = (overlayDisplayed = true) => {
     this.setState({ overlayDisplayed });
   };
 
+  displaySearchResults = (searchResultsDisplayed = true) => {
+    if (this.state.searchResultsDisplayed !== searchResultsDisplayed) {
+      this.setState({ searchResultsDisplayed });
+    }
+  };
+
   render() {
-    const { overlayDisplayed, searchState } = this.state;
+    const { overlayDisplayed, searchResultsDisplayed, searchState } = this.state;
 
     return (
       <React.Fragment>
-        <FakeSearchBar onInputClick={() => this.displaySearchOverlay(true)} />
+        <FakeSearchBar onInputClick={() => this.displayOverlay(true)} />
 
         {overlayDisplayed &&
           <InstantSearch searchClient={searchClient}
@@ -83,11 +92,18 @@ class App extends Component {
                          createURL={createURL}>
             <Configuration searchState={searchState} />
             <QueryRulesHandler searchState={searchState} />
+            <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />
+
             <div id="euip-wrapper">
               <div className="euip">
-                <SearchBar />
-                <LeftColumn />
-                <RightColumn />
+                <Top />
+
+                {searchResultsDisplayed &&
+                    <React.Fragment>
+                      <LeftColumn />
+                      <RightColumn />
+                    </React.Fragment>
+                }
               </div>
             </div>
           </InstantSearch>

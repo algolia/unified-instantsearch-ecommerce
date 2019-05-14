@@ -5,7 +5,7 @@ import config from './../config.json';
 
 export const searchClient = algoliasearch(config.ALGOLIA_APP_ID, config.ALGOLIA_SEARCH_API_KEY);
 
-export const createURL = ({ query, refinementList, page, location }) => {
+export const createURL = ({ query = '', refinementList = { }, page = 1, location }) => {
     const refinementsState = Object.keys(refinementList).reduce((acc, currentRefinement) => {
         if (!refinementList[currentRefinement]) {
             return acc;
@@ -45,7 +45,7 @@ export const urlToSearchState = ({ search }) => {
 export const searchStateToUrl = ({ location }, searchState) => searchState ? `${location.pathname}${createURL(searchState)}` : '';
 
 export const getRulesContextFromSearchState = searchState => {
-    const { refinementList }  = searchState;
+    const { refinementList = { } }  = searchState;
 
     return Object.keys(refinementList).reduce((all, refinementName) => {
         all = {...all, [`${refinementName}`]: values => values};

@@ -49,7 +49,6 @@ h1, h2, h3, h4 {
         color: #333;
 
         &::placeholder {
-          font-style: italic;
           color: #d0d0d0;
         }
 
@@ -66,14 +65,14 @@ h1, h2, h3, h4 {
     &-RefinementsTags {
       list-style: none;
       padding: 0 12px;
-      margin: 0 0 18px !important;
+      margin: 0 !important;
 
       &-tag {
         display: inline-block;
         font-size: 14px;
         border: 1px solid #c1c1c1;
         margin-right: 8px;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
         border-radius: 4px;
         color: #333;
         cursor: pointer;
@@ -97,8 +96,12 @@ h1, h2, h3, h4 {
       }
     }
 
+    &-Banner--content {
+      width: 100%;
+    }
+
     &-leftColumn, &-rightColumn {
-      margin-top: 120px;
+      margin-top: 110px;
       padding: 0 12px;
     }
 
@@ -203,7 +206,7 @@ h1, h2, h3, h4 {
     }
 
     .ais-PredictiveSearchBox {
-      height: 52px;
+      min-height: 52px;
       border-radius: 6px;
       box-shadow: 0 20px 44px 0 rgba(0, 0, 0, 0.2);
       background-color: #fff;
@@ -313,6 +316,14 @@ h1, h2, h3, h4 {
 
     .ais-RheostatRangeSlider {
       top: 5px;
+    }
+
+    .ais-QueryRuleCustomData {
+      a {
+        display: block;
+        padding-top: 98px;
+        margin-bottom: -92px;
+      }
     }
   }
 }
