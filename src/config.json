@@ -3,6 +3,10 @@
   "ALGOLIA_SEARCH_API_KEY": "184ad8b85ddf60550a7a38ec812606d0",
   "QUERY_SUGGESTIONS": false,
   "GOOGLE_ANALYTICS": false,
+  "INSTANT_SEARCH_CONFIGURE": {
+    "analytics": true,
+    "clickAnalytics": true
+  },
   "REFINEMENTS": [
     {
       "type": "basic",

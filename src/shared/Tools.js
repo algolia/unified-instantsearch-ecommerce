@@ -17,7 +17,7 @@ export const createURL = ({ query, refinementList, page, location }) => {
     const routeState = {
         query,
         ...refinementsState,
-        page,
+        page
     };
 
     return `?${qs.stringify(routeState)}`;
@@ -25,25 +25,34 @@ export const createURL = ({ query, refinementList, page, location }) => {
 
 export const urlToSearchState = ({ search }) => {
     const routeState = qs.parse(search.slice(1));
-    const { query, page } = routeState;
+    const { query = '', page = 1  } = routeState;
 
     const excludedParametersFromRefinement = ['query', 'page'];
 
     const refinementList = Object
         .keys(routeState)
         .filter(urlParam => excludedParametersFromRefinement.indexOf(urlParam) === -1)
-        .reduce((acc, currentRefinement) => {
-            return { ...acc, [currentRefinement]: routeState[currentRefinement].split('~') }
-        }, {});
+        .reduce((acc, currentRefinement) => ({ ...acc, [currentRefinement]: routeState[currentRefinement].split('~') }), {});
 
     return {
         query,
         refinementList,
-        page
+        page: parseInt(page),
+        configure: config.INSTANT_SEARCH_CONFIGURE
     };
 };
 
 export const searchStateToUrl = ({ location }, searchState) => searchState ? `${location.pathname}${createURL(searchState)}` : '';
+
+export const getRulesContextFromSearchState = searchState => {
+    const { refinementList }  = searchState;
+
+    return Object.keys(refinementList).reduce((all, refinementName) => {
+        all = {...all, [`${refinementName}`]: values => values};
+
+        return all;
+    }, { });
+};
 
 export const shouldDisplayOverlayAtLaunch = searchState => {
     const { query, refinementList, page } = searchState;
