@@ -1,5 +1,5 @@
 import React from 'react';
-import { connectHits, connectStateResults, Pagination } from 'react-instantsearch-dom';
+import { connectHits, connectStateResults, Pagination, ScrollTo } from 'react-instantsearch-dom';
 
 import CurrentRefinementsTags from './CurrentRefinementsTags';
 import { trackClickOnHit } from './../shared/Analytics'
@@ -29,9 +29,11 @@ const Hit = ({ hit, idx, searchResults }) => {
 
 const Hits = connectHits(
     connectStateResults(({ hits, searchResults }) => (
-        <div className="ais-Hits-list">
-            {hits.map((hit, idx) => <Hit key={idx} hit={hit} idx={idx} searchResults={searchResults} />)}
-        </div>
+        <ScrollTo scrollOn="page">
+            <div className="ais-Hits-list">
+                {hits.map((hit, idx) => <Hit key={idx} hit={hit} idx={idx} searchResults={searchResults} />)}
+            </div>
+        </ScrollTo>
     ))
 );
 
