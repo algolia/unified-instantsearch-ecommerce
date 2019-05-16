@@ -9,27 +9,26 @@ const toggablePanel = (WrappedComponent) => {
             super(props);
 
             this.state = {
-                opened: !props.closed,
-                header: props.header
+                opened: !props.closed
             };
 
             this.togglePanel = this.togglePanel.bind(this);
         }
 
         togglePanel = () => {
-            this.setState((currentState) => ({ opened: !currentState.opened }))
+            this.setState((prevState) => ({ opened: !prevState.opened }))
         };
 
         render() {
-            const { opened, header } = this.state;
+            const { header } = this.props;
+            const { opened } = this.state;
 
             return (
-                <div>
+                <div className="ais-Panel-wrapper">
                     <Panel header={header} className={opened ? 'opened' : 'closed'}>
                         <WrappedComponent {...this.props} opened={opened} />
-
-                        <span className="ais-Panel-collapse" onClick={this.togglePanel} />
                     </Panel>
+                    <span className="ais-Panel-collapse" onClick={this.togglePanel} />
                 </div>
             )
         }

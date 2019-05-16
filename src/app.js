@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { InstantSearch } from 'react-instantsearch-dom';
+import { isMobile } from 'react-device-detect';
 
 import config from './config.json';
 
 import FakeSearchBar from './top/FakeSearchBar';
 import Top from './top/Top';
-import LeftColumn from './left-column/LeftColumn';
-import RightColumn from './right-column/RightColumn';
+import Main from './shared/Main';
 
 import Configuration from './shared/Configuration';
 import QueryRulesHandler from './shared/QueryRulesHandler';
@@ -33,10 +33,16 @@ class App extends Component {
       overlayDisplayed: shouldDisplayOverlayAtLaunch(searchState),
       searchResultsDisplayed: true
     };
+  }
 
-    this.onSearchStateChange = this.onSearchStateChange.bind(this);
-    this.displayOverlay = this.displayOverlay.bind(this);
-    this.displaySearchResults = this.displaySearchResults.bind(this);
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevState.overlayDisplayed !== this.state.overlayDisplayed) {
+      if (this.state.overlayDisplayed) {
+        document.body.classList.add('with-euip-modal-open');
+      } else {
+        document.body.classList.remove('with-euip-modal-open');
+      }
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -94,16 +100,10 @@ class App extends Component {
             <QueryRulesHandler searchState={searchState} />
             <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />
 
-            <div id="euip-wrapper">
+            <div id="euip-wrapper" className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
                 <Top />
-
-                {searchResultsDisplayed &&
-                    <React.Fragment>
-                      <LeftColumn />
-                      <RightColumn />
-                    </React.Fragment>
-                }
+                {searchResultsDisplayed && <Main />}
               </div>
             </div>
           </InstantSearch>

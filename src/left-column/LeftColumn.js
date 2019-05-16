@@ -14,13 +14,13 @@ const PANELS = {
     price: PanelPrice
 };
 
-const LeftColumn = () => {
+const LeftColumn = props => {
     const refinements = config.REFINEMENTS;
 
     return (
         <div className="euip-leftColumn">
             {refinements.map((refinement, idx) => (
-                React.createElement(PANELS[refinement.type], { key: idx, ...refinement })
+                React.createElement(PANELS[refinement.type], { key: idx, ...refinement, ...props })
             ))}
         </div>
     )
