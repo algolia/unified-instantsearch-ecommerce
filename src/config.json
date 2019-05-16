@@ -27,7 +27,7 @@
       "header": "Tailles",
       "extra": {
         "patterns": [
-          "/^((X?(S|L))|M|XXL|XXXL|[2-5]XL)$/im"
+          "^((X?(S|L))|M|XXL|XXXL|[2-5]XL)$"
         ],
         "showMore": true,
         "sortSizesByNbResults": false
