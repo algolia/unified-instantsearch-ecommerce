@@ -5,9 +5,9 @@
   "dependencies": {
     "algoliasearch": "^3.32.1",
     "instantsearch-color-refinement-list-react": "^0.1.7",
-    "instantsearch-group-size-refinement-list-react": "^0.2.1-a",
+    "instantsearch-group-size-refinement-list-react": "^0.2.2",
     "instantsearch-predictive-search-box-react": "^0.1.4-a",
-    "instantsearch-rheostat-range-slider-react": "0.0.1",
+    "instantsearch-rheostat-range-slider-react": "0.0.2",
     "json-loader": "^0.5.7",
     "node-sass": "^4.11.0",
     "qs": "^6.7.0",
