@@ -29,7 +29,12 @@
     {
       "type": "color",
       "attribute": "color",
-      "header": "Couleur"
+      "header": "Couleur",
+      "extra": {
+        "limit": 20,
+        "showMoreLimit": 50,
+        "showMore": true
+      }
     },
     {
       "type": "size",

@@ -16,7 +16,7 @@ const Hit = ({ hit, idx, searchResults }) => {
                 searchResults.hitsPerPage * searchResults.page + idx + 1
             )}>
             <picture className="ais-Hits-image">
-                <img src={hit[config.HITS.imageAttribute]} alt={hit[titleAttribute]} />
+                <img src={hit[config.HITS.imageAttribute]} alt={hit[config.HITS.titleAttribute]} />
             </picture>
             <section className="ais-Hits-content">
                 <p className="ais-Hits-category">{hit[config.HITS.categoryAttribute] || 'Category'}</p>
