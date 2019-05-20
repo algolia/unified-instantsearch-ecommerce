@@ -4,6 +4,11 @@
   "INDEX_NAME": "ASOS",
   "PLACEHOLDER_ID": "euip-search-placeholder",
   "QUERY_SUGGESTIONS": false,
+  "SUGGESTIONS": {
+    "appID": "",
+    "suggestion": "",
+    "maxSuggestions": 0
+  },
   "GOOGLE_ANALYTICS": false,
   "INSTANT_SEARCH_CONFIGURE": {
     "analytics": true,

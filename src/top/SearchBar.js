@@ -20,9 +20,9 @@ let SearchBar = ({ currentRefinement, refine }) => (
                 <PredictiveSearchBox
                     translations={{ placeholder: "Rechercher un produit, une marque, une catégorie…" }}
                     suggestionsIndex="products-query-suggestions"
-                    appID={config.suggestion.appID}
-                    apiKey={config.suggestion.apiKey}
-                    maxSuggestions={config.suggestion.maxSuggestions} />
+                    appID={config.SUGGESTIONS.appID}
+                    apiKey={config.SUGGESTIONS.apiKey}
+                    maxSuggestions={config.SUGGESTIONS.maxSuggestions} />
             }
         </div>
     </div>
