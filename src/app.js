@@ -61,8 +61,8 @@ class App extends Component {
 
     this.debouncedSetState = setTimeout(() => {
       this.props.history.push(
-          searchStateToUrl(this.props, searchState),
-          searchState
+        searchStateToUrl(this.props, searchState),
+        searchState
       );
 
       if (config.GOOGLE_ANALYTICS) {
@@ -92,10 +92,10 @@ class App extends Component {
 
         {overlayDisplayed &&
           <InstantSearch searchClient={searchClient}
-                         indexName="products"
-                         searchState={searchState}
-                         onSearchStateChange={this.onSearchStateChange}
-                         createURL={createURL}>
+            indexName={config.INDEX_NAME}
+            searchState={searchState}
+            onSearchStateChange={this.onSearchStateChange}
+            createURL={createURL}>
             <Configuration searchState={searchState} />
             <QueryRulesHandler searchState={searchState} />
             <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />

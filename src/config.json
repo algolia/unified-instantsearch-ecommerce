@@ -1,12 +1,21 @@
 {
-  "ALGOLIA_APP_ID": "testingKGR8YDKK66",
-  "ALGOLIA_SEARCH_API_KEY": "184ad8b85ddf60550a7a38ec812606d0",
+  "ALGOLIA_APP_ID": "E8KS2J9PMC",
+  "ALGOLIA_SEARCH_API_KEY": "9a2480ff719c1092d2ef9ad3c6d36cf1",
+  "INDEX_NAME": "ASOS",
   "PLACEHOLDER_ID": "euip-search-placeholder",
   "QUERY_SUGGESTIONS": false,
   "GOOGLE_ANALYTICS": false,
   "INSTANT_SEARCH_CONFIGURE": {
     "analytics": true,
     "clickAnalytics": true
+  },
+  "HITS": {
+    "imageAttribute": "image",
+    "priceAttribute": "price",
+    "categoryAttribute": "",
+    "descriptionAttribute": "",
+    "titleAttribute": "name",
+    "currency": "£"
   },
   "REFINEMENTS": [
     {
@@ -24,11 +33,13 @@
     },
     {
       "type": "size",
-      "attribute": "size",
+      "attribute": "sizes",
       "header": "Tailles",
       "extra": {
         "patterns": [
-          "^((X?(S|L))|M|XXL|XXXL|[2-5]XL)$"
+          "^([2-5]?X?L|XX?S|S|M)$",
+          "^(EU [1-9][0-9]?|100)$",
+          "^(UK [1-9][0-9]?)$"
         ],
         "showMore": true,
         "sortSizesByNbResults": false
