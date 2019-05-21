@@ -19,10 +19,10 @@ const Hit = ({ hit, idx, searchResults }) => {
                 <img src={hit[config.HITS.imageAttribute]} alt={hit[config.HITS.titleAttribute]} />
             </picture>
             <section className="ais-Hits-content">
-                <p className="ais-Hits-category">{hit[config.HITS.categoryAttribute] || 'Category'}</p>
-                <p className="ais-Hits-title">{hit[config.HITS.titleAttribute]}</p>
-                <p className="ais-Hits-description">{hit[config.HITS.descriptionAttribute]}</p>
-                <p className="ais-Hits-price">{hit[config.HITS.priceAttribute] ? `${hit[config.HITS.priceAttribute]} ${config.HITS.currency}` : 'Gratuit'}</p>
+                <p className="ais-Hits-category">{config.HITS.categoryAttribute ? hit[config.HITS.categoryAttribute] : hit.category}</p>
+                <p className="ais-Hits-title">{config.HITS.titleAttribute ? hit[config.HITS.titleAttribute] : hit.title}</p>
+                <p className="ais-Hits-description">{config.HITS.descriptionAttribute ? hit[config.HITS.descriptionAttribute] : hit.description}</p>
+                <p className="ais-Hits-price">{`${config.HITS.priceAttribute ? hit[config.HITS.priceAttribute] : hit.price} ${config.HITS.currency}`}</p>
             </section>
         </div>
     )

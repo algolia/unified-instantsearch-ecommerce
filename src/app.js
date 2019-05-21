@@ -92,7 +92,7 @@ class App extends Component {
 
         {overlayDisplayed &&
           <InstantSearch searchClient={searchClient}
-            indexName={config.INDEX_NAME}
+            indexName={config.INDEX_NAME || 'products'}
             searchState={searchState}
             onSearchStateChange={this.onSearchStateChange}
             createURL={createURL}>
