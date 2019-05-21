@@ -13,10 +13,10 @@ body.with-euip-modal-open {
 #euip-wrapper {
   background-color: #fff;
   position: fixed;
-  top: 175px;
+  top: 100px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 175px);
+  height: calc(100vh - 100px);
   overflow-y: scroll;
 
   .euip {
@@ -263,7 +263,7 @@ body.with-euip-modal-open {
 
       &-item {
         display: inline-block;
-        vertical-align: bottom;
+        vertical-align: top;
         width: calc(33.33% - 24px);
         border: none;
         padding: 0 12px 48px;
