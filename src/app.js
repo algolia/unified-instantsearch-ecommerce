@@ -45,17 +45,6 @@ class App extends Component {
     }
   }
 
-  static getDerivedStateFromProps(props, state) {
-    if (typeof props.location.state === 'undefined' || props.location !== state.lastLocation) {
-      return {
-        searchState: urlToSearchState(props.location),
-        lastLocation: props.location,
-      };
-    }
-
-    return null;
-  }
-
   onSearchStateChange = searchState => {
     clearTimeout(this.debouncedSetState);
 
