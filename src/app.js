@@ -45,6 +45,17 @@ class App extends Component {
     }
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.location !== state.lastLocation) {
+      return {
+        searchState: urlToSearchState(props.location),
+        lastLocation: props.location,
+      };
+    }
+
+    return null;
+  }
+
   onSearchStateChange = searchState => {
     clearTimeout(this.debouncedSetState);
 
@@ -54,12 +65,19 @@ class App extends Component {
         searchState
       );
 
-      if (config.GOOGLE_ANALYTICS) {
+      if (config.googleAnalytics) {
         window.ga('send', 'pageView', `?query=${searchState.query}`);
       }
     }, 400);
 
     this.setState({ searchState });
+  };
+
+  setSearchStatePage = page => {
+    let { searchState } = this.state;
+    const newSearchState = { ...searchState, page: (page) > 0 ? page : 1 };
+
+    this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
   };
 
   displayOverlay = (overlayDisplayed = true) => {
@@ -72,13 +90,6 @@ class App extends Component {
     }
   };
 
-  setSearchStatePage = page => {
-    let { searchState } = this.state;
-    const newSearchState = { ...searchState, page: (page) > 0 ? page : 1 }
-
-    this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
-  }
-
   render() {
     const { overlayDisplayed, searchResultsDisplayed, searchState } = this.state;
 
@@ -88,17 +99,18 @@ class App extends Component {
 
         {overlayDisplayed &&
           <InstantSearch searchClient={searchClient}
-            indexName={config.INDEX_NAME || 'products'}
+            indexName={config.indexName || 'products'}
             searchState={searchState}
             onSearchStateChange={this.onSearchStateChange}
-            createURL={createURL}>
-            <Configuration searchState={searchState} hitsPerPage={config.HITS.hitsPerPage} />
+            createURL={createURL}
+          >
+            <Configuration />
             <QueryRulesHandler searchState={searchState} />
             <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />
 
             <div id="euip-wrapper" className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
-                <Top />
+                <Top displayOverlay={this.displayOverlay} />
                 {searchResultsDisplayed && <Main setSearchStatePage={this.setSearchStatePage} page={searchState.page} />}
               </div>
             </div>

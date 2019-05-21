@@ -4418,16 +4418,18 @@ inquirer@^6.1.0:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-instantsearch-color-refinement-list-react@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/instantsearch-color-refinement-list-react/-/instantsearch-color-refinement-list-react-0.1.7.tgz#9b9e36dda35bfb23a1b408290e371f3b6edec110"
+instantsearch-color-refinement-list-react@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/instantsearch-color-refinement-list-react/-/instantsearch-color-refinement-list-react-0.2.1.tgz#c39c43103f30f1bc67a96587e152096208aabc7c"
+  integrity sha512-K8xzpxZJocnODckiwsTy+cSLJtavd7b0kShrcSBnP2OfravC5RV1cXmt2BUXIluJsenxok1ZCKXhIDIN9JdViw==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
 
-instantsearch-group-size-refinement-list-react@^0.2.1-a:
-  version "0.2.1-a"
-  resolved "https://registry.yarnpkg.com/instantsearch-group-size-refinement-list-react/-/instantsearch-group-size-refinement-list-react-0.2.1-a.tgz#bed462a2b3d2c7ad49457fd19911d2411de3b77f"
+instantsearch-group-size-refinement-list-react@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/instantsearch-group-size-refinement-list-react/-/instantsearch-group-size-refinement-list-react-0.2.2.tgz#2609b018b77e05cbeb2f3ffd9f75c7692b001cf2"
+  integrity sha512-FT8SWvqLQNRrTqWH6AVatF8RMS6B7wTuyIlZWMVbjlenNbgr/IJTZxdOYDy7KAIxqVOZfAd3LM2v54krlFLBgQ==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
@@ -4439,9 +4441,10 @@ instantsearch-predictive-search-box-react@^0.1.4-a:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
 
-instantsearch-rheostat-range-slider-react@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/instantsearch-rheostat-range-slider-react/-/instantsearch-rheostat-range-slider-react-0.0.1.tgz#243fe6aa86a858430e9db7ba9afa3eacb3869c66"
+instantsearch-rheostat-range-slider-react@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/instantsearch-rheostat-range-slider-react/-/instantsearch-rheostat-range-slider-react-0.0.2.tgz#fb4d0c46e3186b17a03e29682083bce1a3382e2c"
+  integrity sha512-yl2zYYWJfl7c7nA3uXUy1QXeTI5IXSr/7dEv6z4tuLWqQ3UaB7+464OAXWJRAmOSlXmq8m9W53wcgTqBMomMng==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
@@ -7402,7 +7405,17 @@ react-instantsearch-core@^5.5.0:
     lodash "^4.17.4"
     prop-types "^15.5.10"
 
-react-instantsearch-dom@^5.3.1, react-instantsearch-dom@^5.4.0, react-instantsearch-dom@^5.5.0:
+react-instantsearch-core@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-core/-/react-instantsearch-core-5.6.0.tgz#1d5e9a6c07bc6bbb732953b19f22c4fa584a8405"
+  integrity sha512-dwKF+2XuFnpOaRD0Xnz1cRg26HL7TGhT/PnSyqAUgio8xiKywNQhJUeXL6Rgf6LqKxC0Ey3si8zV+IMxeGDPfA==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    algoliasearch-helper "^2.26.0"
+    lodash "^4.17.4"
+    prop-types "^15.5.10"
+
+react-instantsearch-dom@^5.3.1, react-instantsearch-dom@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/react-instantsearch-dom/-/react-instantsearch-dom-5.5.0.tgz#b5a9853a4d86e35309aba167a80a067d782ca591"
   dependencies:
@@ -7413,6 +7426,19 @@ react-instantsearch-dom@^5.3.1, react-instantsearch-dom@^5.4.0, react-instantsea
     lodash "^4.17.4"
     prop-types "^15.5.10"
     react-instantsearch-core "^5.5.0"
+
+react-instantsearch-dom@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-dom/-/react-instantsearch-dom-5.6.0.tgz#217bf68d959430d6680ee0dca63f7c0f345db3df"
+  integrity sha512-d4jWnRl+RF8It+t8crVrWUP6Gsc0VQ44jcbjnjmQRQXZNRIeeOKpJh7QfpWnKrDAY1qjUn/fZFZRB6W1XBHwYg==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    algoliasearch "^3.27.1"
+    algoliasearch-helper "^2.26.0"
+    classnames "^2.2.5"
+    lodash "^4.17.4"
+    prop-types "^15.5.10"
+    react-instantsearch-core "^5.6.0"
 
 react-instantsearch-native@^5.5.0:
   version "5.5.0"

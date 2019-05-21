@@ -1,5 +1,7 @@
 import React from 'react';
 import { Configure } from 'react-instantsearch-dom';
+import { isMobile } from 'react-device-detect';
+
 
 import config from './../config.js';
 
@@ -10,7 +12,7 @@ class Configuration extends React.Component {
 
     render() {
         return (
-            <Configure {...config.INSTANT_SEARCH_CONFIGURE} />
+            <Configure {...config.instantSearchConfigure} ruleContexts={isMobile ? ['mobile'] : []} />
         )
     }
 }

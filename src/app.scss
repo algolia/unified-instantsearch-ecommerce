@@ -33,26 +33,36 @@ body.with-euip-modal-open {
       width: 64rem;
       padding-top: 24px;
       z-index: 2;
+      border-bottom: 1px solid #d8d8d8;
 
       &-inner {
         height: 52px;
-        border-radius: 6px;
-        box-shadow: 0 7px 13px -3px rgba(195, 195, 195, 0.3), 0 2px 4px 0 rgba(25, 25, 25, 0.4), inset 0 -2px 0 0 #cecece;
         background-color: #fff;
+      }
+
+      &-close {
+        position: absolute;
+        top: 12px;
+        right: 0;
+        font-size: 52px;
+        cursor: pointer;
+        color: grey;
+        z-index: 3;
       }
 
       &-input {
         width: 95%;
         margin-top: 4px;
-        margin-left: 10px;
-        font-size: 20px;
+        font-size: 24px;
         font-family: system-ui;
-        padding: 10px;
+        font-weight: bold;
+        padding: 4px 0;
         background: none;
         border: none;
         color: #333;
 
         &::placeholder {
+          font-weight: normal;
           color: #d0d0d0;
         }
 
@@ -62,13 +72,9 @@ body.with-euip-modal-open {
       }
     }
 
-    &-categorySuggestions {
-
-    }
-
     &-RefinementsTags {
       list-style: none;
-      padding: 0 12px;
+      padding: 0 8px;
       margin: 0 !important;
 
       &-tag {
@@ -195,6 +201,28 @@ body.with-euip-modal-open {
       &-labelText {
         margin-left: 6px;
       }
+
+      &-count {
+        display: inline-block;
+        float: right;
+        background: #efefef;
+        padding: 0 8px;
+        border-radius: 6px;
+        font-size: 10px;
+      }
+
+      &-item {
+        &--selected {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .ais-Highlight {
+      &-highlighted {
+        font-style: normal;
+        font-weight: bold;
+      }
     }
 
     .ais-SearchBox {
@@ -218,33 +246,37 @@ body.with-euip-modal-open {
     .ais-PredictiveSearchBox {
       min-height: 52px;
       border-radius: 6px;
-      box-shadow: 0 20px 44px 0 rgba(0, 0, 0, 0.2);
       background-color: #fff;
+      box-shadow: none;
 
       &-input {
         width: 95%;
         margin-top: 4px;
-        margin-left: 10px;
-        font-size: 20px;
+        font-size: 24px;
         font-family: system-ui;
-        padding: 10px;
+        padding: 4px 0;
         background: none;
         border: none;
         color: #333;
+        font-weight: bold;
 
         &::placeholder {
-          font-style: italic;
-          color: #d0d0d0;
+          color: #b1b1b1;
+          font-weight: normal;
         }
+      }
+
+      &-resetIcon {
+        display: none;
       }
 
       .ais-PredictiveBox {
         position: absolute;
-        font-size: 20px;
+        font-size: 24px;
         font-family: system-ui;
-        padding: 10px;
+        font-weight: bold;
+        padding: 4px 0;
         top: 4px;
-        left: 10px;
       }
 
       .ais-SuggestionTag {
@@ -252,6 +284,15 @@ body.with-euip-modal-open {
         em {
           text-decoration: none;
         }
+      }
+    }
+
+    .ais-SuggestionTagsContainer {
+      padding-left: 0;
+      margin-top: 6px;
+
+      .ais-SuggestionTag {
+        margin-right: 8px;
       }
     }
 
@@ -365,6 +406,7 @@ body.with-euip-modal-open {
         padding-top: 14px;
         padding-left: 12px;
         padding-right: 12px;
+        border-bottom: 0;
 
         &-inner {
           height: 46px;
@@ -374,6 +416,14 @@ body.with-euip-modal-open {
           margin-top: 3px;
           margin-left: 2px;
           font-size: 16px;
+        }
+
+        &-close {
+          position: absolute;
+          top: 2px;
+          right: 16px;
+          font-size: 46px;
+          color: #888888;
         }
       }
 
@@ -390,6 +440,10 @@ body.with-euip-modal-open {
       }
 
       &-SidebarPanel {
+        display: inline-block;
+        width: 50%;
+        vertical-align: middle;
+
         &-sidebar {
           display: none;
           background: #000000ab;
@@ -442,6 +496,10 @@ body.with-euip-modal-open {
           color: white;
         }
 
+        &-trigger {
+          text-align: center;
+        }
+
         &.opened {
           .euip-SidebarPanel-sidebar {
             display: block;
@@ -456,11 +514,57 @@ body.with-euip-modal-open {
         }
       }
 
-      .ais-Hits {
+      .ais-InfiniteHits {
         &-item {
           width: calc(50% - 12px);
+          flex-basis: calc(50% - 12px);
           padding: 0 6px 36px;
         }
+      }
+    }
+
+    .ais-PredictiveSearchBox {
+      border-radius: 0;
+
+      &-input, #predictive-item {
+        font-size: 18px;
+      }
+
+      &-resetIcon {
+        display: none;
+      }
+    }
+
+    .ais-SuggestionTagsContainer {
+      display: block !important;
+      padding: 0;
+      margin: 0;
+      overflow: auto;
+
+      .ais-SuggestionTag {
+        background: none;
+        padding-left: 0;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 1em;
+      }
+    }
+
+    .ais-SortBy {
+      display: inline-block;
+      vertical-align: middle;
+      width: 50%;
+      text-align: center;
+
+      &-select {
+        font-size: 16px;
+        text-transform: uppercase;
+        width: calc(100% - 24px);
+        padding: 8px 0;
+        margin-top: 18px;
+        background: #eaeaea;
+        border: none;
+        text-align: center;
       }
     }
 

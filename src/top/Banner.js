@@ -1,28 +1,30 @@
 import React from 'react';
 import { QueryRuleCustomData } from 'react-instantsearch-dom';
 
-const Banner = () => {
-    return (
-        <QueryRuleCustomData>
-            {({ items }) => {
-                return items.reduce((acc, { banner, title, link }) => {
-                    if (!banner) {
-                        return acc;
-                    }
+class Banner extends React.Component {
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return false;
+    }
 
-                    if (acc.length === 0) {
-                        acc.push(
-                            <a href={link} key={title}>
+    render() {
+        return (
+            <QueryRuleCustomData>
+                {({ items }) => {
+                    return items.map(({ banner, title, link }, idx) => {
+                        if (!banner) {
+                            return null;
+                        }
+
+                        return (
+                            <a href={link} key={idx}>
                                 <img className="euip-Banner--content" src={banner} alt={title} />
                             </a>
-                        );
-                    }
-
-                    return acc
-                }, [])
-            }}
-        </QueryRuleCustomData>
-    )
-};
+                        )
+                    })
+                }}
+            </QueryRuleCustomData>
+        )
+    }
+}
 
 export default Banner;

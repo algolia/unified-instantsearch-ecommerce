@@ -32,7 +32,8 @@ class InfiniteHits extends Component {
     }
 
     componentWillUnmount() {
-        this.observer.disconnect();
+        this.observers.forEach(observer => observer.disconnect());
+        this.lastObserver.disconnect();
     }
 
     onPageSentinelIntersection(entries, page) {
@@ -86,16 +87,18 @@ class InfiniteHits extends Component {
                 </button>
                 <ul className="ais-InfiniteHits-list">
                     {hits.map((hit, i) => {
-                        if ((i + 1) % config.HITS.hitsPerPage === 0 && (i + 1) !== hits.length)
-                            return <React.Fragment key={i}>
-                                <config.HITS.render hit={hit} trackClickOnHit={trackClickOnHit} />
-                                <li
-                                    className="ais-InfiniteHits-sentinel"
-                                    ref={c => (this.sentinels.push(c))}
-                                />
-                            </React.Fragment>
+                        if ((i + 1) % config.instantSearchConfigure.hitsPerPage === 0 && (i + 1) !== hits.length)
+                            return (
+                                <React.Fragment key={i}>
+                                    <config.hits.render hit={hit} trackClickOnHit={trackClickOnHit} />
+                                    <li
+                                        className="ais-InfiniteHits-sentinel"
+                                        ref={c => (this.sentinels.push(c))}
+                                    />
+                                </React.Fragment>
+                            );
                         else
-                            return <config.HITS.render key={i} hit={hit} trackClickOnHit={trackClickOnHit} />
+                            return <config.hits.render key={i} hit={hit} trackClickOnHit={trackClickOnHit} />
                     })}
                     <li
                         className="ais-InfiniteHits-sentinel"

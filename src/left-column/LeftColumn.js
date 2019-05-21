@@ -15,7 +15,8 @@ const PANELS = {
 };
 
 const LeftColumn = props => {
-    const refinements = config.REFINEMENTS;
+    const refinements = config.refinements;
+
     return (
         <div className="euip-leftColumn">
             {refinements.map((refinement, idx) => (
