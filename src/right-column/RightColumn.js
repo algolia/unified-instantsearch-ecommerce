@@ -1,5 +1,6 @@
 import React from 'react';
 import { connectHits, connectStateResults, Pagination, ScrollTo } from 'react-instantsearch-dom';
+import config from '../config.json'
 
 import CurrentRefinementsTags from './CurrentRefinementsTags';
 import { trackClickOnHit } from './../shared/Analytics'
@@ -7,7 +8,7 @@ import { trackClickOnHit } from './../shared/Analytics'
 const Hit = ({ hit, idx, searchResults }) => {
     return (
         <div className="ais-Hits-item"
-            onClick={() =>  trackClickOnHit(
+            onClick={() => trackClickOnHit(
                 searchResults.index,
                 'Click on product',
                 searchResults.queryID,
@@ -15,13 +16,13 @@ const Hit = ({ hit, idx, searchResults }) => {
                 searchResults.hitsPerPage * searchResults.page + idx + 1
             )}>
             <picture className="ais-Hits-image">
-                <img src="https://placekitten.com/600/800" alt={hit.title} />
+                <img src={hit[config.HITS.imageAttribute]} alt={hit[config.HITS.titleAttribute]} />
             </picture>
             <section className="ais-Hits-content">
-                <p className="ais-Hits-category">{hit.category || 'Category'}</p>
-                <p className="ais-Hits-title">{hit.title}</p>
-                <p className="ais-Hits-description">{hit.description}</p>
-                <p className="ais-Hits-price">{hit.price || 'Gratuit'}</p>
+                <p className="ais-Hits-category">{config.HITS.categoryAttribute ? hit[config.HITS.categoryAttribute] : hit.category}</p>
+                <p className="ais-Hits-title">{config.HITS.titleAttribute ? hit[config.HITS.titleAttribute] : hit.title}</p>
+                <p className="ais-Hits-description">{config.HITS.descriptionAttribute ? hit[config.HITS.descriptionAttribute] : hit.description}</p>
+                <p className="ais-Hits-price">{`${config.HITS.priceAttribute ? hit[config.HITS.priceAttribute] : hit.price} ${config.HITS.currency}`}</p>
             </section>
         </div>
     )
