@@ -36,8 +36,8 @@
       "attribute": "color",
       "header": "Couleur",
       "extra": {
-        "limit": 20,
-        "showMoreLimit": 50,
+        "limit": 14,
+        "showMoreLimit": 40,
         "showMore": true
       }
     },
