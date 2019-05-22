@@ -7,13 +7,13 @@ const CurrentRefinementsTags = ({ items, refine }) => {
         [...acc, ...("items" in curr ?
             [...curr.items.map(refinement => ({
                 group: curr.attribute,
-                label: refinement.label,
+                label: refinement.label.split(';')[0],
                 value: refinement.value
             }))]
             :
             [{
                 group: curr.attribute,
-                label: `${curr.currentRefinement.min} to ${curr.currentRefinement.max}`,
+                label: `${curr.currentRefinement.min || "min"} to ${curr.currentRefinement.max || "max"}`,
                 value: curr.value
             }]
         )]
