@@ -5,8 +5,9 @@
   "PLACEHOLDER_ID": "euip-search-placeholder",
   "QUERY_SUGGESTIONS": false,
   "SUGGESTIONS": {
-    "appID": "",
-    "suggestion": "",
+    "appID": "E8KS2J9PMC",
+    "apiKey": "9a2480ff719c1092d2ef9ad3c6d36cf1",
+    "indexName": "ASOS_QS",
     "maxSuggestions": 0
   },
   "GOOGLE_ANALYTICS": false,
