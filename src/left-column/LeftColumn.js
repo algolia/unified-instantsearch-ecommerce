@@ -5,7 +5,7 @@ import PanelColor from './PanelColor';
 import PanelSize from './PanelSize';
 import PanelPrice from './PanelPrice';
 
-import config from './../config.json';
+import config from './../config.js';
 
 const PANELS = {
     basic: PanelBasic,
@@ -16,7 +16,6 @@ const PANELS = {
 
 const LeftColumn = props => {
     const refinements = config.REFINEMENTS;
-
     return (
         <div className="euip-leftColumn">
             {refinements.map((refinement, idx) => (

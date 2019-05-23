@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { InstantSearch } from 'react-instantsearch-dom';
 import { isMobile } from 'react-device-detect';
 
-import config from './config.json';
+import config from './config.js';
 
 import FakeSearchBar from './top/FakeSearchBar';
 import Top from './top/Top';
