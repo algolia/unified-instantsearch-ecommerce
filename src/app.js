@@ -76,8 +76,7 @@ class App extends Component {
     let { searchState } = this.state;
     const newSearchState = { ...searchState, page: searchState.page + pageOffset }
 
-    this.setState({ searchState: newSearchState });
-    this.onSearchStateChange(newSearchState)
+    this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
   }
 
   render() {
