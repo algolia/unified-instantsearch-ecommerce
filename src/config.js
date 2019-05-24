@@ -18,6 +18,7 @@ const config = {
     clickAnalytics: true
   },
   HITS: {
+    hitsPerPage: 20,
     imageAttribute: "image",
     priceAttribute: "price",
     categoryAttribute: "",

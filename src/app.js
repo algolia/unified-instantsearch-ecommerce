@@ -72,6 +72,14 @@ class App extends Component {
     }
   };
 
+  changeSearchStatePage = pageOffset => {
+    let { searchState } = this.state;
+    const newSearchState = { ...searchState, page: searchState.page + pageOffset }
+
+    this.setState({ searchState: newSearchState });
+    this.onSearchStateChange(newSearchState)
+  }
+
   render() {
     const { overlayDisplayed, searchResultsDisplayed, searchState } = this.state;
 
@@ -85,14 +93,14 @@ class App extends Component {
             searchState={searchState}
             onSearchStateChange={this.onSearchStateChange}
             createURL={createURL}>
-            <Configuration searchState={searchState} />
+            <Configuration searchState={searchState} hitsPerPage={config.HITS.hitsPerPage} />
             <QueryRulesHandler searchState={searchState} />
             <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />
 
             <div id="euip-wrapper" className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
                 <Top />
-                {searchResultsDisplayed && <Main />}
+                {searchResultsDisplayed && <Main changeSearchStatePage={this.changeSearchStatePage} />}
               </div>
             </div>
           </InstantSearch>

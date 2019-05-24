@@ -269,6 +269,17 @@ body.with-euip-modal-open {
         padding: 0 12px 48px;
       }
 
+      &-sentinel {
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+      }
+
+      &-previous {
+        width: calc(100% - 40px);
+        margin: 10px 20px 10px 20px;
+      }
+
       &-image {
         display: block;
         text-align: center;

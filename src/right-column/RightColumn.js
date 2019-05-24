@@ -3,10 +3,10 @@ import React from 'react';
 import CurrentRefinementsTags from './CurrentRefinementsTags';
 import CustomInfiniteHits from './CustomInfiniteHits';
 
-const RightColumn = () => (
+const RightColumn = ({ changeSearchStatePage }) => (
     <div className="euip-rightColumn">
         <CurrentRefinementsTags />
-        <CustomInfiniteHits showPrevious={true} />
+        <CustomInfiniteHits showPrevious={true} changeSearchStatePage={changeSearchStatePage} />
     </div>
 );
 
