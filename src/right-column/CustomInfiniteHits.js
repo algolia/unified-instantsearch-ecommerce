@@ -29,7 +29,7 @@ class InfiniteHits extends Component {
         this.observer.disconnect();
     }
 
-    lol(entries, page) {
+    onPageSentinelIntersection(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 if (this.state.newPage)
@@ -50,7 +50,7 @@ class InfiniteHits extends Component {
                 acc.push(this.observers[i]);
                 return acc;
             }
-            acc.push(new IntersectionObserver((entries) => this.lol(entries, i)));
+            acc.push(new IntersectionObserver((entries) => this.onPageSentinelIntersection(entries)));
             acc[i].observe(sentinel);
             return acc;
         }, [])
