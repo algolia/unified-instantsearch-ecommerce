@@ -5,10 +5,16 @@ import config from '../config.js'
 import { trackClickOnHit } from './../shared/Analytics'
 
 class InfiniteHits extends Component {
-    lastSentinel = null
-    lastObserver = null
-    sentinels = []
-    observers = []
+    constructor(props) {
+        super(props);
+        //Page start at 1, we use 0 based index
+        this.state = { basePage: props.page - 1 };
+
+        this.lastSentinel = null
+        this.lastObserver = null
+        this.sentinels = []
+        this.observers = []
+    }
 
     onSentinelIntersection = entries => {
         const { hasMore, refine } = this.props;
@@ -29,15 +35,19 @@ class InfiniteHits extends Component {
         this.observer.disconnect();
     }
 
-    onPageSentinelIntersection(entries) {
+    onPageSentinelIntersection(entries, page) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (this.state.newPage)
-                    return this.setState({ newPage: false })
-                if (entry.boundingClientRect.y < entry.rootBounds.height / 2)
-                    this.props.changeSearchStatePage(-1)
-                else
-                    this.props.changeSearchStatePage(1)
+            //Skip intersection when new page is loading
+            if (this.state.newPage)
+                return this.setState({ newPage: false })
+            if (!entry.isIntersecting) {
+                //Substracting one page when sentinel is scrolled down out of the screen
+                if (entry.boundingClientRect.y > entry.rootBounds.height / 2)
+                    this.props.setSearchStatePage(this.state.basePage + page)
+            } else {
+                //Add one page when sentinel is showing from bottom of the screen
+                if (entry.boundingClientRect.y > entry.rootBounds.height / 2)
+                    this.props.setSearchStatePage(this.state.basePage + page + 1)
             }
         });
     }
@@ -50,7 +60,7 @@ class InfiniteHits extends Component {
                 acc.push(this.observers[i]);
                 return acc;
             }
-            acc.push(new IntersectionObserver((entries) => this.onPageSentinelIntersection(entries)));
+            acc.push(new IntersectionObserver((entries) => this.onPageSentinelIntersection(entries, (i + 1))));
             acc[i].observe(sentinel);
             return acc;
         }, [])
@@ -68,7 +78,10 @@ class InfiniteHits extends Component {
 
         return (
             <div className="ais-InfiniteHits">
-                <button className="ais-InfiniteHits-previous" style={{ display: hasPrevious ? "block" : "none" }} onClick={refinePrevious}>
+                <button
+                    className="ais-InfiniteHits-previous" style={{ display: hasPrevious ? "block" : "none" }}
+                    //Substract page to base
+                    onClick={() => this.setState({ newPage: true, basePage: this.state.basePage - 1 }, refinePrevious)}>
                     Show previous
                 </button>
                 <ul className="ais-InfiniteHits-list">
@@ -89,7 +102,7 @@ class InfiniteHits extends Component {
                         ref={c => (this.lastSentinel = c)}
                     />
                 </ul>
-            </div>
+            </div >
         );
     }
 }

@@ -72,9 +72,9 @@ class App extends Component {
     }
   };
 
-  changeSearchStatePage = pageOffset => {
+  setSearchStatePage = page => {
     let { searchState } = this.state;
-    const newSearchState = { ...searchState, page: searchState.page + pageOffset }
+    const newSearchState = { ...searchState, page: (page) > 0 ? page : 1 }
 
     this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
   }
@@ -99,7 +99,7 @@ class App extends Component {
             <div id="euip-wrapper" className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
                 <Top />
-                {searchResultsDisplayed && <Main changeSearchStatePage={this.changeSearchStatePage} />}
+                {searchResultsDisplayed && <Main setSearchStatePage={this.setSearchStatePage} page={searchState.page} />}
               </div>
             </div>
           </InstantSearch>
