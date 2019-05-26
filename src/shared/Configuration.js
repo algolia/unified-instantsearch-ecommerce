@@ -1,7 +1,7 @@
 import React from 'react';
 import { Configure } from 'react-instantsearch-dom';
 
-import config from './../config.json';
+import config from './../config.js';
 
 class Configuration extends React.Component {
     shouldComponentUpdate(nextProps, nextState, nextContext) {

@@ -1,7 +1,7 @@
 import algoliasearch from "algoliasearch/lite";
 import qs from "qs";
 
-import config from './../config.json';
+import config from './../config.js';
 
 export const searchClient = algoliasearch(config.ALGOLIA_APP_ID, config.ALGOLIA_SEARCH_API_KEY);
 
