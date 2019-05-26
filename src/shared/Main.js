@@ -5,12 +5,12 @@ import LeftColumn from '../left-column/LeftColumn';
 import RightColumn from '../right-column/RightColumn';
 import RefinementSidebar from '../mobile/RefinementsSidebar';
 
-const Main = ({ changeSearchStatePage }) => {
+const Main = ({ setSearchStatePage, page }) => {
     if (isMobile) {
         return (
             <React.Fragment>
                 <RefinementSidebar triggerComponent={<p className="euip-SidebarPanel-button">Filtrer</p>} />
-                <RightColumn changeSearchStatePage={changeSearchStatePage} />
+                <RightColumn setSearchStatePage={setSearchStatePage} />
             </React.Fragment>
         )
     }
@@ -18,7 +18,7 @@ const Main = ({ changeSearchStatePage }) => {
     return (
         <React.Fragment>
             <LeftColumn />
-            <RightColumn changeSearchStatePage={changeSearchStatePage} />
+            <RightColumn setSearchStatePage={setSearchStatePage} page={page} />
         </React.Fragment>
     )
 };
