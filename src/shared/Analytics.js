@@ -4,8 +4,8 @@ import config from "../config";
 
 export const initAnalytics = () => {
     searchInsights.init({
-        appId: config.ALGOLIA_APP_ID,
-        apiKey: config.ALGOLIA_SEARCH_API_KEY
+        appId: config.appId,
+        apiKey: config.searchApiKey
     });
 };
 

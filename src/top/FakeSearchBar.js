@@ -9,7 +9,7 @@ class FakeSearchBar extends React.Component {
 
         return ReactDOM.createPortal(
             <input id="euip-fake-input" type="text" placeholder="Que recherchez-vous… ?" onClick={(e) => { e.target.blur(); onInputClick(); }} />,
-            document.getElementById(config.PLACEHOLDER_ID)
+            document.getElementById(config.placeholderId)
         );
     }
 }

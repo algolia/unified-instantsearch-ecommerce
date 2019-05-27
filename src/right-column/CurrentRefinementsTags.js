@@ -1,4 +1,5 @@
 import React from 'react';
+import config from './../config.js'
 
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
 
@@ -8,14 +9,14 @@ const CurrentRefinementsTags = ({ items, refine }) => {
     const tags = items.reduce((acc, curr) => (
         [...acc, ...("items" in curr ?
             [...curr.items.map(refinement => ({
-                group: curr.attribute,
+                group: config.translations.refinementList[curr.attribute] || curr.attribute,
                 label: refinement.label.split(';')[0],
                 value: refinement.value
             }))]
             :
             [{
-                group: curr.attribute,
-                label: `${curr.currentRefinement.min || "min"} to ${curr.currentRefinement.max || "max"}`,
+                group: config.translations.refinementList[curr.attribute] || curr.attribute,
+                label: `${curr.currentRefinement.min || "min"} – ${curr.currentRefinement.max || "max"}`,
                 value: curr.value
             }]
         )]

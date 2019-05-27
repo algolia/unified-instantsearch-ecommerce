@@ -3,7 +3,7 @@ import qs from "qs";
 
 import config from './../config.js';
 
-export const searchClient = algoliasearch(config.ALGOLIA_APP_ID, config.ALGOLIA_SEARCH_API_KEY);
+export const searchClient = algoliasearch(config.appId, config.searchApiKey);
 
 export const createURL = ({ query = '', refinementList = {}, range = {}, page = 1, location }) => {
     const refinementsState = Object.keys(refinementList).reduce((acc, currentRefinement) => {
@@ -56,7 +56,7 @@ export const urlToSearchState = ({ search }) => {
         range,
         refinementList,
         page: parseInt(page),
-        configure: config.INSTANT_SEARCH_CONFIGURE
+        configure: config.instantSearchConfigure
     };
 };
 
@@ -66,7 +66,7 @@ export const getRulesContextFromSearchState = searchState => {
     const { refinementList = {} } = searchState;
 
     return Object.keys(refinementList).reduce((all, refinementName) => {
-        all = { ...all, [`${refinementName}`]: values => values };
+        all = { ...all, [refinementName]: values => values };
 
         return all;
     }, {});

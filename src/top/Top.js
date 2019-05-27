@@ -3,9 +3,9 @@ import React from 'react';
 import SearchBar from "./SearchBar";
 import Banner from "./Banner";
 
-const Top = () => (
+const Top = ({ displayOverlay }) => (
   <React.Fragment>
-      <SearchBar />
+      <SearchBar displayOverlay={displayOverlay} />
       <Banner />
   </React.Fragment>
 );

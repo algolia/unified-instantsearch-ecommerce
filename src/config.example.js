@@ -1,15 +1,15 @@
 import React from 'react';
 
 const config = {
-  appId: "E8KS2J9PMC",
-  searchApiKey: "9a2480ff719c1092d2ef9ad3c6d36cf1",
-  indexName: "ASOS",
-  placeholderId: "euip-search-placeholder",
-  querySuggestions: true,
+  appId: "",
+  searchApiKey: "",
+  indexName: "",
+  placeholderId: "",
+  querySuggestions: false,
   suggestions: {
-    appId: "E8KS2J9PMC",
-    searchApiKey: "9a2480ff719c1092d2ef9ad3c6d36cf1",
-    indexName: "ASOS_QS",
+    appId: "",
+    searchApiKey: "",
+    indexName: "",
     maxSuggestions: 10
   },
   googleAnalytics: false,
@@ -82,9 +82,7 @@ const config = {
     }
   ],
   sorts: [
-    { indexName: "ASOS", label: "Tri: recommandé", default: true },
-    { indexName: "ASOS_PRICE_ASC", label: "Tri: prix asc." },
-    { indexName: "ASOS_PRICE_DESC", label: "Tri: prix desc." },
+    { indexName: "", label: "Tri: recommandé", default: true }
   ],
   translations: {
     refinementList: {
