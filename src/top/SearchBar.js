@@ -22,7 +22,8 @@ let SearchBar = ({ currentRefinement, refine, displayOverlay }) => (
                     suggestionsIndex={config.suggestions.indexName}
                     appID={config.suggestions.appId}
                     apiKey={config.suggestions.searchApiKey}
-                    maxSuggestions={config.suggestions.maxSuggestions} />
+                    maxSuggestions={config.suggestions.maxSuggestions}
+                    autoFocus={true}/>
             }
         </div>
         <span className="euip-searchBar-close" onClick={() => displayOverlay(false)}>×</span>
