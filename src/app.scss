@@ -389,6 +389,22 @@ body.with-euip-modal-open {
         margin-bottom: -92px;
       }
     }
+
+    .ais-ColorRefinementList {
+      &-container {
+        padding: 10px 0;
+      }
+
+      .ais-ColorRefinementElement {
+        border-radius: 50%;
+        padding-bottom: 0;
+        width: 24px;
+        height: 24px;
+        box-shadow: none;
+        margin: 0 6px 6px 0;
+        border: 1px solid #e0e0e0;
+      }
+    }
   }
 
   &.mobile {
