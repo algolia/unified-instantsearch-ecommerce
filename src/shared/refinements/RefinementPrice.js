@@ -1,10 +1,10 @@
 import React from 'react';
 import RheostatRangeSlider from 'instantsearch-rheostat-range-slider-react';
 
-import toggablePanel from './../shared/ToggablePanel';
+import toggablePanel from './../toggables/ToggablePanel';
 
-const PanelPrice = props => (
+const RefinementPrice = props => (
     <RheostatRangeSlider {...props} />
 );
 
-export default toggablePanel(PanelPrice);
+export default toggablePanel(RefinementPrice);

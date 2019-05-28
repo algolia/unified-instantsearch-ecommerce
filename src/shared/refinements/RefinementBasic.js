@@ -1,10 +1,10 @@
 import React from 'react';
 import { RefinementList } from 'react-instantsearch-dom';
 
-import toggablePanel from './../shared/ToggablePanel';
+import toggablePanel from './../toggables/ToggablePanel';
 
-const PanelBasic = props => (
+const RefinementBasic = props => (
     <RefinementList {...props} {...props.extra} />
 );
 
-export default toggablePanel(PanelBasic);
+export default toggablePanel(RefinementBasic);

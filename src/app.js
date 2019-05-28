@@ -6,7 +6,7 @@ import config from './config.js';
 
 import FakeSearchBar from './top/FakeSearchBar';
 import Top from './top/Top';
-import Main from './shared/Main';
+import Main from './main/Main';
 
 import Configuration from './shared/Configuration';
 import QueryRulesHandler from './shared/QueryRulesHandler';
@@ -40,6 +40,7 @@ class App extends Component {
       if (this.state.overlayDisplayed) {
         document.body.classList.add('with-euip-modal-open');
       } else {
+        this.resetSearchState();
         document.body.classList.remove('with-euip-modal-open');
       }
     }
@@ -85,6 +86,10 @@ class App extends Component {
     const newSearchState = { ...searchState, sortBy };
 
     this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
+  };
+
+  resetSearchState = () => {
+    this.setState({ searchState: urlToSearchState({ search: '' }) });
   };
 
   displayOverlay = (overlayDisplayed = true) => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import config from './../config.js'
-
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
+
+import config from './../config.js'
 
 const CurrentRefinementsTags = ({ items, refine }) => {
     //This reduce loop over the items

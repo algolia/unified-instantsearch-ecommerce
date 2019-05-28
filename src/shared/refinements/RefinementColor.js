@@ -1,10 +1,10 @@
 import React from 'react';
 import ColorRefinementList from 'instantsearch-color-refinement-list-react';
 
-import toggablePanel from './../shared/ToggablePanel';
+import toggablePanel from './../toggables/ToggablePanel';
 
-const PanelColor = props => (
+const RefinementColor = props => (
     <ColorRefinementList {...props} {...props.extra} />
 );
 
-export default toggablePanel(PanelColor);
+export default toggablePanel(RefinementColor);

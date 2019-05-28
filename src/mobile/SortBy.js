@@ -1,6 +1,8 @@
 import React from 'react';
 import { connectSortBy  } from 'react-instantsearch-dom';
 
+import config from "../config";
+
 class SortBy extends React.Component {
     onSelectChanged = value => {
         const { setSearchStateSortBy, refine } = this.props;

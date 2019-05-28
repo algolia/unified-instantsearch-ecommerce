@@ -1,10 +1,10 @@
 import React from 'react';
 
-import toggableSidebar from './ToggableSidebar';
-import LeftColumn from "../left-column/LeftColumn";
+import toggableSidebar from './../shared/toggables/ToggableSidebar';
+import Refinements from "./../shared/refinements/Refinements";
 
 const RefinementsSidebar = () => (
-    <LeftColumn closed={true} />
+    <Refinements closed={true} />
 );
 
 export default toggableSidebar(RefinementsSidebar);

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import PanelBasic from './PanelBasic';
-import PanelColor from './PanelColor';
-import PanelSize from './PanelSize';
-import PanelPrice from './PanelPrice';
+import PanelBasic from './RefinementBasic';
+import PanelColor from './RefinementColor';
+import PanelSize from './RefinementSize';
+import PanelPrice from './RefinementPrice';
 
-import config from './../config.js';
+import config from './../../config.js';
 
 const PANELS = {
     basic: PanelBasic,
@@ -14,16 +14,16 @@ const PANELS = {
     price: PanelPrice
 };
 
-const LeftColumn = props => {
+const Refinements = props => {
     const refinements = config.refinements;
 
     return (
-        <div className="euip-leftColumn">
+        <React.Fragment>
             {refinements.map((refinement, idx) => (
                 React.createElement(PANELS[refinement.type], { key: idx, ...refinement, ...props })
             ))}
-        </div>
+        </React.Fragment>
     )
 };
 
-export default LeftColumn;
+export default Refinements;

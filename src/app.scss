@@ -35,7 +35,6 @@ body.with-euip-modal-open {
       z-index: 2;
 
       &-inner {
-        height: 52px;
         background-color: #fff;
       }
 
@@ -243,8 +242,6 @@ body.with-euip-modal-open {
     }
 
     .ais-PredictiveSearchBox {
-      min-height: 52px;
-      border-radius: 6px;
       background-color: #fff;
       box-shadow: none;
 
@@ -459,10 +456,6 @@ body.with-euip-modal-open {
         padding-right: 12px;
         border-bottom: 0;
 
-        &-inner {
-          height: 46px;
-        }
-
         &-input {
           margin-top: 3px;
           margin-left: 2px;
@@ -471,23 +464,12 @@ body.with-euip-modal-open {
 
         &-close {
           position: absolute;
-          top: 2px;
           right: 16px;
-          font-size: 46px;
-          color: #888888;
+          top: 6px;
+          right: 16px;
+          font-size: 38px;
+          color: #8e8e8e;
         }
-      }
-
-      &-rightColumn {
-        margin-top: 18px;
-        width: calc(100% - 12px);
-        padding: 0 6px;
-      }
-
-      &-leftColumn {
-        display: block;
-        width: calc(100% - 24px);
-        margin-top: 0;
       }
 
       &-SidebarPanel {
