@@ -540,6 +540,34 @@ body.with-euip-modal-open {
         }
       }
 
+      &-BottomActions {
+        position: sticky;
+        top: 74vh;
+        right: 0;
+        z-index: 4;
+        background: #ffffff;
+        width: 80%;
+        border-radius: 4px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -32px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+        &-action {
+          display: inline-block;
+          width: calc(50% - 1px);
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 12px 0;
+          letter-spacing: 2px;
+
+          &:first-child {
+            border-right: 1px solid #dadada;
+          }
+        }
+      }
+
       .ais-QueryRuleCustomData {
         a {
           padding-top: 16px;
