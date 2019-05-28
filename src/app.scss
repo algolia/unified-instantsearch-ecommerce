@@ -33,7 +33,6 @@ body.with-euip-modal-open {
       width: 64rem;
       padding-top: 24px;
       z-index: 2;
-      border-bottom: 1px solid #d8d8d8;
 
       &-inner {
         height: 52px;
@@ -51,7 +50,7 @@ body.with-euip-modal-open {
       }
 
       &-input {
-        width: 95%;
+        width: 100%;
         margin-top: 4px;
         font-size: 24px;
         font-family: system-ui;
@@ -250,7 +249,7 @@ body.with-euip-modal-open {
       box-shadow: none;
 
       &-input {
-        width: 95%;
+        width: 100%;
         margin-top: 4px;
         font-size: 24px;
         font-family: system-ui;
@@ -259,6 +258,8 @@ body.with-euip-modal-open {
         border: none;
         color: #333;
         font-weight: bold;
+        border-bottom: 1px solid #d8d8d8;
+        padding-bottom: 12px;
 
         &::placeholder {
           color: #b1b1b1;
@@ -289,7 +290,7 @@ body.with-euip-modal-open {
 
     .ais-SuggestionTagsContainer {
       padding-left: 0;
-      margin-top: 6px;
+      margin-top: 16px;
 
       .ais-SuggestionTag {
         margin-right: 8px;
@@ -357,6 +358,12 @@ body.with-euip-modal-open {
         font-weight: bold;
         font-size: 15px;
         margin-top: 4px;
+      }
+
+      .ais-Highlight {
+        &-highlighted {
+          text-decoration: underline;
+        }
       }
     }
 

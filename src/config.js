@@ -1,4 +1,5 @@
 import React from 'react';
+import { Highlight } from 'react-instantsearch-dom';
 
 const config = {
   appId: "E8KS2J9PMC",
@@ -33,8 +34,10 @@ const config = {
             <img src={hit.image} alt={hit.name} />
           </picture>
           <section className="ais-InfiniteHits-content">
-            <p className="ais-InfiniteHits-category">{hit.category}</p>
-            <p className="ais-InfiniteHits-title">{hit.name}</p>
+            <p className="ais-InfiniteHits-category">{hit.categories_as_list.join(' > ')}</p>
+            <p className="ais-InfiniteHits-title">
+              <Highlight hit={hit} attribute="name" />
+            </p>
             <p className="ais-InfiniteHits-description">{hit.description}</p>
             <p className="ais-InfiniteHits-price">{`${hit.price} €`}</p>
           </section>
