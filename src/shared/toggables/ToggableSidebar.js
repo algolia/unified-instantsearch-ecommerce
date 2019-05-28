@@ -27,7 +27,7 @@ const toggableSidebar = (WrappedComponent) => {
         };
 
         render() {
-            const { triggerComponent, className } = this.props;
+            const { triggerComponent, className, title } = this.props;
             const { opened } = this.state;
 
             return (
@@ -37,9 +37,11 @@ const toggableSidebar = (WrappedComponent) => {
                     </div>
                     <div className={`euip-SidebarPanel-sidebar`}>
                         <div className="euip-SidebarPanel-inner">
-                            <WrappedComponent {...this.props} toggleSidebar={this.toggleSidebar}  />
+                            <div className="euip-SidebarPanel-title">{title}</div >
+                            <WrappedComponent {...this.props} toggleSidebar={this.toggleSidebar} />
                         </div>
-                        <span className="euip-SidebarPanel-close" onClick={() => this.toggleSidebar()} />
+                        <span className="euip-SidebarPanel-close" onClick={() => this.toggleSidebar()}>×</span>
+                        <span className="euip-SidebarPanel-fill-close" onClick={() => this.toggleSidebar()}></span>
                     </div>
                 </div>
             )

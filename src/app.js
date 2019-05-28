@@ -119,12 +119,12 @@ class App extends Component {
             <QueryRulesHandler searchState={searchState} />
             <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />
 
-            <div id="euip-wrapper" className={`${isMobile ? 'mobile' : 'desktop'}`}>
+            <div id="euip-wrapper" onScroll={() => console.log("FIXME")} className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
                 {searchResultsDisplayed &&
                   <Main displayOverlay={this.displayOverlay}
-                        setSearchStateSortBy={this.setSearchStateSortBy}
-                        setSearchStatePage={this.setSearchStatePage} page={searchState.page} />
+                    setSearchStateSortBy={this.setSearchStateSortBy}
+                    setSearchStatePage={this.setSearchStatePage} page={searchState.page} />
                 }
               </div>
             </div>

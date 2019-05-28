@@ -125,8 +125,28 @@ body.with-euip-modal-open {
 
     &-rightColumn {
       display: inline-block;
+      margin-top: 24px;
       vertical-align: top;
       width: calc(75% - 24px);
+    }
+
+    &-Stats {
+      width: calc(100% - 30px);
+      padding: 0 15px 10px 15px;
+      display: inline-flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+
+      .ais-Stats {
+        flex: 0 0 50%;
+        font-size: 12px;
+      }
+
+      .ais-Stats-page {
+        flex: 0 0 50%;
+        font-size: 12px;
+        text-align: right;
+      }
     }
 
     .ais-Panel {
@@ -217,6 +237,23 @@ body.with-euip-modal-open {
         &--selected {
           font-weight: bold;
         }
+      }
+
+      &-showMore {
+        width: calc(100% - 16px);
+        background: #eee;
+        outline: none;
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 6px 8px;
+        border-radius: 0;
+        margin: 10px 0 0;
+        border: 0;
+        cursor: pointer;
+        box-sizing: content-box;
       }
     }
 
@@ -321,6 +358,13 @@ body.with-euip-modal-open {
         padding: 0 12px 48px;
       }
 
+      &-lastSentinel {
+        align-self: flex-end;
+        width: 0px;
+        height: 0px;
+        padding: 10px;
+      }
+
       &-sentinel {
         align-self: flex-end;
         width: 0px;
@@ -328,8 +372,18 @@ body.with-euip-modal-open {
       }
 
       &-previous {
+        border: 2px solid #aaa;
         width: calc(100% - 40px);
-        margin: 10px 20px 10px 20px;
+        margin: 0 auto 10px auto;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: #eee;
+        cursor: pointer;
+        box-sizing: content-box;
+        padding: 4px 7px;
+        border-radius: 6px;
       }
 
       &-image {
@@ -527,19 +581,38 @@ body.with-euip-modal-open {
           cursor: pointer;
         }
 
+        &-title {
+          height: 40px;
+          line-height: 40px;
+          color: #21243d;
+          font-size: x-large;
+          text-align: center;
+          margin-bottom: -10px;
+        }
+
         &-close {
           display: block;
           position: absolute;
-          top: 0;
-          right: 0;
-          width: 5vh;
+          color: gray;
+          top: -5px;
+          left: calc(85% - 45px);
           text-align: center;
-          height: 100vh;
           font-size: 46px;
-          padding: 10px;
+          padding: 0 10px 10px;
           line-height: 0.9;
           margin: 0;
-          color: white;
+          z-index: 3;
+        }
+
+        &-fill-close {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 85%;
+          width: 15%;
+          height: 100%;
+          margin: 0;
+          z-index: 3;
         }
 
         &-trigger {
@@ -578,6 +651,13 @@ body.with-euip-modal-open {
           font-weight: bold;
           padding: 12px 0;
           letter-spacing: 2px;
+        }
+      }
+
+      .ais-Panel {
+        &-wrapper {
+          width: calc(100% - 15px);
+          padding: 0 10px 0 5px;
         }
       }
 

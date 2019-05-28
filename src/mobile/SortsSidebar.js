@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 
 import toggableSidebar from './../shared/toggables/ToggableSidebar';
 import SortBy from './SortBy';

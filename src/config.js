@@ -67,7 +67,11 @@ const config = {
         limit: 14,
         showMoreLimit: 40,
         showMore: true,
-        translations: { showMore: "Voir plus", showLess: "Voir moins" }
+        translations: {
+          showMore(expanded) {
+            return expanded ? 'Voir moins' : 'Voir plus';
+          }
+        }
       }
     },
     {
@@ -82,7 +86,11 @@ const config = {
         ],
         showMore: true,
         sortSizesByNbResults: false,
-        translations: { showMore: "Voir plus", showLess: "Voir moins" }
+        translations: {
+          showMore(expanded) {
+            return expanded ? 'Voir moins' : 'Voir plus';
+          }
+        }
       }
     },
     {
@@ -97,6 +105,11 @@ const config = {
     { indexName: "ASOS_PRICE_DESC", label: "Prix décroissant" },
   ],
   translations: {
+    resultsStats: (nbHits, timeSpentMS) => `${nbHits} results found in ${timeSpentMS} ms`,
+    pageStats: (page) => `Page: ${page}`,
+    showPrevious: (prevPage) => `Show page ${prevPage}`,
+    sortTitle: "Tris",
+    refinementTitle: "Filtres",
     refinementList: {
       brand: "Marque",
       color: "Couleur",
