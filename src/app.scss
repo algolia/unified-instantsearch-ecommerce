@@ -402,6 +402,17 @@ body.with-euip-modal-open {
         padding: 10px 0;
       }
 
+      &-showMore {
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 6px 8px;
+        border-radius: 0;
+        margin: 0;
+      }
+
       .ais-ColorRefinementElement {
         border-radius: 50%;
         padding-bottom: 0;
@@ -416,6 +427,17 @@ body.with-euip-modal-open {
     .ais-GroupSizeRefinementList {
       &-container {
         padding: 10px 0;
+      }
+
+      &-showMore {
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 6px 8px;
+        border-radius: 0;
+        margin: 0;
       }
     }
   }

@@ -4418,18 +4418,18 @@ inquirer@^6.1.0:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-instantsearch-color-refinement-list-react@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/instantsearch-color-refinement-list-react/-/instantsearch-color-refinement-list-react-0.2.3.tgz#ac0919d2324ac834cd12d5218d2b576f25442418"
-  integrity sha512-s0VquxFrmth4+YkXVcBHm8H7rEFX+MMU82fD1MkTqxAR2+02h6fNZDc9K6eiPs7KtiXNWzUECuAbIFO8HUzQOA==
+instantsearch-color-refinement-list-react@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/instantsearch-color-refinement-list-react/-/instantsearch-color-refinement-list-react-0.2.5.tgz#ab14db31eb1fde592ee242dbc43782895bc224c9"
+  integrity sha512-H0rilomiE8DtwWGSF6alLbIYgOV2dKAK+VGWRn21QbFhqXCE7k5APuAk5sX32APmqmOtY0Ne9NiGFpzqgKNgbQ==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
 
-instantsearch-group-size-refinement-list-react@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/instantsearch-group-size-refinement-list-react/-/instantsearch-group-size-refinement-list-react-0.2.3.tgz#9e7a26abe084f059f0ec78371a800daef1d904fe"
-  integrity sha512-I0VIxcO0rxNpRtxqwYGH17uGL65JuiWEyAeNIIltAWfENdKlrl8AfxZuUkYT6S2jectP+RI5wYzRXRgyiMdJYQ==
+instantsearch-group-size-refinement-list-react@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/instantsearch-group-size-refinement-list-react/-/instantsearch-group-size-refinement-list-react-0.2.4.tgz#6d6ebdc0631500ee28b77ffcc07f2a4ea409f8fa"
+  integrity sha512-Enyrj45QxZSZ03OoJjgRV/AxW9WScUVusLL+/NCY7of0AOB5byZYsjVIhFyAOG4VAEgp6LPWAO23DRO4KyzXmA==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
