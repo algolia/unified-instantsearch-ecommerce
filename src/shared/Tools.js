@@ -5,7 +5,7 @@ import config from './../config.js';
 
 export const searchClient = algoliasearch(config.appId, config.searchApiKey);
 
-export const createURL = ({ query = '', refinementList = {}, range = {}, page = 1, location }) => {
+export const createURL = ({ query = '', refinementList = {}, range = {}, page = 1, sortBy, location }) => {
     const refinementsState = Object.keys(refinementList).reduce((acc, currentRefinement) => {
         if (!refinementList[currentRefinement]) {
             return acc;
@@ -26,6 +26,7 @@ export const createURL = ({ query = '', refinementList = {}, range = {}, page = 
         query,
         ...refinementsState,
         ...rangesState,
+        sortBy,
         page
     };
 
@@ -34,16 +35,21 @@ export const createURL = ({ query = '', refinementList = {}, range = {}, page = 
 
 export const urlToSearchState = ({ search }) => {
     const routeState = qs.parse(search.slice(1));
-    const { query = '', page = 1 } = routeState;
+    const { query = '', page = 1, sortBy = '' } = routeState;
+    const excludedParametersFromRefinement = ['query', 'page', 'sortBy'];
 
-    const excludedParametersFromRefinement = ['query', 'page'];
+    let searchState = {
+        query,
+        page: parseInt(page),
+        configure: config.instantSearchConfigure
+    };
 
-    const refinementList = Object
+    searchState.refinementList = Object
         .keys(routeState)
         .filter(urlParam => excludedParametersFromRefinement.indexOf(urlParam) === -1 && !urlParam.endsWith(" range"))
         .reduce((acc, currentRefinement) => ({ ...acc, [currentRefinement]: routeState[currentRefinement].split('~') }), {});
 
-    const range = Object
+    searchState.range = Object
         .keys(routeState)
         .filter(urlParam => urlParam.endsWith(" range"))
         .reduce((acc, currentRefinement) => {
@@ -51,13 +57,11 @@ export const urlToSearchState = ({ search }) => {
             return { ...acc, [currentRefinement.match(/([\w ]*) range/)[1]]: { min: min || undefined, max: max || undefined } }
         }, {});
 
-    return {
-        query,
-        range,
-        refinementList,
-        page: parseInt(page),
-        configure: config.instantSearchConfigure
-    };
+    if (sortBy !== '') {
+        searchState.sortBy = sortBy;
+    }
+
+    return searchState;
 };
 
 export const searchStateToUrl = ({ location }, searchState) => searchState ? `${location.pathname}${createURL(searchState)}` : '';

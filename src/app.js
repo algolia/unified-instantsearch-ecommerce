@@ -74,8 +74,15 @@ class App extends Component {
   };
 
   setSearchStatePage = page => {
-    let { searchState } = this.state;
+    const { searchState } = this.state;
     const newSearchState = { ...searchState, page: (page) > 0 ? page : 1 };
+
+    this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
+  };
+
+  setSearchStateSortBy = sortBy => {
+    const { searchState } = this.state;
+    const newSearchState = { ...searchState, sortBy };
 
     this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
   };
@@ -111,7 +118,11 @@ class App extends Component {
             <div id="euip-wrapper" className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
                 <Top displayOverlay={this.displayOverlay} />
-                {searchResultsDisplayed && <Main setSearchStatePage={this.setSearchStatePage} page={searchState.page} />}
+
+                {searchResultsDisplayed &&
+                  <Main setSearchStateSortBy={this.setSearchStateSortBy}
+                        setSearchStatePage={this.setSearchStatePage} page={searchState.page} />
+                }
               </div>
             </div>
           </InstantSearch>
