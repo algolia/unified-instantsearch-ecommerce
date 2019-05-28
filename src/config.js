@@ -51,7 +51,12 @@ const config = {
       attribute: "brand",
       header: "Marques",
       extra: {
-        "searchable": true
+        showMore: true,
+        limit: 6,
+        showMoreLimit: 20,
+        translations: {
+          showMore: expanded => expanded ? 'Voir moins' : 'Voir plus'
+        }
       }
     },
     {

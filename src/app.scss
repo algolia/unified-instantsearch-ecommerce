@@ -40,9 +40,9 @@ body.with-euip-modal-open {
 
       &-close {
         position: absolute;
-        top: 12px;
+        top: 18px;
         right: 0;
-        font-size: 52px;
+        font-size: 42px;
         cursor: pointer;
         color: grey;
         z-index: 3;
@@ -78,16 +78,16 @@ body.with-euip-modal-open {
       &-tag {
         display: inline-block;
         font-size: 14px;
-        border: 1px solid #c1c1c1;
         margin-right: 8px;
         margin-bottom: 16px;
-        border-radius: 4px;
+        border-radius: 24px;
         color: #333;
         cursor: pointer;
         position: relative;
-        padding: 4px 22px 4px 8px;
+        padding: 3px 22px 4px 10px;
         text-transform: capitalize;
         user-select: none;
+        background-color: #ececec;
 
         em {
           font-weight: bold;
@@ -498,6 +498,8 @@ body.with-euip-modal-open {
           z-index: 3;
           overflow-y: scroll;
           margin-bottom: 200px;
+          box-sizing: border-box;
+          padding: 0 16px;
         }
 
         &-button {
@@ -540,6 +542,10 @@ body.with-euip-modal-open {
         }
       }
 
+      &-RefinementsTags {
+        padding: 0;
+      }
+
       &-BottomActions {
         position: sticky;
         top: 74vh;
@@ -561,10 +567,6 @@ body.with-euip-modal-open {
           font-weight: bold;
           padding: 12px 0;
           letter-spacing: 2px;
-
-          &:first-child {
-            border-right: 1px solid #dadada;
-          }
         }
       }
 
@@ -631,6 +633,14 @@ body.with-euip-modal-open {
 
     &.with-slidebar-open {
       overflow: hidden;
+
+      .euip-BottomActions {
+        position: initial;
+      }
+
+      .euip-SidebarPanel-trigger {
+        display: none;
+      }
     }
   }
 }
