@@ -58,7 +58,8 @@ const config = {
       extra: {
         limit: 14,
         showMoreLimit: 40,
-        showMore: true
+        showMore: true,
+        translations: { showMore: "Voir plus", showLess: "Voir moins" }
       }
     },
     {
@@ -72,7 +73,8 @@ const config = {
           "^(UK [1-9][0-9]?)$"
         ],
         showMore: true,
-        sortSizesByNbResults: false
+        sortSizesByNbResults: false,
+        translations: { showMore: "Voir plus", showLess: "Voir moins" }
       }
     },
     {

@@ -194,7 +194,7 @@ body.with-euip-modal-open {
         margin: 0;
         padding: 0;
         list-style-type: none;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 2.2;
       }
 
@@ -403,6 +403,12 @@ body.with-euip-modal-open {
         box-shadow: none;
         margin: 0 6px 6px 0;
         border: 1px solid #e0e0e0;
+      }
+    }
+
+    .ais-GroupSizeRefinementList {
+      &-container {
+        padding: 10px 0;
       }
     }
   }

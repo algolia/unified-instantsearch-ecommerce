@@ -4418,25 +4418,26 @@ inquirer@^6.1.0:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-instantsearch-color-refinement-list-react@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/instantsearch-color-refinement-list-react/-/instantsearch-color-refinement-list-react-0.2.1.tgz#c39c43103f30f1bc67a96587e152096208aabc7c"
-  integrity sha512-K8xzpxZJocnODckiwsTy+cSLJtavd7b0kShrcSBnP2OfravC5RV1cXmt2BUXIluJsenxok1ZCKXhIDIN9JdViw==
+instantsearch-color-refinement-list-react@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/instantsearch-color-refinement-list-react/-/instantsearch-color-refinement-list-react-0.2.3.tgz#ac0919d2324ac834cd12d5218d2b576f25442418"
+  integrity sha512-s0VquxFrmth4+YkXVcBHm8H7rEFX+MMU82fD1MkTqxAR2+02h6fNZDc9K6eiPs7KtiXNWzUECuAbIFO8HUzQOA==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
 
-instantsearch-group-size-refinement-list-react@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/instantsearch-group-size-refinement-list-react/-/instantsearch-group-size-refinement-list-react-0.2.2.tgz#2609b018b77e05cbeb2f3ffd9f75c7692b001cf2"
-  integrity sha512-FT8SWvqLQNRrTqWH6AVatF8RMS6B7wTuyIlZWMVbjlenNbgr/IJTZxdOYDy7KAIxqVOZfAd3LM2v54krlFLBgQ==
+instantsearch-group-size-refinement-list-react@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/instantsearch-group-size-refinement-list-react/-/instantsearch-group-size-refinement-list-react-0.2.3.tgz#9e7a26abe084f059f0ec78371a800daef1d904fe"
+  integrity sha512-I0VIxcO0rxNpRtxqwYGH17uGL65JuiWEyAeNIIltAWfENdKlrl8AfxZuUkYT6S2jectP+RI5wYzRXRgyiMdJYQ==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
 
-instantsearch-predictive-search-box-react@^0.1.4-a:
-  version "0.1.4-a"
-  resolved "https://registry.yarnpkg.com/instantsearch-predictive-search-box-react/-/instantsearch-predictive-search-box-react-0.1.4-a.tgz#6a83da7e0edaca7e8f1356d09eef973beb0bd190"
+instantsearch-predictive-search-box-react@^0.1.6-a:
+  version "0.1.6-a"
+  resolved "https://registry.yarnpkg.com/instantsearch-predictive-search-box-react/-/instantsearch-predictive-search-box-react-0.1.6-a.tgz#dd2d5a42f6ce3eade84f96d5d39efe6d18bcdb22"
+  integrity sha512-zMD3jPDXAcAlcRn3Pl7+SqlXBK2mQVx3aFwX3m323qS8SSMrtuxzg5USH5f07OmGWj3970Y29IPBqgwzSHGOvg==
   dependencies:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
