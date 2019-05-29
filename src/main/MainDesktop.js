@@ -5,6 +5,7 @@ import CurrentRefinementsTags from "./../shared/CurrentRefinementsTags";
 import InfiniteHits from "./../shared/InfiniteHits";
 import SearchBar from './../shared/SearchBar';
 import Banner from './../shared/Banner';
+import CustomStats from "../shared/CustomStats"
 
 const MainDesktop = ({ setSearchStatePage, page, displayOverlay }) => (
     <React.Fragment>
@@ -16,6 +17,7 @@ const MainDesktop = ({ setSearchStatePage, page, displayOverlay }) => (
             <SearchBar displayOverlay={displayOverlay} />
             <Banner />
             <CurrentRefinementsTags />
+            <CustomStats page={page} />
             <InfiniteHits showPrevious={true} setSearchStatePage={setSearchStatePage} page={page} />
         </div>
     </React.Fragment>

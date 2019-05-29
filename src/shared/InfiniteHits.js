@@ -7,8 +7,12 @@ import { trackClickOnHit } from './../shared/Analytics'
 class InfiniteHits extends Component {
     constructor(props) {
         super(props);
+        const showPrevious =
+            config.translations && config.translations.showPrevious ?
+                config.translations.showPrevious : (prevPage) => `show page ${prevPage}`
+
         //Page start at 1, we use 0 based index
-        this.state = { basePage: props.page - 1 };
+        this.state = { basePage: props.page - 1, showPrevious }
 
         this.lastSentinel = null
         this.lastObserver = null
@@ -74,17 +78,22 @@ class InfiniteHits extends Component {
             refinePrevious,
         } = this.props;
 
+        const {
+            showPrevious,
+            basePage
+        } = this.state;
+
         //Reset sentinel list
         this.sentinels = []
 
         return (
             <div className="ais-InfiniteHits">
-                <button
+                <span
                     className="ais-InfiniteHits-previous" style={{ display: hasPrevious ? "block" : "none" }}
                     //Substract page to base
                     onClick={() => this.setState({ newPage: true, basePage: this.state.basePage - 1 }, refinePrevious)}>
-                    Show previous
-                </button>
+                    {showPrevious(basePage)}
+                </span>
                 <ul className="ais-InfiniteHits-list">
                     {hits.map((hit, i) => {
                         if ((i + 1) % config.instantSearchConfigure.hitsPerPage === 0 && (i + 1) !== hits.length)
@@ -101,7 +110,7 @@ class InfiniteHits extends Component {
                             return <config.hits.render key={i} hit={hit} trackClickOnHit={trackClickOnHit} />
                     })}
                     <li
-                        className="ais-InfiniteHits-sentinel"
+                        className="ais-InfiniteHits-lastSentinel"
                         ref={c => (this.lastSentinel = c)}
                     />
                 </ul>
