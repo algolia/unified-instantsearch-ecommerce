@@ -25,14 +25,16 @@ class SortBy extends React.Component {
         return (
             <React.Fragment>
                 {items.map((item, idx) => (
-                    <div key={idx}>
+                    <div key={idx} className="euip-SortBy">
                         <input type="radio"
                                name="euip-sort"
                                id={`euip-sort-${item.value}`}
                                value={item.value}
                                checked={selectedSort === item.value}
-                               onChange={() => this.onInputChanged(item.value)} />
-                        <label htmlFor={`euip-sort-${item.value}`}>{item.label}</label>
+                               onChange={() => this.onInputChanged(item.value)}
+                               className="euip-SortBy-input"
+                        />
+                        <label htmlFor={`euip-sort-${item.value}`} className="euip-SortBy-label">{item.label}</label>
                     </div>
 
                 ))}

@@ -108,8 +108,8 @@ const config = {
     resultsStats: (nbHits, timeSpentMS) => `${nbHits} results found in ${timeSpentMS} ms`,
     pageStats: (page) => `Page: ${page}`,
     showPrevious: (prevPage) => `Show page ${prevPage}`,
-    sortTitle: "Tris",
-    refinementTitle: "Filtres",
+    sortTitle: "Trier",
+    refinementTitle: "Filtrer",
     refinementList: {
       brand: "Marque",
       color: "Couleur",
