@@ -80,7 +80,7 @@ body.with-euip-modal-open {
         display: inline-block;
         font-size: 14px;
         margin-right: 8px;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         border-radius: 24px;
         color: #333;
         cursor: pointer;
@@ -347,6 +347,7 @@ body.with-euip-modal-open {
         flex-direction: row;
         flex-wrap: wrap;
         list-style-type: none;
+        margin-top: 10px;
         padding: 0;
         width: 100%;
       }
@@ -371,18 +372,16 @@ body.with-euip-modal-open {
       }
 
       &-previous {
-        border: 2px solid #aaa;
+        border: 1px solid #aaa;
+        color: #444;
         width: calc(100% - 40px);
-        margin: 0 auto 10px auto;
+        margin: 10px auto 0 auto;
         font-size: 12px;
         text-align: center;
-        text-transform: uppercase;
-        font-weight: bold;
-        background: #eee;
         cursor: pointer;
         box-sizing: content-box;
         padding: 4px 7px;
-        border-radius: 6px;
+        border-radius: 2px;
       }
 
       &-image {
