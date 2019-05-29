@@ -29,9 +29,11 @@ body.with-euip-modal-open {
 
     &-searchBar {
       background-color: #fff;
-      position: relative;
+      position: sticky;
+      top: 0;
       z-index: 2;
       margin-bottom: 26px;
+      margin-top: 24px;
       padding: 0 12px;
 
       &-inner {
@@ -117,11 +119,12 @@ body.with-euip-modal-open {
       vertical-align: top;
       width: calc(25% - 24px);
       margin-top: 86px;
+      position: sticky;
+      top: 0;
     }
 
     &-rightColumn {
       display: inline-block;
-      margin-top: 24px;
       vertical-align: top;
       width: calc(75% - 24px);
     }
