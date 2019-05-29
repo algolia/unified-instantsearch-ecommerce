@@ -15,9 +15,9 @@ const MainDesktop = ({ setSearchStatePage, page, displayOverlay }) => (
 
         <div className="euip-rightColumn">
             <SearchBar displayOverlay={displayOverlay} />
+            <CustomStats page={page} />
             <Banner />
             <CurrentRefinementsTags />
-            <CustomStats page={page} />
             <InfiniteHits showPrevious={true} setSearchStatePage={setSearchStatePage} page={page} />
         </div>
     </React.Fragment>
