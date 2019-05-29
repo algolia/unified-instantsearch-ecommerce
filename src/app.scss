@@ -294,7 +294,14 @@ body.with-euip-modal-open {
       margin-top: 16px;
 
       .ais-SuggestionTag {
-        margin-right: 8px;
+        margin-right: 16px;
+        font-size: 16px;
+        background: none;
+        padding: 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
