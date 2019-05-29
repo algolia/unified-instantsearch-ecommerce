@@ -4,8 +4,7 @@ import { isMobile } from 'react-device-detect';
 
 import config from './config.js';
 
-import FakeSearchBar from './top/FakeSearchBar';
-import Top from './top/Top';
+import FakeSearchBar from './shared/FakeSearchBar';
 import Main from './main/Main';
 
 import Configuration from './shared/Configuration';
@@ -122,10 +121,9 @@ class App extends Component {
 
             <div id="euip-wrapper" className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
-                <Top displayOverlay={this.displayOverlay} />
-
                 {searchResultsDisplayed &&
-                  <Main setSearchStateSortBy={this.setSearchStateSortBy}
+                  <Main displayOverlay={this.displayOverlay}
+                        setSearchStateSortBy={this.setSearchStateSortBy}
                         setSearchStatePage={this.setSearchStatePage} page={searchState.page} />
                 }
               </div>

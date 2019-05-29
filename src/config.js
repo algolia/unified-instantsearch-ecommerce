@@ -17,7 +17,7 @@ const config = {
   instantSearchConfigure: {
     analytics: true,
     clickAnalytics: true,
-    hitsPerPage: 20
+    hitsPerPage: 18
   },
   hits: {
     render: ({ hit, trackClickOnHit }) => {
@@ -51,7 +51,12 @@ const config = {
       attribute: "brand",
       header: "Marques",
       extra: {
-        "searchable": true
+        showMore: true,
+        limit: 6,
+        showMoreLimit: 20,
+        translations: {
+          showMore: expanded => expanded ? 'Voir moins' : 'Voir plus'
+        }
       }
     },
     {
@@ -87,9 +92,9 @@ const config = {
     }
   ],
   sorts: [
-    { indexName: "ASOS", label: "Tri: recommandé", default: true },
-    { indexName: "ASOS_PRICE_ASC", label: "Tri: prix asc." },
-    { indexName: "ASOS_PRICE_DESC", label: "Tri: prix desc." },
+    { indexName: "ASOS", label: "Produits recommandés", default: true },
+    { indexName: "ASOS_PRICE_ASC", label: "Prix croissant" },
+    { indexName: "ASOS_PRICE_DESC", label: "Prix décroissant" },
   ],
   translations: {
     refinementList: {
