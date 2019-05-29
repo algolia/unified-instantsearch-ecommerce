@@ -74,7 +74,6 @@ class InfiniteHits extends Component {
     render() {
         const {
             hits,
-            hasPrevious,
             refinePrevious,
         } = this.props;
 
@@ -88,12 +87,15 @@ class InfiniteHits extends Component {
 
         return (
             <div className="ais-InfiniteHits">
-                <span
-                    className="ais-InfiniteHits-previous" style={{ display: hasPrevious ? "block" : "none" }}
-                    //Substract page to base
-                    onClick={() => this.setState({ newPage: true, basePage: this.state.basePage - 1 }, refinePrevious)}>
-                    {showPrevious(basePage)}
-                </span>
+                {
+                    this.state.basePage !== 0 &&
+                    <span
+                        className="ais-InfiniteHits-previous" style={{ display: "block" }}
+                        //Substract page to base
+                        onClick={() => this.setState({ newPage: true, basePage: this.state.basePage - 1 }, refinePrevious)}>
+                        {showPrevious(basePage)}
+                    </span>
+                }
                 <ul className="ais-InfiniteHits-list">
                     {hits.map((hit, i) => {
                         if ((i + 1) % config.instantSearchConfigure.hitsPerPage === 0 && (i + 1) !== hits.length)
