@@ -107,7 +107,7 @@ const config = {
   translations: {
     resultsStats: (nbHits, timeSpentMS) => `${nbHits} results found in ${timeSpentMS} ms`,
     pageStats: (page) => `Page: ${page}`,
-    showPrevious: (prevPage) => `Show page ${prevPage}`,
+    showPrevious: (prevPage) => `Afficher la page ${prevPage}`,
     sortTitle: "Trier",
     refinementTitle: "Filtrer",
     refinementList: {
