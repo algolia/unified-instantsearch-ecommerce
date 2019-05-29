@@ -2,22 +2,41 @@ import React from 'react';
 import { connectSortBy  } from 'react-instantsearch-dom';
 
 class SortBy extends React.Component {
-    onSelectChanged = value => {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedSort: props.items[0].value
+        }
+    }
+
+    onInputChanged = value => {
         const { setSearchStateSortBy, refine } = this.props;
 
         refine(value);
         setSearchStateSortBy(value);
+        this.setState({ selectedSort: value });
     };
 
     render() {
         const { items } = this.props;
+        const { selectedSort } = this.state;
 
         return (
-            <select onChange={e => this.onSelectChanged(e.target.value)}>
+            <React.Fragment>
                 {items.map((item, idx) => (
-                    <option value={item.value} key={idx}>{item.label}</option>
+                    <div key={idx}>
+                        <input type="radio"
+                               name="euip-sort"
+                               id={`euip-sort-${item.value}`}
+                               value={item.value}
+                               checked={selectedSort === item.value}
+                               onChange={() => this.onInputChanged(item.value)} />
+                        <label htmlFor={`euip-sort-${item.value}`}>{item.label}</label>
+                    </div>
+
                 ))}
-            </select>
+            </React.Fragment>
         )
     }
 }

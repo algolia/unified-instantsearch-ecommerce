@@ -13,7 +13,7 @@ body.with-euip-modal-open {
 #euip-wrapper {
   background-color: #fff;
   position: fixed;
-  top: 100px;
+  top: 116px;
   left: 0;
   width: 100%;
   height: calc(100vh - 100px);
@@ -29,10 +29,10 @@ body.with-euip-modal-open {
 
     &-searchBar {
       background-color: #fff;
-      position: fixed;
-      width: 64rem;
-      padding-top: 24px;
+      position: relative;
       z-index: 2;
+      margin-bottom: 26px;
+      padding: 0 12px;
 
       &-inner {
         background-color: #fff;
@@ -40,9 +40,9 @@ body.with-euip-modal-open {
 
       &-close {
         position: absolute;
-        top: 18px;
-        right: 0;
-        font-size: 42px;
+        top: 4px;
+        right: 16px;
+        font-size: 32px;
         cursor: pointer;
         color: grey;
         z-index: 3;
@@ -109,7 +109,6 @@ body.with-euip-modal-open {
     }
 
     &-leftColumn, &-rightColumn {
-      margin-top: 110px;
       padding: 0 12px;
     }
 
@@ -117,10 +116,12 @@ body.with-euip-modal-open {
       display: inline-block;
       vertical-align: top;
       width: calc(25% - 24px);
+      margin-top: 86px;
     }
 
     &-rightColumn {
       display: inline-block;
+      margin-top: 24px;
       vertical-align: top;
       width: calc(75% - 24px);
     }
@@ -389,8 +390,8 @@ body.with-euip-modal-open {
     .ais-QueryRuleCustomData {
       a {
         display: block;
-        padding-top: 98px;
-        margin-bottom: -92px;
+        padding: 0 12px;
+        margin-bottom: 24px;
       }
     }
 

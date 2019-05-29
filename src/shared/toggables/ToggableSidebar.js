@@ -37,7 +37,7 @@ const toggableSidebar = (WrappedComponent) => {
                     </div>
                     <div className={`euip-SidebarPanel-sidebar`}>
                         <div className="euip-SidebarPanel-inner">
-                            <WrappedComponent toggleSidebar={this.toggleSidebar} />
+                            <WrappedComponent {...this.props} toggleSidebar={this.toggleSidebar}  />
                         </div>
                         <span className="euip-SidebarPanel-close" onClick={() => this.toggleSidebar()} />
                     </div>
