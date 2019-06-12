@@ -26,6 +26,7 @@ class App extends Component {
 
     const searchState = urlToSearchState(props.location);
 
+    this.topAnchor = React.createRef()
     this.state = {
       searchState: searchState,
       lastLocation: props.location,
@@ -58,6 +59,9 @@ class App extends Component {
 
   onSearchStateChange = searchState => {
     clearTimeout(this.debouncedSetState);
+
+    //Put page back on top
+    this.topAnchor.current.scrollTo(0, 0);
 
     this.debouncedSetState = setTimeout(() => {
       this.props.history.push(
@@ -119,7 +123,7 @@ class App extends Component {
             <QueryRulesHandler searchState={searchState} />
             <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />
 
-            <div id="euip-wrapper" onScroll={() => console.log("FIXME")} className={`${isMobile ? 'mobile' : 'desktop'}`}>
+            <div id="euip-wrapper" ref={this.topAnchor} onScroll={() => { /*FIXME hide QS on mobile*/ }} className={`${isMobile ? 'mobile' : 'desktop'}`}>
               <div className="euip">
                 {searchResultsDisplayed &&
                   <Main displayOverlay={this.displayOverlay}

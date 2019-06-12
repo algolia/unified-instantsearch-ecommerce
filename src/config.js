@@ -4,13 +4,13 @@ import { Highlight } from 'react-instantsearch-dom';
 const config = {
   appId: "E8KS2J9PMC",
   searchApiKey: "9a2480ff719c1092d2ef9ad3c6d36cf1",
-  indexName: "ASOS",
+  indexName: "mika_asos",
   placeholderId: "euip-search-placeholder",
   querySuggestions: true,
   suggestions: {
     appId: "E8KS2J9PMC",
     searchApiKey: "9a2480ff719c1092d2ef9ad3c6d36cf1",
-    indexName: "ASOS_QS",
+    indexName: "mika_asos_qs",
     maxSuggestions: 10
   },
   googleAnalytics: false,
@@ -31,15 +31,15 @@ const config = {
             hit.__position
           )}>
           <picture className="ais-InfiniteHits-image">
-            <img src={hit.image} alt={hit.name} />
+            <img src={hit.image} alt={hit.description} />
           </picture>
           <section className="ais-InfiniteHits-content">
-            <p className="ais-InfiniteHits-category">{hit.categories_as_list.join(' > ')}</p>
+            <p className="ais-InfiniteHits-category">{hit.category}</p>
             <p className="ais-InfiniteHits-title">
-              <Highlight hit={hit} attribute="name" />
+              <Highlight hit={hit} attribute="description" />
             </p>
-            <p className="ais-InfiniteHits-description">{hit.description}</p>
-            <p className="ais-InfiniteHits-price">{`${hit.price} €`}</p>
+            <p className="ais-InfiniteHits-description">{hit.gender}</p>
+            <p className="ais-InfiniteHits-price">{`${hit.amount}`}</p>
           </section>
         </div>
       )
@@ -61,7 +61,7 @@ const config = {
     },
     {
       type: "color",
-      attribute: "color",
+      attribute: "colors",
       header: "Couleur",
       extra: {
         limit: 14,
@@ -100,9 +100,9 @@ const config = {
     }
   ],
   sorts: [
-    { indexName: "ASOS", label: "Produits recommandés", default: true },
-    { indexName: "ASOS_PRICE_ASC", label: "Prix croissant" },
-    { indexName: "ASOS_PRICE_DESC", label: "Prix décroissant" },
+    { indexName: "mika_asos", label: "Produits recommandés", default: true },
+    { indexName: "mika_asos_price_asc", label: "Prix croissant" },
+    { indexName: "mika_asos_price_desc", label: "Prix décroissant" },
   ],
   translations: {
     resultsStats: (nbHits, timeSpentMS) => `${nbHits} results found in ${timeSpentMS} ms`,

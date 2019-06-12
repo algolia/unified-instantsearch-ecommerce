@@ -45,6 +45,8 @@ class InfiniteHits extends Component {
             //Skip intersection when new page is loading
             if (this.state.newPage)
                 return this.setState({ newPage: false })
+            if (!entry || !entry.rootBounds)
+                return
             if (!entry.isIntersecting) {
                 //Substracting one page when sentinel is scrolled down out of the screen
                 if (entry.boundingClientRect.y > entry.rootBounds.height / 2)
