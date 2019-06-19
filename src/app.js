@@ -60,8 +60,9 @@ class App extends Component {
   onSearchStateChange = searchState => {
     clearTimeout(this.debouncedSetState);
 
-    //Put page back on top
-    this.topAnchor.current.scrollTo(0, 0);
+    //Put page back on top if not loading a new page
+    if (searchState.page === 1)
+      this.topAnchor.current.scrollTo(0, 0);
 
     this.debouncedSetState = setTimeout(() => {
       this.props.history.push(

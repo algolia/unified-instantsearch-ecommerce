@@ -30,6 +30,14 @@ class InfiniteHits extends Component {
         });
     };
 
+    static getDerivedStateFromProps(props, state) {
+        if (props.page === 1)
+            return {
+                basePage: 0
+            };
+        return null;
+    }
+
     componentDidMount() {
         this.lastObserver = new IntersectionObserver(this.onSentinelIntersection);
         this.lastObserver.observe(this.lastSentinel);
@@ -58,6 +66,8 @@ class InfiniteHits extends Component {
             }
         });
     }
+
+
 
     componentDidUpdate() {
         this.sentinels = this.sentinels.filter((sentinel) => sentinel)
