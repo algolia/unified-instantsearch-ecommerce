@@ -138,7 +138,10 @@ body.with-euip-modal-open {
       vertical-align: top;
       width: calc(25% - 24px);
       margin-top: 86px;
+      position: -webkit-sticky;
       position: sticky;
+      overflow-y: scroll;
+      height: calc(100vh - 120px);
       top: 0;
     }
 

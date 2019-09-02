@@ -71,7 +71,6 @@ export const getRulesContextFromSearchState = searchState => {
 
     return Object.keys(refinementList).reduce((all, refinementName) => {
         all = { ...all, [refinementName]: values => values };
-
         return all;
     }, {});
 };
