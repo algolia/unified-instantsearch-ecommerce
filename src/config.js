@@ -112,7 +112,7 @@ function Hit({ hit, trackClickOnHit }) {
       <section className="ais-InfiniteHits-content">
         <p className="ais-InfiniteHits-category">{hit.category}</p>
         <p className="ais-InfiniteHits-title">
-          <Highlight hit={hit} attribute="description" />
+          <Highlight hit={hit} attribute="description" tagName="mark" />
         </p>
         <p className="ais-InfiniteHits-description">{hit.gender}</p>
         <p className="ais-InfiniteHits-price">{`${hit.amount}`}</p>

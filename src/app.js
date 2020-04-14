@@ -42,8 +42,6 @@ export function App(props) {
       }
     }, 400);
 
-    topAnchor.current.scrollTo(0, 0);
-
     setSearchState(searchState);
   }
 
@@ -56,6 +54,12 @@ export function App(props) {
       props.history.push('', searchState);
     }
   }, [isOverlayShowing, setSearchState]);
+
+  React.useEffect(() => {
+    if (topAnchor.current) {
+      topAnchor.current.scrollTo(0, 0);
+    }
+  }, [searchState.query]);
 
   return (
     <>

@@ -93,9 +93,11 @@ body.with-euip-modal-open {
         user-select: none;
         background-color: #ececec;
 
+        mark,
         em {
           font-weight: bold;
           font-style: normal;
+          background: none;
         }
 
         &:after {
@@ -289,6 +291,7 @@ body.with-euip-modal-open {
       &-highlighted {
         font-style: normal;
         font-weight: bold;
+        background: none;
       }
     }
 
@@ -350,8 +353,10 @@ body.with-euip-modal-open {
 
       .ais-SuggestionTag {
         padding: 8px 6px;
+        mark,
         em {
           text-decoration: none;
+          background: none;
         }
       }
     }
@@ -737,6 +742,7 @@ body.with-euip-modal-open {
         font-size: 1em;
         display: inline-block;
 
+        mark,
         em {
           text-decoration: underline;
         }

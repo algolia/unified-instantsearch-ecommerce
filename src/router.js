@@ -25,7 +25,7 @@ function removeEmptyValues(value) {
 }
 
 export const createURL = (searchState) => {
-  const { configure, ...state } = removeEmptyValues(searchState);
+  const { configure, indices, ...state } = removeEmptyValues(searchState);
 
   if (state.page === 1) {
     delete state.page;

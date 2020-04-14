@@ -3,9 +3,10 @@ import {
   connectSearchBox,
   Index,
   connectHits,
-  Highlight,
   Configure,
 } from 'react-instantsearch-dom';
+
+import { ReverseHighlight } from './ReverseHighlight';
 
 import './PredictiveSearchBox.css';
 
@@ -40,7 +41,11 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
 
         {props.currentRefinement && (
           <Index indexName={props.suggestionsIndexName}>
-            <Configure hitsPerPage={props.maxSuggestions} />
+            <Configure
+              facets={[]}
+              page={0}
+              hitsPerPage={props.maxSuggestions}
+            />
             <Suggestions
               query={props.currentRefinement}
               onSuggestion={(suggestion) => setSuggestion(suggestion)}
@@ -80,7 +85,7 @@ const Suggestions = connectHits((props) => {
             className="ais-SuggestionTag"
             onClick={() => props.onClick(hit.query)}
           >
-            <Highlight hit={hit} attribute="query" />
+            <ReverseHighlight hit={hit} attribute="query" />
           </li>
         );
       })}

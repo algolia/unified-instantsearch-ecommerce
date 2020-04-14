@@ -6,14 +6,8 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { trackClickOnHit } from '../analytics';
 
 export const InfiniteHits = connectInfiniteHits((props) => {
-  function loadMore() {
-    if (props.hasMore) {
-      props.refineNext();
-    }
-  }
-
   const { setObservedNode } = useIntersectionObserver({
-    callback: loadMore,
+    callback: props.refineNext,
     threshold: 0,
   });
 
@@ -22,7 +16,6 @@ export const InfiniteHits = connectInfiniteHits((props) => {
       {props.hasPrevious && (
         <button
           className="ais-InfiniteHits-previous"
-          style={{ display: 'block' }}
           onClick={props.refinePrevious}
         >
           Show previous
@@ -39,11 +32,7 @@ export const InfiniteHits = connectInfiniteHits((props) => {
         ))}
       </ol>
 
-      {props.hasMore && (
-        <button ref={setObservedNode} hidden>
-          Load more
-        </button>
-      )}
+      {props.hasMore && <button ref={setObservedNode}>Load more</button>}
     </div>
   );
 });
