@@ -20,144 +20,92 @@ import {
 
 import './app.scss';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+function App(props) {
+  const [searchState, setSearchState] = React.useState(
+    urlToSearchState(props.location)
+  );
+  const [isOverlayShowing, setIsOverlayShowing] = React.useState(
+    shouldDisplayOverlayAtLaunch(searchState)
+  );
+  const [isResultsShowing, setIsResultsShowing] = React.useState(true);
 
-    const searchState = urlToSearchState(props.location);
+  const topAnchor = React.useRef();
+  const lastSetStateId = React.useRef();
 
-    this.topAnchor = React.createRef();
-    this.state = {
-      searchState: searchState,
-      lastLocation: props.location,
-      overlayDisplayed: shouldDisplayOverlayAtLaunch(searchState),
-      searchResultsDisplayed: true,
-    };
-  }
+  function onSearchStateChange(searchState) {
+    clearTimeout(lastSetStateId.current);
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.overlayDisplayed !== this.state.overlayDisplayed) {
-      if (this.state.overlayDisplayed) {
-        document.body.classList.add('with-euip-modal-open');
-      } else {
-        this.resetSearchState();
-        document.body.classList.remove('with-euip-modal-open');
-      }
-    }
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    if (props.location !== state.lastLocation) {
-      return {
-        searchState: urlToSearchState(props.location),
-        lastLocation: props.location,
-      };
-    }
-
-    return null;
-  }
-
-  onSearchStateChange = (searchState) => {
-    clearTimeout(this.debouncedSetState);
-
-    //Put page back on top if not loading a new page
-    if (searchState.page === 1) this.topAnchor.current.scrollTo(0, 0);
-
-    this.debouncedSetState = setTimeout(() => {
-      this.props.history.push(
-        searchStateToUrl(this.props, searchState),
-        searchState
-      );
+    lastSetStateId.current = setTimeout(() => {
+      props.history.push(searchStateToUrl(props, searchState), searchState);
 
       if (config.googleAnalytics) {
         window.ga('send', 'pageView', `?query=${searchState.query}`);
       }
     }, 400);
 
-    this.setState({ searchState });
-  };
-
-  setSearchStatePage = (page) => {
-    const { searchState } = this.state;
-    const newSearchState = { ...searchState, page: page > 0 ? page : 1 };
-
-    this.setState({ searchState: newSearchState }, () =>
-      this.onSearchStateChange(newSearchState)
-    );
-  };
-
-  setSearchStateSortBy = (sortBy) => {
-    const { searchState } = this.state;
-    const newSearchState = { ...searchState, sortBy };
-
-    this.setState({ searchState: newSearchState }, () =>
-      this.onSearchStateChange(newSearchState)
-    );
-  };
-
-  resetSearchState = () => {
-    this.setState({ searchState: urlToSearchState({ search: '' }) });
-  };
-
-  displayOverlay = (overlayDisplayed = true) => {
-    this.setState({ overlayDisplayed });
-  };
-
-  displaySearchResults = (searchResultsDisplayed = true) => {
-    if (this.state.searchResultsDisplayed !== searchResultsDisplayed) {
-      this.setState({ searchResultsDisplayed });
+    if (searchState.page === 1) {
+      topAnchor.current.scrollTo(0, 0);
     }
-  };
 
-  render() {
-    const {
-      overlayDisplayed,
-      searchResultsDisplayed,
-      searchState,
-    } = this.state;
-
-    return (
-      <React.Fragment>
-        <FakeSearchBar onInputClick={() => this.displayOverlay(true)} />
-
-        {overlayDisplayed && (
-          <InstantSearch
-            searchClient={searchClient}
-            indexName={config.indexName || 'products'}
-            searchState={searchState}
-            onSearchStateChange={this.onSearchStateChange}
-            createURL={createURL}
-          >
-            <Configuration />
-            <QueryRulesHandler searchState={searchState} />
-            <QueryRulesBanner
-              shouldDisplaySearchResults={this.displaySearchResults}
-            />
-
-            <div
-              id="euip-wrapper"
-              ref={this.topAnchor}
-              onScroll={() => {
-                /*FIXME hide QS on mobile*/
-              }}
-              className={`${isMobile ? 'mobile' : 'desktop'}`}
-            >
-              <div className="euip">
-                {searchResultsDisplayed && (
-                  <Main
-                    displayOverlay={this.displayOverlay}
-                    setSearchStateSortBy={this.setSearchStateSortBy}
-                    setSearchStatePage={this.setSearchStatePage}
-                    page={searchState.page}
-                  />
-                )}
-              </div>
-            </div>
-          </InstantSearch>
-        )}
-      </React.Fragment>
-    );
+    setSearchState(searchState);
   }
+
+  React.useEffect(() => {
+    if (isOverlayShowing) {
+      document.body.classList.add('with-euip-modal-open');
+    } else {
+      setSearchState(urlToSearchState({ search: '' }));
+      document.body.classList.remove('with-euip-modal-open');
+    }
+  }, [isOverlayShowing, setSearchState]);
+
+  function setSearchStatePage(page) {
+    setSearchState({ ...searchState, page: page > 0 ? page : 1 });
+  }
+
+  function setSearchStateSortBy(sortBy) {
+    setSearchState({ ...searchState, sortBy });
+  }
+
+  return (
+    <React.Fragment>
+      <FakeSearchBar onInputClick={() => setIsOverlayShowing(true)} />
+
+      {isOverlayShowing && (
+        <InstantSearch
+          searchClient={searchClient}
+          indexName={config.indexName || 'products'}
+          searchState={searchState}
+          onSearchStateChange={onSearchStateChange}
+          createURL={createURL}
+        >
+          <Configuration />
+          <QueryRulesHandler searchState={searchState} />
+          <QueryRulesBanner shouldDisplaySearchResults={setIsResultsShowing} />
+
+          <div
+            id="euip-wrapper"
+            ref={topAnchor}
+            onScroll={() => {
+              /*FIXME hide QS on mobile*/
+            }}
+            className={`${isMobile ? 'mobile' : 'desktop'}`}
+          >
+            <div className="euip">
+              {isResultsShowing && (
+                <Main
+                  displayOverlay={setIsOverlayShowing}
+                  setSearchStateSortBy={setSearchStateSortBy}
+                  setSearchStatePage={setSearchStatePage}
+                  page={searchState.page}
+                />
+              )}
+            </div>
+          </div>
+        </InstantSearch>
+      )}
+    </React.Fragment>
+  );
 }
 
 export default App;
