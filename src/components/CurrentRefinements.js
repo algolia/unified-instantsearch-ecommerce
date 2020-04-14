@@ -1,9 +1,9 @@
 import React from 'react';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
 
-import config from './../config.js';
+import config from '../config.js';
 
-export const CurrentRefinementsTags = connectCurrentRefinements(
+export const CurrentRefinements = connectCurrentRefinements(
   ({ items, refine }) => {
     // This reduce loops over the items
     // If the items key present then it's a currentRefinement type else it's a range
@@ -41,8 +41,8 @@ export const CurrentRefinementsTags = connectCurrentRefinements(
           return (
             <li
               key={idx}
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={(event) => {
+                event.preventDefault();
                 refine(tag.value);
               }}
               className="euip-RefinementsTags-tag"

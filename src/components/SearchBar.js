@@ -2,7 +2,7 @@ import React from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
 import PredictiveSearchBox from 'instantsearch-predictive-search-box-react';
 
-import config from './../config';
+import config from '../config';
 
 let SearchBar = (props) => (
   <div className="euip-searchBar">

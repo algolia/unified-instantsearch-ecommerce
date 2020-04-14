@@ -1,9 +1,9 @@
 import React from 'react';
-import { Stats } from 'react-instantsearch-dom';
+import { Stats as DefaultStats } from 'react-instantsearch-dom';
 
 import config from '../config';
 
-export const CustomStats = ({ page }) => {
+export const Stats = ({ page = 1 }) => {
   const resultsStats =
     config.translations && config.translations.resultsStats
       ? config.translations.resultsStats
@@ -15,11 +15,12 @@ export const CustomStats = ({ page }) => {
 
   return (
     <div className="euip-Stats">
-      <Stats
+      <DefaultStats
         translations={{
           stats: resultsStats,
         }}
       />
+
       <div className="ais-Stats-page">{pageStats(page)}</div>
     </div>
   );

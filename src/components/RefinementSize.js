@@ -1,9 +1,9 @@
 import React from 'react';
 import GroupSizeRefinementList from 'instantsearch-group-size-refinement-list-react';
 
-import { toggablePanel } from './../toggables/ToggablePanel';
+import { withPanel } from '../hoc/withPanel';
 
-export const RefinementSize = toggablePanel((props) => (
+export const RefinementSize = withPanel((props) => (
   <GroupSizeRefinementList
     {...props}
     {...props.extra}

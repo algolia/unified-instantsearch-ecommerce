@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import config from './../config';
+import config from '../config';
 
 export const FakeSearchBar = ({ onInputClick }) => {
   return ReactDOM.createPortal(

@@ -1,8 +1,8 @@
 import React from 'react';
 import { RefinementList } from 'react-instantsearch-dom';
 
-import { toggablePanel } from './../toggables/ToggablePanel';
+import { withPanel } from '../hoc/withPanel';
 
-export const RefinementBasic = toggablePanel((props) => (
+export const RefinementBasic = withPanel((props) => (
   <RefinementList {...props} {...props.extra} />
 ));

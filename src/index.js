@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { App } from './App';
-import { initAnalytics } from './shared/Analytics';
+import { initAnalytics } from './analytics';
 
 initAnalytics();
 

@@ -1,18 +1,21 @@
 import React from 'react';
-import { isMobile } from 'react-device-detect';
-import { InstantSearch, ScrollTo } from 'react-instantsearch-dom';
+import { InstantSearch, ScrollTo, Configure } from 'react-instantsearch-dom';
 
 import config from './config.js';
-
-import { FakeSearchBar } from './shared/FakeSearchBar';
-import { Main } from './main/Main';
-
-import { useSearchClient } from './hooks/useSearchClient.js';
-
-import { Configuration } from './shared/Configuration';
-import { QueryRulesHandler } from './shared/QueryRulesHandler';
-import { QueryRulesBanner } from './shared/QueryRulesBanner';
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
+import { useSearchClient } from './hooks';
+
+import {
+  Banner,
+  CurrentRefinements,
+  FakeSearchBar,
+  InfiniteHits,
+  QueryRulesBanner,
+  QueryRulesHandler,
+  Refinements,
+  SearchBar,
+  Stats,
+} from './components';
 
 import './app.scss';
 
@@ -26,7 +29,6 @@ export function App(props) {
   const [isOverlayShowing, setIsOverlayShowing] = React.useState(
     Object.keys(searchState).length > 0
   );
-  const [isResultsShowing, setIsResultsShowing] = React.useState(true);
 
   function onSearchStateChange(searchState) {
     clearTimeout(lastSetStateId.current);
@@ -53,7 +55,7 @@ export function App(props) {
   }, [isOverlayShowing, setSearchState]);
 
   return (
-    <React.Fragment>
+    <>
       <FakeSearchBar onInputClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing && (
@@ -64,28 +66,30 @@ export function App(props) {
           onSearchStateChange={onSearchStateChange}
           createURL={createURL}
         >
-          <Configuration />
+          <Configure {...config.searchParameters} />
           <QueryRulesHandler searchState={searchState} />
-          <QueryRulesBanner shouldDisplaySearchResults={setIsResultsShowing} />
+          {/* @TODO: see how this can be used */}
+          {/* <QueryRulesBanner /> */}
 
-          <div
-            id="euip-wrapper"
-            className={`${isMobile ? 'mobile' : 'desktop'}`}
-          >
-            <ScrollTo>
+          <ScrollTo>
+            <div id="euip-wrapper">
               <div className="euip">
-                {isResultsShowing && (
-                  <Main
-                    onClose={() => setIsOverlayShowing(false)}
-                    setSearchStateSortBy={() => {}}
-                    page={searchState.page}
-                  />
-                )}
+                <div className="euip-leftColumn">
+                  <Refinements />
+                </div>
+
+                <div className="euip-rightColumn">
+                  <SearchBar onClose={() => setIsOverlayShowing(false)} />
+                  <Banner />
+                  <CurrentRefinements />
+                  <Stats page={searchState.page} />
+                  <InfiniteHits />
+                </div>
               </div>
-            </ScrollTo>
-          </div>
+            </div>
+          </ScrollTo>
         </InstantSearch>
       )}
-    </React.Fragment>
+    </>
   );
 }

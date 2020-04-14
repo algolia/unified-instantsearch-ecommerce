@@ -3,7 +3,7 @@ import { connectInfiniteHits } from 'react-instantsearch-dom';
 
 import config from '../config.js';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { trackClickOnHit } from './../shared/Analytics';
+import { trackClickOnHit } from '../analytics';
 
 export const InfiniteHits = connectInfiniteHits((props) => {
   function loadMore() {

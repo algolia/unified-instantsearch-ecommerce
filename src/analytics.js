@@ -1,6 +1,6 @@
 import searchInsights from 'search-insights';
 
-import config from '../config';
+import config from './config';
 
 export const initAnalytics = () => {
   searchInsights.init({

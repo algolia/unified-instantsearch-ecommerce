@@ -5,7 +5,7 @@ import { RefinementColor } from './RefinementColor';
 import { RefinementSize } from './RefinementSize';
 import { RefinementPrice } from './RefinementPrice';
 
-import config from './../../config.js';
+import config from '../config.js';
 
 const PANELS = {
   basic: RefinementBasic,
@@ -18,14 +18,14 @@ export const Refinements = (props) => {
   const refinements = config.refinements;
 
   return (
-    <React.Fragment>
+    <>
       {refinements.map((refinement, idx) =>
         React.createElement(PANELS[refinement.type], {
-          key: idx,
+          key: refinement.attribute,
           ...refinement,
           ...props,
         })
       )}
-    </React.Fragment>
+    </>
   );
 };
