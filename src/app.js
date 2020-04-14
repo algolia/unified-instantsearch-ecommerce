@@ -17,7 +17,7 @@ import {
   Stats,
 } from './components';
 
-import './app.scss';
+import './App.scss';
 
 export function App(props) {
   const searchClient = useSearchClient(config.appId, config.searchApiKey);
