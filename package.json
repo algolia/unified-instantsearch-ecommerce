@@ -13,7 +13,6 @@
     "algoliasearch": "4.1.0",
     "instantsearch-color-refinement-list-react": "0.2.6",
     "instantsearch-group-size-refinement-list-react": "0.2.6",
-    "instantsearch-predictive-search-box-react": "0.1.6-a",
     "instantsearch-rheostat-range-slider-react": "0.0.2",
     "node-sass": "4.13.1",
     "qs": "6.9.3",
@@ -31,6 +30,7 @@
     "@babel/preset-react": "7.9.4",
     "babel-loader": "8.1.0",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
+    "preact": "10.4.0",
     "prop-types": "15.7.2",
     "webpack-cli": "3.3.11"
   },
@@ -38,7 +38,7 @@
     "extends": "react-app"
   },
   "browserslist": [
-    ">0.2%",
+    "> 0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"

@@ -5466,14 +5466,6 @@ instantsearch-group-size-refinement-list-react@0.2.6:
     react-instantsearch "^5.3.1"
     react-instantsearch-dom "^5.3.1"
 
-instantsearch-predictive-search-box-react@0.1.6-a:
-  version "0.1.6-a"
-  resolved "https://registry.yarnpkg.com/instantsearch-predictive-search-box-react/-/instantsearch-predictive-search-box-react-0.1.6-a.tgz#dd2d5a42f6ce3eade84f96d5d39efe6d18bcdb22"
-  integrity sha512-zMD3jPDXAcAlcRn3Pl7+SqlXBK2mQVx3aFwX3m323qS8SSMrtuxzg5USH5f07OmGWj3970Y29IPBqgwzSHGOvg==
-  dependencies:
-    react-instantsearch "^5.3.1"
-    react-instantsearch-dom "^5.3.1"
-
 instantsearch-rheostat-range-slider-react@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/instantsearch-rheostat-range-slider-react/-/instantsearch-rheostat-range-slider-react-0.0.2.tgz#fb4d0c46e3186b17a03e29682083bce1a3382e2c"
@@ -8193,6 +8185,11 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.5,
     chalk "^2.4.2"
     source-map "^0.6.1"
     supports-color "^6.1.0"
+
+preact@10.4.0:
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.4.0.tgz#90e10264a221690484a56344437a353ffac08600"
+  integrity sha512-34iqY2qPWKAmsi+tNNwYCstta93P+zF1f4DLtsOUPh32uYImNzJY7h7EymCva+6RoJL01v3W3phSRD8jE0sFLg==
 
 prelude-ls@~1.1.2:
   version "1.1.2"
