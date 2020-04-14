@@ -7,8 +7,6 @@ const config = {
   indexName: 'mika_asos',
   inputSelector: '#euip-search-placeholder',
   suggestions: {
-    appId: 'E8KS2J9PMC',
-    searchApiKey: '9a2480ff719c1092d2ef9ad3c6d36cf1',
     indexName: 'mika_asos_qs',
     maxSuggestions: 10,
   },

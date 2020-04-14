@@ -13,7 +13,7 @@ import {
   InfiniteHits,
   QueryRulesHandler,
   Refinements,
-  SearchBar,
+  SearchBox,
   Stats,
 } from './components';
 
@@ -82,7 +82,7 @@ export function App(props) {
                 </div>
 
                 <div className="euip-rightColumn">
-                  <SearchBar onClose={() => setIsOverlayShowing(false)} />
+                  <SearchBox onClose={() => setIsOverlayShowing(false)} />
                   <Banner />
                   <CurrentRefinements />
                   <Stats page={searchState.page} />

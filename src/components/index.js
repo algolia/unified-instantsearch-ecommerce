@@ -9,5 +9,5 @@ export * from './RefinementColor';
 export * from './RefinementPrice';
 export * from './Refinements';
 export * from './RefinementSize';
-export * from './SearchBar';
+export * from './SearchBox';
 export * from './Stats';

@@ -8,8 +8,6 @@ const config = {
   inputSelector: '',
   querySuggestions: false,
   suggestions: {
-    appId: '',
-    searchApiKey: '',
     indexName: '',
     maxSuggestions: 10,
   },
