@@ -14,13 +14,11 @@ export const QueryRulesHandler = React.memo(
   (props) => {
     const ruleContexts = getRulesContextFromSearchState(props.searchState);
 
-    console.log('ruleContexts', ruleContexts);
-
     if (Object.keys(ruleContexts).length === 0) {
       return null;
     }
 
-    return <QueryRuleContext trackedFilters={{ ...ruleContexts }} />;
+    return <QueryRuleContext trackedFilters={ruleContexts} />;
   },
   function areEqual(prevProps, nextProps) {
     if (

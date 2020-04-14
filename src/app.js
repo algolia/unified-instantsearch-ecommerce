@@ -1,5 +1,6 @@
 import React from 'react';
-import { InstantSearch, ScrollTo, Configure } from 'react-instantsearch-dom';
+import { createPortal } from 'react-dom';
+import { InstantSearch, Configure } from 'react-instantsearch-dom';
 
 import config from './config.js';
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
@@ -10,7 +11,6 @@ import {
   CurrentRefinements,
   FakeSearchBar,
   InfiniteHits,
-  QueryRulesBanner,
   QueryRulesHandler,
   Refinements,
   SearchBar,
@@ -22,6 +22,7 @@ import './app.scss';
 export function App(props) {
   const searchClient = useSearchClient(config.appId, config.searchApiKey);
   const lastSetStateId = React.useRef();
+  const topAnchor = React.useRef();
 
   const [searchState, setSearchState] = React.useState(
     getStateFromUrl(props.location)
@@ -41,6 +42,8 @@ export function App(props) {
       }
     }, 400);
 
+    topAnchor.current.scrollTo(0, 0);
+
     setSearchState(searchState);
   }
 
@@ -58,21 +61,21 @@ export function App(props) {
     <>
       <FakeSearchBar onInputClick={() => setIsOverlayShowing(true)} />
 
-      {isOverlayShowing && (
-        <InstantSearch
-          searchClient={searchClient}
-          indexName={config.indexName || 'products'}
-          searchState={searchState}
-          onSearchStateChange={onSearchStateChange}
-          createURL={createURL}
-        >
-          <Configure {...config.searchParameters} />
-          <QueryRulesHandler searchState={searchState} />
-          {/* @TODO: see how this can be used */}
-          {/* <QueryRulesBanner /> */}
+      {isOverlayShowing &&
+        createPortal(
+          <InstantSearch
+            searchClient={searchClient}
+            indexName={config.indexName || 'products'}
+            searchState={searchState}
+            onSearchStateChange={onSearchStateChange}
+            createURL={createURL}
+          >
+            <Configure {...config.searchParameters} />
+            <QueryRulesHandler searchState={searchState} />
+            {/* @TODO: see how this can be used */}
+            {/* <QueryRulesBanner /> */}
 
-          <ScrollTo>
-            <div id="euip-wrapper">
+            <div ref={topAnchor} id="euip-wrapper">
               <div className="euip">
                 <div className="euip-leftColumn">
                   <Refinements />
@@ -87,9 +90,9 @@ export function App(props) {
                 </div>
               </div>
             </div>
-          </ScrollTo>
-        </InstantSearch>
-      )}
+          </InstantSearch>,
+          document.body
+        )}
     </>
   );
 }
