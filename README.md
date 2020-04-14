@@ -15,7 +15,7 @@ Follow the few steps described below to start using E-Commerce Unified UI.
 1. **Push your data to Algolia** (following the required data structure),
 2. **Fork** this Github Repository to your own,
 3. **Copy and replace the `src/config.example.js` file to `src/config.js`** to better match your needs,
-4. **Run `npm run buil` (or `yarn build`)** to build the necessary .js files,
+4. **Run `npm run build` (or `yarn build`)** to build the necessary .js files,
 5. **Host and include .js files** on your front-end and start using!
 
 ### Data Format
