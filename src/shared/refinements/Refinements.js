@@ -8,22 +8,26 @@ import PanelPrice from './RefinementPrice';
 import config from './../../config.js';
 
 const PANELS = {
-    basic: PanelBasic,
-    color: PanelColor,
-    size: PanelSize,
-    price: PanelPrice
+  basic: PanelBasic,
+  color: PanelColor,
+  size: PanelSize,
+  price: PanelPrice,
 };
 
-const Refinements = props => {
-    const refinements = config.refinements;
+const Refinements = (props) => {
+  const refinements = config.refinements;
 
-    return (
-        <React.Fragment>
-            {refinements.map((refinement, idx) => (
-                React.createElement(PANELS[refinement.type], { key: idx, ...refinement, ...props })
-            ))}
-        </React.Fragment>
-    )
+  return (
+    <React.Fragment>
+      {refinements.map((refinement, idx) =>
+        React.createElement(PANELS[refinement.type], {
+          key: idx,
+          ...refinement,
+          ...props,
+        })
+      )}
+    </React.Fragment>
+  );
 };
 
 export default Refinements;

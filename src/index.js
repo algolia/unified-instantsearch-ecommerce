@@ -8,8 +8,8 @@ import { initAnalytics } from './shared/Analytics';
 initAnalytics();
 
 ReactDOM.render(
-    <Router>
-        <Route path="*" component={App} />
-    </Router>,
-    document.getElementById('euip-root')
+  <Router>
+    <Route path="*" component={App} />
+  </Router>,
+  document.getElementById('euip-root')
 );

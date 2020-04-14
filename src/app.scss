@@ -2,7 +2,10 @@
   font-family: system-ui;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
 }
 
@@ -23,7 +26,8 @@ body.with-euip-modal-open {
     width: 64rem;
     margin: 0 auto;
 
-    p, ul {
+    p,
+    ul {
       margin: 0;
     }
 
@@ -95,7 +99,7 @@ body.with-euip-modal-open {
         }
 
         &:after {
-          content: "✕";
+          content: '✕';
           position: absolute;
           top: 5px;
           right: 7px;
@@ -111,7 +115,8 @@ body.with-euip-modal-open {
     &-SortBy {
       margin-bottom: 8px;
 
-      &-label, &-input {
+      &-label,
+      &-input {
         display: inline-block;
         vertical-align: middle;
       }
@@ -129,7 +134,8 @@ body.with-euip-modal-open {
       }
     }
 
-    &-leftColumn, &-rightColumn {
+    &-leftColumn,
+    &-rightColumn {
       padding: 0 12px;
     }
 
@@ -193,7 +199,8 @@ body.with-euip-modal-open {
         font-size: 12px;
       }
 
-      &.opened, &.closed {
+      &.opened,
+      &.closed {
         .ais-Panel-header:after {
           position: absolute;
           top: 1px;
@@ -206,7 +213,7 @@ body.with-euip-modal-open {
 
       &.closed {
         .ais-Panel-header:after {
-          content: "+";
+          content: '+';
         }
 
         .ais-Panel-body {
@@ -216,7 +223,7 @@ body.with-euip-modal-open {
 
       &.opened {
         .ais-Panel-header:after {
-          content: "-";
+          content: '-';
         }
       }
 
@@ -298,7 +305,8 @@ body.with-euip-modal-open {
         }
       }
 
-      &-submit, &-reset {
+      &-submit,
+      &-reset {
         display: none;
       }
     }
@@ -667,7 +675,8 @@ body.with-euip-modal-open {
         margin-left: auto;
         margin-right: auto;
         margin-top: -32px;
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
 
         &-action {
           display: inline-block;
@@ -699,7 +708,8 @@ body.with-euip-modal-open {
     .ais-PredictiveSearchBox {
       border-radius: 0;
 
-      &-input, #predictive-item {
+      &-input,
+      #predictive-item {
         font-size: 18px;
       }
 

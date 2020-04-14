@@ -1,24 +1,29 @@
 import React from 'react';
-import { QueryRuleContext } from "react-instantsearch-dom";
+import { QueryRuleContext } from 'react-instantsearch-dom';
 
-import { getRulesContextFromSearchState } from "./Tools";
+import { getRulesContextFromSearchState } from './Tools';
 
 class QueryRulesHandler extends React.Component {
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        if (JSON.stringify(this.props.searchState) === JSON.stringify(nextProps.searchState)) {
-            return false;
-        }
-
-        return true;
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    if (
+      JSON.stringify(this.props.searchState) ===
+      JSON.stringify(nextProps.searchState)
+    ) {
+      return false;
     }
 
-    render() {
-        const { searchState } = this.props;
+    return true;
+  }
 
-        return (
-            <QueryRuleContext trackedFilters={{ ...getRulesContextFromSearchState(searchState) }} />
-        )
-    }
+  render() {
+    const { searchState } = this.props;
+
+    return (
+      <QueryRuleContext
+        trackedFilters={{ ...getRulesContextFromSearchState(searchState) }}
+      />
+    );
+  }
 }
 
 export default QueryRulesHandler;

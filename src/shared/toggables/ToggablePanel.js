@@ -4,40 +4,40 @@ import PropTypes from 'prop-types';
 import { Panel } from 'react-instantsearch-dom';
 
 const toggablePanel = (WrappedComponent) => {
-    return class extends React.Component {
-        constructor(props) {
-            super(props);
+  return class extends React.Component {
+    constructor(props) {
+      super(props);
 
-            this.state = {
-                opened: !props.closed
-            };
+      this.state = {
+        opened: !props.closed,
+      };
 
-            this.togglePanel = this.togglePanel.bind(this);
-        }
-
-        togglePanel = () => {
-            this.setState((prevState) => ({ opened: !prevState.opened }))
-        };
-
-        render() {
-            const { header } = this.props;
-            const { opened } = this.state;
-
-            return (
-                <div className="ais-Panel-wrapper">
-                    <Panel header={header} className={opened ? 'opened' : 'closed'}>
-                        <WrappedComponent {...this.props} opened={opened} />
-                    </Panel>
-                    <span className="ais-Panel-collapse" onClick={this.togglePanel} />
-                </div>
-            )
-        }
+      this.togglePanel = this.togglePanel.bind(this);
     }
+
+    togglePanel = () => {
+      this.setState((prevState) => ({ opened: !prevState.opened }));
+    };
+
+    render() {
+      const { header } = this.props;
+      const { opened } = this.state;
+
+      return (
+        <div className="ais-Panel-wrapper">
+          <Panel header={header} className={opened ? 'opened' : 'closed'}>
+            <WrappedComponent {...this.props} opened={opened} />
+          </Panel>
+          <span className="ais-Panel-collapse" onClick={this.togglePanel} />
+        </div>
+      );
+    }
+  };
 };
 
 toggablePanel.propTypes = {
-    header: PropTypes.string.isRequired,
-    attribute: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+  attribute: PropTypes.string.isRequired,
 };
 
 export default toggablePanel;

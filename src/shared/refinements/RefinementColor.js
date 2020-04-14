@@ -3,8 +3,8 @@ import ColorRefinementList from 'instantsearch-color-refinement-list-react';
 
 import toggablePanel from './../toggables/ToggablePanel';
 
-const RefinementColor = props => (
-    <ColorRefinementList {...props} {...props.extra} />
+const RefinementColor = (props) => (
+  <ColorRefinementList {...props} {...props.extra} />
 );
 
 export default toggablePanel(RefinementColor);

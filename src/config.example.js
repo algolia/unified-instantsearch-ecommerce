@@ -1,34 +1,38 @@
 import React from 'react';
 
 const config = {
-  appId: "",
-  searchApiKey: "",
-  indexName: "",
-  placeholderId: "",
+  appId: '',
+  searchApiKey: '',
+  indexName: '',
+  placeholderId: '',
   querySuggestions: false,
   suggestions: {
-    appId: "",
-    searchApiKey: "",
-    indexName: "",
-    maxSuggestions: 10
+    appId: '',
+    searchApiKey: '',
+    indexName: '',
+    maxSuggestions: 10,
   },
   googleAnalytics: false,
   instantSearchConfigure: {
     analytics: true,
     clickAnalytics: true,
-    hitsPerPage: 20
+    hitsPerPage: 20,
   },
   hits: {
     render: ({ hit, trackClickOnHit }) => {
       return (
-        <div className="ais-InfiniteHits-item"
-          onClick={() => trackClickOnHit(
-            config.indexName,
-            'Click on product',
-            hit.__queryID,
-            hit.objectID,
-            hit.__position
-          )}>
+        <div
+          className="ais-InfiniteHits-item"
+          onClick={() =>
+            trackClickOnHit(
+              config.indexName,
+              'Click on product',
+              hit.__queryID,
+              hit.objectID,
+              hit.__position
+            )
+          }
+        >
           <picture className="ais-InfiniteHits-image">
             <img src={hit.image} alt={hit.name} />
           </picture>
@@ -39,59 +43,57 @@ const config = {
             <p className="ais-InfiniteHits-price">{`${hit.price} €`}</p>
           </section>
         </div>
-      )
+      );
     },
   },
   refinements: [
     {
-      type: "basic",
-      attribute: "brand",
-      header: "Marques",
+      type: 'basic',
+      attribute: 'brand',
+      header: 'Marques',
       extra: {
-        "searchable": true
-      }
+        searchable: true,
+      },
     },
     {
-      type: "color",
-      attribute: "color",
-      header: "Couleur",
+      type: 'color',
+      attribute: 'color',
+      header: 'Couleur',
       extra: {
         limit: 14,
         showMoreLimit: 40,
-        showMore: true
-      }
+        showMore: true,
+      },
     },
     {
-      type: "size",
-      attribute: "sizes",
-      header: "Tailles",
+      type: 'size',
+      attribute: 'sizes',
+      header: 'Tailles',
       extra: {
         patterns: [
-          "^([2-5]?X?L|XX?S|S|M)$",
-          "^(EU [1-9][0-9]?|100)$",
-          "^(UK [1-9][0-9]?)$"
+          '^([2-5]?X?L|XX?S|S|M)$',
+          '^(EU [1-9][0-9]?|100)$',
+          '^(UK [1-9][0-9]?)$',
         ],
         showMore: true,
-        sortSizesByNbResults: false
-      }
+        sortSizesByNbResults: false,
+      },
     },
     {
-      type: "price",
-      attribute: "price",
-      header: "Prix"
-    }
+      type: 'price',
+      attribute: 'price',
+      header: 'Prix',
+    },
   ],
-  sorts: [
-    { indexName: "", label: "Tri: recommandé", default: true }
-  ],
+  sorts: [{ indexName: '', label: 'Tri: recommandé', default: true }],
   translations: {
     refinementList: {
-      brand: "Marque",
-      color: "Couleur",
-      size: "Taille",
-      price: "Prix"
-    }
-  }
+      brand: 'Marque',
+      color: 'Couleur',
+      size: 'Taille',
+      price: 'Prix',
+    },
+  },
 };
 
 export default config;

@@ -26,12 +26,12 @@ class App extends Component {
 
     const searchState = urlToSearchState(props.location);
 
-    this.topAnchor = React.createRef()
+    this.topAnchor = React.createRef();
     this.state = {
       searchState: searchState,
       lastLocation: props.location,
       overlayDisplayed: shouldDisplayOverlayAtLaunch(searchState),
-      searchResultsDisplayed: true
+      searchResultsDisplayed: true,
     };
   }
 
@@ -57,12 +57,11 @@ class App extends Component {
     return null;
   }
 
-  onSearchStateChange = searchState => {
+  onSearchStateChange = (searchState) => {
     clearTimeout(this.debouncedSetState);
 
     //Put page back on top if not loading a new page
-    if (searchState.page === 1)
-      this.topAnchor.current.scrollTo(0, 0);
+    if (searchState.page === 1) this.topAnchor.current.scrollTo(0, 0);
 
     this.debouncedSetState = setTimeout(() => {
       this.props.history.push(
@@ -78,18 +77,22 @@ class App extends Component {
     this.setState({ searchState });
   };
 
-  setSearchStatePage = page => {
+  setSearchStatePage = (page) => {
     const { searchState } = this.state;
-    const newSearchState = { ...searchState, page: (page) > 0 ? page : 1 };
+    const newSearchState = { ...searchState, page: page > 0 ? page : 1 };
 
-    this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
+    this.setState({ searchState: newSearchState }, () =>
+      this.onSearchStateChange(newSearchState)
+    );
   };
 
-  setSearchStateSortBy = sortBy => {
+  setSearchStateSortBy = (sortBy) => {
     const { searchState } = this.state;
     const newSearchState = { ...searchState, sortBy };
 
-    this.setState({ searchState: newSearchState }, () => this.onSearchStateChange(newSearchState));
+    this.setState({ searchState: newSearchState }, () =>
+      this.onSearchStateChange(newSearchState)
+    );
   };
 
   resetSearchState = () => {
@@ -107,14 +110,19 @@ class App extends Component {
   };
 
   render() {
-    const { overlayDisplayed, searchResultsDisplayed, searchState } = this.state;
+    const {
+      overlayDisplayed,
+      searchResultsDisplayed,
+      searchState,
+    } = this.state;
 
     return (
       <React.Fragment>
         <FakeSearchBar onInputClick={() => this.displayOverlay(true)} />
 
-        {overlayDisplayed &&
-          <InstantSearch searchClient={searchClient}
+        {overlayDisplayed && (
+          <InstantSearch
+            searchClient={searchClient}
             indexName={config.indexName || 'products'}
             searchState={searchState}
             onSearchStateChange={this.onSearchStateChange}
@@ -122,19 +130,31 @@ class App extends Component {
           >
             <Configuration />
             <QueryRulesHandler searchState={searchState} />
-            <QueryRulesBanner shouldDisplaySearchResults={this.displaySearchResults} />
+            <QueryRulesBanner
+              shouldDisplaySearchResults={this.displaySearchResults}
+            />
 
-            <div id="euip-wrapper" ref={this.topAnchor} onScroll={() => { /*FIXME hide QS on mobile*/ }} className={`${isMobile ? 'mobile' : 'desktop'}`}>
+            <div
+              id="euip-wrapper"
+              ref={this.topAnchor}
+              onScroll={() => {
+                /*FIXME hide QS on mobile*/
+              }}
+              className={`${isMobile ? 'mobile' : 'desktop'}`}
+            >
               <div className="euip">
-                {searchResultsDisplayed &&
-                  <Main displayOverlay={this.displayOverlay}
+                {searchResultsDisplayed && (
+                  <Main
+                    displayOverlay={this.displayOverlay}
                     setSearchStateSortBy={this.setSearchStateSortBy}
-                    setSearchStatePage={this.setSearchStatePage} page={searchState.page} />
-                }
+                    setSearchStatePage={this.setSearchStatePage}
+                    page={searchState.page}
+                  />
+                )}
               </div>
             </div>
           </InstantSearch>
-        }
+        )}
       </React.Fragment>
     );
   }
