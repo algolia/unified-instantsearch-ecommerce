@@ -50,22 +50,19 @@ function App(props) {
     setSearchState(searchState);
   }
 
-  React.useEffect(() => {
-    if (isOverlayShowing) {
-      document.body.classList.add('with-euip-modal-open');
-    } else {
-      setSearchState(urlToSearchState({ search: '' }));
-      document.body.classList.remove('with-euip-modal-open');
-    }
-  }, [isOverlayShowing, setSearchState]);
-
-  function setSearchStatePage(page) {
-    setSearchState({ ...searchState, page: page > 0 ? page : 1 });
-  }
-
   function setSearchStateSortBy(sortBy) {
     setSearchState({ ...searchState, sortBy });
   }
+
+  React.useEffect(() => {
+    if (isOverlayShowing === true) {
+      document.body.classList.add('with-euip-modal-open');
+    } else {
+      document.body.classList.remove('with-euip-modal-open');
+      setSearchState(urlToSearchState({ search: '' }));
+      props.history.push('', searchState);
+    }
+  }, [isOverlayShowing, setSearchState]);
 
   return (
     <React.Fragment>
@@ -87,16 +84,15 @@ function App(props) {
             id="euip-wrapper"
             ref={topAnchor}
             onScroll={() => {
-              /*FIXME hide QS on mobile*/
+              // @TODO: hide QS on mobile
             }}
             className={`${isMobile ? 'mobile' : 'desktop'}`}
           >
             <div className="euip">
               {isResultsShowing && (
                 <Main
-                  displayOverlay={setIsOverlayShowing}
+                  onClose={() => setIsOverlayShowing(false)}
                   setSearchStateSortBy={setSearchStateSortBy}
-                  setSearchStatePage={setSearchStatePage}
                   page={searchState.page}
                 />
               )}

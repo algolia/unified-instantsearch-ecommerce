@@ -4,14 +4,14 @@ import PredictiveSearchBox from 'instantsearch-predictive-search-box-react';
 
 import config from './../config';
 
-let SearchBar = ({ currentRefinement, refine, displayOverlay }) => (
+let SearchBar = (props) => (
   <div className="euip-searchBar">
     <div className="euip-searchBar-inner">
       {!config.querySuggestions && (
         <input
           type="text"
-          value={currentRefinement}
-          onChange={(e) => refine(e.currentTarget.value)}
+          value={props.currentRefinement}
+          onChange={(event) => props.refine(event.currentTarget.value)}
           className="euip-searchBar-input"
           placeholder="Rechercher un produit, une marque…"
           autoFocus
@@ -29,10 +29,7 @@ let SearchBar = ({ currentRefinement, refine, displayOverlay }) => (
         />
       )}
     </div>
-    <span
-      className="euip-searchBar-close"
-      onClick={() => displayOverlay(false)}
-    >
+    <span className="euip-searchBar-close" onClick={props.onClose}>
       ×
     </span>
   </div>

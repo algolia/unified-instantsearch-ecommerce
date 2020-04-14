@@ -7,22 +7,18 @@ import { SearchBar } from './../shared/SearchBar';
 import { Banner } from './../shared/Banner';
 import { CustomStats } from '../shared/CustomStats';
 
-export const MainDesktop = ({ setSearchStatePage, page, displayOverlay }) => (
+export const MainDesktop = ({ page, onClose }) => (
   <React.Fragment>
     <div className="euip-leftColumn">
       <Refinements />
     </div>
 
     <div className="euip-rightColumn">
-      <SearchBar displayOverlay={displayOverlay} />
+      <SearchBar onClose={onClose} />
       <Banner />
       <CurrentRefinementsTags />
       <CustomStats page={page} />
-      <InfiniteHits
-        showPrevious={true}
-        setSearchStatePage={setSearchStatePage}
-        page={page}
-      />
+      <InfiniteHits />
     </div>
   </React.Fragment>
 );

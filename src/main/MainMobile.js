@@ -9,12 +9,7 @@ import { Banner } from '../shared/Banner';
 
 import config from '../config';
 
-export const MainMobile = ({
-  setSearchStateSortBy,
-  setSearchStatePage,
-  page,
-  displayOverlay,
-}) => (
+export const MainMobile = ({ setSearchStateSortBy, page, onClose }) => (
   <Fragment>
     <div className="euip-BottomActions">
       <SortsSidebar
@@ -28,13 +23,9 @@ export const MainMobile = ({
       />
     </div>
 
-    <SearchBar displayOverlay={displayOverlay} />
+    <SearchBar onClose={onClose} />
     <Banner />
     <CustomStats page={page} />
-    <InfiniteHits
-      showPrevious={true}
-      setSearchStatePage={setSearchStatePage}
-      page={page}
-    />
+    <InfiniteHits />
   </Fragment>
 );
