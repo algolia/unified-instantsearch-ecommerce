@@ -4,12 +4,12 @@ import { isMobile } from 'react-device-detect';
 
 import config from './config.js';
 
-import FakeSearchBar from './shared/FakeSearchBar';
-import Main from './main/Main';
+import { FakeSearchBar } from './shared/FakeSearchBar';
+import { Main } from './main/Main';
 
-import Configuration from './shared/Configuration';
-import QueryRulesHandler from './shared/QueryRulesHandler';
-import QueryRulesBanner from './shared/QueryRulesBanner';
+import { Configuration } from './shared/Configuration';
+import { QueryRulesHandler } from './shared/QueryRulesHandler';
+import { QueryRulesBanner } from './shared/QueryRulesBanner';
 import {
   searchClient,
   createURL,

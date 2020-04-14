@@ -42,4 +42,4 @@ if (!config.querySuggestions) {
   SearchBar = connectSearchBox(SearchBar);
 }
 
-export default SearchBar;
+export { SearchBar };

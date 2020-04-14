@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Panel } from 'react-instantsearch-dom';
 
-const toggablePanel = (WrappedComponent) => {
+export const toggablePanel = (WrappedComponent) => {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -39,5 +39,3 @@ toggablePanel.propTypes = {
   header: PropTypes.string.isRequired,
   attribute: PropTypes.string.isRequired,
 };
-
-export default toggablePanel;

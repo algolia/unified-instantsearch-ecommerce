@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
 
-import SortsSidebar from '../mobile/SortsSidebar';
-import RefinementSidebar from '../mobile/RefinementsSidebar';
-import InfiniteHits from '../shared/InfiniteHits';
-import CustomStats from '../shared/CustomStats';
-import SearchBar from '../shared/SearchBar';
-import Banner from '../shared/Banner';
+import { SortsSidebar } from '../mobile/SortsSidebar';
+import { RefinementsSidebar } from '../mobile/RefinementsSidebar';
+import { InfiniteHits } from '../shared/InfiniteHits';
+import { CustomStats } from '../shared/CustomStats';
+import { SearchBar } from '../shared/SearchBar';
+import { Banner } from '../shared/Banner';
 
 import config from '../config';
 
-const MainMobile = ({
+export const MainMobile = ({
   setSearchStateSortBy,
   setSearchStatePage,
   page,
@@ -22,7 +22,7 @@ const MainMobile = ({
         triggerComponent={<p className="euip-BottomActions-action">Trier</p>}
         title={config.translations.sortTitle}
       />
-      <RefinementSidebar
+      <RefinementsSidebar
         title={config.translations.refinementTitle}
         triggerComponent={<p className="euip-BottomActions-action">Filtrer</p>}
       />
@@ -38,5 +38,3 @@ const MainMobile = ({
     />
   </Fragment>
 );
-
-export default MainMobile;

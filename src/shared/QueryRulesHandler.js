@@ -3,7 +3,7 @@ import { QueryRuleContext } from 'react-instantsearch-dom';
 
 import { getRulesContextFromSearchState } from './Tools';
 
-class QueryRulesHandler extends React.Component {
+export class QueryRulesHandler extends React.Component {
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     if (
       JSON.stringify(this.props.searchState) ===
@@ -25,5 +25,3 @@ class QueryRulesHandler extends React.Component {
     );
   }
 }
-
-export default QueryRulesHandler;

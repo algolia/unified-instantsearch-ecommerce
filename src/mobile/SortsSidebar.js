@@ -1,11 +1,11 @@
 import React from 'react';
 
-import toggableSidebar from './../shared/toggables/ToggableSidebar';
-import SortBy from './SortBy';
+import { toggableSidebar } from './../shared/toggables/ToggableSidebar';
+import { SortBy } from './SortBy';
 
 import config from './../config';
 
-const SortsSidebar = ({ setSearchStateSortBy }) => (
+export const SortsSidebar = ({ setSearchStateSortBy }) => (
   <SortBy
     setSearchStateSortBy={setSearchStateSortBy}
     defaultRefinement={

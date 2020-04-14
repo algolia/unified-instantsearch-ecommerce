@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectStateResults } from 'react-instantsearch-dom';
 
-class QueryRulesBanner extends React.Component {
+class RawQueryRulesBanner extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     const { shouldDisplaySearchResults, searchResults } = this.props;
 
@@ -21,4 +21,4 @@ class QueryRulesBanner extends React.Component {
   }
 }
 
-export default connectStateResults(QueryRulesBanner);
+export const QueryRulesBanner = connectStateResults(RawQueryRulesBanner);

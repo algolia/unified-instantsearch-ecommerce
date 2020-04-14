@@ -4,7 +4,7 @@ import { connectInfiniteHits } from 'react-instantsearch-dom';
 import config from '../config.js';
 import { trackClickOnHit } from './../shared/Analytics';
 
-class InfiniteHits extends Component {
+class RawInfiniteHits extends Component {
   constructor(props) {
     super(props);
     const showPrevious =
@@ -146,4 +146,4 @@ class InfiniteHits extends Component {
   }
 }
 
-export default connectInfiniteHits(InfiniteHits);
+export const InfiniteHits = connectInfiniteHits(RawInfiniteHits);

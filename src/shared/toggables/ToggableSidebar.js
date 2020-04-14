@@ -1,6 +1,6 @@
 import React from 'react';
 
-const toggableSidebar = (WrappedComponent) => {
+export const toggableSidebar = (WrappedComponent) => {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -66,5 +66,3 @@ const toggableSidebar = (WrappedComponent) => {
     }
   };
 };
-
-export default toggableSidebar;

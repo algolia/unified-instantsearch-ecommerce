@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Refinements from '../shared/refinements/Refinements';
-import CurrentRefinementsTags from './../shared/CurrentRefinementsTags';
-import InfiniteHits from './../shared/InfiniteHits';
-import SearchBar from './../shared/SearchBar';
-import Banner from './../shared/Banner';
-import CustomStats from '../shared/CustomStats';
+import { Refinements } from '../shared/refinements/Refinements';
+import { CurrentRefinementsTags } from './../shared/CurrentRefinementsTags';
+import { InfiniteHits } from './../shared/InfiniteHits';
+import { SearchBar } from './../shared/SearchBar';
+import { Banner } from './../shared/Banner';
+import { CustomStats } from '../shared/CustomStats';
 
-const MainDesktop = ({ setSearchStatePage, page, displayOverlay }) => (
+export const MainDesktop = ({ setSearchStatePage, page, displayOverlay }) => (
   <React.Fragment>
     <div className="euip-leftColumn">
       <Refinements />
@@ -26,5 +26,3 @@ const MainDesktop = ({ setSearchStatePage, page, displayOverlay }) => (
     </div>
   </React.Fragment>
 );
-
-export default MainDesktop;

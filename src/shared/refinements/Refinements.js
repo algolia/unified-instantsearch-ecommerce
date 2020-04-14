@@ -1,20 +1,20 @@
 import React from 'react';
 
-import PanelBasic from './RefinementBasic';
-import PanelColor from './RefinementColor';
-import PanelSize from './RefinementSize';
-import PanelPrice from './RefinementPrice';
+import { RefinementBasic } from './RefinementBasic';
+import { RefinementColor } from './RefinementColor';
+import { RefinementSize } from './RefinementSize';
+import { RefinementPrice } from './RefinementPrice';
 
 import config from './../../config.js';
 
 const PANELS = {
-  basic: PanelBasic,
-  color: PanelColor,
-  size: PanelSize,
-  price: PanelPrice,
+  basic: RefinementBasic,
+  color: RefinementColor,
+  size: RefinementSize,
+  price: RefinementPrice,
 };
 
-const Refinements = (props) => {
+export const Refinements = (props) => {
   const refinements = config.refinements;
 
   return (
@@ -29,5 +29,3 @@ const Refinements = (props) => {
     </React.Fragment>
   );
 };
-
-export default Refinements;
