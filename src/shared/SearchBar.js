@@ -7,7 +7,7 @@ import config from './../config';
 let SearchBar = (props) => (
   <div className="euip-searchBar">
     <div className="euip-searchBar-inner">
-      {!config.querySuggestions && (
+      {!config.suggestions && (
         <input
           type="text"
           value={props.currentRefinement}
@@ -18,7 +18,7 @@ let SearchBar = (props) => (
         />
       )}
 
-      {config.querySuggestions && (
+      {config.suggestions && (
         <PredictiveSearchBox
           translations={{ placeholder: 'Rechercher un produit, une marque…' }}
           suggestionsIndex={config.suggestions.indexName}
@@ -35,7 +35,7 @@ let SearchBar = (props) => (
   </div>
 );
 
-if (!config.querySuggestions) {
+if (!config.suggestions) {
   SearchBar = connectSearchBox(SearchBar);
 }
 

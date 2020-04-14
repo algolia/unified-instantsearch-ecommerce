@@ -7,7 +7,7 @@ import config from './../config.js';
 export const Configuration = () => {
   return (
     <Configure
-      {...config.instantSearchConfigure}
+      {...config.searchParameters}
       ruleContexts={isMobile ? ['mobile'] : []}
     />
   );

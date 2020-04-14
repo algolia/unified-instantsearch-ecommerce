@@ -12,7 +12,7 @@ export const toggableSidebar = (WrappedComponent) => {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
       if (prevState.opened !== this.state.opened) {
-        const globalWrapper = document.getElementById('euip-wrapper');
+        const globalWrapper = document.querySelector('#euip-wrapper');
 
         if (this.state.opened) {
           globalWrapper.classList.add('with-slidebar-open');

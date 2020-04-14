@@ -1,9 +1,6 @@
-import algoliasearch from 'algoliasearch/lite';
 import qs from 'qs';
 
 import config from './../config.js';
-
-export const searchClient = algoliasearch(config.appId, config.searchApiKey);
 
 export const createURL = ({
   query = '',
@@ -59,7 +56,7 @@ export const urlToSearchState = ({ search }) => {
   let searchState = {
     query,
     page: parseInt(page),
-    configure: config.instantSearchConfigure,
+    configure: config.searchParameters,
   };
 
   searchState.refinementList = Object.keys(routeState)
@@ -106,22 +103,4 @@ export const getRulesContextFromSearchState = (searchState) => {
     all = { ...all, [refinementName]: (values) => values };
     return all;
   }, {});
-};
-
-export const shouldDisplayOverlayAtLaunch = (searchState) => {
-  const { query, refinementList, page } = searchState;
-
-  if (typeof page === 'undefined') {
-    return false;
-  }
-
-  if (
-    (typeof query === 'undefined' || !query.trim().length) &&
-    (typeof refinementList === 'undefined' ||
-      !Object.keys(refinementList).length)
-  ) {
-    return false;
-  }
-
-  return true;
 };

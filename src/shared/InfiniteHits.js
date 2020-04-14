@@ -2,7 +2,7 @@ import React from 'react';
 import { connectInfiniteHits } from 'react-instantsearch-dom';
 
 import config from '../config.js';
-import { useIntersectionObserver } from '../useIntersectionObserver';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { trackClickOnHit } from './../shared/Analytics';
 
 export const InfiniteHits = connectInfiniteHits((props) => {
@@ -31,7 +31,7 @@ export const InfiniteHits = connectInfiniteHits((props) => {
 
       <ol className="ais-InfiniteHits-list">
         {props.hits.map((hit) => (
-          <config.hits.render
+          <config.hitComponent
             key={hit.objectID}
             hit={hit}
             trackClickOnHit={trackClickOnHit}

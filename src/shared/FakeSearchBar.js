@@ -14,7 +14,7 @@ export const FakeSearchBar = ({ onInputClick }) => {
         onInputClick();
       }}
     />,
-    document.getElementById(config.placeholderId)
+    document.querySelector(config.inputSelector)
   );
 };
 

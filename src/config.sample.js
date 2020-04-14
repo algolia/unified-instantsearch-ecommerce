@@ -1,10 +1,11 @@
 import React from 'react';
+import { Highlight } from 'react-instantsearch-dom';
 
 const config = {
   appId: '',
   searchApiKey: '',
   indexName: '',
-  placeholderId: '',
+  inputSelector: '',
   querySuggestions: false,
   suggestions: {
     appId: '',
@@ -13,39 +14,12 @@ const config = {
     maxSuggestions: 10,
   },
   googleAnalytics: false,
-  instantSearchConfigure: {
+  searchParameters: {
     analytics: true,
     clickAnalytics: true,
     hitsPerPage: 20,
   },
-  hits: {
-    render: ({ hit, trackClickOnHit }) => {
-      return (
-        <div
-          className="ais-InfiniteHits-item"
-          onClick={() =>
-            trackClickOnHit(
-              config.indexName,
-              'Click on product',
-              hit.__queryID,
-              hit.objectID,
-              hit.__position
-            )
-          }
-        >
-          <picture className="ais-InfiniteHits-image">
-            <img src={hit.image} alt={hit.name} />
-          </picture>
-          <section className="ais-InfiniteHits-content">
-            <p className="ais-InfiniteHits-category">{hit.category}</p>
-            <p className="ais-InfiniteHits-title">{hit.name}</p>
-            <p className="ais-InfiniteHits-description">{hit.description}</p>
-            <p className="ais-InfiniteHits-price">{`${hit.price} €`}</p>
-          </section>
-        </div>
-      );
-    },
-  },
+  hitComponent: Hit,
   refinements: [
     {
       type: 'basic',
@@ -95,5 +69,34 @@ const config = {
     },
   },
 };
+
+function Hit({ hit, trackClickOnHit }) {
+  return (
+    <div
+      className="ais-InfiniteHits-item"
+      onClick={() =>
+        trackClickOnHit(
+          config.indexName,
+          'Click on product',
+          hit.__queryID,
+          hit.objectID,
+          hit.__position
+        )
+      }
+    >
+      <picture className="ais-InfiniteHits-image">
+        <img src={hit.image} alt={hit.description} />
+      </picture>
+      <section className="ais-InfiniteHits-content">
+        <p className="ais-InfiniteHits-category">{hit.category}</p>
+        <p className="ais-InfiniteHits-title">
+          <Highlight hit={hit} attribute="description" />
+        </p>
+        <p className="ais-InfiniteHits-description">{hit.gender}</p>
+        <p className="ais-InfiniteHits-price">{`${hit.amount}`}</p>
+      </section>
+    </div>
+  );
+}
 
 export default config;
