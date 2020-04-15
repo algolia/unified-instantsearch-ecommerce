@@ -1,8 +1,10 @@
 import React from 'react';
 import { RefinementList } from 'react-instantsearch-dom';
 
-import { withPanel } from '../hoc/withPanel';
+import { Panel } from './Panel';
 
-export const RefinementBasic = withPanel((props) => (
-  <RefinementList {...props} {...props.extra} />
-));
+export const RefinementBasic = (props) => (
+  <Panel {...props}>
+    <RefinementList {...props} {...props.extra} />
+  </Panel>
+);

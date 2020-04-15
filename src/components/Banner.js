@@ -12,7 +12,7 @@ export const Banner = () => {
 
           return (
             <a href={link} key={idx}>
-              <img className="euip-Banner--content" src={banner} alt={title} />
+              <img className="Unified-Banner" src={banner} alt={title} />
             </a>
           );
         });

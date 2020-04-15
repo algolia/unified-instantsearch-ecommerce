@@ -9,7 +9,7 @@ export const SearchBox = (props) => {
     return (
       <PredictiveSearchBox
         {...props}
-        translations={{ placeholder: 'Rechercher un produit, une marque…' }}
+        translations={{ placeholder: 'Search for a product, brand, color, …' }}
         suggestionsIndexName={config.suggestions.indexName}
         maxSuggestions={config.suggestions.maxSuggestions}
       />

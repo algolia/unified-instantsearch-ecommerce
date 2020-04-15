@@ -5,10 +5,10 @@ const config = {
   appId: 'E8KS2J9PMC',
   searchApiKey: '9a2480ff719c1092d2ef9ad3c6d36cf1',
   indexName: 'mika_asos',
-  inputSelector: '#euip-search-placeholder',
+  inputSelector: '#search-button',
   suggestions: {
     indexName: 'mika_asos_qs',
-    maxSuggestions: 10,
+    maxSuggestions: 6,
   },
   googleAnalytics: false,
   searchParameters: {
@@ -27,7 +27,8 @@ const config = {
         limit: 6,
         showMoreLimit: 20,
         translations: {
-          showMore: (expanded) => (expanded ? 'Voir moins' : 'Voir plus'),
+          showMore: (expanded) =>
+            expanded ? '- View fewer filters' : '+ View more filters',
         },
       },
     },
@@ -41,7 +42,7 @@ const config = {
         showMore: true,
         translations: {
           showMore(expanded) {
-            return expanded ? 'Voir moins' : 'Voir plus';
+            return expanded ? '- View fewer filters' : '+ View more filters';
           },
         },
       },
@@ -60,7 +61,7 @@ const config = {
         sortSizesByNbResults: false,
         translations: {
           showMore(expanded) {
-            return expanded ? 'Voir moins' : 'Voir plus';
+            return expanded ? '- View fewer filters' : '+ View more filters';
           },
         },
       },
@@ -92,10 +93,30 @@ const config = {
   },
 };
 
+// function Hit({ hit, trackClickOnHit }) {
+//   return (
+//     <div
+
+//     >
+//       <picture className="ais-InfiniteHits-image">
+//         <img src={hit.image} alt={hit.description} />
+//       </picture>
+//       <section className="ais-InfiniteHits-content">
+//         <p className="ais-InfiniteHits-category">{hit.category}</p>
+//         <p className="ais-InfiniteHits-title">
+//           <Highlight hit={hit} attribute="description" tagName="mark" />
+//         </p>
+//         <p className="ais-InfiniteHits-description">{hit.gender}</p>
+//         <p className="ais-InfiniteHits-price">{`${hit.amount}`}</p>
+//       </section>
+//     </div>
+//   );
+// }
+
 function Hit({ hit, trackClickOnHit }) {
   return (
-    <div
-      className="ais-InfiniteHits-item"
+    <article
+      className="hit"
       onClick={() =>
         trackClickOnHit(
           config.indexName,
@@ -106,18 +127,25 @@ function Hit({ hit, trackClickOnHit }) {
         )
       }
     >
-      <picture className="ais-InfiniteHits-image">
-        <img src={hit.image} alt={hit.description} />
-      </picture>
-      <section className="ais-InfiniteHits-content">
-        <p className="ais-InfiniteHits-category">{hit.category}</p>
-        <p className="ais-InfiniteHits-title">
-          <Highlight hit={hit} attribute="description" tagName="mark" />
-        </p>
-        <p className="ais-InfiniteHits-description">{hit.gender}</p>
-        <p className="ais-InfiniteHits-price">{`${hit.amount}`}</p>
-      </section>
-    </div>
+      <header className="hit-header">
+        <img src={hit.image} alt={hit.description} className="hit-image" />
+      </header>
+
+      <div className="hit-body">
+        <div className="hit-category">
+          {hit.brand} · {hit.gender}
+        </div>
+
+        <h1>
+          <Highlight attribute="description" tagName="mark" hit={hit} />
+        </h1>
+      </div>
+
+      <footer className="hit-footer">
+        <span className="hit-currency">£</span>
+        <strong>{hit.price.toLocaleString()}</strong>{' '}
+      </footer>
+    </article>
   );
 }
 

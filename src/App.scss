@@ -1,4 +1,398 @@
+.Unified-Container * {
+  outline-color: var(--algolia-theme-primary);
+}
+
 .Unified-Container {
+  background: #fff;
+  border-radius: 2px;
+  bottom: 0;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.62),
+    inset 0 0 1px rgba(255, 255, 255, 0.9);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  left: 0;
+  margin: 2rem;
+  overflow: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.Unified-Overlay {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+h2 {
+  color: #21243d;
+  font-family: Hind, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Header */
+
+.Unified-Header {
+  align-items: center;
+  background: var(--algolia-theme-primary);
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 54%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.Unified-CancelButton {
+  align-items: center;
+  background: #303030;
+  border: none;
+  color: #cfcfcf;
+  cursor: pointer;
+  display: flex;
+  height: 65px;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 65px;
+}
+
+.Unified-CancelButton:hover {
+  color: #fff;
+}
+
+/* Query Suggestions */
+
+.Unified-QuerySuggestions {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  padding-top: 1.5rem;
+}
+
+.Unified-QuerySuggestions-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  padding-right: 1rem;
+}
+
+.Unified-QuerySuggestions-list {
+  display: flex;
+}
+
+.Unified-QuerySuggestions-item:not(:last-of-type) {
+  margin-right: 1rem;
+}
+
+.Unified-QuerySuggestions-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  letter-spacing: 0.03rem;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.Unified-QuerySuggestions-button em,
+.Unified-QuerySuggestions-button mark {
+  background: none;
+  color: inherit;
+  font-weight: bold;
+  padding: 0;
+}
+
+/* Containers */
+
+.Unified-Content {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 2rem 1rem;
+}
+
+.Unified-LeftPanel {
+  flex: 1;
+  margin-right: 60px;
+  max-width: 260px;
+}
+
+// .container-header {
+//   align-items: center;
+//   display: flex;
+//   justify-content: space-between;
+//   min-height: 80px;
+// }
+
+.Unified-RightPanel {
+  flex: 3;
+}
+
+// .container-options {
+//   border-bottom: 1px solid #ebecf3;
+//   display: flex;
+//   justify-content: flex-end;
+//   margin-bottom: 30px;
+//   padding: 30px 0;
+// }
+
+// .container-options .container-option:not(:first-child) {
+//   margin-left: 48px;
+// }
+
+// .container-options select {
+//   min-width: 100px;
+// }
+
+// .container-footer {
+//   margin: 4rem 0;
+// }
+
+/* Styles the SFFV highlightings */
+
+em,
+mark {
+  background: rgba(226, 164, 0, 0.4);
+  font-style: normal;
+}
+
+/* Clear refinements container */
+
+// .clear-filters {
+//   align-items: center;
+//   display: flex;
+// }
+
+// .clear-filters svg {
+//   margin-right: 8px;
+// }
+
+/* Panel */
+
+.Unified-Content .ais-Panel {
+  border-top: 1px solid #ebecf3;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.Unified-Content .ais-Panel-header {
+  font-family: Hind, sans-serif;
+}
+
+/* Search box */
+
+.Unified-Header .ais-SearchBox {
+  max-width: 740px;
+  width: 100%;
+}
+
+.Unified-Header .ais-SearchBox .ais-SearchBox-inputContainer {
+  background: #ebecf3;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  color: #21243d;
+  font-family: Hind, sans-serif;
+  height: 100%;
+  height: 64px;
+}
+
+.Unified-Header .ais-SearchBox-input,
+.Unified-Header .ais-SearchBox-completion {
+  background: none;
+  height: 100%;
+  /*
+    The "Hind" font family is vertically off-balance.
+    Adding 4px of padding top makes it more vertically aligned.
+  */
+  padding: 4px 48px 0 64px;
+  position: absolute;
+  width: 100%;
+}
+
+.Unified-Header .ais-SearchBox-submit,
+.Unified-Header .ais-SearchBox-reset {
+  appearance: none;
+  background: none;
+  border: none;
+}
+
+.Unified-Header .ais-SearchBox-reset {
+  cursor: pointer;
+}
+
+.Unified-Header .ais-SearchBox-submit {
+  padding: 4px 1rem 0 2rem;
+  width: 64px;
+}
+
+.Unified-Header .ais-SearchBox .ais-SearchBox-input::placeholder {
+  color: #21243d;
+  opacity: 1; /* Firefox */
+}
+
+.ais-SearchBox-input:-ms-input-placeholder {
+  color: #21243d;
+}
+
+.ais-SearchBox-input::-ms-input-placeholder {
+  color: #21243d;
+}
+
+.ais-SearchBox-submit {
+  color: var(--algolia-theme-primary);
+}
+
+.ais-RefinementList .ais-SearchBox-input {
+  font-family: Hind, sans-serif;
+  /*
+    The "Hind" font family is vertically off-balance.
+    Adding some padding top makes it more vertically aligned.
+  */
+  padding-top: 2px;
+}
+
+/* Stats */
+
+.ais-Stats-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.ais-Stats-mainText {
+  color: var(--algolia-theme-primary);
+  font: inherit;
+}
+
+/* Refinement List */
+
+.ais-RefinementList-showMore {
+  background: none;
+  border: none;
+  color: var(--algolia-theme-secondary);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+/* ToggleRefinement */
+
+.ais-ToggleRefinement-label {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.ais-ToggleRefinement-checkbox {
+  font: inherit;
+  margin-left: 1rem;
+  margin-right: 0;
+  position: relative;
+}
+
+.ais-ToggleRefinement-checkbox:checked::before {
+  color: var(--algolia-theme-primary);
+}
+
+.ais-ToggleRefinement-checkbox::before {
+  align-items: center;
+  color: rgba(33, 36, 61, 0.32);
+  content: 'No';
+  display: flex;
+  font-size: 0.8rem;
+  height: 16px;
+  position: absolute;
+  right: 38px;
+}
+
+.ais-ToggleRefinement-checkbox:checked::before {
+  content: 'Yes';
+}
+
+.ais-ToggleRefinement-count {
+  display: none;
+}
+
+/* RatingMenu */
+
+.ais-RatingMenu-item:not(.ais-RatingMenu-item--selected) {
+  opacity: 0.5;
+}
+
+.ais-RatingMenu-starIcon {
+  margin-right: 0.5rem;
+}
+
+/* Hits */
+
+.hit {
+  color: #21243d;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.hit h1 {
+  font-size: 14px;
+}
+
+.hit-header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-bottom: 0.5rem;
+}
+
+.hit-footer {
+  padding-top: 0.5rem;
+}
+
+.hit-body {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.hit-image {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.hit-category {
+  color: #21243d;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 8px;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.hit-description {
+  margin-top: 2px;
+}
+
+.hit-currency {
+  color: var(--algolia-theme-primary);
+  font-size: 13px;
+  font-weight: 600;
+  padding-right: 2px;
 }

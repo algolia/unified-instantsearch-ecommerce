@@ -9,7 +9,6 @@ import {
 import { ReverseHighlight } from './ReverseHighlight';
 
 export const PredictiveSearchBox = connectSearchBox((props) => {
-  const [showSuggestion, setShowSuggestion] = React.useState(false);
   const [suggestion, setSuggestion] = React.useState(null);
   const inputRef = React.createRef(null);
 
@@ -23,6 +22,7 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
 
   function onReset(event) {
     event.preventDefault();
+    props.refine('');
 
     if (inputRef.current) {
       inputRef.current.focus();
@@ -30,7 +30,7 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
   }
 
   return (
-    <div class="ais-SearchBox">
+    <div className="ais-SearchBox">
       <form
         action=""
         role="search"
@@ -39,7 +39,7 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
         onSubmit={onSubmit}
         onReset={onReset}
       >
-        <button class="ais-SearchBox-submit" type="submit" title="Search">
+        <button className="ais-SearchBox-submit" type="submit" title="Search">
           <label
             className="ais-SearchBox-submitIcon"
             id="unified-label"
@@ -59,7 +59,10 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
           </label>
         </button>
 
-        <div className="ais-SearchBox-loadingIndicator">
+        <div
+          className="ais-SearchBox-loadingIndicator"
+          hidden={!(props.currentRefinement && props.isSearchStalled === true)}
+        >
           <svg
             className="ais-SearchBox-loadingIcon"
             viewBox="0 0 38 38"
@@ -86,11 +89,9 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
           </svg>
         </div>
 
-        <div className="ais-SearchBox-content">
-          {showSuggestion && suggestion && (
-            <div className="ais-SearchBox-completion">
-              <span id="predictive-item">{suggestion}</span>
-            </div>
+        <div className="ais-SearchBox-inputContainer">
+          {suggestion && suggestion !== props.currentRefinement && (
+            <span className="ais-SearchBox-completion">{suggestion}</span>
           )}
 
           <input
@@ -111,8 +112,6 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
               setSuggestion(null);
               props.refine(event.currentTarget.value);
             }}
-            onFocus={() => setShowSuggestion(true)}
-            onBlur={() => setShowSuggestion(false)}
             onKeyDown={(event) => {
               if (event.key === 'Tab') {
                 event.preventDefault();
@@ -126,7 +125,7 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
           type="reset"
           title="Clear the query"
           className="ais-SearchBox-reset"
-          hidden={!props.currentRefinement}
+          hidden={!props.currentRefinement || props.isSearchStalled}
           onClick={props.onReset}
         >
           <svg
@@ -162,12 +161,12 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
 });
 
 const Suggestions = connectHits((props) => {
-  if (props.query === '' || props.hits.length === 0) {
-    props.onSuggestion(null);
-    return null;
-  }
-
   React.useEffect(() => {
+    if (props.hits.length === 0) {
+      props.onSuggestion(null);
+      return;
+    }
+
     const firstSuggestion = props.hits[0].query;
 
     if (
@@ -181,18 +180,27 @@ const Suggestions = connectHits((props) => {
   }, [props.hits]);
 
   return (
-    <ol className="ais-SuggestionTagsContainer">
-      {props.hits.map((hit) => {
-        return (
-          <li
-            key={hit.objectID}
-            className="ais-SuggestionTag"
-            onClick={() => props.onClick(hit.query)}
-          >
-            <ReverseHighlight hit={hit} attribute="query" />
-          </li>
-        );
-      })}
-    </ol>
+    <div className="Unified-QuerySuggestions">
+      <span className="Unified-QuerySuggestions-label">Suggestions</span>
+
+      {props.hits.length > 0 ? (
+        <ol className="Unified-QuerySuggestions-list">
+          {props.hits.map((hit) => {
+            return (
+              <li key={hit.objectID} className="Unified-QuerySuggestions-item">
+                <button
+                  className="Unified-QuerySuggestions-button"
+                  onClick={() => props.onClick(hit.query)}
+                >
+                  <ReverseHighlight hit={hit} attribute="query" />
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+      ) : (
+        'None'
+      )}
+    </div>
   );
 });

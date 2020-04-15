@@ -15,8 +15,10 @@ import {
   Refinements,
   SearchBox,
   Stats,
+  CancelButton,
 } from './components';
 
+import './theme.scss';
 import './App.scss';
 
 export function App(props) {
@@ -47,9 +49,9 @@ export function App(props) {
 
   React.useEffect(() => {
     if (isOverlayShowing === true) {
-      document.body.classList.add('with-euip-modal-open');
+      document.body.classList.add('Unified--open');
     } else {
-      document.body.classList.remove('with-euip-modal-open');
+      document.body.classList.remove('Unified--open');
       setSearchState(getStateFromUrl({}));
       props.history.push('', searchState);
     }
@@ -61,42 +63,68 @@ export function App(props) {
     }
   }, [searchState.query]);
 
+  React.useEffect(() => {
+    function onKeydown(event) {
+      if (event.key === 'Escape') {
+        setIsOverlayShowing(false);
+      }
+    }
+
+    window.addEventListener('keydown', onKeydown);
+
+    return () => {
+      window.removeEventListener('keydown', onKeydown);
+    };
+  }, [setIsOverlayShowing]);
+
   return (
     <>
       <FakeSearchBar onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
         createPortal(
-          <div className="Unified-Container">
-            <InstantSearch
-              searchClient={searchClient}
-              indexName={config.indexName || 'products'}
-              searchState={searchState}
-              onSearchStateChange={onSearchStateChange}
-              createURL={createURL}
-            >
-              <Configure {...config.searchParameters} />
-              <QueryRulesHandler searchState={searchState} />
-              {/* @TODO: see how this can be used */}
-              {/* <QueryRulesBanner /> */}
+          <>
+            <div className="Unified-Overlay" />
 
-              <div ref={topAnchor} id="euip-wrapper">
-                <div className="euip">
-                  <div className="euip-leftColumn">
-                    <Refinements />
-                  </div>
+            <div className="Unified-Container">
+              <InstantSearch
+                searchClient={searchClient}
+                indexName={config.indexName}
+                searchState={searchState}
+                onSearchStateChange={onSearchStateChange}
+                createURL={createURL}
+              >
+                <Configure {...config.searchParameters} />
+                <QueryRulesHandler searchState={searchState} />
 
-                  <div className="euip-rightColumn">
+                <div ref={topAnchor} id="Unified-Wrapper">
+                  <header className="Unified-Header">
                     <SearchBox />
-                    <Banner />
-                    <CurrentRefinements />
-                    <Stats page={searchState.page} />
-                    <InfiniteHits />
+
+                    <button
+                      className="Unified-CancelButton"
+                      onClick={() => setIsOverlayShowing(false)}
+                    >
+                      <CancelButton />
+                    </button>
+                  </header>
+
+                  <div className="Unified-Content">
+                    <div className="Unified-LeftPanel">
+                      <Refinements />
+                    </div>
+
+                    <div className="Unified-RightPanel">
+                      <Stats />
+                      <CurrentRefinements />
+                      <Banner />
+                      <InfiniteHits />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </InstantSearch>
-          </div>,
+              </InstantSearch>
+            </div>
+          </>,
           document.body
         )}
     </>

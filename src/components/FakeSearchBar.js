@@ -6,7 +6,6 @@ import config from '../config';
 export const FakeSearchBar = ({ onClick }) => {
   return ReactDOM.createPortal(
     <input
-      id="euip-fake-input"
       type="text"
       placeholder="Que recherchez-vous… ?"
       onClick={(event) => {

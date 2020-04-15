@@ -1,4 +1,5 @@
 export * from './Banner';
+export * from './CancelButton';
 export * from './CurrentRefinements';
 export * from './FakeSearchBar';
 export * from './InfiniteHits';
