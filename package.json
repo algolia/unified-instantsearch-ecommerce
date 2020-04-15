@@ -28,6 +28,7 @@
     "@babel/plugin-proposal-class-properties": "7.8.3",
     "@babel/preset-env": "7.9.5",
     "@babel/preset-react": "7.9.4",
+    "babel-loader": "8.0.5",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "preact": "10.4.0",
     "prop-types": "15.7.2",
