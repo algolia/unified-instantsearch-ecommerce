@@ -10,12 +10,12 @@ import {
   Banner,
   CurrentRefinements,
   FakeSearchBar,
-  InfiniteHits,
   QueryRulesHandler,
   Refinements,
   SearchBox,
   Stats,
   CancelButton,
+  ProductList,
 } from './components';
 
 import './theme.scss';
@@ -124,7 +124,7 @@ export function App(props) {
                       )}
                       <CurrentRefinements />
                       <Banner />
-                      <InfiniteHits />
+                      <ProductList />
                     </div>
                   </div>
                 </div>
