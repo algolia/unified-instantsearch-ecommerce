@@ -18,9 +18,6 @@ import {
   ProductList,
 } from './components';
 
-import './theme.scss';
-import './App.scss';
-
 export function App(props) {
   const searchClient = useSearchClient(config.appId, config.searchApiKey);
   const lastSetStateId = React.useRef();

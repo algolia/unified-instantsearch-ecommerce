@@ -7,6 +7,8 @@ import config from './config';
 import { initAnalytics } from './analytics';
 
 import './reset.scss';
+import './theme.scss';
+import './App.scss';
 
 initAnalytics();
 
