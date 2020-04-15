@@ -73,15 +73,11 @@ const config = {
     },
   ],
   sorts: [
-    { indexName: 'mika_asos', label: 'Produits recommandés', default: true },
-    { indexName: 'mika_asos_price_asc', label: 'Prix croissant' },
-    { indexName: 'mika_asos_price_desc', label: 'Prix décroissant' },
+    { value: 'mika_asos', label: 'Produits recommandés' },
+    { value: 'mika_asos_price_asc', label: 'Prix croissant' },
+    { value: 'mika_asos_price_desc', label: 'Prix décroissant' },
   ],
   translations: {
-    resultsStats: (nbHits, timeSpentMS) =>
-      `${nbHits} results found in ${timeSpentMS} ms`,
-    pageStats: (page) => `Page: ${page}`,
-    showPrevious: (prevPage) => `Afficher la page ${prevPage}`,
     sortTitle: 'Trier',
     refinementTitle: 'Filtrer',
     refinementList: {
@@ -92,26 +88,6 @@ const config = {
     },
   },
 };
-
-// function Hit({ hit, trackClickOnHit }) {
-//   return (
-//     <div
-
-//     >
-//       <picture className="ais-InfiniteHits-image">
-//         <img src={hit.image} alt={hit.description} />
-//       </picture>
-//       <section className="ais-InfiniteHits-content">
-//         <p className="ais-InfiniteHits-category">{hit.category}</p>
-//         <p className="ais-InfiniteHits-title">
-//           <Highlight hit={hit} attribute="description" tagName="mark" />
-//         </p>
-//         <p className="ais-InfiniteHits-description">{hit.gender}</p>
-//         <p className="ais-InfiniteHits-price">{`${hit.amount}`}</p>
-//       </section>
-//     </div>
-//   );
-// }
 
 function Hit({ hit, trackClickOnHit }) {
   return (

@@ -40,21 +40,23 @@ export const CurrentRefinements = connectCurrentRefinements(
     }
 
     return (
-      <div class="ais-CurrentRefinements">
-        <ul class="ais-CurrentRefinements-list">
+      <div className="ais-CurrentRefinements">
+        <ul className="ais-CurrentRefinements-list">
           {tags.map((tag) => {
             return (
               <li
-                class="ais-CurrentRefinements-item"
+                className="ais-CurrentRefinements-item"
                 key={`${tag.group}:${tag.value}`}
               >
-                <span class="ais-CurrentRefinements-label">{tag.group}:</span>
-                <span class="ais-CurrentRefinements-category">
-                  <span class="ais-CurrentRefinements-categoryLabel">
+                <span className="ais-CurrentRefinements-label">
+                  {tag.group}:
+                </span>
+                <span className="ais-CurrentRefinements-category">
+                  <span className="ais-CurrentRefinements-categoryLabel">
                     {tag.label}
                   </span>
                   <button
-                    class="ais-CurrentRefinements-delete"
+                    className="ais-CurrentRefinements-delete"
                     onClick={(event) => {
                       event.preventDefault();
                       refine(tag.value);

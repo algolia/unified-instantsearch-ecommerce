@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { InstantSearch, Configure } from 'react-instantsearch-dom';
+import { InstantSearch, Configure, SortBy } from 'react-instantsearch-dom';
 
 import config from './config.js';
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
@@ -116,6 +116,12 @@ export function App(props) {
 
                     <div className="Unified-RightPanel">
                       <Stats />
+                      {config.sorts && config.sorts.length > 0 && (
+                        <SortBy
+                          items={config.sorts}
+                          defaultRefinement={config.sorts[0].value}
+                        />
+                      )}
                       <CurrentRefinements />
                       <Banner />
                       <InfiniteHits />
