@@ -406,6 +406,13 @@ mark {
   padding-top: 2rem;
 }
 
+/* RefinementList */
+
+.Unified-RefinementList-ListContainer {
+  max-height: 300px;
+  overflow: scroll;
+}
+
 /* ColorList */
 
 .ColorList .ais-RefinementList-checkbox {
