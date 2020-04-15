@@ -12,11 +12,16 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   left: 0;
-  margin: 2rem;
   overflow: scroll;
   position: fixed;
   right: 0;
   top: 0;
+}
+
+@media (min-width: 800px) {
+  .Unified-Container {
+    margin: 2rem;
+  }
 }
 
 .Unified-Overlay {
@@ -80,6 +85,12 @@ h2 {
   padding-top: 1.5rem;
 }
 
+@media (max-width: 799px) {
+  .Unified-QuerySuggestions {
+    display: none;
+  }
+}
+
 .Unified-QuerySuggestions-label {
   color: rgba(255, 255, 255, 0.8);
   font-weight: bold;
@@ -125,6 +136,12 @@ h2 {
   flex: 1;
   margin-right: 60px;
   max-width: 260px;
+}
+
+@media (max-width: 799px) {
+  .Unified-LeftPanel {
+    display: none;
+  }
 }
 
 // .container-header {

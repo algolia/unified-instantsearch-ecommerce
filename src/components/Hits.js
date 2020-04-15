@@ -15,7 +15,7 @@ export const Hits = connectHits((props) => {
         ))}
       </ol>
 
-      <Pagination />
+      <Pagination padding={2} />
     </div>
   );
 });
