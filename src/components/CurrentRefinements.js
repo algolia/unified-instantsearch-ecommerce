@@ -42,29 +42,24 @@ export const CurrentRefinements = connectCurrentRefinements(
     return (
       <div className="ais-CurrentRefinements">
         <ul className="ais-CurrentRefinements-list">
-          {tags.map((tag) => {
+          {tags.map((tag, index) => {
             return (
-              <li
-                className="ais-CurrentRefinements-item"
-                key={`${tag.group}:${tag.value}`}
-              >
-                <span className="ais-CurrentRefinements-label">
-                  {tag.group}:
-                </span>
-                <span className="ais-CurrentRefinements-category">
+              <li className="ais-CurrentRefinements-item" key={index}>
+                <div className="ais-CurrentRefinements-label">{tag.group}</div>
+                <div className="ais-CurrentRefinements-category">
                   <span className="ais-CurrentRefinements-categoryLabel">
                     {tag.label}
                   </span>
-                  <button
-                    className="ais-CurrentRefinements-delete"
-                    onClick={(event) => {
-                      event.preventDefault();
-                      refine(tag.value);
-                    }}
-                  >
-                    ✕
-                  </button>
-                </span>
+                </div>
+                <button
+                  className="ais-CurrentRefinements-delete"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    refine(tag.value);
+                  }}
+                >
+                  ✕
+                </button>
               </li>
             );
           })}

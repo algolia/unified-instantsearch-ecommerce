@@ -118,16 +118,26 @@ export function App(props) {
                     </div>
 
                     <div className="Unified-RightPanel">
-                      <Stats />
-                      {config.sorts && config.sorts.length > 0 && (
-                        <SortBy
-                          items={config.sorts}
-                          defaultRefinement={config.sorts[0].value}
-                        />
-                      )}
-                      <CurrentRefinements />
-                      <Banner />
-                      <ProductList />
+                      <header className="Unified-BodyHeader">
+                        <div className="Unified-BodyHeader-heading">
+                          <Stats />
+                          {config.sorts && config.sorts.length > 0 && (
+                            <div className="Unified-BodyHeader-sortBy">
+                              <span className="Unified-Label">Sort by</span>
+                              <SortBy
+                                items={config.sorts}
+                                defaultRefinement={config.sorts[0].value}
+                              />
+                            </div>
+                          )}
+                        </div>
+                        <CurrentRefinements />
+                      </header>
+
+                      <main className="Unified-BodyContent">
+                        <Banner />
+                        <ProductList />
+                      </main>
                     </div>
                   </div>
                 </div>

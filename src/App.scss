@@ -155,25 +155,32 @@ h2 {
   flex: 3;
 }
 
-// .container-options {
-//   border-bottom: 1px solid #ebecf3;
-//   display: flex;
-//   justify-content: flex-end;
-//   margin-bottom: 30px;
-//   padding: 30px 0;
-// }
+.Unified-BodyHeader {
+  border-bottom: 1px solid #ebecf3;
+}
 
-// .container-options .container-option:not(:first-child) {
-//   margin-left: 48px;
-// }
+.Unified-BodyHeader-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-// .container-options select {
-//   min-width: 100px;
-// }
+.Unified-BodyContent {
+  padding-top: 1.5rem;
+}
 
-// .container-footer {
-//   margin: 4rem 0;
-// }
+.Unified-BodyHeader-sortBy {
+  display: flex;
+}
+
+.Unified-Label {
+  font-size: 0.678rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+  padding-right: 8px;
+}
 
 /* Styles the SFFV highlightings */
 
@@ -182,17 +189,6 @@ mark {
   background: rgba(226, 164, 0, 0.4);
   font-style: normal;
 }
-
-/* Clear refinements container */
-
-// .clear-filters {
-//   align-items: center;
-//   display: flex;
-// }
-
-// .clear-filters svg {
-//   margin-right: 8px;
-// }
 
 /* Panel */
 
@@ -356,6 +352,50 @@ mark {
 
 .ais-RatingMenu-starIcon {
   margin-right: 0.5rem;
+}
+
+/* CurrentRefinements */
+
+.ais-CurrentRefinements {
+  padding: 1.5rem 0;
+}
+
+.ais-CurrentRefinements-list {
+  display: flex;
+}
+
+.ais-CurrentRefinements-item {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background-color: var(--algolia-theme-primary);
+  border-radius: 3px;
+  color: #fff;
+  padding: 0 8px;
+}
+
+.ais-CurrentRefinements-item:not(:last-of-type) {
+  margin-right: 0.5rem;
+}
+
+.ais-CurrentRefinements-label {
+  padding: 4px 4px 4px 0;
+}
+
+.ais-CurrentRefinements-categoryLabel {
+  font-weight: bold;
+  padding: 4px 6px 4px 0;
+}
+
+.ais-CurrentRefinements-delete {
+  background: none;
+  border: none;
+  border-left: 1px solid #fff;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  padding-left: 6px;
+  height: 100%;
 }
 
 /* Pagination */
