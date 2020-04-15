@@ -35,23 +35,39 @@ export const CurrentRefinements = connectCurrentRefinements(
       []
     );
 
+    if (tags.length === 0) {
+      return null;
+    }
+
     return (
-      <ul className="euip-RefinementsTags">
-        {tags.map((tag, idx) => {
-          return (
-            <li
-              key={idx}
-              onClick={(event) => {
-                event.preventDefault();
-                refine(tag.value);
-              }}
-              className="euip-RefinementsTags-tag"
-            >
-              {tag.group}: <em>{tag.label}</em>
-            </li>
-          );
-        })}
-      </ul>
+      <div class="ais-CurrentRefinements">
+        <ul class="ais-CurrentRefinements-list">
+          {tags.map((tag) => {
+            return (
+              <li
+                class="ais-CurrentRefinements-item"
+                key={`${tag.group}:${tag.value}`}
+              >
+                <span class="ais-CurrentRefinements-label">{tag.group}:</span>
+                <span class="ais-CurrentRefinements-category">
+                  <span class="ais-CurrentRefinements-categoryLabel">
+                    {tag.label}
+                  </span>
+                  <button
+                    class="ais-CurrentRefinements-delete"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      refine(tag.value);
+                    }}
+                  >
+                    ✕
+                  </button>
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 );

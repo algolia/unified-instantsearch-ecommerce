@@ -63,38 +63,40 @@ export function App(props) {
 
   return (
     <>
-      <FakeSearchBar onInputClick={() => setIsOverlayShowing(true)} />
+      <FakeSearchBar onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
         createPortal(
-          <InstantSearch
-            searchClient={searchClient}
-            indexName={config.indexName || 'products'}
-            searchState={searchState}
-            onSearchStateChange={onSearchStateChange}
-            createURL={createURL}
-          >
-            <Configure {...config.searchParameters} />
-            <QueryRulesHandler searchState={searchState} />
-            {/* @TODO: see how this can be used */}
-            {/* <QueryRulesBanner /> */}
+          <div className="Unified-Container">
+            <InstantSearch
+              searchClient={searchClient}
+              indexName={config.indexName || 'products'}
+              searchState={searchState}
+              onSearchStateChange={onSearchStateChange}
+              createURL={createURL}
+            >
+              <Configure {...config.searchParameters} />
+              <QueryRulesHandler searchState={searchState} />
+              {/* @TODO: see how this can be used */}
+              {/* <QueryRulesBanner /> */}
 
-            <div ref={topAnchor} id="euip-wrapper">
-              <div className="euip">
-                <div className="euip-leftColumn">
-                  <Refinements />
-                </div>
+              <div ref={topAnchor} id="euip-wrapper">
+                <div className="euip">
+                  <div className="euip-leftColumn">
+                    <Refinements />
+                  </div>
 
-                <div className="euip-rightColumn">
-                  <SearchBox onClose={() => setIsOverlayShowing(false)} />
-                  <Banner />
-                  <CurrentRefinements />
-                  <Stats page={searchState.page} />
-                  <InfiniteHits />
+                  <div className="euip-rightColumn">
+                    <SearchBox />
+                    <Banner />
+                    <CurrentRefinements />
+                    <Stats page={searchState.page} />
+                    <InfiniteHits />
+                  </div>
                 </div>
               </div>
-            </div>
-          </InstantSearch>,
+            </InstantSearch>
+          </div>,
           document.body
         )}
     </>

@@ -6,8 +6,6 @@ export function ReverseHighlight({
   tagName = 'mark',
   ...rest
 }) {
-  console.log({ hit });
-
   let parts = [];
 
   try {
@@ -21,8 +19,6 @@ export function ReverseHighlight({
     // eslint-disable-next-line no-console
     console.warn(error.message);
   }
-
-  console.log({ parts });
 
   return (
     <span {...rest}>

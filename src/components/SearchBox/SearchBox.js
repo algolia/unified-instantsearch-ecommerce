@@ -18,14 +18,3 @@ export const SearchBox = (props) => {
 
   return <BasicSearchBox {...props} />;
 };
-
-// {config.suggestions && (
-//   <PredictiveSearchBox
-//     translations={{ placeholder: 'Rechercher un produit, une marque…' }}
-//     suggestionsIndex={config.suggestions.indexName}
-//     appID={config.suggestions.appId}
-//     apiKey={config.suggestions.searchApiKey}
-//     maxSuggestions={config.suggestions.maxSuggestions}
-//     autoFocus={true}
-//   />
-// )}

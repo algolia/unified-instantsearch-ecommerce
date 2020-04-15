@@ -15,7 +15,7 @@ export const InfiniteHits = connectInfiniteHits((props) => {
     <div className="ais-InfiniteHits">
       {props.hasPrevious && (
         <button
-          className="ais-InfiniteHits-previous"
+          className="ais-InfiniteHits-loadPrevious"
           onClick={props.refinePrevious}
         >
           Show previous
@@ -24,15 +24,17 @@ export const InfiniteHits = connectInfiniteHits((props) => {
 
       <ol className="ais-InfiniteHits-list">
         {props.hits.map((hit) => (
-          <config.hitComponent
-            key={hit.objectID}
-            hit={hit}
-            trackClickOnHit={trackClickOnHit}
-          />
+          <li key={hit.objectID} className="ais-InfiniteHits-item">
+            <config.hitComponent hit={hit} trackClickOnHit={trackClickOnHit} />
+          </li>
         ))}
       </ol>
 
-      {props.hasMore && <button ref={setObservedNode}>Load more</button>}
+      {props.hasMore && (
+        <button ref={setObservedNode} className="ais-InfiniteHits-loadMore">
+          Load more
+        </button>
+      )}
     </div>
   );
 });

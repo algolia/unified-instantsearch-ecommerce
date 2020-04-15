@@ -14,7 +14,7 @@ export const Stats = ({ page = 1 }) => {
       : (page) => `Page: ${page}`;
 
   return (
-    <div className="euip-Stats">
+    <div>
       <DefaultStats
         translations={{
           stats: resultsStats,

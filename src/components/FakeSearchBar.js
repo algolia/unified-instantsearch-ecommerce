@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import config from '../config';
 
-export const FakeSearchBar = ({ onInputClick }) => {
+export const FakeSearchBar = ({ onClick }) => {
   return ReactDOM.createPortal(
     <input
       id="euip-fake-input"
@@ -11,7 +11,7 @@ export const FakeSearchBar = ({ onInputClick }) => {
       placeholder="Que recherchez-vous… ?"
       onClick={(event) => {
         event.target.blur();
-        onInputClick();
+        onClick();
       }}
     />,
     document.querySelector(config.inputSelector)

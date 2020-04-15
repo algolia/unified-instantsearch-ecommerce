@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { App } from './App';
+import config from './config';
 import { initAnalytics } from './analytics';
+
+import './reset.scss';
 
 initAnalytics();
 
@@ -11,5 +14,5 @@ ReactDOM.render(
   <Router>
     <Route path="*" component={App} />
   </Router>,
-  document.querySelector('#euip-root')
+  document.querySelector(config.inputSelector)
 );
