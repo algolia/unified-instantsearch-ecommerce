@@ -87,7 +87,10 @@ export function App(props) {
       {isOverlayShowing &&
         createPortal(
           <>
-            <div className="Unified-Overlay" />
+            <div
+              className="Unified-Overlay"
+              onClick={() => setIsOverlayShowing(false)}
+            />
 
             <div className="Unified-Container">
               <InstantSearch
