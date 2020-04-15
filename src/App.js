@@ -69,6 +69,15 @@ export function App(props) {
   React.useEffect(() => {
     function onKeydown(event) {
       if (event.key === 'Escape') {
+        if (
+          document.activeElement.isContentEditable ||
+          document.activeElement.tagName === 'INPUT' ||
+          document.activeElement.tagName === 'SELECT' ||
+          document.activeElement.tagName === 'TEXTAREA'
+        ) {
+          return;
+        }
+
         setIsOverlayShowing(false);
       }
     }
