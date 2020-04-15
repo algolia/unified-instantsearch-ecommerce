@@ -250,16 +250,26 @@ a[class^='ais-'] {
 
 /* SFFV search box */
 
+.ais-RefinementList .ais-SearchBox-form {
+  margin-bottom: 1rem;
+}
+
 .ais-RefinementList .ais-SearchBox-input {
   border-radius: 3px;
   color: rgba(33, 36, 61, 0.8);
   font-size: 0.8rem;
   min-height: 40px;
-  padding: 0 44px;
+  padding: 0 32px;
 }
 
-.ais-RefinementList .ais-SearchBox-form {
-  margin-bottom: 1rem;
+.ais-RefinementList .ais-SearchBox-reset,
+.ais-RefinementList .ais-SearchBox-submit {
+  width: 32px;
+}
+
+.ais-RefinementList .ais-SearchBox-submitIcon {
+  height: 14px;
+  width: 14px;
 }
 
 /* Menus */
@@ -269,6 +279,7 @@ a[class^='ais-'] {
 .ais-RefinementList-label {
   align-items: center;
   display: flex;
+  white-space: nowrap;
 }
 
 .ais-RefinementList-checkbox {
@@ -296,6 +307,7 @@ a[class^='ais-'] {
 .ais-RefinementList-item--selected .ais-RefinementList-checkbox::after {
   background-color: #fff;
   border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   content: '';
   height: 4px;
   left: 50%;

@@ -47,7 +47,7 @@ function Handle({
 }
 
 export const Slider = connectRange(
-  ({ min, max, refine, currentRefinement, canRefine, tickComponent }) => {
+  ({ min, max, refine, currentRefinement, canRefine }) => {
     const [ticksValues, setTicksValues] = useState([
       currentRefinement.min,
       currentRefinement.max,

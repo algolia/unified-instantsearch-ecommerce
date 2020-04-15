@@ -161,8 +161,8 @@ h2 {
 }
 
 .Unified-BodyHeader-heading {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
 }
 
@@ -179,8 +179,8 @@ h2 {
   font-weight: 600;
   letter-spacing: 0.08rem;
   line-height: 1.6;
-  text-transform: uppercase;
   padding-right: 8px;
+  text-transform: uppercase;
 }
 
 /* Styles the SFFV highlightings */
@@ -238,14 +238,14 @@ mark {
   width: 100%;
 }
 
-.Unified-Header .ais-SearchBox-submit,
-.Unified-Header .ais-SearchBox-reset {
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
   appearance: none;
   background: none;
   border: none;
 }
 
-.Unified-Header .ais-SearchBox-reset {
+.ais-SearchBox-reset {
   cursor: pointer;
 }
 
@@ -302,6 +302,7 @@ mark {
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.04rem;
+  line-height: 2rem;
   margin: 0;
   padding: 0;
   text-transform: uppercase;
@@ -366,13 +367,13 @@ mark {
 }
 
 .ais-CurrentRefinements-item {
-  white-space: nowrap;
-  display: flex;
   align-items: center;
   background-color: var(--algolia-theme-primary);
   border-radius: 3px;
   color: #fff;
+  display: flex;
   padding: 0 8px;
+  white-space: nowrap;
 }
 
 .ais-CurrentRefinements-item:not(:last-of-type) {
@@ -394,15 +395,24 @@ mark {
   border-left: 1px solid #fff;
   color: inherit;
   cursor: pointer;
+  height: 100%;
   padding: 0;
   padding-left: 6px;
-  height: 100%;
 }
 
 /* Pagination */
 
 .ais-Pagination {
   padding-top: 2rem;
+}
+
+/* ColorList */
+
+.ColorList .ais-RefinementList-checkbox {
+  border: none;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
 }
 
 /* Slider */
