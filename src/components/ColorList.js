@@ -7,6 +7,14 @@ export const ColorList = connectRefinementList((props) => {
   const [query, setQuery] = React.useState('');
   const inputRef = React.useRef(null);
 
+  props.items.sort((a, b) => {
+    if (a.label < b.label) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+
   return (
     <div className="ColorList ais-RefinementList">
       {props.searchable && (
