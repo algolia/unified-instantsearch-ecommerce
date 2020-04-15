@@ -35,7 +35,7 @@ export function useIntersectionObserver({
     return () => {
       observer.current.disconnect();
     };
-  }, [node, root, rootMargin, threshold]);
+  }, [node, root, rootMargin, threshold, callback]);
 
   return {
     setObservedNode: setNode,

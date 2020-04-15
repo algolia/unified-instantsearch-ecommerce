@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import { InstantSearch, Configure, SortBy } from 'react-instantsearch-dom';
 
-import config from './config.js';
+import config from './config';
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
 import { useSearchClient } from './hooks';
 
@@ -33,18 +33,21 @@ export function App(props) {
     Object.keys(searchState).length > 0
   );
 
-  function onSearchStateChange(searchState) {
+  function onSearchStateChange(nextSearchState) {
     clearTimeout(lastSetStateId.current);
 
     lastSetStateId.current = setTimeout(() => {
-      props.history.push(getUrlFromState(props, searchState), searchState);
+      props.history.push(
+        getUrlFromState(props, nextSearchState),
+        nextSearchState
+      );
 
       if (config.googleAnalytics) {
-        window.ga('send', 'pageView', `?query=${searchState.query}`);
+        window.ga('send', 'pageView', `?query=${nextSearchState.query}`);
       }
     }, 400);
 
-    setSearchState(searchState);
+    setSearchState(nextSearchState);
   }
 
   React.useEffect(() => {

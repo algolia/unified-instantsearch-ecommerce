@@ -1,14 +1,14 @@
 import qs from 'qs';
 
-// import config from './config.js';
+// import config from './config';
 
 // const supportedIndices = [
 //   config.indexName,
 //   ...config.sorts.map((sort) => sort.indexName),
 // ];
 
-function removeEmptyValues(value) {
-  return Object.entries(value).reduce((acc, [key, value]) => {
+function removeEmptyValues(object) {
+  return Object.entries(object).reduce((acc, [key, value]) => {
     if (
       value === '' ||
       (key === 'refinementList' &&

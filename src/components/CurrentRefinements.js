@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
 
-import config from '../config.js';
+import config from '../config';
 
 export const CurrentRefinements = connectCurrentRefinements(
   ({ items, refine }) => {

@@ -9,7 +9,7 @@ import {
 import { ReverseHighlight } from './ReverseHighlight';
 
 export const PredictiveSearchBox = connectSearchBox((props) => {
-  const [suggestion, setSuggestion] = React.useState(null);
+  const [currentSuggestion, setCurrentSuggestion] = React.useState(null);
   const inputRef = React.createRef(null);
 
   function onSubmit(event) {
@@ -90,9 +90,12 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
         </div>
 
         <div className="ais-SearchBox-inputContainer">
-          {suggestion && suggestion !== props.currentRefinement && (
-            <span className="ais-SearchBox-completion">{suggestion}</span>
-          )}
+          {currentSuggestion &&
+            currentSuggestion !== props.currentRefinement && (
+              <span className="ais-SearchBox-completion">
+                {currentSuggestion}
+              </span>
+            )}
 
           <input
             ref={inputRef}
@@ -109,13 +112,13 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
             placeholder={props.translations.placeholder}
             value={props.currentRefinement}
             onChange={(event) => {
-              setSuggestion(null);
+              setCurrentSuggestion(null);
               props.refine(event.currentTarget.value);
             }}
             onKeyDown={(event) => {
               if (event.key === 'Tab') {
                 event.preventDefault();
-                props.refine(suggestion);
+                props.refine(currentSuggestion);
               }
             }}
           />
@@ -152,7 +155,7 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
         />
         <Suggestions
           query={props.currentRefinement}
-          onSuggestion={(suggestion) => setSuggestion(suggestion)}
+          onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
           onClick={(value) => props.refine(value)}
         />
       </Index>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectHits, Pagination } from 'react-instantsearch-dom';
 
-import config from '../config.js';
+import config from '../config';
 import { trackClickOnHit } from '../analytics';
 
 export const Hits = connectHits((props) => {

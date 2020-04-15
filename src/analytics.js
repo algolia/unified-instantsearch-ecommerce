@@ -18,8 +18,8 @@ export const trackClickOnHit = (
 ) => {
   searchInsights.clickedObjectIDsAfterSearch({
     index: indexName,
-    eventName: eventName,
-    queryID: queryID,
+    eventName,
+    queryID,
     objectIDs: [objectID],
     positions: [position],
   });

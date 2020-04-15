@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectInfiniteHits } from 'react-instantsearch-dom';
 
-import config from '../config.js';
+import config from '../config';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { trackClickOnHit } from '../analytics';
 
