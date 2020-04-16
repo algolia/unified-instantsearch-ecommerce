@@ -22,6 +22,11 @@
   text-decoration: underline;
 }
 
+.Unified-Hit a:hover .ais-Highlight-highlighted,
+.Unified-Hit a:hover .ais-Snippet-highlighted {
+  border-bottom: none;
+}
+
 .Unified-Hit h1 {
   font-size: 14px;
   letter-spacing: 0.025rem;
