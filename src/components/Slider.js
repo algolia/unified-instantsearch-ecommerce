@@ -4,77 +4,78 @@ import Rheostat from 'rheostat';
 
 import './Slider.scss';
 
-export const Slider = connectRange((props) => {
-  const [currentMin, setCurrentMin] = React.useState(null);
-  const [currentMax, setCurrentMax] = React.useState(null);
-  const { min, max } = props;
+export const Slider = connectRange(
+  ({ min, max, currentRefinement, refine, transformValue = (x) => x }) => {
+    const [currentMin, setCurrentMin] = React.useState(null);
+    const [currentMax, setCurrentMax] = React.useState(null);
 
-  function computeMinValue(value) {
-    return Math.min(Math.max(value, props.min), props.max);
-  }
-
-  function computeMaxValue(value) {
-    return Math.max(Math.min(value, props.max), props.min);
-  }
-
-  function onChange({ values }) {
-    if (
-      props.currentRefinement.min !== values[0] ||
-      props.currentRefinement.max !== values[1]
-    ) {
-      let computedMin = computeMinValue(values[0]);
-      let computedMax = computeMaxValue(values[1]);
-
-      if (computedMin === computedMax && computedMin > props.min) {
-        computedMin -= 1;
-      } else if (computedMin === computedMax && computedMax < props.max) {
-        computedMax += 1;
-      }
-
-      props.refine({
-        min: computedMin,
-        max: computedMax,
-      });
+    function computeMinValue(value) {
+      return Math.min(Math.max(value, min), max);
     }
-  }
 
-  function onValuesUpdated({ values }) {
-    setCurrentMin(computeMinValue(values[0]));
-    setCurrentMax(computeMaxValue(values[1]));
-  }
+    function computeMaxValue(value) {
+      return Math.max(Math.min(value, max), min);
+    }
 
-  // `min` and `max` values are passed as `undefined` on the first render.
-  React.useEffect(() => {
-    setCurrentMin(min);
-    setCurrentMax(max);
-  }, [min, max]);
+    function onChange({ values }) {
+      if (
+        currentRefinement.min !== values[0] ||
+        currentRefinement.max !== values[1]
+      ) {
+        let computedMin = computeMinValue(values[0]);
+        let computedMax = computeMaxValue(values[1]);
 
-  if (props.min === props.max) {
-    return null;
-  }
+        if (computedMin === computedMax && computedMin > min) {
+          computedMin -= 1;
+        } else if (computedMin === computedMax && computedMax < max) {
+          computedMax += 1;
+        }
 
-  return (
-    <div className="Unified-Slider">
-      <div className="Unified-Slider-bar">
-        <Rheostat
-          className="Unified-Rheostat"
-          min={props.min}
-          max={props.max}
-          snap={true}
-          values={[props.currentRefinement.min, props.currentRefinement.max]}
-          onChange={onChange}
-          onValuesUpdated={onValuesUpdated}
-        />
-      </div>
+        refine({
+          min: computedMin,
+          max: computedMax,
+        });
+      }
+    }
 
-      <div className="Unified-Slider-values">
-        <div className="Unified-Slider-value Unified-Slider-value--min">
-          {currentMin}
+    function onValuesUpdated({ values }) {
+      setCurrentMin(computeMinValue(values[0]));
+      setCurrentMax(computeMaxValue(values[1]));
+    }
+
+    // `min` and `max` values are passed as `undefined` on the first render.
+    React.useEffect(() => {
+      setCurrentMin(min);
+      setCurrentMax(max);
+    }, [min, max]);
+
+    if (min === max) {
+      return null;
+    }
+
+    return (
+      <div className="Unified-Slider">
+        <div className="Unified-Slider-bar">
+          <Rheostat
+            className="Unified-Rheostat"
+            min={min}
+            max={max}
+            snap={true}
+            values={[currentRefinement.min, currentRefinement.max]}
+            onChange={onChange}
+            onValuesUpdated={onValuesUpdated}
+          />
         </div>
-        <div className="Unified-Slider-value Unified-Slider-value--max">
-          {currentMax}
+
+        <div className="Unified-Slider-values">
+          <div className="Unified-Slider-value Unified-Slider-value--min">
+            {transformValue(currentMin)}
+          </div>
+          <div className="Unified-Slider-value Unified-Slider-value--max">
+            {transformValue(currentMax)}
+          </div>
         </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);

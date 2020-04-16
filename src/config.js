@@ -1,3 +1,5 @@
+import React from 'react';
+
 const config = {
   inputSelector: '#search-button',
   appId: 'E8KS2J9PMC',
@@ -82,6 +84,12 @@ const config = {
       name: 'Prix',
       options: {
         attribute: 'price',
+        transformValue: (value) => (
+          <>
+            <span className="Unified-Hit-Currency">£</span>
+            {value}
+          </>
+        ),
       },
     },
   ],
