@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "algoliasearch": "4.1.0",
-    "instantsearch-color-refinement-list-react": "0.2.6",
     "instantsearch-group-size-refinement-list-react": "0.2.6",
     "node-sass": "4.13.1",
     "qs": "6.9.3",

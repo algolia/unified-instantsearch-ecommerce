@@ -5631,14 +5631,6 @@ inquirer@^7.0.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-instantsearch-color-refinement-list-react@0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/instantsearch-color-refinement-list-react/-/instantsearch-color-refinement-list-react-0.2.6.tgz#ed04f89162cbe1cdbc685a0dbf539709a250a6d0"
-  integrity sha512-mZYN3D/0L2EciG8cZ4wzvRXum0zmDcuCGZ3Bh/sZuVE8oXtQlPeHUgeMkD7Bx0YyC3ItVTC8QNS18ZBmbdpTdg==
-  dependencies:
-    react-instantsearch "^5.3.1"
-    react-instantsearch-dom "^5.3.1"
-
 instantsearch-group-size-refinement-list-react@0.2.6:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/instantsearch-group-size-refinement-list-react/-/instantsearch-group-size-refinement-list-react-0.2.6.tgz#f845030cca1e3ac2f87e5568aa806ee477a56cf5"
