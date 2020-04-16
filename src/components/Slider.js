@@ -1,147 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connectRange } from 'react-instantsearch-dom';
-import {
-  Slider as RCSSlider,
-  Rail,
-  Handles,
-  Tracks,
-  Ticks,
-} from 'react-compound-slider';
+import Rheostat from 'rheostat';
 
 import './Slider.scss';
 
-function Handle({
-  domain: [min, max],
-  handle: { id, value, percent },
-  disabled,
-  getHandleProps,
-}) {
-  return (
-    <>
-      {/* Dummy element to make the tooltip draggable */}
-      <div
-        style={{
-          position: 'absolute',
-          left: `${percent}%`,
-          width: 40,
-          height: 25,
-          transform: 'translate(-50%, -100%)',
-          cursor: disabled ? 'not-allowed' : 'grab',
-          zIndex: 1,
-        }}
-        aria-hidden={true}
-        {...getHandleProps(id)}
-      />
-      <div
-        role="slider"
-        className="slider-handle"
-        aria-valuemin={min}
-        aria-valuemax={max}
-        aria-valuenow={value}
-        style={{
-          left: `${percent}%`,
-          cursor: disabled ? 'not-allowed' : 'grab',
-        }}
-        {...getHandleProps(id)}
-      />
-    </>
-  );
-}
+export const Slider = connectRange((props) => {
+  const [currentMin, setCurrentMin] = React.useState(null);
+  const [currentMax, setCurrentMax] = React.useState(null);
+  const { min, max } = props;
 
-export const Slider = connectRange(
-  ({ min, max, refine, currentRefinement, canRefine }) => {
-    const [ticksValues, setTicksValues] = useState([
-      currentRefinement.min,
-      currentRefinement.max,
-    ]);
-
-    useEffect(() => {
-      setTicksValues([currentRefinement.min, currentRefinement.max]);
-    }, [currentRefinement]);
-
-    const onChange = (values) => {
-      refine({ min: values[0], max: values[1] });
-    };
-
-    if (
-      !canRefine ||
-      ticksValues[0] === undefined ||
-      ticksValues[1] === undefined
-    ) {
-      return null;
-    }
-
-    return (
-      <RCSSlider
-        mode={2}
-        step={1}
-        domain={[min, max]}
-        values={[currentRefinement.min, currentRefinement.max]}
-        disabled={!canRefine}
-        onChange={onChange}
-        onUpdate={setTicksValues}
-        rootStyle={{ position: 'relative', marginTop: '1.5rem' }}
-        className="ais-RangeSlider"
-      >
-        <Rail>
-          {({ getRailProps }) => (
-            <div className="slider-rail" {...getRailProps()} />
-          )}
-        </Rail>
-
-        <Tracks left={false} right={false}>
-          {({ tracks, getTrackProps }) => (
-            <div>
-              {tracks.map(({ id, source, target }) => (
-                <div
-                  key={id}
-                  className="slider-track"
-                  style={{
-                    left: `${source.percent}%`,
-                    width: `${target.percent - source.percent}%`,
-                  }}
-                  {...getTrackProps()}
-                />
-              ))}
-            </div>
-          )}
-        </Tracks>
-
-        <Handles>
-          {({ handles, getHandleProps }) => (
-            <div>
-              {handles.map((handle) => (
-                <Handle
-                  key={handle.id}
-                  handle={handle}
-                  domain={[min, max]}
-                  getHandleProps={getHandleProps}
-                />
-              ))}
-            </div>
-          )}
-        </Handles>
-
-        <Ticks values={ticksValues}>
-          {({ ticks }) => (
-            <div>
-              {ticks.map(({ id, count, value, percent }) => (
-                <div
-                  key={id}
-                  className="slider-tick"
-                  style={{
-                    marginLeft: `${-(100 / count) / 2}%`,
-                    width: `${100 / count}%`,
-                    left: `${percent}%`,
-                  }}
-                >
-                  {value.toLocaleString()}
-                </div>
-              ))}
-            </div>
-          )}
-        </Ticks>
-      </RCSSlider>
-    );
+  function computeMinValue(value) {
+    return Math.min(Math.max(value, props.min), props.max);
   }
-);
+
+  function computeMaxValue(value) {
+    return Math.max(Math.min(value, props.max), props.min);
+  }
+
+  function onChange({ values }) {
+    if (
+      props.currentRefinement.min !== values[0] ||
+      props.currentRefinement.max !== values[1]
+    ) {
+      let computedMin = computeMinValue(values[0]);
+      let computedMax = computeMaxValue(values[1]);
+
+      if (computedMin === computedMax && computedMin > props.min) {
+        computedMin -= 1;
+      } else if (computedMin === computedMax && computedMax < props.max) {
+        computedMax += 1;
+      }
+
+      props.refine({
+        min: computedMin,
+        max: computedMax,
+      });
+    }
+  }
+
+  function onValuesUpdated({ values }) {
+    setCurrentMin(computeMinValue(values[0]));
+    setCurrentMax(computeMaxValue(values[1]));
+  }
+
+  // `min` and `max` values are passed as `undefined` on the first render.
+  React.useEffect(() => {
+    setCurrentMin(min);
+    setCurrentMax(max);
+  }, [min, max]);
+
+  if (props.min === props.max) {
+    return null;
+  }
+
+  return (
+    <div className="Unified-Slider">
+      <div className="Unified-Slider-bar">
+        <Rheostat
+          className="Unified-Rheostat"
+          min={props.min}
+          max={props.max}
+          snap={true}
+          values={[props.currentRefinement.min, props.currentRefinement.max]}
+          onChange={onChange}
+          onValuesUpdated={onValuesUpdated}
+        />
+      </div>
+
+      <div className="Unified-Slider-values">
+        <div className="Unified-Slider-value Unified-Slider-value--min">
+          {currentMin}
+        </div>
+        <div className="Unified-Slider-value Unified-Slider-value--max">
+          {currentMax}
+        </div>
+      </div>
+    </div>
+  );
+});

@@ -1,4 +1,24 @@
-.ais-RangeSlider .slider-rail {
+.Unified-Slider {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  position: relative;
+  width: 100%;
+}
+
+.Unified-Slider-bar {
+  padding: 0 8px;
+  display: block;
+}
+
+.Unified-Slider-values {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.Unified-Slider .rheostat-background {
   background-color: rgba(65, 66, 71, 0.08);
   border-radius: 3px;
   cursor: pointer;
@@ -7,7 +27,7 @@
   width: 100%;
 }
 
-.ais-RangeSlider .slider-track {
+.Unified-Slider .rheostat-progress {
   background-color: var(--algolia-theme-primary);
   border-radius: 3px;
   cursor: pointer;
@@ -15,20 +35,9 @@
   position: absolute;
 }
 
-.ais-RangeSlider .slider-tick {
-  cursor: grab;
-  display: flex;
-  font-size: 0.75rem;
-  font-weight: bold;
-  position: absolute;
-  text-align: center;
-  top: -28px;
-  transform: translateX(-50%);
-  user-select: none;
-}
-
-.ais-RangeSlider .slider-handle {
+.Unified-Slider .rheostat-handle {
   background-image: linear-gradient(to top, #f5f5fa, #fff);
+  border: none;
   border-radius: 50%;
   box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
     0 2px 3px 0 rgba(93, 100, 148, 0.2);
@@ -42,7 +51,11 @@
 }
 
 @media (max-width: 899px) {
-  .ais-RangeSlider .slider-handle {
+  .Unified-Slider-bar {
+    padding: 0 0.75rem;
+  }
+
+  .Unified-Slider .rheostat-handle {
     height: 1.5rem;
     width: 1.5rem;
   }

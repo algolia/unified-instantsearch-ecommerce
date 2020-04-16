@@ -21,6 +21,7 @@
     "react-instantsearch-dom": "5.7.0",
     "react-router-dom": "5.1.2",
     "react-scripts": "3.4.1",
+    "rheostat": "2.2.0",
     "search-insights": "1.4.0"
   },
   "devDependencies": {
