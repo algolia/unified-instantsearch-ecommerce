@@ -104,24 +104,26 @@ function Hit({ hit, trackClickOnHit }) {
         )
       }
     >
-      <header className="hit-header">
-        <img src={hit.image} alt={hit.description} className="hit-image" />
-      </header>
+      <a href={`https://asos.com/${hit.url}`}>
+        <header className="hit-header">
+          <img src={hit.image} alt={hit.description} className="hit-image" />
+        </header>
 
-      <div className="hit-body">
-        <div className="hit-category">
-          {hit.brand} · {hit.gender}
+        <div className="hit-body">
+          <div className="hit-category">
+            {[hit.brand, hit.gender].filter(Boolean).join(' · ')}
+          </div>
+
+          <h1>
+            <Highlight attribute="description" tagName="mark" hit={hit} />
+          </h1>
         </div>
 
-        <h1>
-          <Highlight attribute="description" tagName="mark" hit={hit} />
-        </h1>
-      </div>
-
-      <footer className="hit-footer">
-        <span className="hit-currency">£</span>
-        <strong>{hit.price.toLocaleString()}</strong>{' '}
-      </footer>
+        <footer className="hit-footer">
+          <span className="hit-currency">£</span>
+          <strong>{hit.price.toLocaleString()}</strong>{' '}
+        </footer>
+      </a>
     </article>
   );
 }
