@@ -46,7 +46,6 @@ const config = {
       options: {
         attribute: 'colors',
         limit: 14,
-        searchable: true,
         showMoreLimit: 40,
         showMore: true,
         translations: {
