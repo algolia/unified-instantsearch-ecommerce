@@ -6,7 +6,7 @@ import {
   Configure,
 } from 'react-instantsearch-dom';
 
-import { ReverseHighlight } from './ReverseHighlight';
+import { ReverseHighlight } from '../ReverseHighlight';
 
 export const PredictiveSearchBox = connectSearchBox((props) => {
   const [currentSuggestion, setCurrentSuggestion] = React.useState(null);

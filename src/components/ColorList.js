@@ -3,8 +3,11 @@ import { connectRefinementList } from 'react-instantsearch-dom';
 
 import './ColorList.scss';
 import { UncontrolledSearchBox } from './SearchBox/UncontrolledSearchBox';
+import { PartialHighlight } from './PartialHighlight';
 
 export const ColorList = connectRefinementList((props) => {
+  console.log('isFromSearch', props.isFromSearch);
+
   const [query, setQuery] = React.useState('');
   const inputRef = React.useRef(null);
 
@@ -98,7 +101,11 @@ export const ColorList = connectRefinementList((props) => {
                     }}
                   />
                   <span className="ais-RefinementList-labelText">
-                    {colorName}
+                    {props.isFromSearch ? (
+                      <PartialHighlight hit={item} attribute="label" />
+                    ) : (
+                      colorName
+                    )}
                   </span>
                   <span className="ais-RefinementList-count">{item.count}</span>
                 </label>
