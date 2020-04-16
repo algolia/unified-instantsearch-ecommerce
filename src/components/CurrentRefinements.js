@@ -6,15 +6,13 @@ import './CurrentRefinements.scss';
 
 export const CurrentRefinements = connectCurrentRefinements(
   ({ items, refine }) => {
-    // This reduce loops over the items
-    // If the items key present then it's a currentRefinement type else it's a range
     const tags = items.reduce(
       (acc, curr) => [
         ...acc,
-        ...('items' in curr
+        ...(curr.items
           ? [
               ...curr.items.map((refinement) => ({
-                group:
+                category:
                   config.translations.refinementList[curr.attribute] ||
                   curr.attribute,
                 label: refinement.label.split(';')[0],
@@ -23,7 +21,7 @@ export const CurrentRefinements = connectCurrentRefinements(
             ]
           : [
               {
-                group:
+                category:
                   config.translations.refinementList[curr.attribute] ||
                   curr.attribute,
                 label: `${curr.currentRefinement.min || 'min'} – ${
@@ -43,10 +41,15 @@ export const CurrentRefinements = connectCurrentRefinements(
     return (
       <div className="ais-CurrentRefinements">
         <ul className="ais-CurrentRefinements-list">
-          {tags.map((tag, index) => {
+          {tags.map((tag) => {
             return (
-              <li className="ais-CurrentRefinements-item" key={index}>
-                <div className="ais-CurrentRefinements-label">{tag.group}</div>
+              <li
+                className="ais-CurrentRefinements-item"
+                key={[tag.category, tag.label].join(':')}
+              >
+                <div className="ais-CurrentRefinements-label">
+                  {tag.category}
+                </div>
                 <div className="ais-CurrentRefinements-category">
                   <span className="ais-CurrentRefinements-categoryLabel">
                     {tag.label}
