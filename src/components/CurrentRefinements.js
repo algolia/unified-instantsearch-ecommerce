@@ -4,6 +4,14 @@ import { connectCurrentRefinements } from 'react-instantsearch-dom';
 import config from '../config';
 import './CurrentRefinements.scss';
 
+function findAttributeName(attribute) {
+  return (
+    config.refinements.find(
+      (refinement) => refinement.options.attribute === attribute
+    ).name || attribute
+  );
+}
+
 export const CurrentRefinements = connectCurrentRefinements(
   ({ items, refine }) => {
     const tags = items.reduce(
@@ -12,18 +20,14 @@ export const CurrentRefinements = connectCurrentRefinements(
         ...(curr.items
           ? [
               ...curr.items.map((refinement) => ({
-                category:
-                  config.translations.refinementList[curr.attribute] ||
-                  curr.attribute,
+                category: findAttributeName(curr.attribute),
                 label: refinement.label.split(';')[0],
                 value: refinement.value,
               })),
             ]
           : [
               {
-                category:
-                  config.translations.refinementList[curr.attribute] ||
-                  curr.attribute,
+                category: findAttributeName(curr.attribute),
                 label: `${curr.currentRefinement.min || 'min'} – ${
                   curr.currentRefinement.max || 'max'
                 }`,

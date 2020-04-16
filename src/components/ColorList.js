@@ -6,8 +6,6 @@ import { UncontrolledSearchBox } from './SearchBox/UncontrolledSearchBox';
 import { PartialHighlight } from './PartialHighlight';
 
 export const ColorList = connectRefinementList((props) => {
-  console.log('isFromSearch', props.isFromSearch);
-
   const [query, setQuery] = React.useState('');
   const inputRef = React.useRef(null);
 

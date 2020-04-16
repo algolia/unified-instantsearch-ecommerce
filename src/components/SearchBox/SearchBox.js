@@ -5,13 +5,12 @@ import { BasicSearchBox } from './BasicSearchBox';
 import { PredictiveSearchBox } from './PredictiveSearchBox';
 
 export const SearchBox = (props) => {
-  if (config.suggestions) {
+  if (config.suggestionsIndex) {
     return (
       <PredictiveSearchBox
         {...props}
         translations={{ placeholder: 'Search for a product, brand, color, …' }}
-        suggestionsIndexName={config.suggestions.indexName}
-        maxSuggestions={config.suggestions.maxSuggestions}
+        suggestionsIndex={config.suggestionsIndex}
       />
     );
   }

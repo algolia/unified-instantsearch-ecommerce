@@ -14,18 +14,13 @@ const PANELS = {
   price: RefinementPrice,
 };
 
-export const Refinements = (props) => {
+export const Refinements = () => {
   const refinements = config.refinements;
 
-  return (
-    <>
-      {refinements.map((refinement) =>
-        React.createElement(PANELS[refinement.type], {
-          key: refinement.attribute,
-          ...refinement,
-          ...props,
-        })
-      )}
-    </>
+  return refinements.map((refinement) =>
+    React.createElement(PANELS[refinement.type], {
+      key: refinement.options.attribute,
+      ...refinement,
+    })
   );
 };

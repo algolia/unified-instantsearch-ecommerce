@@ -1,24 +1,35 @@
 const config = {
+  inputSelector: '#search-button',
   appId: 'E8KS2J9PMC',
   searchApiKey: '9a2480ff719c1092d2ef9ad3c6d36cf1',
-  indexName: 'mika_asos',
-  inputSelector: '#search-button',
-  suggestions: {
+  index: {
+    indexName: 'mika_asos',
+    searchParameters: {
+      analytics: true,
+      clickAnalytics: true,
+      hitsPerPage: 18,
+    },
+  },
+  suggestionsIndex: {
     indexName: 'mika_asos_qs',
     maxSuggestions: 6,
+    searchParameters: {
+      hitsPerPage: 6,
+    },
   },
   googleAnalytics: false,
-  searchParameters: {
-    analytics: true,
-    clickAnalytics: true,
-    hitsPerPage: 18,
-  },
+  sorts: [
+    { value: 'mika_asos', label: 'Produits recommandés' },
+    { value: 'mika_asos_price_asc', label: 'Prix croissant' },
+    { value: 'mika_asos_price_desc', label: 'Prix décroissant' },
+  ],
   refinements: [
     {
       type: 'basic',
-      attribute: 'brand',
-      header: 'Marques',
-      extra: {
+      header: 'Brands',
+      name: 'Brand',
+      options: {
+        attribute: 'brand',
         showMore: true,
         limit: 6,
         showMoreLimit: 20,
@@ -30,9 +41,10 @@ const config = {
     },
     {
       type: 'color',
-      attribute: 'colors',
-      header: 'Couleur',
-      extra: {
+      header: 'Colors',
+      name: 'Color',
+      options: {
+        attribute: 'colors',
         limit: 14,
         searchable: true,
         showMoreLimit: 40,
@@ -46,9 +58,10 @@ const config = {
     },
     {
       type: 'size',
-      attribute: 'sizes',
-      header: 'Tailles',
-      extra: {
+      header: 'Sizes',
+      name: 'Size',
+      options: {
+        attribute: 'sizes',
         patterns: [
           '^([2-5]?X?L|XX?S|S|M)$',
           '^(EU [1-9][0-9]?|100)$',
@@ -65,25 +78,13 @@ const config = {
     },
     {
       type: 'price',
-      attribute: 'price',
       header: 'Prix',
+      name: 'Prix',
+      options: {
+        attribute: 'price',
+      },
     },
   ],
-  sorts: [
-    { value: 'mika_asos', label: 'Produits recommandés' },
-    { value: 'mika_asos_price_asc', label: 'Prix croissant' },
-    { value: 'mika_asos_price_desc', label: 'Prix décroissant' },
-  ],
-  translations: {
-    sortTitle: 'Trier',
-    refinementTitle: 'Filtrer',
-    refinementList: {
-      brand: 'Marque',
-      color: 'Couleur',
-      size: 'Taille',
-      price: 'Prix',
-    },
-  },
 };
 
 export default config;

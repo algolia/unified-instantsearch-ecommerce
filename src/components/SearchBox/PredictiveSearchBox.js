@@ -147,8 +147,8 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
         </button>
       </form>
 
-      <Index indexName={props.suggestionsIndexName}>
-        <Configure page={0} hitsPerPage={props.maxSuggestions} />
+      <Index indexName={props.suggestionsIndex.indexName}>
+        <Configure page={0} {...props.suggestionsIndex.searchParameters} />
         <Suggestions
           query={props.currentRefinement}
           onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}

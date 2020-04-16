@@ -3,8 +3,8 @@ import { RefinementList } from 'react-instantsearch-dom';
 
 import { Panel } from './Panel';
 
-export const RefinementBasic = (props) => (
-  <Panel {...props}>
-    <RefinementList {...props} {...props.extra} />
+export const RefinementBasic = ({ header, ...props }) => (
+  <Panel header={header}>
+    <RefinementList {...props.options} />
   </Panel>
 );

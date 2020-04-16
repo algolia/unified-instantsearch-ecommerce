@@ -106,7 +106,7 @@ export function App(props) {
             <div className="Unified-Container" ref={topAnchor}>
               <InstantSearch
                 searchClient={searchClient}
-                indexName={config.indexName}
+                indexName={config.index.indexName}
                 searchState={searchState}
                 onSearchStateChange={onSearchStateChange}
                 createURL={createURL}

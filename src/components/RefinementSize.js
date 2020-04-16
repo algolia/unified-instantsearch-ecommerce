@@ -3,12 +3,11 @@ import GroupSizeRefinementList from 'instantsearch-group-size-refinement-list-re
 
 import { Panel } from './Panel';
 
-export const RefinementSize = (props) => (
-  <Panel {...props}>
+export const RefinementSize = ({ header, ...props }) => (
+  <Panel header={header}>
     <GroupSizeRefinementList
-      {...props}
-      {...props.extra}
-      patterns={props.extra.patterns.map((pattern) => new RegExp(pattern))}
+      {...props.options}
+      patterns={props.options.patterns.map((pattern) => new RegExp(pattern))}
     />
   </Panel>
 );
