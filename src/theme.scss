@@ -64,8 +64,14 @@ a[class^='ais-'] {
 /* Highlighting */
 
 .ais-Highlight-highlighted,
-.ais-Snippet-highlighted {
-  background: rgba(226, 164, 0, 0.4);
+.ais-Snippet-highlighted,
+em,
+mark {
+  background: none;
+  color: var(--algolia-theme-primary);
+  border-bottom: 1px solid var(--algolia-theme-primary);
+  font-style: normal;
+  font-weight: bold;
 }
 
 /* Hits */
