@@ -94,6 +94,7 @@ export const ColorList = connectRefinementList((props) => {
                     onChange={(event) => {
                       event.preventDefault();
                       props.refine(item.value);
+                      setQuery('');
                     }}
                   />
                   <span className="ais-RefinementList-labelText">
