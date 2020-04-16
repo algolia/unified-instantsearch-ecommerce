@@ -372,7 +372,7 @@ mark {
   border-radius: 3px;
   color: #fff;
   display: flex;
-  padding: 0 8px;
+  // padding: 0 8px;
   white-space: nowrap;
 }
 
@@ -381,7 +381,7 @@ mark {
 }
 
 .ais-CurrentRefinements-label {
-  padding: 4px 4px 4px 0;
+  padding: 4px 4px 4px 8px;
 }
 
 .ais-CurrentRefinements-categoryLabel {
@@ -396,8 +396,7 @@ mark {
   color: inherit;
   cursor: pointer;
   height: 100%;
-  padding: 0;
-  padding-left: 6px;
+  padding: 0 6px;
 }
 
 /* Pagination */
