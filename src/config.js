@@ -1,6 +1,3 @@
-import React from 'react';
-import { Highlight } from 'react-instantsearch-dom';
-
 const config = {
   appId: 'E8KS2J9PMC',
   searchApiKey: '9a2480ff719c1092d2ef9ad3c6d36cf1',
@@ -16,7 +13,6 @@ const config = {
     clickAnalytics: true,
     hitsPerPage: 18,
   },
-  hitComponent: Hit,
   refinements: [
     {
       type: 'basic',
@@ -89,43 +85,5 @@ const config = {
     },
   },
 };
-
-function Hit({ hit, trackClickOnHit }) {
-  return (
-    <article
-      className="hit"
-      onClick={() =>
-        trackClickOnHit(
-          config.indexName,
-          'Click on product',
-          hit.__queryID,
-          hit.objectID,
-          hit.__position
-        )
-      }
-    >
-      <a href={`https://asos.com/${hit.url}`}>
-        <header className="hit-header">
-          <img src={hit.image} alt={hit.description} className="hit-image" />
-        </header>
-
-        <div className="hit-body">
-          <div className="hit-category">
-            {[hit.brand, hit.gender].filter(Boolean).join(' · ')}
-          </div>
-
-          <h1>
-            <Highlight attribute="description" tagName="mark" hit={hit} />
-          </h1>
-        </div>
-
-        <footer className="hit-footer">
-          <span className="hit-currency">£</span>
-          <strong>{hit.price.toLocaleString()}</strong>{' '}
-        </footer>
-      </a>
-    </article>
-  );
-}
 
 export default config;

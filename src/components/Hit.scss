@@ -1,0 +1,68 @@
+.Unified-Hit {
+  color: #21243d;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.Unified-Hit a {
+  color: inherit;
+  text-decoration: inherit;
+  display: block;
+  border: 1px solid #fff;
+  padding: 1rem;
+  border-radius: 3px;
+}
+
+.Unified-Hit a:hover {
+  border-color: #ddd;
+  box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
+}
+
+.Unified-Hit a:hover h1 {
+  text-decoration: underline;
+}
+
+.Unified-Hit h1 {
+  font-size: 14px;
+  letter-spacing: 0.025rem;
+}
+
+.Unified-Hit-Header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-bottom: 0.5rem;
+}
+
+.Unified-Hit-Footer {
+  padding-top: 0.5rem;
+}
+
+.Unified-Hit-Body {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.Hit-Header img {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.Unified-Hit h2 {
+  color: #21243d;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5rem 0;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.Unified-Hit-Currency {
+  color: var(--algolia-theme-primary);
+  font-size: 13px;
+  font-weight: 600;
+  padding-right: 2px;
+}

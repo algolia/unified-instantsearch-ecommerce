@@ -3,6 +3,7 @@ import { connectHits, Pagination } from 'react-instantsearch-dom';
 
 import config from '../config';
 import { trackClickOnHit } from '../analytics';
+import { Hit } from './Hit';
 
 export const Hits = connectHits((props) => {
   return (
@@ -10,12 +11,49 @@ export const Hits = connectHits((props) => {
       <ol className="ais-Hits-list">
         {props.hits.map((hit) => (
           <li key={hit.objectID} className="ais-Hits-item">
-            <config.hitComponent hit={hit} trackClickOnHit={trackClickOnHit} />
+            <Hit
+              indexName={config.indexName}
+              hit={hit}
+              trackClickOnHit={trackClickOnHit}
+            />
           </li>
         ))}
       </ol>
 
-      <Pagination showFirst={false} padding={2} />
+      <Pagination
+        showFirst={false}
+        padding={2}
+        translations={{
+          previous: (
+            <svg width={10} height={10} viewBox="0 0 10 10">
+              <g
+                fill="none"
+                fillRule="evenodd"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.143"
+              >
+                <path d="M9 5H1M5 9L1 5l4-4" />
+              </g>
+            </svg>
+          ),
+          next: (
+            <svg width={10} height={10} viewBox="0 0 10 10">
+              <g
+                fill="none"
+                fillRule="evenodd"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.143"
+              >
+                <path d="M1 5h8M5 9l4-4-4-4" />
+              </g>
+            </svg>
+          ),
+        }}
+      />
     </div>
   );
 });
