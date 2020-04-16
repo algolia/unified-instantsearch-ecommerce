@@ -48,10 +48,10 @@
     display: block;
   }
 
-  input,
-  button,
-  textarea,
-  select {
+  input:not([class]),
+  button:not([class]),
+  textarea:not([class]),
+  select:not([class]) {
     font: inherit;
   }
 

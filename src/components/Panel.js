@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Panel.scss';
+
 export function Panel({
   isOpened: initialIsOpened = true,
   header,
@@ -21,26 +23,28 @@ export function Panel({
       {...rest}
     >
       <div className="ais-Panel-header">
-        <span>{header}</span>
-
         <button
-          className="ais-Panel-collapseButton"
+          className="ais-Panel-headerButton"
           aria-expanded={isOpened}
           onClick={() => setIsOpened((prevValue) => !prevValue)}
         >
-          {isOpened ? (
-            <svg viewBox="0 0 13 13" width={13} height={13}>
-              <path fill="currentColor" d="M0 6h13v1H0z" fillRule="evenodd" />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 13 13" width={13} height={13}>
-              <path
-                fill="currentColor"
-                d="M6 6V0h1v6h6v1H7v6H6V7H0V6h6z"
-                fillRule="evenodd"
-              />
-            </svg>
-          )}
+          <div>{header}</div>
+
+          <div className="ais-Panel-collapseButton">
+            {isOpened ? (
+              <svg viewBox="0 0 13 13" width={13} height={13}>
+                <path fill="currentColor" d="M0 6h13v1H0z" fillRule="evenodd" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 13 13" width={13} height={13}>
+                <path
+                  fill="currentColor"
+                  d="M6 6V0h1v6h6v1H7v6H6V7H0V6h6z"
+                  fillRule="evenodd"
+                />
+              </svg>
+            )}
+          </div>
         </button>
       </div>
 
