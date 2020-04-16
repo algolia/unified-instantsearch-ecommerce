@@ -4,6 +4,12 @@
     "stylelint-config-sass-guidelines",
     "stylelint-order",
     "stylelint-a11y/recommended"
-  ]
+  ],
+  "rules": {
+    "selector-class-pattern": [
+      "^[a-z0-9\\-]+$",
+      "^ais-[a-zA-Z0-9\\-]+$"
+    ]
+  }
 }
 
