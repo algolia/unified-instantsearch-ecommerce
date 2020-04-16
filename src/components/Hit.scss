@@ -5,20 +5,22 @@
 }
 
 .Unified-Hit a {
-  color: inherit;
-  text-decoration: inherit;
-  display: block;
   border: 1px solid #fff;
-  padding: 1rem;
   border-radius: 3px;
+  color: inherit;
+  display: block;
+  padding: 1rem;
+  text-decoration: inherit;
 }
 
-.Unified-Hit a:hover {
+.Unified-Hit a:hover,
+.Unified-Hit a:focus {
   border-color: #ddd;
   box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
 }
 
-.Unified-Hit a:hover h1 {
+.Unified-Hit a:hover h1,
+.Unified-Hit a:focus h1 {
   text-decoration: underline;
 }
 
@@ -37,8 +39,8 @@
   display: flex;
   justify-content: center;
   margin: auto;
-  padding-bottom: 0.5rem;
   min-height: 180px;
+  padding-bottom: 0.5rem;
 }
 
 .Hit-Header img {
@@ -61,8 +63,8 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 1;
-  padding: 0.5rem 0;
   opacity: 0.7;
+  padding: 0.5rem 0;
   text-transform: uppercase;
 }
 
