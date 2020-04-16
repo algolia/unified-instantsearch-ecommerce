@@ -148,12 +148,7 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
       </form>
 
       <Index indexName={props.suggestionsIndexName}>
-        <Configure
-          // @TODO: remove all refinements from parent index
-          facets={[]}
-          page={0}
-          hitsPerPage={props.maxSuggestions}
-        />
+        <Configure page={0} hitsPerPage={props.maxSuggestions} />
         <Suggestions
           query={props.currentRefinement}
           onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
@@ -184,10 +179,17 @@ const Suggestions = connectHits((props) => {
   }, [props.hits]);
 
   return (
-    <div className="Unified-QuerySuggestions">
+    <div
+      className={[
+        'Unified-QuerySuggestions',
+        props.hits.length === 0 && 'Unified-QuerySuggestions--empty',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <span className="Unified-QuerySuggestions-label">Suggestions</span>
 
-      {props.hits.length > 0 ? (
+      {props.hits.length > 0 && (
         <ol className="Unified-QuerySuggestions-list">
           {props.hits.map((hit) => {
             return (
@@ -202,8 +204,6 @@ const Suggestions = connectHits((props) => {
             );
           })}
         </ol>
-      ) : (
-        'None'
       )}
     </div>
   );

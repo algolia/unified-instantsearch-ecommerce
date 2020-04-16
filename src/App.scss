@@ -87,6 +87,10 @@ h2 {
   }
 }
 
+.Unified-QuerySuggestions--empty {
+  visibility: hidden;
+}
+
 .Unified-QuerySuggestions-label {
   color: rgba(255, 255, 255, 0.8);
   font-weight: bold;
@@ -115,8 +119,8 @@ h2 {
 .Unified-QuerySuggestions-button mark {
   background: none;
   color: inherit;
-  font-weight: bold;
   padding: 0;
+  border: none;
 }
 
 /* Containers */
