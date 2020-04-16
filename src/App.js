@@ -103,7 +103,7 @@ export function App(props) {
               onClick={() => setIsOverlayShowing(false)}
             />
 
-            <div className="Unified-Container">
+            <div className="Unified-Container" ref={topAnchor}>
               <InstantSearch
                 searchClient={searchClient}
                 indexName={config.indexName}
@@ -114,7 +114,7 @@ export function App(props) {
                 <Configure {...config.searchParameters} />
                 <QueryRulesHandler searchState={searchState} />
 
-                <div ref={topAnchor} id="Unified-Wrapper">
+                <div id="Unified-Wrapper">
                   <header className="Unified-Header">
                     <SearchBox />
 

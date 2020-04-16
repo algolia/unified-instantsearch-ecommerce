@@ -90,7 +90,8 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
         </div>
 
         <div className="ais-SearchBox-inputContainer">
-          {currentSuggestion &&
+          {props.currentRefinement &&
+            currentSuggestion &&
             currentSuggestion !== props.currentRefinement && (
               <span className="ais-SearchBox-completion">
                 {currentSuggestion}
