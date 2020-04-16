@@ -47,7 +47,10 @@
     "prettier": "2.0.4",
     "prop-types": "15.7.2",
     "stylelint": "13.3.2",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-config-standard": "20.0.0",
+    "stylelint-order": "^4.0.0",
     "webpack-cli": "3.3.11"
   },
   "browserslist": [
