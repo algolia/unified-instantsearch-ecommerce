@@ -60,6 +60,7 @@ const config = {
       type: 'size',
       header: 'Sizes',
       name: 'Size',
+      isCollapsed: true,
       options: {
         attribute: 'sizes',
         patterns: [

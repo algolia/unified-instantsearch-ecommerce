@@ -1,26 +1,44 @@
 import React from 'react';
-
-import { RefinementBasic } from './RefinementBasic';
-import { RefinementColor } from './RefinementColor';
-import { RefinementSize } from './RefinementSize';
-import { RefinementPrice } from './RefinementPrice';
+import { RefinementList } from 'react-instantsearch-dom';
+import GroupSizeRefinementList from 'instantsearch-group-size-refinement-list-react';
 
 import config from '../config';
+import { Panel } from './Panel';
+import { ColorList } from './ColorList';
+import { Slider } from './Slider';
 
-const PANELS = {
-  basic: RefinementBasic,
-  color: RefinementColor,
-  size: RefinementSize,
-  price: RefinementPrice,
-};
+function RefinementWidget({ type, ...props }) {
+  switch (type) {
+    case 'basic':
+      return <RefinementList {...props} />;
+
+    case 'color':
+      return <ColorList {...props} />;
+
+    case 'size':
+      return (
+        <GroupSizeRefinementList
+          {...props}
+          patterns={props.patterns.map((pattern) => new RegExp(pattern))}
+        />
+      );
+
+    case 'price':
+      return <Slider {...props} />;
+
+    default:
+      throw new Error(`The refinement type "${type}" does not exist.`);
+  }
+}
 
 export const Refinements = () => {
-  const refinements = config.refinements;
-
-  return refinements.map((refinement) =>
-    React.createElement(PANELS[refinement.type], {
-      key: refinement.options.attribute,
-      ...refinement,
-    })
-  );
+  return config.refinements.map((refinement) => (
+    <Panel
+      key={refinement.options.attribute}
+      header={refinement.header}
+      isOpened={!refinement.isCollapsed}
+    >
+      <RefinementWidget type={refinement.type} {...refinement.options} />
+    </Panel>
+  ));
 };
