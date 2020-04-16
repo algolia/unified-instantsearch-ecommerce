@@ -1,0 +1,39 @@
+.ais-CurrentRefinements {
+  padding-top: 1.5rem;
+}
+
+.ais-CurrentRefinements-list {
+  display: flex;
+}
+
+.ais-CurrentRefinements-item {
+  align-items: center;
+  background-color: var(--algolia-theme-primary);
+  border-radius: 3px;
+  color: #fff;
+  display: flex;
+  white-space: nowrap;
+}
+
+.ais-CurrentRefinements-item:not(:last-of-type) {
+  margin-right: 0.5rem;
+}
+
+.ais-CurrentRefinements-label {
+  padding: 4px 4px 4px 8px;
+}
+
+.ais-CurrentRefinements-categoryLabel {
+  font-weight: bold;
+  padding: 4px 6px 4px 0;
+}
+
+.ais-CurrentRefinements-delete {
+  background: none;
+  border: none;
+  border-left: 1px solid #fff;
+  color: inherit;
+  cursor: pointer;
+  height: 100%;
+  padding: 0 6px;
+}

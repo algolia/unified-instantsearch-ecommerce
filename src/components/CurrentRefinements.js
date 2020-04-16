@@ -2,6 +2,7 @@ import React from 'react';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
 
 import config from '../config';
+import './CurrentRefinements.scss';
 
 export const CurrentRefinements = connectCurrentRefinements(
   ({ items, refine }) => {

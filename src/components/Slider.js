@@ -8,6 +8,8 @@ import {
   Ticks,
 } from 'react-compound-slider';
 
+import './Slider.scss';
+
 function Handle({
   domain: [min, max],
   handle: { id, value, percent },

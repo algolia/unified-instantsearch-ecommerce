@@ -508,6 +508,14 @@ a[class^='ais-'] {
 
 /* Pagination */
 
+.ais-Pagination {
+  padding-top: 2rem;
+}
+
+.ais-Pagination--noRefinement {
+  display: none;
+}
+
 .ais-Pagination-list {
   display: flex;
   justify-content: center;

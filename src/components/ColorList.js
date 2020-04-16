@@ -1,6 +1,7 @@
 import React from 'react';
 import { connectRefinementList } from 'react-instantsearch-dom';
 
+import './ColorList.scss';
 import { UncontrolledSearchBox } from './SearchBox/UncontrolledSearchBox';
 
 export const ColorList = connectRefinementList((props) => {
