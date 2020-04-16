@@ -300,6 +300,7 @@ mark {
   margin-right: 1rem;
   position: relative;
   width: 1rem;
+  color: var(--algolia-theme-primary);
 }
 
 .ais-RefinementList-item--selected {
@@ -321,6 +322,12 @@ mark {
   top: 50%;
   transform: translateX(-2px) translateY(-2px);
   width: 4px;
+}
+
+.ais-RefinementList-checkbox:focus,
+.ais-ToggleRefinement-checkbox:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #fff, 0 0 2px 2px currentColor;
 }
 
 .ais-HierarchicalMenu-count,

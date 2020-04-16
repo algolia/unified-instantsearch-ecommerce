@@ -85,6 +85,7 @@ export const ColorList = connectRefinementList((props) => {
                   <input
                     className="ais-RefinementList-checkbox"
                     style={{
+                      color: colorCode,
                       backgroundColor: colorCode,
                     }}
                     type="checkbox"
