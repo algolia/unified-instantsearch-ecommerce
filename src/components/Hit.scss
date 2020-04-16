@@ -33,10 +33,13 @@
   justify-content: center;
   margin: auto;
   padding-bottom: 0.5rem;
+  min-height: 180px;
 }
 
-.Unified-Hit-Footer {
-  padding-top: 0.5rem;
+.Hit-Header img {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .Unified-Hit-Body {
@@ -44,10 +47,8 @@
   word-break: break-word;
 }
 
-.Hit-Header img {
-  height: auto;
-  max-height: 100%;
-  max-width: 100%;
+.Unified-Hit-Footer {
+  padding-top: 0.5rem;
 }
 
 .Unified-Hit h2 {

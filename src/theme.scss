@@ -8,6 +8,7 @@
 [class^='ais-'] {
   box-sizing: border-box;
   font-size: 0.9rem;
+  outline-color: var(--algolia-theme-primary);
 }
 
 a[class^='ais-'] {
@@ -548,7 +549,7 @@ mark {
 
 .ais-Pagination-item {
   background-color: rgba(65, 66, 71, 0.08);
-  border-radius: 4px;
+  border-radius: 3px;
   color: #414247;
 }
 
