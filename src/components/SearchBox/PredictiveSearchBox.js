@@ -61,7 +61,7 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
 
         <div
           className="ais-SearchBox-loadingIndicator"
-          hidden={!(props.currentRefinement && props.isSearchStalled === true)}
+          hidden={props.isSearchStalled === false}
         >
           <svg
             className="ais-SearchBox-loadingIcon"
