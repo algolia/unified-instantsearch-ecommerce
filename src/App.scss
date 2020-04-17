@@ -1,3 +1,7 @@
+.Unified-Container * {
+  outline-color: var(--algolia-theme-primary);
+}
+
 .Unified-Container {
   background: #fff;
   border-radius: 2px;
@@ -73,6 +77,10 @@ h2 {
 }
 
 /* Query Suggestions */
+
+.Unified-QuerySuggestions * {
+  outline-color: #fff;
+}
 
 .Unified-QuerySuggestions {
   align-items: center;
