@@ -1,7 +1,8 @@
 import React from 'react';
-import { connectRefinementList, Highlight } from 'react-instantsearch-dom';
+import { connectRefinementList } from 'react-instantsearch-dom';
 
 import { UncontrolledSearchBox } from './components/SearchBox/UncontrolledSearchBox';
+import { PartialHighlight } from './components/PartialHighlight';
 
 export const SizeList = connectRefinementList((props) => {
   const [query, setQuery] = React.useState('');
@@ -98,7 +99,7 @@ export const SizeList = connectRefinementList((props) => {
                   />
                   <span className="ais-RefinementList-labelText">
                     {props.isFromSearch ? (
-                      <Highlight hit={item} attribute="label" />
+                      <PartialHighlight hit={item} attribute="label" />
                     ) : (
                       sizeName
                     )}
