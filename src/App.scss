@@ -35,7 +35,6 @@
 
 h2 {
   color: #21243d;
-  font-family: Hind, sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -195,10 +194,6 @@ h2 {
   padding-top: 2rem;
 }
 
-.Unified-Content .ais-Panel-header {
-  font-family: Hind, sans-serif;
-}
-
 /* Search box */
 
 .Unified-SearchBox {
@@ -224,7 +219,6 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   color: #21243d;
-  font-family: Hind, sans-serif;
   height: 100%;
   height: 64px;
 }
@@ -282,15 +276,6 @@ h2 {
 
 .ais-SearchBox-submit {
   color: var(--algolia-theme-primary);
-}
-
-.ais-RefinementList .ais-SearchBox-input {
-  font-family: Hind, sans-serif;
-  /*
-    The "Hind" font family is vertically off-balance.
-    Adding some padding top makes it more vertically aligned.
-  */
-  padding-top: 2px;
 }
 
 /* Stats */
