@@ -27,6 +27,7 @@ const config = {
   ],
   refinements: [
     {
+      type: 'category',
       header: 'Categories',
       name: 'Category',
       options: {
@@ -35,10 +36,6 @@ const config = {
         showMore: true,
         limit: 6,
         showMoreLimit: 20,
-        translations: {
-          showMore: (expanded) =>
-            expanded ? '- View fewer categories' : '+ View more categories',
-        },
       },
     },
     {
@@ -75,7 +72,7 @@ const config = {
       },
     },
     {
-      type: 'price',
+      type: 'slider',
       header: 'Prix',
       name: 'Prix',
       options: {

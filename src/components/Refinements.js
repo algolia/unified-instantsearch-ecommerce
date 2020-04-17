@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefinementList } from 'react-instantsearch-dom';
+import { RefinementList, Menu } from 'react-instantsearch-dom';
 
 import config from '../config';
 import { Panel } from './Panel';
@@ -15,8 +15,19 @@ function RefinementWidget({ type, ...props }) {
     case 'size':
       return <SizeList {...props} />;
 
-    case 'price':
+    case 'slider':
       return <Slider {...props} />;
+
+    case 'category':
+      return (
+        <Menu
+          translations={{
+            showMore: (expanded) =>
+              expanded ? '- View fewer categories' : '+ View more categories',
+          }}
+          {...props}
+        />
+      );
 
     default:
       return (

@@ -69,8 +69,8 @@ a[class^='ais-'] {
 em,
 mark {
   background: none;
-  color: var(--algolia-theme-primary);
   border-bottom: 1px solid var(--algolia-theme-primary);
+  color: var(--algolia-theme-primary);
   font-style: normal;
   font-weight: bold;
 }
@@ -117,6 +117,7 @@ mark {
   user-select: none;
 }
 
+.ais-Menu-item,
 .ais-RefinementList-item,
 /*
  The refinement list item in InstantSearch.js contains a wrapping `div` because of
@@ -129,6 +130,7 @@ mark {
 }
 
 .ais-HierarchicalMenu-link,
+.ais-Menu-link,
 .ais-RatingMenu-item,
 .ais-RefinementList-label {
   padding-bottom: 1rem;
@@ -237,10 +239,12 @@ mark {
 
 /* SFFV search box */
 
+.ais-Menu .ais-SearchBox-form,
 .ais-RefinementList .ais-SearchBox-form {
   margin-bottom: 1rem;
 }
 
+.ais-Menu .ais-SearchBox-input,
 .ais-RefinementList .ais-SearchBox-input {
   border-radius: 3px;
   color: rgba(33, 36, 61, 0.8);
@@ -249,11 +253,14 @@ mark {
   padding: 0 32px;
 }
 
+.ais-Menu .ais-SearchBox-reset,
+.ais-Menu .ais-SearchBox-submit,
 .ais-RefinementList .ais-SearchBox-reset,
 .ais-RefinementList .ais-SearchBox-submit {
   width: 32px;
 }
 
+.ais-Menu .ais-SearchBox-submitIcon,
 .ais-RefinementList .ais-SearchBox-submitIcon {
   height: 14px;
   width: 14px;
@@ -262,6 +269,7 @@ mark {
 /* Menus */
 
 .ais-HierarchicalMenu-link,
+.ais-Menu-link,
 .ais-RatingMenu-link,
 .ais-RefinementList-label {
   align-items: center;
@@ -276,12 +284,12 @@ mark {
   background-color: rgba(65, 66, 71, 0.08);
   border: none;
   border-radius: 2px;
+  color: var(--algolia-theme-primary);
   height: 1rem;
   margin: 0;
   margin-right: 1rem;
   position: relative;
   width: 1rem;
-  color: var(--algolia-theme-primary);
 }
 
 .ais-RefinementList-item--selected {
@@ -307,8 +315,8 @@ mark {
 
 .ais-RefinementList-checkbox:focus,
 .ais-ToggleRefinement-checkbox:focus {
-  outline: none;
   box-shadow: 0 0 0 1px #fff, 0 0 2px 2px currentColor;
+  outline: none;
 }
 
 .ais-HierarchicalMenu-count,
@@ -331,9 +339,20 @@ mark {
 .ais-HierarchicalMenu-showMore,
 .ais-Menu-showMore,
 .ais-RefinementList-showMore {
-  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: var(--algolia-theme-secondary);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
+  line-height: 2rem;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
 }
 
+.ais-Menu-list,
 .ais-HierarchicalMenu-list {
   font-weight: normal;
 }
