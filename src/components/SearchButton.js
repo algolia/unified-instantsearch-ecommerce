@@ -3,20 +3,22 @@ import ReactDOM from 'react-dom';
 
 import { useAppContext } from '../hooks';
 
-export const FakeSearchBar = ({ onClick }) => {
+export const SearchButton = ({ onClick }) => {
   const { config } = useAppContext();
 
   return ReactDOM.createPortal(
-    <input
-      type="text"
-      placeholder="Que recherchez-vous… ?"
+    <button
+      type="button"
+      className="Unified-SearchButton"
       onClick={(event) => {
         event.target.blur();
         onClick();
       }}
-    />,
+    >
+      {config.inputContent}
+    </button>,
     document.querySelector(config.inputSelector)
   );
 };
 
-export default FakeSearchBar;
+export default SearchButton;

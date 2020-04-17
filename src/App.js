@@ -4,7 +4,7 @@ import { connectHitInsights } from 'react-instantsearch-dom';
 
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
 import { useSearchClient, useInsightsClient } from './hooks';
-import { FakeSearchBar, Search, Hit } from './components';
+import { SearchButton, Search, Hit } from './components';
 
 export const AppContext = React.createContext(null);
 
@@ -70,17 +70,33 @@ export function App({ config, location, history }) {
 
   React.useEffect(() => {
     function onKeydown(event) {
-      if (event.key === 'Escape') {
-        if (
-          document.activeElement.isContentEditable ||
-          document.activeElement.tagName === 'INPUT' ||
-          document.activeElement.tagName === 'SELECT' ||
-          document.activeElement.tagName === 'TEXTAREA'
-        ) {
-          return;
-        }
+      console.log(event);
+      const element = event.target || event.srcElement;
 
-        setIsOverlayShowing(false);
+      if (
+        element.isContentEditable ||
+        element.tagName === 'INPUT' ||
+        element.tagName === 'SELECT' ||
+        element.tagName === 'TEXTAREA'
+      ) {
+        return;
+      }
+
+      if (isOverlayShowing) {
+        if (event.key === 'Escape') {
+          event.stopPropagation();
+          event.preventDefault();
+          setIsOverlayShowing(false);
+        }
+      } else if (!isOverlayShowing) {
+        if (
+          config.keyboardShortcuts &&
+          config.keyboardShortcuts.indexOf(event.key) !== -1
+        ) {
+          event.stopPropagation();
+          event.preventDefault();
+          setIsOverlayShowing(true);
+        }
       }
     }
 
@@ -89,11 +105,11 @@ export function App({ config, location, history }) {
     return () => {
       window.removeEventListener('keydown', onKeydown);
     };
-  }, [setIsOverlayShowing]);
+  }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
 
   return (
     <AppContext.Provider value={{ config }}>
-      <FakeSearchBar onClick={() => setIsOverlayShowing(true)} />
+      <SearchButton onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
         createPortal(

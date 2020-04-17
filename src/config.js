@@ -2,6 +2,12 @@ import React from 'react';
 
 const config = {
   inputSelector: '#search-button',
+  inputContent: (
+    <>
+      <span>Search for a product, brand, color, …</span> <kbd>/</kbd>
+    </>
+  ),
+  keyboardShortcuts: ['/'],
   appId: 'E8KS2J9PMC',
   searchApiKey: '9a2480ff719c1092d2ef9ad3c6d36cf1',
   index: {

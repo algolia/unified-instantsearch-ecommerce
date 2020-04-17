@@ -2,61 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#000" />
+
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/app.css" />
+
     <title>E-Comm Unified UI</title>
-    <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-      }
-
-      body {
-        background-image: url('/resources/images/fake_body.jpg');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: cover;
-      }
-
-      #search-button {
-        position: absolute;
-        top: 118px;
-        right: 172px;
-        text-align: right;
-      }
-
-      #search-button > input {
-        border: none;
-        font-size: 14px;
-        color: #646464;
-        padding: 6px 18px 6px 6px;
-        border-bottom: 2px solid #e4e4e4;
-      }
-
-      @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-        body {
-          background-image: url('/resources/images/fake_body_mobile.jpg');
-        }
-
-        #search-button {
-          top: 96px;
-          left: 12px;
-          width: calc(100% - 50px);
-        }
-
-        #search-button > input {
-          width: 100%;
-        }
-      }
-    </style>
   </head>
+
   <body>
     <div id="search-button"></div>
   </body>
