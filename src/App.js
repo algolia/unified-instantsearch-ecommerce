@@ -23,6 +23,8 @@ import {
   ProductList,
 } from './components';
 
+export const AppContext = React.createContext(null);
+
 export function App({ config, location, history }) {
   const searchClient = useSearchClient(config.appId, config.searchApiKey);
   const insightsClient = useInsightsClient(config.appId, config.searchApiKey);
@@ -108,7 +110,7 @@ export function App({ config, location, history }) {
   }, [setIsOverlayShowing]);
 
   return (
-    <>
+    <AppContext.Provider value={{ config }}>
       <FakeSearchBar onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
@@ -178,6 +180,6 @@ export function App({ config, location, history }) {
           </>,
           document.body
         )}
-    </>
+    </AppContext.Provider>
   );
 }

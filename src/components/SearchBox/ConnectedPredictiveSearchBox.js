@@ -74,6 +74,7 @@ const Suggestions = connectHits((props) => {
         props.query + firstSuggestion.slice(props.query.length);
       props.onSuggestion(suggestion);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.hits]);
 
   return (

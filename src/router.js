@@ -1,12 +1,5 @@
 import qs from 'qs';
 
-// import config from './config';
-
-// const supportedIndices = [
-//   config.indexName,
-//   ...config.sorts.map((sort) => sort.indexName),
-// ];
-
 function removeEmptyValues(object) {
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { RefinementList, Menu } from 'react-instantsearch-dom';
 
-import config from '../config';
+import { useAppContext } from '../hooks';
 import { Panel } from './Panel';
 import { ColorList } from './ColorList';
 import { Slider } from './Slider';
@@ -43,6 +43,8 @@ function RefinementWidget({ type, ...props }) {
 }
 
 export const Refinements = () => {
+  const { config } = useAppContext();
+
   return config.refinements.map((refinement) => (
     <Panel
       key={refinement.options.attribute}

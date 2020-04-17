@@ -1,31 +1,20 @@
 import React from 'react';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
 
-import config from '../config';
 import './CurrentRefinements.scss';
+import { useAppContext } from '../hooks';
 
-function findRefinementNameByAttribute(attribute) {
-  return (
-    config.refinements.find(
-      (refinement) => refinement.options.attribute === attribute
-    ).name || attribute
+function getRefinement(refinement, config) {
+  const refinementConfig = config.refinements.find(
+    (x) => x.options.attribute === refinement.attribute
   );
-}
+  const category = refinementConfig.name || refinementConfig.options.attribute;
 
-function findRefinementTypeByAttribute(attribute) {
-  return config.refinements.find(
-    (refinement) => refinement.options.attribute === attribute
-  ).type;
-}
-
-function getRefinement(refinement) {
-  const refinementType = findRefinementTypeByAttribute(refinement.attribute);
-
-  switch (refinementType) {
+  switch (refinementConfig.type) {
     case 'category': {
       return [
         {
-          category: findRefinementNameByAttribute(refinement.attribute),
+          category,
           label: refinement.currentRefinement,
           value: refinement.value,
         },
@@ -35,7 +24,7 @@ function getRefinement(refinement) {
     case 'color':
     case 'size':
       return refinement.items.map((item) => ({
-        category: findRefinementNameByAttribute(refinement.attribute),
+        category,
         label: item.label.split(';')[0],
         value: item.value,
       }));
@@ -56,7 +45,7 @@ function getRefinement(refinement) {
 
       return [
         {
-          category: findRefinementNameByAttribute(refinement.attribute),
+          category,
           label,
           value: refinement.value,
         },
@@ -65,7 +54,7 @@ function getRefinement(refinement) {
 
     default:
       return refinement.items.map((item) => ({
-        category: findRefinementNameByAttribute(refinement.attribute),
+        category,
         label: item.label,
         value: item.value,
       }));
@@ -74,8 +63,10 @@ function getRefinement(refinement) {
 
 export const CurrentRefinements = connectCurrentRefinements(
   ({ items, refine }) => {
+    const { config } = useAppContext();
+
     const refinements = items.reduce((acc, current) => {
-      return [...acc, ...getRefinement(current)];
+      return [...acc, ...getRefinement(current, config)];
     }, []);
 
     if (refinements.length === 0) {

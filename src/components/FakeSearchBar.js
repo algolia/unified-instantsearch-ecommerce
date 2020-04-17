@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import config from '../config';
+import { useAppContext } from '../hooks';
 
 export const FakeSearchBar = ({ onClick }) => {
+  const { config } = useAppContext();
+
   return ReactDOM.createPortal(
     <input
       type="text"

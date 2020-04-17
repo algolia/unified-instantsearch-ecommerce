@@ -1,10 +1,12 @@
 import React from 'react';
 
-import config from '../../config';
+import { useAppContext } from '../../hooks';
 import { ConnectedPredictiveSearchBox } from './ConnectedPredictiveSearchBox';
 import { ConnectedSearchBox } from './ConnectedSearchBox';
 
 export const HeaderSearchBox = (props) => {
+  const { config } = useAppContext();
+
   if (config.suggestionsIndex) {
     return (
       <div className="Unified-SearchBox">
