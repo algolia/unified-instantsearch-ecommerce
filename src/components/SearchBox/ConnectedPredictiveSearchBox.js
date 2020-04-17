@@ -50,7 +50,10 @@ export const ConnectedPredictiveSearchBox = connectSearchBox((props) => {
         <Suggestions
           query={props.currentRefinement}
           onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
-          onClick={(value) => props.refine(value)}
+          onClick={(value) => {
+            props.refine(value);
+            setCurrentSuggestion(null);
+          }}
         />
       </Index>
     </>
