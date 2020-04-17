@@ -27,10 +27,26 @@ const config = {
   ],
   refinements: [
     {
+      header: 'Categories',
+      name: 'Category',
+      options: {
+        attribute: 'category',
+        searchable: true,
+        showMore: true,
+        limit: 6,
+        showMoreLimit: 20,
+        translations: {
+          showMore: (expanded) =>
+            expanded ? '- View fewer categories' : '+ View more categories',
+        },
+      },
+    },
+    {
       header: 'Brands',
       name: 'Brand',
       options: {
         attribute: 'brand',
+        searchable: true,
         showMore: true,
         limit: 6,
         showMoreLimit: 20,
