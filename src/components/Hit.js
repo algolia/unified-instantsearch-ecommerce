@@ -1,20 +1,16 @@
 import React from 'react';
-
-import './Hit.scss';
 import { Highlight } from 'react-instantsearch-dom';
 
-export function Hit({ indexName, hit, trackClickOnHit }) {
+import './Hit.scss';
+
+export function Hit({ hit, insights }) {
   return (
     <article
       className="Unified-Hit"
       onClick={() =>
-        trackClickOnHit(
-          indexName,
-          'Click on product',
-          hit.__queryID,
-          hit.objectID,
-          hit.__position
-        )
+        insights('clickedObjectIDsAfterSearch', {
+          eventName: 'Product Clicked',
+        })
       }
     >
       <a href={`https://asos.com/${hit.url}`}>

@@ -5,7 +5,7 @@ import config from '../config';
 import { Panel } from './Panel';
 import { ColorList } from './ColorList';
 import { Slider } from './Slider';
-import { SizeList } from '../SizeList';
+import { SizeList } from './SizeList';
 
 function RefinementWidget({ type, ...props }) {
   switch (type) {

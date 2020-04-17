@@ -3,7 +3,7 @@ import React from 'react';
 import { Hits } from './Hits';
 import { InfiniteHits } from './InfiniteHits';
 
-export const ProductList = () => {
+export const ProductList = (props) => {
   const [isMobile, setIsMobile] = React.useState(true);
 
   React.useEffect(() => {
@@ -13,8 +13,8 @@ export const ProductList = () => {
   }, []);
 
   if (isMobile) {
-    return <InfiniteHits />;
+    return <InfiniteHits {...props} />;
   }
 
-  return <Hits />;
+  return <Hits {...props} />;
 };

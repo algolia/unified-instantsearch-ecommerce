@@ -5,12 +5,11 @@ import {
   Configure,
   SortBy,
   ScrollTo,
+  connectHitInsights,
 } from 'react-instantsearch-dom';
 
-import config from './config';
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
-import { useSearchClient } from './hooks';
-
+import { useSearchClient, useInsightsClient } from './hooks';
 import {
   Banner,
   CurrentRefinements,
@@ -19,17 +18,24 @@ import {
   Refinements,
   HeaderSearchBox,
   Stats,
+  Hit,
   CancelButton,
   ProductList,
 } from './components';
 
-export function App(props) {
+export function App({ config, location, history }) {
   const searchClient = useSearchClient(config.appId, config.searchApiKey);
+  const insightsClient = useInsightsClient(config.appId, config.searchApiKey);
+  const hitComponent = React.useMemo(
+    () => connectHitInsights(insightsClient)(Hit),
+    [insightsClient]
+  );
+
   const lastSetStateId = React.useRef();
   const topAnchor = React.useRef();
 
   const [searchState, setSearchState] = React.useState(
-    getStateFromUrl(props.location)
+    getStateFromUrl(location)
   );
   const [isOverlayShowing, setIsOverlayShowing] = React.useState(
     Object.keys(searchState).length > 0
@@ -39,8 +45,8 @@ export function App(props) {
     clearTimeout(lastSetStateId.current);
 
     lastSetStateId.current = setTimeout(() => {
-      props.history.push(
-        getUrlFromState(props, nextSearchState),
+      history.push(
+        getUrlFromState({ location }, nextSearchState),
         nextSearchState
       );
 
@@ -57,8 +63,8 @@ export function App(props) {
       document.body.classList.add('Unified--open');
     } else {
       document.body.classList.remove('Unified--open');
-      setSearchState(getStateFromUrl({}));
-      props.history.push('', searchState);
+      setSearchState(getStateFromUrl(location));
+      history.push('', searchState);
     }
   }, [isOverlayShowing, setSearchState]);
 
@@ -111,7 +117,7 @@ export function App(props) {
                 onSearchStateChange={onSearchStateChange}
                 createURL={createURL}
               >
-                <Configure {...config.searchParameters} />
+                <Configure {...config.index.searchParameters} />
                 <QueryRulesHandler searchState={searchState} />
 
                 <div id="Unified-Wrapper">
@@ -151,7 +157,7 @@ export function App(props) {
 
                         <main className="Unified-BodyContent">
                           <Banner />
-                          <ProductList />
+                          <ProductList hitComponent={hitComponent} />
                         </main>
                       </ScrollTo>
                     </div>

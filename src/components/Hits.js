@@ -1,21 +1,13 @@
 import React from 'react';
 import { connectHits, Pagination } from 'react-instantsearch-dom';
 
-import config from '../config';
-import { trackClickOnHit } from '../analytics';
-import { Hit } from './Hit';
-
 export const Hits = connectHits((props) => {
   return (
     <div className="ais-Hits">
       <ol className="ais-Hits-list">
         {props.hits.map((hit) => (
           <li key={hit.objectID} className="ais-Hits-item">
-            <Hit
-              indexName={config.indexName}
-              hit={hit}
-              trackClickOnHit={trackClickOnHit}
-            />
+            <props.hitComponent hit={hit} />
           </li>
         ))}
       </ol>

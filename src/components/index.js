@@ -2,6 +2,7 @@ export * from './Banner';
 export * from './CancelButton';
 export * from './CurrentRefinements';
 export * from './FakeSearchBar';
+export * from './Hit';
 export * from './ProductList';
 export * from './QueryRulesHandler';
 export * from './Refinements';
