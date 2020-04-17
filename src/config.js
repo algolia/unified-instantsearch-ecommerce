@@ -36,7 +36,7 @@ const config = {
         showMoreLimit: 20,
         translations: {
           showMore: (expanded) =>
-            expanded ? '- View fewer filters' : '+ View more filters',
+            expanded ? '- View fewer brands' : '+ View more brands',
         },
       },
     },
@@ -46,15 +46,7 @@ const config = {
       name: 'Color',
       options: {
         attribute: 'colors',
-        limit: 14,
         searchable: true,
-        showMoreLimit: 40,
-        showMore: true,
-        translations: {
-          showMore(expanded) {
-            return expanded ? '- View fewer filters' : '+ View more filters';
-          },
-        },
       },
     },
     {
@@ -64,18 +56,6 @@ const config = {
       isCollapsed: true,
       options: {
         attribute: 'sizes',
-        patterns: [
-          '^([2-5]?X?L|XX?S|S|M)$',
-          '^(EU [1-9][0-9]?|100)$',
-          '^(UK [1-9][0-9]?)$',
-        ],
-        showMore: true,
-        sortSizesByNbResults: false,
-        translations: {
-          showMore(expanded) {
-            return expanded ? '- View fewer filters' : '+ View more filters';
-          },
-        },
       },
     },
     {

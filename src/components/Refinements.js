@@ -1,11 +1,11 @@
 import React from 'react';
 import { RefinementList } from 'react-instantsearch-dom';
-import GroupSizeRefinementList from 'instantsearch-group-size-refinement-list-react';
 
 import config from '../config';
 import { Panel } from './Panel';
 import { ColorList } from './ColorList';
 import { Slider } from './Slider';
+import { SizeList } from '../SizeList';
 
 function RefinementWidget({ type, ...props }) {
   switch (type) {
@@ -13,18 +13,21 @@ function RefinementWidget({ type, ...props }) {
       return <ColorList {...props} />;
 
     case 'size':
-      return (
-        <GroupSizeRefinementList
-          {...props}
-          patterns={props.patterns.map((pattern) => new RegExp(pattern))}
-        />
-      );
+      return <SizeList {...props} />;
 
     case 'price':
       return <Slider {...props} />;
 
     default:
-      return <RefinementList {...props} />;
+      return (
+        <RefinementList
+          translations={{
+            showMore: (expanded) =>
+              expanded ? '- View fewer filters' : '+ View more filters',
+          }}
+          {...props}
+        />
+      );
   }
 }
 

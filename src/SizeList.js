@@ -1,11 +1,9 @@
 import React from 'react';
-import { connectRefinementList } from 'react-instantsearch-dom';
+import { connectRefinementList, Highlight } from 'react-instantsearch-dom';
 
-import './ColorList.scss';
-import { UncontrolledSearchBox } from './SearchBox/UncontrolledSearchBox';
-import { PartialHighlight } from './PartialHighlight';
+import { UncontrolledSearchBox } from './components/SearchBox/UncontrolledSearchBox';
 
-export const ColorList = connectRefinementList((props) => {
+export const SizeList = connectRefinementList((props) => {
   const [query, setQuery] = React.useState('');
   const inputRef = React.useRef(null);
 
@@ -18,12 +16,12 @@ export const ColorList = connectRefinementList((props) => {
   });
 
   return (
-    <div className="ColorList ais-RefinementList">
+    <div className="ais-RefinementList">
       {props.searchable && (
         <div className="ais-RefinementList-searchBox">
           <UncontrolledSearchBox
             inputRef={inputRef}
-            placeholder="Search colors"
+            placeholder="Search sizes"
             query={query}
             onChange={(event) => {
               const value = event.currentTarget.value;
@@ -57,7 +55,7 @@ export const ColorList = connectRefinementList((props) => {
 
       <div className="Unified-RefinementList-ListContainer">
         {props.isFromSearch && props.items.length === 0 && (
-          <p>No colors found.</p>
+          <p>No sizes found.</p>
         )}
 
         <ul className="ais-RefinementList-list">
@@ -66,11 +64,11 @@ export const ColorList = connectRefinementList((props) => {
 
             if (labelParts.length !== 2) {
               throw new Error(
-                'The Color widget expects colors with the following format: "Aluminium;#7f8084".'
+                'The Size widget expects sizes with the following format: "XL;6".'
               );
             }
 
-            const [colorName, colorCode] = labelParts;
+            const [sizeName, sizeCode] = labelParts;
 
             return (
               <li
@@ -86,8 +84,8 @@ export const ColorList = connectRefinementList((props) => {
                   <input
                     className="ais-RefinementList-checkbox"
                     style={{
-                      color: colorCode,
-                      backgroundColor: colorCode,
+                      color: sizeCode,
+                      backgroundColor: sizeCode,
                     }}
                     type="checkbox"
                     value={item.value}
@@ -100,9 +98,9 @@ export const ColorList = connectRefinementList((props) => {
                   />
                   <span className="ais-RefinementList-labelText">
                     {props.isFromSearch ? (
-                      <PartialHighlight hit={item} attribute="label" />
+                      <Highlight hit={item} attribute="label" />
                     ) : (
-                      colorName
+                      sizeName
                     )}
                   </span>
                   <span className="ais-RefinementList-count">{item.count}</span>
