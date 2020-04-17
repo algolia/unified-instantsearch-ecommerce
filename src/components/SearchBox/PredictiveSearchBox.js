@@ -117,7 +117,14 @@ export const PredictiveSearchBox = connectSearchBox((props) => {
               props.refine(event.currentTarget.value);
             }}
             onKeyDown={(event) => {
-              if (event.key === 'Tab') {
+              // When the user hits the right arrow and is at the end of the
+              // input query, we validate the completion.
+              if (
+                event.key === 'Tab' ||
+                (event.key === 'ArrowRight' &&
+                  event.target.selectionStart ===
+                    props.currentRefinement.length)
+              ) {
                 event.preventDefault();
                 props.refine(currentSuggestion);
               }
