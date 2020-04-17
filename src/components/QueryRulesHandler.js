@@ -1,33 +1,32 @@
 import React from 'react';
 import { QueryRuleContext } from 'react-instantsearch-dom';
 
-const getRulesContextFromSearchState = (searchState) => {
-  const { refinementList = {} } = searchState;
+const getRulesContextFromSearchState = ({ refinementList = {}, menu = {} }) => {
+  const trackedWidgets = {
+    refinementList,
+    menu,
+  };
 
-  return Object.keys(refinementList).reduce((all, refinementName) => {
-    all = { ...all, [refinementName]: (values) => values };
-    return all;
+  return Object.keys(trackedWidgets).reduce((ruleContexts, current) => {
+    return {
+      ...ruleContexts,
+      ...Object.keys(trackedWidgets[current]).reduce(
+        (acc, attribute) => ({
+          ...acc,
+          [attribute]: (value) => value,
+        }),
+        {}
+      ),
+    };
   }, {});
 };
 
-export const QueryRulesHandler = React.memo(
-  (props) => {
-    const ruleContexts = getRulesContextFromSearchState(props.searchState);
+export const QueryRulesHandler = (props) => {
+  const ruleContexts = getRulesContextFromSearchState(props.searchState);
 
-    if (Object.keys(ruleContexts).length === 0) {
-      return null;
-    }
-
-    return <QueryRuleContext trackedFilters={ruleContexts} />;
-  },
-  function areEqual(prevProps, nextProps) {
-    if (
-      JSON.stringify(prevProps.searchState) ===
-      JSON.stringify(nextProps.searchState)
-    ) {
-      return false;
-    }
-
-    return true;
+  if (Object.keys(ruleContexts).length === 0) {
+    return null;
   }
-);
+
+  return <QueryRuleContext trackedFilters={ruleContexts} />;
+};
