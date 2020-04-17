@@ -1,5 +1,5 @@
 export * from './Banner';
-export * from './CancelButton';
+export * from './CloseIcon';
 export * from './CurrentRefinements';
 export * from './FakeSearchBar';
 export * from './Hit';

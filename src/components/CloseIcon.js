@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function CancelButton(props) {
+export function CloseIcon(props) {
   return (
     <svg viewBox="0 0 31 32" width="31" height="32" {...props}>
       <path

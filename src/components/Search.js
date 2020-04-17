@@ -13,7 +13,7 @@ import { QueryRulesHandler } from './QueryRulesHandler';
 import { Refinements } from './Refinements';
 import { HeaderSearchBox } from './SearchBox';
 import { Stats } from './Stats';
-import { CancelButton } from './CancelButton';
+import { CloseIcon } from './CloseIcon';
 import { ProductList } from './ProductList';
 
 export function Search(props) {
@@ -35,11 +35,11 @@ export function Search(props) {
           <HeaderSearchBox />
 
           <button
-            className="Unified-CancelButton"
+            className="Unified-CloseButton"
             title="Press Esc to close"
             onClick={props.onClose}
           >
-            <CancelButton />
+            <CloseIcon />
           </button>
         </header>
 
@@ -52,7 +52,10 @@ export function Search(props) {
             <ScrollTo>
               <header className="Unified-BodyHeader">
                 <div className="Unified-BodyHeader-heading">
-                  <Stats />
+                  <div className="Unified-BodyHeader-stats">
+                    <Stats />
+                  </div>
+
                   {config.sorts && config.sorts.length > 0 && (
                     <div className="Unified-BodyHeader-sortBy">
                       <span className="Unified-Label">Sort by</span>
