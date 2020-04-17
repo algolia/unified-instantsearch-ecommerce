@@ -59,6 +59,15 @@ export function App({ config, location, history }) {
   }
 
   React.useEffect(() => {
+    const nextSearchState = getStateFromUrl(location);
+
+    if (searchState !== nextSearchState) {
+      setSearchState(nextSearchState);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location, setSearchState]);
+
+  React.useEffect(() => {
     if (isOverlayShowing === true) {
       document.body.classList.add('Unified--open');
     } else {
@@ -66,7 +75,8 @@ export function App({ config, location, history }) {
       setSearchState(getStateFromUrl(location));
       history.push('', searchState);
     }
-  }, [isOverlayShowing, setSearchState]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOverlayShowing]);
 
   React.useEffect(() => {
     if (topAnchor.current) {
