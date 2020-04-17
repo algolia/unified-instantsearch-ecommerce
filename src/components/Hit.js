@@ -6,7 +6,7 @@ import './Hit.scss';
 export function Hit({ hit, insights }) {
   return (
     <article
-      className="Unified-Hit"
+      className="unified-Hit"
       onClick={() =>
         insights('clickedObjectIDsAfterSearch', {
           eventName: 'Product Clicked',
@@ -14,11 +14,11 @@ export function Hit({ hit, insights }) {
       }
     >
       <a href={`https://asos.com/${hit.url}`}>
-        <header className="Unified-Hit-Header">
+        <header className="unified-Hit-Header">
           <img src={hit.image} alt={hit.description} />
         </header>
 
-        <div className="Unified-Hit-Body">
+        <div className="unified-Hit-Body">
           <h2>{[hit.brand, hit.gender].filter(Boolean).join(' · ')}</h2>
 
           <h1>
@@ -26,8 +26,8 @@ export function Hit({ hit, insights }) {
           </h1>
         </div>
 
-        <footer className="Unified-Hit-Footer">
-          <span className="Unified-Hit-Currency">£</span>
+        <footer className="unified-Hit-Footer">
+          <span className="unified-Hit-Currency">£</span>
           <strong>{hit.price.toLocaleString()}</strong>{' '}
         </footer>
       </a>

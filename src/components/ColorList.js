@@ -18,7 +18,7 @@ export const ColorList = connectRefinementList((props) => {
   });
 
   return (
-    <div className="ColorList ais-RefinementList">
+    <div className="ais-ColorList ais-RefinementList">
       {props.searchable && (
         <div className="ais-RefinementList-searchBox">
           <FacetSearchBox
@@ -55,7 +55,7 @@ export const ColorList = connectRefinementList((props) => {
         </div>
       )}
 
-      <div className="Unified-RefinementList-ListContainer">
+      <div className="unified-RefinementList-ListContainer">
         {props.isFromSearch && props.items.length === 0 && (
           <p>No colors found.</p>
         )}
