@@ -7,6 +7,7 @@
 
   ul,
   ol {
+    list-style: none;
     padding: 0;
   }
 
@@ -32,11 +33,6 @@
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
-  }
-
-  ul,
-  ol {
-    list-style: none;
   }
 
   a:not([class]) {
