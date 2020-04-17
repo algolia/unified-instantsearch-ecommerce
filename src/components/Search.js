@@ -34,7 +34,11 @@ export function Search(props) {
         <header className="Unified-Header">
           <HeaderSearchBox />
 
-          <button className="Unified-CancelButton" onClick={props.onClose}>
+          <button
+            className="Unified-CancelButton"
+            title="Press Esc to close"
+            onClick={props.onClose}
+          >
             <CancelButton />
           </button>
         </header>
