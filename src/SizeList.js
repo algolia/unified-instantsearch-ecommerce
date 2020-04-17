@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectRefinementList } from 'react-instantsearch-dom';
 
-import { UncontrolledSearchBox } from './components/SearchBox/UncontrolledSearchBox';
+import { FacetSearchBox } from './components/SearchBox/FacetSearchBox';
 import { PartialHighlight } from './components/PartialHighlight';
 
 export const SizeList = connectRefinementList((props) => {
@@ -20,9 +20,9 @@ export const SizeList = connectRefinementList((props) => {
     <div className="ais-RefinementList">
       {props.searchable && (
         <div className="ais-RefinementList-searchBox">
-          <UncontrolledSearchBox
+          <FacetSearchBox
             inputRef={inputRef}
-            placeholder="Search sizes"
+            translations={{ placeholder: 'Search sizes' }}
             query={query}
             onChange={(event) => {
               const value = event.currentTarget.value;

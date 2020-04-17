@@ -17,7 +17,7 @@ import {
   FakeSearchBar,
   QueryRulesHandler,
   Refinements,
-  SearchBox,
+  HeaderSearchBox,
   Stats,
   CancelButton,
   ProductList,
@@ -116,7 +116,7 @@ export function App(props) {
 
                 <div id="Unified-Wrapper">
                   <header className="Unified-Header">
-                    <SearchBox />
+                    <HeaderSearchBox />
 
                     <button
                       className="Unified-CancelButton"

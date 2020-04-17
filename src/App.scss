@@ -86,7 +86,9 @@ h2 {
   align-items: center;
   color: #fff;
   display: flex;
+  justify-content: flex-start;
   padding-top: 1.5rem;
+  width: 100%;
 }
 
 @media (max-width: 799px) {
@@ -101,6 +103,7 @@ h2 {
 
 .Unified-QuerySuggestions-label {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
   font-weight: bold;
   padding-right: 1rem;
 }
@@ -198,8 +201,16 @@ h2 {
 
 /* Search box */
 
-.Unified-Header .ais-SearchBox {
+.Unified-SearchBox {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 740px;
+  width: 100%;
+}
+
+.Unified-Header .ais-SearchBox {
   width: 100%;
 }
 
@@ -221,6 +232,7 @@ h2 {
 .Unified-Header .ais-SearchBox-input,
 .Unified-Header .ais-SearchBox-completion {
   background: none;
+  color: inherit;
   height: 100%;
   /*
     The "Hind" font family is vertically off-balance.
@@ -229,7 +241,6 @@ h2 {
   padding: 4px 48px 0 48px;
   position: absolute;
   width: 100%;
-  color: inherit;
 }
 
 .Unified-Header .ais-SearchBox-completion {

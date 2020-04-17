@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const UncontrolledSearchBox = (props) => {
+export const FacetSearchBox = (props) => {
   return (
     <div className="ais-SearchBox">
       <form
@@ -14,7 +14,7 @@ export const UncontrolledSearchBox = (props) => {
         <input
           ref={props.inputRef}
           type="search"
-          placeholder={props.placeholder}
+          placeholder={props.translations.placeholder}
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"
@@ -56,36 +56,6 @@ export const UncontrolledSearchBox = (props) => {
             <path d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"></path>
           </svg>
         </button>
-
-        <div
-          className="ais-SearchBox-loadingIndicator"
-          hidden={!(props.currentRefinement && props.isSearchStalled === true)}
-        >
-          <svg
-            className="ais-SearchBox-loadingIcon"
-            viewBox="0 0 38 38"
-            width={18}
-            height={18}
-            stroke="currentColor"
-            strokeOpacity=".5"
-          >
-            <g fill="none" fillRule="evenodd">
-              <g transform="translate(1 1)" strokeWidth="2">
-                <circle strokeOpacity=".3" cx="18" cy="18" r="18" />
-                <path d="M36 18c0-9.94-8.06-18-18-18">
-                  <animateTransform
-                    attributeName="transform"
-                    type="rotate"
-                    from="0 18 18"
-                    to="360 18 18"
-                    dur="1s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-              </g>
-            </g>
-          </svg>
-        </div>
       </form>
     </div>
   );
