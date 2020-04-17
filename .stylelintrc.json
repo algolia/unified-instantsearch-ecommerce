@@ -1,14 +1,19 @@
 {
+  "plugins": [
+    "stylelint-prettier"
+  ],
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-sass-guidelines",
     "stylelint-order",
-    "stylelint-a11y/recommended"
+    "stylelint-a11y/recommended",
+    "stylelint-prettier/recommended"
   ],
   "rules": {
     "selector-class-pattern": [
       "^(?:ais-|unified-)[A-Z][a-zA-Z0-9]+[-a-zA-Z0-9]+$|^(?!ais-|unified-)(?:[a-z][a-z0-9]+)(?:-[a-z0-9]+)+$"
-    ]
+    ],
+    "prettier/prettier": true
   }
 }
 
