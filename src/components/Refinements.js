@@ -9,9 +9,6 @@ import { Slider } from './Slider';
 
 function RefinementWidget({ type, ...props }) {
   switch (type) {
-    case 'basic':
-      return <RefinementList {...props} />;
-
     case 'color':
       return <ColorList {...props} />;
 
@@ -27,7 +24,7 @@ function RefinementWidget({ type, ...props }) {
       return <Slider {...props} />;
 
     default:
-      throw new Error(`The refinement type "${type}" does not exist.`);
+      return <RefinementList {...props} />;
   }
 }
 

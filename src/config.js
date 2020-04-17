@@ -27,7 +27,6 @@ const config = {
   ],
   refinements: [
     {
-      type: 'basic',
       header: 'Brands',
       name: 'Brand',
       options: {
