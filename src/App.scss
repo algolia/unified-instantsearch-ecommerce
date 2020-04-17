@@ -118,9 +118,9 @@ h2 {
 .Unified-QuerySuggestions-button em,
 .Unified-QuerySuggestions-button mark {
   background: none;
+  border: none;
   color: inherit;
   padding: 0;
-  border: none;
 }
 
 /* Containers */
@@ -218,9 +218,17 @@ h2 {
     The "Hind" font family is vertically off-balance.
     Adding 4px of padding top makes it more vertically aligned.
   */
-  padding: 4px 48px 0 64px;
+  padding: 4px 48px 0 48px;
   position: absolute;
   width: 100%;
+}
+
+.Unified-Header .ais-SearchBox-completion {
+  align-items: center;
+  color: #777;
+  display: flex;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .ais-SearchBox-submit,
@@ -235,8 +243,8 @@ h2 {
 }
 
 .Unified-Header .ais-SearchBox-submit {
-  padding: 4px 1rem 0 2rem;
-  width: 64px;
+  padding: 4px 1rem 0 1.5rem;
+  width: 48px;
 }
 
 .Unified-Header .ais-SearchBox .ais-SearchBox-input::placeholder {
