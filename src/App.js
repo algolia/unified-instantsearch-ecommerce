@@ -1,27 +1,10 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import {
-  InstantSearch,
-  Configure,
-  SortBy,
-  ScrollTo,
-  connectHitInsights,
-} from 'react-instantsearch-dom';
+import { connectHitInsights } from 'react-instantsearch-dom';
 
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
 import { useSearchClient, useInsightsClient } from './hooks';
-import {
-  Banner,
-  CurrentRefinements,
-  FakeSearchBar,
-  QueryRulesHandler,
-  Refinements,
-  HeaderSearchBox,
-  Stats,
-  Hit,
-  CancelButton,
-  ProductList,
-} from './components';
+import { FakeSearchBar, Search, Hit } from './components';
 
 export const AppContext = React.createContext(null);
 
@@ -32,15 +15,10 @@ export function App({ config, location, history }) {
     () => connectHitInsights(insightsClient)(Hit),
     [insightsClient]
   );
-
   const lastSetStateId = React.useRef();
   const topAnchor = React.useRef();
-
   const [searchState, setSearchState] = React.useState(
     getStateFromUrl(location)
-  );
-  const [isOverlayShowing, setIsOverlayShowing] = React.useState(
-    Object.keys(searchState).length > 0
   );
 
   function onSearchStateChange(nextSearchState) {
@@ -68,6 +46,10 @@ export function App({ config, location, history }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, setSearchState]);
+
+  const [isOverlayShowing, setIsOverlayShowing] = React.useState(
+    Object.keys(searchState).length > 0
+  );
 
   React.useEffect(() => {
     if (isOverlayShowing === true) {
@@ -122,60 +104,15 @@ export function App({ config, location, history }) {
             />
 
             <div className="Unified-Container" ref={topAnchor}>
-              <InstantSearch
+              <Search
                 searchClient={searchClient}
                 indexName={config.index.indexName}
                 searchState={searchState}
                 onSearchStateChange={onSearchStateChange}
                 createURL={createURL}
-              >
-                <Configure {...config.index.searchParameters} />
-                <QueryRulesHandler searchState={searchState} />
-
-                <div id="Unified-Wrapper">
-                  <header className="Unified-Header">
-                    <HeaderSearchBox />
-
-                    <button
-                      className="Unified-CancelButton"
-                      onClick={() => setIsOverlayShowing(false)}
-                    >
-                      <CancelButton />
-                    </button>
-                  </header>
-
-                  <div className="Unified-Content">
-                    <div className="Unified-LeftPanel">
-                      <Refinements />
-                    </div>
-
-                    <div className="Unified-RightPanel">
-                      <ScrollTo>
-                        <header className="Unified-BodyHeader">
-                          <div className="Unified-BodyHeader-heading">
-                            <Stats />
-                            {config.sorts && config.sorts.length > 0 && (
-                              <div className="Unified-BodyHeader-sortBy">
-                                <span className="Unified-Label">Sort by</span>
-                                <SortBy
-                                  items={config.sorts}
-                                  defaultRefinement={config.sorts[0].value}
-                                />
-                              </div>
-                            )}
-                          </div>
-                          <CurrentRefinements />
-                        </header>
-
-                        <main className="Unified-BodyContent">
-                          <Banner />
-                          <ProductList hitComponent={hitComponent} />
-                        </main>
-                      </ScrollTo>
-                    </div>
-                  </div>
-                </div>
-              </InstantSearch>
+                hitComponent={hitComponent}
+                onClose={() => setIsOverlayShowing(false)}
+              />
             </div>
           </>,
           document.body

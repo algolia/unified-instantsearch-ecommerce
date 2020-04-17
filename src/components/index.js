@@ -6,5 +6,6 @@ export * from './Hit';
 export * from './ProductList';
 export * from './QueryRulesHandler';
 export * from './Refinements';
+export * from './Search';
 export * from './SearchBox';
 export * from './Stats';
