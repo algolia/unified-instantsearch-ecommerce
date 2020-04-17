@@ -7,8 +7,7 @@
   ],
   "rules": {
     "selector-class-pattern": [
-      "^[a-z0-9\\-]+$",
-      "^ais-[a-zA-Z0-9\\-]+$"
+      "^ais-[A-Z][a-zA-Z-0-9]+$|^(?:(?:is|has)-)?[a-z-0-9]+$"
     ]
   }
 }
