@@ -12,13 +12,13 @@ const config = {
       hitsPerPage: 18,
     },
   },
-  // suggestionsIndex: {
-  //   indexName: 'mika_asos_qs',
-  //   maxSuggestions: 6,
-  //   searchParameters: {
-  //     hitsPerPage: 6,
-  //   },
-  // },
+  suggestionsIndex: {
+    indexName: 'mika_asos_qs',
+    maxSuggestions: 6,
+    searchParameters: {
+      hitsPerPage: 6,
+    },
+  },
   googleAnalytics: false,
   sorts: [
     { value: 'mika_asos', label: 'Produits recommandés' },

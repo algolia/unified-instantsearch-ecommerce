@@ -3,7 +3,6 @@ export * from './CancelButton';
 export * from './CurrentRefinements';
 export * from './FakeSearchBar';
 export * from './ProductList';
-export * from './QueryRulesBanner';
 export * from './QueryRulesHandler';
 export * from './Refinements';
 export * from './SearchBox';
