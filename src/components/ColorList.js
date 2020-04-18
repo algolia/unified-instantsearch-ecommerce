@@ -55,7 +55,7 @@ export const ColorList = connectRefinementList((props) => {
         </div>
       )}
 
-      <div className="unified-RefinementList-ListContainer">
+      <div className="uni-RefinementList-ListContainer">
         {props.isFromSearch && props.items.length === 0 && (
           <p>No colors found.</p>
         )}
