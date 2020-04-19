@@ -54,10 +54,10 @@ export const Slider = connectRange(
     }
 
     return (
-      <div className="Unified-Slider">
-        <div className="Unified-Slider-bar">
+      <div className="uni-Slider">
+        <div className="uni-Slider-bar">
           <Rheostat
-            className="Unified-Rheostat"
+            className="uni-Rheostat"
             min={min}
             max={max}
             snap={true}
@@ -67,11 +67,11 @@ export const Slider = connectRange(
           />
         </div>
 
-        <div className="Unified-Slider-values">
-          <div className="Unified-Slider-value Unified-Slider-value--min">
+        <div className="uni-Slider-values">
+          <div className="uni-Slider-value uni-Slider-value--min">
             {transformValue(currentMin)}
           </div>
-          <div className="Unified-Slider-value Unified-Slider-value--max">
+          <div className="uni-Slider-value uni-Slider-value--max">
             {transformValue(currentMax)}
           </div>
         </div>
