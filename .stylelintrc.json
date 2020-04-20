@@ -13,7 +13,18 @@
     "selector-class-pattern": [
       "^(?:ais-|uni-)[A-Z][a-zA-Z0-9]+[-a-zA-Z0-9]+$|^(?!ais-|uni-)(?:[a-z][a-z0-9]+)(?:-[a-z0-9]+)+$"
     ],
-    "prettier/prettier": true
+    "prettier/prettier": true,
+    "max-nesting-depth": [
+      2,
+      {
+        "ignore": [
+          "pseudo-classes"
+        ],
+        "ignoreAtRules": [
+          "media"
+        ]
+      }
+    ]
   }
 }
 

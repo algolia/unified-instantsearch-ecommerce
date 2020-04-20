@@ -2,38 +2,39 @@
   color: #21243d;
   font-size: 14px;
   line-height: 18px;
-}
-
-.uni-Hit a {
-  border: 1px solid #fff;
-  border-radius: 3px;
-  color: inherit;
-  display: block;
-  padding: 1rem;
-  text-decoration: inherit;
-}
-
-.uni-Hit a:hover,
-.uni-Hit a:focus {
-  border-color: #ddd;
-  box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
-}
-
-.uni-Hit h1 {
-  font-size: 14px;
-  letter-spacing: 0.025rem;
-}
-
-.uni-Hit a:hover h1,
-.uni-Hit a:focus h1 {
-  text-decoration: underline;
-}
-
-.uni-Hit a:hover .ais-Highlight-highlighted,
-.uni-Hit a:hover .ais-Snippet-highlighted,
-.uni-Hit a:focus .ais-Highlight-highlighted,
-.uni-Hit a:focus .ais-Snippet-highlighted {
-  border-bottom: 0;
+  h1 {
+    font-size: 14px;
+    letter-spacing: 0.025rem;
+  }
+  h2 {
+    color: #21243d;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0.7;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+  }
+  a {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: inherit;
+    display: block;
+    padding: 1rem;
+    text-decoration: inherit;
+  }
+  &:hover,
+  &:focus {
+    border-color: #ddd;
+    box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
+    h1 {
+      text-decoration: underline;
+    }
+    .ais-Highlight-highlighted,
+    .ais-Snippet-highlighted {
+      border-bottom: 0;
+    }
+  }
 }
 
 .uni-Hit-Header {
@@ -52,16 +53,6 @@
 
 .uni-Hit-Footer {
   padding-top: 0.5rem;
-}
-
-.uni-Hit h2 {
-  color: #21243d;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
-  opacity: 0.7;
-  padding: 0.5rem 0;
-  text-transform: uppercase;
 }
 
 .uni-Hit-Currency {

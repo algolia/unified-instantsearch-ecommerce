@@ -1,6 +1,4 @@
-.uni-Container * {
-  outline-color: var(--algolia-theme-primary);
-}
+/* Container & Overlay */
 
 .uni-Container {
   background: #fff;
@@ -16,11 +14,11 @@
   position: fixed;
   right: 0;
   top: 0;
-}
-
-@media (min-width: 800px) {
-  .uni-Container {
+  @media (min-width: 800px) {
     margin: 2rem;
+  }
+  * {
+    outline-color: var(--algolia-theme-primary);
   }
 }
 
@@ -33,10 +31,30 @@
   top: 0;
 }
 
-h2 {
-  color: #21243d;
-  font-size: 1.5rem;
-  font-weight: bold;
+/* Search box */
+
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+  appearance: none;
+  background: none;
+  border: 0;
+}
+
+.ais-SearchBox-submit {
+  color: var(--algolia-theme-primary);
+}
+
+.ais-SearchBox-reset {
+  cursor: pointer;
+}
+
+.uni-SearchBox {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 740px;
+  width: 100%;
 }
 
 /* Header */
@@ -54,6 +72,55 @@ h2 {
   flex-direction: column;
   justify-content: center;
   padding: 1.5rem;
+  .ais-SearchBox-completion {
+    align-items: center;
+    color: #777;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .ais-SearchBox-submit {
+    padding: 4px 1rem 0 1.5rem;
+    width: 48px;
+  }
+  .ais-SearchBox {
+    width: 100%;
+  }
+  .ais-SearchBox-inputContainer {
+    background: #ebecf3;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+    border-radius: 8px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    color: #21243d;
+    height: 100%;
+    height: 64px;
+  }
+  .ais-SearchBox-input,
+  .ais-SearchBox-completion {
+    background: none;
+    color: inherit;
+    height: 100%;
+
+    /*
+      The "Hind" font family is vertically off-balance.
+      Adding 4px of padding top makes it more vertically aligned.
+    */
+    padding: 4px 48px 0;
+    position: absolute;
+    width: 100%;
+  }
+  .ais-SearchBox-input {
+    &::placeholder {
+      color: #21243d;
+      opacity: 1;
+
+      /* Firefox */
+    }
+  }
 }
 
 .uni-CloseButton {
@@ -69,18 +136,13 @@ h2 {
   right: 0;
   top: 0;
   width: 65px;
-}
-
-.uni-CloseButton:hover,
-.uni-CloseButton:focus {
-  color: #fff;
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
 }
 
 /* Query Suggestions */
-
-.uni-QuerySuggestions * {
-  outline-color: #fff;
-}
 
 .uni-QuerySuggestions {
   align-items: center;
@@ -89,11 +151,18 @@ h2 {
   justify-content: flex-start;
   padding-top: 1.5rem;
   width: 100%;
-}
-
-@media (max-width: 799px) {
-  .uni-QuerySuggestions {
+  @media (max-width: 799px) {
     display: none;
+  }
+  * {
+    outline-color: #fff;
+  }
+  em,
+  mark {
+    background: none;
+    border: 0;
+    color: inherit;
+    padding: 0;
   }
 }
 
@@ -112,8 +181,10 @@ h2 {
   display: flex;
 }
 
-.uni-QuerySuggestions-item:not(:last-of-type) {
-  margin-right: 1rem;
+.uni-QuerySuggestions-item {
+  &:not(:last-of-type) {
+    margin-right: 1rem;
+  }
 }
 
 .uni-QuerySuggestions-button {
@@ -124,14 +195,6 @@ h2 {
   letter-spacing: 0.03rem;
   padding: 0;
   white-space: nowrap;
-}
-
-.uni-QuerySuggestions-button em,
-.uni-QuerySuggestions-button mark {
-  background: none;
-  border: 0;
-  color: inherit;
-  padding: 0;
 }
 
 /* Containers */
@@ -147,10 +210,7 @@ h2 {
   flex: 1;
   margin-right: 60px;
   max-width: 260px;
-}
-
-@media (max-width: 799px) {
-  .uni-LeftPanel {
+  @media (max-width: 799px) {
     display: none;
   }
 }
@@ -170,12 +230,12 @@ h2 {
   justify-content: space-between;
 }
 
-.uni-BodyContent {
-  padding-top: 1.5rem;
-}
-
 .uni-BodyHeader-sortBy {
   display: flex;
+}
+
+.uni-BodyContent {
+  padding-top: 1.5rem;
 }
 
 .uni-Label {
@@ -189,87 +249,10 @@ h2 {
 
 /* Panel */
 
-.uni-Content .ais-Panel {
+.ais-Panel {
   border-top: 1px solid #ebecf3;
   padding-bottom: 2rem;
   padding-top: 2rem;
-}
-
-/* Search box */
-
-.uni-SearchBox {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 740px;
-  width: 100%;
-}
-
-.uni-Header .ais-SearchBox {
-  width: 100%;
-}
-
-.uni-Header .ais-SearchBox .ais-SearchBox-inputContainer {
-  background: #ebecf3;
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.8) 100%
-  );
-  border-radius: 8px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-  color: #21243d;
-  height: 100%;
-  height: 64px;
-}
-
-.uni-Header .ais-SearchBox-input,
-.uni-Header .ais-SearchBox-completion {
-  background: none;
-  color: inherit;
-  height: 100%;
-
-  /*
-    The "Hind" font family is vertically off-balance.
-    Adding 4px of padding top makes it more vertically aligned.
-  */
-  padding: 4px 48px 0;
-  position: absolute;
-  width: 100%;
-}
-
-.uni-Header .ais-SearchBox-completion {
-  align-items: center;
-  color: #777;
-  display: flex;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.ais-SearchBox-submit,
-.ais-SearchBox-reset {
-  appearance: none;
-  background: none;
-  border: 0;
-}
-
-.ais-SearchBox-submit {
-  color: var(--algolia-theme-primary);
-}
-
-.ais-SearchBox-reset {
-  cursor: pointer;
-}
-
-.uni-Header .ais-SearchBox-submit {
-  padding: 4px 1rem 0 1.5rem;
-  width: 48px;
-}
-
-.uni-Header .ais-SearchBox .ais-SearchBox-input::placeholder {
-  color: #21243d;
-  opacity: 1; /* Firefox */
 }
 
 /* Stats */
@@ -297,22 +280,22 @@ h2 {
   margin-left: 1rem;
   margin-right: 0;
   position: relative;
-}
-
-.ais-ToggleRefinement-checkbox::before {
-  align-items: center;
-  color: rgba(33, 36, 61, 0.32);
-  content: 'No';
-  display: flex;
-  font-size: 0.8rem;
-  height: 16px;
-  position: absolute;
-  right: 38px;
-}
-
-.ais-ToggleRefinement-checkbox:checked::before {
-  color: var(--algolia-theme-primary);
-  content: 'Yes';
+  &::before {
+    align-items: center;
+    color: rgba(33, 36, 61, 0.32);
+    content: 'No';
+    display: flex;
+    font-size: 0.8rem;
+    height: 16px;
+    position: absolute;
+    right: 38px;
+  }
+  &:checked {
+    &::before {
+      color: var(--algolia-theme-primary);
+      content: 'Yes';
+    }
+  }
 }
 
 .ais-ToggleRefinement-count {
@@ -321,8 +304,10 @@ h2 {
 
 /* RatingMenu */
 
-.ais-RatingMenu-item:not(.ais-RatingMenu-item--selected) {
-  opacity: 0.5;
+.ais-RatingMenu-item {
+  &:not(.ais-RatingMenu-item--selected) {
+    opacity: 0.5;
+  }
 }
 
 .ais-RatingMenu-starIcon {
