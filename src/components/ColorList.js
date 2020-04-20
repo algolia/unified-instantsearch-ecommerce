@@ -66,7 +66,7 @@ export const ColorList = connectRefinementList((props) => {
 
             if (labelParts.length !== 2) {
               throw new Error(
-                'The Color widget expects colors with the following format: "Aluminium;#7f8084".'
+                `The Color widget expects colors with the following format: "Aluminium;#7f8084". Received "${item.label}".`
               );
             }
 

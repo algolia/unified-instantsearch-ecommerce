@@ -63,13 +63,13 @@ export const SizeList = connectRefinementList((props) => {
           {props.items.map((item) => {
             const labelParts = item.label.split(';');
 
-            if (labelParts.length !== 2) {
+            if (labelParts.length < 2) {
               throw new Error(
-                'The Size widget expects sizes with the following format: "XL;6".'
+                `The Size widget expects sizes with the following format: "XL;6". Received "${item.label}".`
               );
             }
 
-            const [sizeName, sizeCode] = labelParts;
+            const [sizeName] = labelParts;
 
             return (
               <li
@@ -84,10 +84,6 @@ export const SizeList = connectRefinementList((props) => {
                 <label className="ais-RefinementList-label">
                   <input
                     className="ais-RefinementList-checkbox"
-                    style={{
-                      color: sizeCode,
-                      backgroundColor: sizeCode,
-                    }}
                     type="checkbox"
                     value={item.value}
                     checked={item.isRefined}
