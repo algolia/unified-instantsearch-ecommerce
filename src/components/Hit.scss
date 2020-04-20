@@ -22,17 +22,17 @@
     display: block;
     padding: 1rem;
     text-decoration: inherit;
-  }
-  &:hover,
-  &:focus {
-    border-color: #ddd;
-    box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
-    h1 {
-      text-decoration: underline;
-    }
-    .ais-Highlight-highlighted,
-    .ais-Snippet-highlighted {
-      border-bottom: 0;
+    &:hover,
+    &:focus {
+      border-color: #ddd;
+      box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
+      h1 {
+        text-decoration: underline;
+      }
+      .ais-Highlight-highlighted,
+      .ais-Snippet-highlighted {
+        border-bottom: 0;
+      }
     }
   }
 }
