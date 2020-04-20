@@ -83,21 +83,21 @@ const Suggestions = connectHits((props) => {
   return (
     <div
       className={[
-        'Unified-QuerySuggestions',
-        props.hits.length === 0 && 'Unified-QuerySuggestions--empty',
+        'uni-QuerySuggestions',
+        props.hits.length === 0 && 'uni-QuerySuggestions--empty',
       ]
         .filter(Boolean)
         .join(' ')}
     >
-      <span className="Unified-QuerySuggestions-label">Suggestions</span>
+      <span className="uni-QuerySuggestions-label">Suggestions</span>
 
       {props.hits.length > 0 && (
-        <ol className="Unified-QuerySuggestions-list">
+        <ol className="uni-QuerySuggestions-list">
           {props.hits.map((hit) => {
             return (
-              <li key={hit.objectID} className="Unified-QuerySuggestions-item">
+              <li key={hit.objectID} className="uni-QuerySuggestions-item">
                 <button
-                  className="Unified-QuerySuggestions-button"
+                  className="uni-QuerySuggestions-button"
                   onClick={() => props.onClick(hit.query)}
                 >
                   <ReverseHighlight hit={hit} attribute="query" />

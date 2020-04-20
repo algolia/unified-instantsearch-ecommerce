@@ -9,7 +9,7 @@ export const SearchButton = ({ onClick }) => {
   return ReactDOM.createPortal(
     <button
       type="button"
-      className="Unified-SearchButton"
+      className="uni-SearchButton"
       onClick={(event) => {
         event.target.blur();
         onClick();

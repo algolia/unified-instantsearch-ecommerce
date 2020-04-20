@@ -30,12 +30,12 @@ export function Search(props) {
       <Configure {...config.index.searchParameters} />
       <QueryRulesHandler searchState={props.searchState} />
 
-      <div id="Unified-Wrapper">
-        <header className="Unified-Header">
+      <div id="uni-Wrapper">
+        <header className="uni-Header">
           <HeaderSearchBox />
 
           <button
-            className="Unified-CloseButton"
+            className="uni-CloseButton"
             title="Press Esc to close"
             onClick={props.onClose}
           >
@@ -43,22 +43,22 @@ export function Search(props) {
           </button>
         </header>
 
-        <div className="Unified-Content">
-          <div className="Unified-LeftPanel">
+        <div className="uni-Content">
+          <div className="uni-LeftPanel">
             <Refinements />
           </div>
 
-          <div className="Unified-RightPanel">
+          <div className="uni-RightPanel">
             <ScrollTo>
-              <header className="Unified-BodyHeader">
-                <div className="Unified-BodyHeader-heading">
-                  <div className="Unified-BodyHeader-stats">
+              <header className="uni-BodyHeader">
+                <div className="uni-BodyHeader-heading">
+                  <div className="uni-BodyHeader-stats">
                     <Stats />
                   </div>
 
                   {config.sorts && config.sorts.length > 0 && (
-                    <div className="Unified-BodyHeader-sortBy">
-                      <span className="Unified-Label">Sort by</span>
+                    <div className="uni-BodyHeader-sortBy">
+                      <span className="uni-Label">Sort by</span>
                       <SortBy
                         items={config.sorts}
                         defaultRefinement={config.sorts[0].value}
@@ -69,7 +69,7 @@ export function Search(props) {
                 <CurrentRefinements />
               </header>
 
-              <main className="Unified-BodyContent">
+              <main className="uni-BodyContent">
                 <Banner />
                 <ProductList hitComponent={props.hitComponent} />
               </main>

@@ -54,7 +54,7 @@ export const SizeList = connectRefinementList((props) => {
         </div>
       )}
 
-      <div className="Unified-RefinementList-ListContainer">
+      <div className="uni-RefinementList-ListContainer">
         {props.isFromSearch && props.items.length === 0 && (
           <p>No sizes found.</p>
         )}

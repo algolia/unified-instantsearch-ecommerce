@@ -9,7 +9,7 @@ export const HeaderSearchBox = (props) => {
 
   if (config.suggestionsIndex) {
     return (
-      <div className="Unified-SearchBox">
+      <div className="uni-SearchBox">
         <ConnectedPredictiveSearchBox
           translations={{
             placeholder: 'Search for a product, brand, color, …',
@@ -22,7 +22,7 @@ export const HeaderSearchBox = (props) => {
   }
 
   return (
-    <div className="Unified-SearchBox">
+    <div className="uni-SearchBox">
       <ConnectedSearchBox
         translations={{
           placeholder: 'Search for a product, brand, color, …',

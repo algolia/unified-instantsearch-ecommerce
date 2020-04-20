@@ -85,7 +85,7 @@ const config = {
         attribute: 'price',
         transformValue: (value) => (
           <>
-            <span className="Unified-Hit-Currency">£</span>
+            <span className="uni-Hit-Currency">£</span>
             {value}
           </>
         ),

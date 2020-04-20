@@ -1,8 +1,8 @@
-.Unified-Container * {
+.uni-Container * {
   outline-color: var(--algolia-theme-primary);
 }
 
-.Unified-Container {
+.uni-Container {
   background: #fff;
   border-radius: 2px;
   bottom: 0;
@@ -19,12 +19,12 @@
 }
 
 @media (min-width: 800px) {
-  .Unified-Container {
+  .uni-Container {
     margin: 2rem;
   }
 }
 
-.Unified-Overlay {
+.uni-Overlay {
   background: rgba(0, 0, 0, 0.5);
   bottom: 0;
   left: 0;
@@ -41,7 +41,7 @@ h2 {
 
 /* Header */
 
-.Unified-Header {
+.uni-Header {
   align-items: center;
   background: var(--algolia-theme-primary);
   background-image: linear-gradient(
@@ -56,10 +56,10 @@ h2 {
   padding: 1.5rem;
 }
 
-.Unified-CloseButton {
+.uni-CloseButton {
   align-items: center;
   background: #303030;
-  border: none;
+  border: 0;
   color: #cfcfcf;
   cursor: pointer;
   display: flex;
@@ -71,17 +71,18 @@ h2 {
   width: 65px;
 }
 
-.Unified-CloseButton:hover {
+.uni-CloseButton:hover,
+.uni-CloseButton:focus {
   color: #fff;
 }
 
 /* Query Suggestions */
 
-.Unified-QuerySuggestions * {
+.uni-QuerySuggestions * {
   outline-color: #fff;
 }
 
-.Unified-QuerySuggestions {
+.uni-QuerySuggestions {
   align-items: center;
   color: #fff;
   display: flex;
@@ -91,33 +92,33 @@ h2 {
 }
 
 @media (max-width: 799px) {
-  .Unified-QuerySuggestions {
+  .uni-QuerySuggestions {
     display: none;
   }
 }
 
-.Unified-QuerySuggestions--empty {
+.uni-QuerySuggestions--empty {
   visibility: hidden;
 }
 
-.Unified-QuerySuggestions-label {
+.uni-QuerySuggestions-label {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.875rem;
   font-weight: bold;
   padding-right: 1rem;
 }
 
-.Unified-QuerySuggestions-list {
+.uni-QuerySuggestions-list {
   display: flex;
 }
 
-.Unified-QuerySuggestions-item:not(:last-of-type) {
+.uni-QuerySuggestions-item:not(:last-of-type) {
   margin-right: 1rem;
 }
 
-.Unified-QuerySuggestions-button {
+.uni-QuerySuggestions-button {
   background: none;
-  border: none;
+  border: 0;
   color: inherit;
   cursor: pointer;
   letter-spacing: 0.03rem;
@@ -125,59 +126,59 @@ h2 {
   white-space: nowrap;
 }
 
-.Unified-QuerySuggestions-button em,
-.Unified-QuerySuggestions-button mark {
+.uni-QuerySuggestions-button em,
+.uni-QuerySuggestions-button mark {
   background: none;
-  border: none;
+  border: 0;
   color: inherit;
   padding: 0;
 }
 
 /* Containers */
 
-.Unified-Content {
+.uni-Content {
   display: flex;
   margin: 0 auto;
   max-width: 1300px;
   padding: 2rem 1rem;
 }
 
-.Unified-LeftPanel {
+.uni-LeftPanel {
   flex: 1;
   margin-right: 60px;
   max-width: 260px;
 }
 
 @media (max-width: 799px) {
-  .Unified-LeftPanel {
+  .uni-LeftPanel {
     display: none;
   }
 }
 
-.Unified-RightPanel {
+.uni-RightPanel {
   flex: 3;
 }
 
-.Unified-BodyHeader {
+.uni-BodyHeader {
   border-bottom: 1px solid #ebecf3;
   padding-bottom: 1.5rem;
 }
 
-.Unified-BodyHeader-heading {
+.uni-BodyHeader-heading {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 
-.Unified-BodyContent {
+.uni-BodyContent {
   padding-top: 1.5rem;
 }
 
-.Unified-BodyHeader-sortBy {
+.uni-BodyHeader-sortBy {
   display: flex;
 }
 
-.Unified-Label {
+.uni-Label {
   font-size: 0.678rem;
   font-weight: 600;
   letter-spacing: 0.08rem;
@@ -188,7 +189,7 @@ h2 {
 
 /* Panel */
 
-.Unified-Content .ais-Panel {
+.uni-Content .ais-Panel {
   border-top: 1px solid #ebecf3;
   padding-bottom: 2rem;
   padding-top: 2rem;
@@ -196,7 +197,7 @@ h2 {
 
 /* Search box */
 
-.Unified-SearchBox {
+.uni-SearchBox {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -205,11 +206,11 @@ h2 {
   width: 100%;
 }
 
-.Unified-Header .ais-SearchBox {
+.uni-Header .ais-SearchBox {
   width: 100%;
 }
 
-.Unified-Header .ais-SearchBox .ais-SearchBox-inputContainer {
+.uni-Header .ais-SearchBox .ais-SearchBox-inputContainer {
   background: #ebecf3;
   background-image: linear-gradient(
     180deg,
@@ -223,21 +224,22 @@ h2 {
   height: 64px;
 }
 
-.Unified-Header .ais-SearchBox-input,
-.Unified-Header .ais-SearchBox-completion {
+.uni-Header .ais-SearchBox-input,
+.uni-Header .ais-SearchBox-completion {
   background: none;
   color: inherit;
   height: 100%;
+
   /*
     The "Hind" font family is vertically off-balance.
     Adding 4px of padding top makes it more vertically aligned.
   */
-  padding: 4px 48px 0 48px;
+  padding: 4px 48px 0;
   position: absolute;
   width: 100%;
 }
 
-.Unified-Header .ais-SearchBox-completion {
+.uni-Header .ais-SearchBox-completion {
   align-items: center;
   color: #777;
   display: flex;
@@ -249,33 +251,25 @@ h2 {
 .ais-SearchBox-reset {
   appearance: none;
   background: none;
-  border: none;
+  border: 0;
+}
+
+.ais-SearchBox-submit {
+  color: var(--algolia-theme-primary);
 }
 
 .ais-SearchBox-reset {
   cursor: pointer;
 }
 
-.Unified-Header .ais-SearchBox-submit {
+.uni-Header .ais-SearchBox-submit {
   padding: 4px 1rem 0 1.5rem;
   width: 48px;
 }
 
-.Unified-Header .ais-SearchBox .ais-SearchBox-input::placeholder {
+.uni-Header .ais-SearchBox .ais-SearchBox-input::placeholder {
   color: #21243d;
   opacity: 1; /* Firefox */
-}
-
-.ais-SearchBox-input:-ms-input-placeholder {
-  color: #21243d;
-}
-
-.ais-SearchBox-input::-ms-input-placeholder {
-  color: #21243d;
-}
-
-.ais-SearchBox-submit {
-  color: var(--algolia-theme-primary);
 }
 
 /* Stats */
@@ -305,10 +299,6 @@ h2 {
   position: relative;
 }
 
-.ais-ToggleRefinement-checkbox:checked::before {
-  color: var(--algolia-theme-primary);
-}
-
 .ais-ToggleRefinement-checkbox::before {
   align-items: center;
   color: rgba(33, 36, 61, 0.32);
@@ -321,6 +311,7 @@ h2 {
 }
 
 .ais-ToggleRefinement-checkbox:checked::before {
+  color: var(--algolia-theme-primary);
   content: 'Yes';
 }
 
@@ -340,7 +331,7 @@ h2 {
 
 /* RefinementList */
 
-.Unified-RefinementList-ListContainer {
+.uni-RefinementList-ListContainer {
   max-height: 300px;
   overflow: scroll;
 }

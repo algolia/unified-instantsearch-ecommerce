@@ -53,9 +53,9 @@ export function App({ config, location, history }) {
 
   React.useEffect(() => {
     if (isOverlayShowing === true) {
-      document.body.classList.add('Unified--open');
+      document.body.classList.add('uni--open');
     } else {
-      document.body.classList.remove('Unified--open');
+      document.body.classList.remove('uni--open');
       setSearchState(getStateFromUrl(location));
       history.push('', searchState);
     }
@@ -115,11 +115,11 @@ export function App({ config, location, history }) {
         createPortal(
           <>
             <div
-              className="Unified-Overlay"
+              className="uni-Overlay"
               onClick={() => setIsOverlayShowing(false)}
             />
 
-            <div className="Unified-Container" ref={topAnchor}>
+            <div className="uni-Container" ref={topAnchor}>
               <Search
                 searchClient={searchClient}
                 indexName={config.index.indexName}

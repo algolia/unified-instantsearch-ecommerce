@@ -13,7 +13,7 @@ export const Banner = () => {
           }
 
           return (
-            <div className="Unified-Banner" key={banner}>
+            <div className="uni-Banner" key={banner}>
               <a href={link}>
                 <img src={banner} alt={title} />
               </a>
