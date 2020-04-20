@@ -14,10 +14,9 @@
   color: #fff;
   display: flex;
   white-space: nowrap;
-}
-
-.ais-CurrentRefinements-item:not(:last-of-type) {
-  margin-right: 0.5rem;
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
 }
 
 .ais-CurrentRefinements-label {
