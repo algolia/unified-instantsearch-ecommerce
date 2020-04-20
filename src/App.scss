@@ -230,8 +230,11 @@
   align-items: center;
   display: flex;
 }
-.uni-BodyHeader-extraOptions > * + * {
-  margin-left: 1rem;
+
+.uni-BodyHeader-extraOptions {
+  > * + * {
+    margin-left: 1rem;
+  }
 }
 
 .uni-BodyHeader-viewButton {
@@ -242,17 +245,15 @@
   cursor: pointer;
   padding: 0;
   padding: 0.5rem;
-}
-
-.uni-BodyHeader-viewButton[disabled] {
-  cursor: not-allowed;
-}
-
-.uni-BodyHeader-viewButton:not([disabled]):hover,
-.uni-BodyHeader-viewButton:not([disabled]):focus {
-  border-color: #ddd;
-  box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
-  color: var(--algolia-theme-primary);
+  &[disabled] {
+    cursor: not-allowed;
+  }
+  &:not([disabled]):hover,
+  &:not([disabled]):focus {
+    border-color: #ddd;
+    box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
+    color: var(--algolia-theme-primary);
+  }
 }
 
 .uni-BodyHeader-viewButton--active {
