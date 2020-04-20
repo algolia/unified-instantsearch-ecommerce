@@ -19,7 +19,6 @@
     border: 1px solid #fff;
     border-radius: 3px;
     color: inherit;
-    display: block;
     padding: 1rem;
     text-decoration: inherit;
     &:hover,
@@ -37,18 +36,44 @@
   }
 }
 
-.uni-Hit-Header {
+.uni-Hits--gridView a {
+  display: block;
+}
+
+.uni-Hits--listView a {
+  display: flex;
+}
+
+.uni-Hit-image {
   align-items: center;
   display: flex;
   justify-content: center;
   margin: auto;
+}
+
+.uni-Hits--gridView .uni-Hit-image {
   min-height: 180px;
   padding-bottom: 0.5rem;
+}
+
+.uni-Hits--listView .uni-Hit-image {
+  min-width: 105px;
+  max-height: 150px;
+  padding-right: 1rem;
+}
+
+.uni-Hits--listView .uni-Hit-image img {
+  max-height: 160px;
 }
 
 .uni-Hit-Body {
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+.uni-Hit-Description {
+  color: #777;
+  padding-top: 0.5rem;
 }
 
 .uni-Hit-Footer {

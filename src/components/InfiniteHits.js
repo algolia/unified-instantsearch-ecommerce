@@ -1,9 +1,10 @@
 import React from 'react';
 import { connectInfiniteHits } from 'react-instantsearch-dom';
 
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useAppContext, useIntersectionObserver } from '../hooks';
 
 export const InfiniteHits = connectInfiniteHits((props) => {
+  const { view } = useAppContext();
   const { setObservedNode } = useIntersectionObserver({
     callback: props.refineNext,
     threshold: 0,
@@ -20,10 +21,15 @@ export const InfiniteHits = connectInfiniteHits((props) => {
         </button>
       )}
 
-      <ol className="ais-InfiniteHits-list">
+      <ol
+        className={[
+          'ais-InfiniteHits-list',
+          view === 'grid' ? 'uni-Hits--gridView' : 'uni-Hits--listView',
+        ].join(' ')}
+      >
         {props.hits.map((hit) => (
           <li key={hit.objectID} className="ais-InfiniteHits-item">
-            <props.hitComponent hit={hit} />
+            <props.hitComponent hit={hit} view={view} />
           </li>
         ))}
       </ol>
