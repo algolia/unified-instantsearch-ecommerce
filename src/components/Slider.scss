@@ -1,3 +1,5 @@
+@import '../media-queries';
+
 .uni-Slider {
   display: flex;
   flex-direction: column;
@@ -32,7 +34,7 @@
     transform: translate(-50%, -50%);
     width: 16px;
     z-index: 1;
-    @media (max-width: 899px) {
+    @media (max-width: $lg) {
       height: 1.5rem;
       width: 1.5rem;
     }
@@ -42,7 +44,7 @@
 .uni-Slider-bar {
   display: block;
   padding: 0 8px;
-  @media (max-width: 899px) {
+  @media (max-width: $lg) {
     padding: 0 0.75rem;
   }
 }

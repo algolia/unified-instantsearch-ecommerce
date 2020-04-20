@@ -1,3 +1,5 @@
+@import 'media-queries';
+
 :root {
   --algolia-theme-primary: #d02139;
   --algolia-theme-secondary: #21243d;
@@ -86,13 +88,13 @@ a[class^='ais-'] {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr;
-  @media (min-width: 680px) {
+  @media (min-width: $sm) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: 900px) {
+  @media (min-width: $md) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (min-width: 1200px) {
+  @media (min-width: $lg) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
