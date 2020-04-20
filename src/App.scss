@@ -104,21 +104,14 @@
     background: none;
     color: inherit;
     height: 100%;
-
-    /*
-      The "Hind" font family is vertically off-balance.
-      Adding 4px of padding top makes it more vertically aligned.
-    */
-    padding: 4px 48px 0;
+    padding: 0 48px;
     position: absolute;
     width: 100%;
   }
   .ais-SearchBox-input {
     &::placeholder {
       color: #21243d;
-      opacity: 1;
-
-      /* Firefox */
+      opacity: 1; // Firefox
     }
   }
 }
