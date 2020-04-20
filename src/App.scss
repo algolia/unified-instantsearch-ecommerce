@@ -102,13 +102,13 @@
   .ais-SearchBox-input,
   .ais-SearchBox-completion {
     background: none;
-    color: inherit;
     height: 100%;
     padding: 0 48px;
     position: absolute;
     width: 100%;
   }
   .ais-SearchBox-input {
+    color: inherit;
     &::placeholder {
       color: #21243d;
       opacity: 1; // Firefox
