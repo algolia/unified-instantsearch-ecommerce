@@ -1,27 +1,3 @@
-.uni-Hits--gridView {
-  a {
-    display: block;
-  }
-  .uni-Hit-image {
-    min-height: 180px;
-    padding-bottom: 0.5rem;
-  }
-}
-
-.uni-Hits--listView {
-  a {
-    display: flex;
-  }
-  .uni-Hit-image {
-    max-height: 150px;
-    min-width: 105px;
-    padding-right: 1rem;
-    img {
-      max-height: 160px;
-    }
-  }
-}
-
 .uni-Hit {
   color: #21243d;
   font-size: 14px;
@@ -56,6 +32,34 @@
       .ais-Snippet-highlighted {
         border-bottom: 0;
       }
+    }
+  }
+}
+
+.uni-Hits--gridView {
+  .uni-Hit {
+    a {
+      display: block;
+    }
+  }
+  .uni-Hit-image {
+    min-height: 180px;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.uni-Hits--listView {
+  .uni-Hit {
+    a {
+      display: flex;
+    }
+  }
+  .uni-Hit-image {
+    max-height: 150px;
+    min-width: 105px;
+    padding-right: 1rem;
+    img {
+      max-height: 160px;
     }
   }
 }
