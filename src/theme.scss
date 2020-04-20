@@ -513,6 +513,15 @@ a[class^='ais-'] {
   color: #414247;
   height: 38px;
   width: 38px;
+  &.ais-Pagination-item--page {
+    margin-right: 4px;
+  }
+  &.ais-Pagination-item--previousPage {
+    margin-right: 1rem;
+  }
+  &.ais-Pagination-item--nextPage {
+    margin-left: calc(1rem - 4px);
+  }
 }
 
 .ais-Pagination-item--selected {
@@ -538,18 +547,6 @@ a[class^='ais-'] {
 
 .ais-Pagination-item--selected a {
   color: #fff;
-}
-
-.ais-Pagination-item--page {
-  margin-right: 4px;
-}
-
-.ais-Pagination-item--previousPage {
-  margin-right: 1rem;
-}
-
-.ais-Pagination-item--nextPage {
-  margin-left: calc(1rem - 4px);
 }
 
 .ais-Pagination-link {
