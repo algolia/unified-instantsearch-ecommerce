@@ -72,6 +72,9 @@
   flex-direction: column;
   justify-content: center;
   padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   .ais-SearchBox-completion {
     align-items: center;
     color: #777;
