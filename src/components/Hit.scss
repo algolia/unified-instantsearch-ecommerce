@@ -2,6 +2,10 @@
   color: #21243d;
   font-size: 14px;
   line-height: 18px;
+  header {
+    display: grid;
+    grid-gap: 0.5rem;
+  }
   h1 {
     font-size: 14px;
     letter-spacing: 0.025rem;
@@ -12,13 +16,14 @@
     font-weight: 600;
     line-height: 1;
     opacity: 0.7;
-    padding: 0.5rem 0;
     text-transform: uppercase;
   }
   a {
     border: 1px solid #fff;
     border-radius: 3px;
     color: inherit;
+    display: grid;
+    grid-gap: 1rem;
     padding: 1rem;
     text-decoration: inherit;
     &:hover,
@@ -34,48 +39,39 @@
       }
     }
   }
+  p {
+    color: #777;
+  }
+}
+
+.uni-Hit-image {
+  img {
+    width: 100%;
+  }
 }
 
 .uni-Hits--gridView {
-  .uni-Hit {
-    a {
-      display: block;
-    }
-  }
   .uni-Hit-image {
-    min-height: 180px;
-    padding-bottom: 0.5rem;
+    min-height: 152px;
   }
 }
 
 .uni-Hits--listView {
   .uni-Hit {
     a {
-      display: flex;
+      grid-template-columns: 100px 1fr;
     }
   }
   .uni-Hit-image {
-    max-height: 150px;
-    min-width: 105px;
-    padding-right: 1rem;
-    img {
-      max-height: 160px;
-    }
+    min-height: 130px;
   }
 }
 
 .uni-Hit-Body {
+  display: grid;
+  grid-gap: 0.5rem;
   overflow-wrap: break-word;
   word-break: break-word;
-}
-
-.uni-Hit-Description {
-  color: #777;
-  padding-top: 0.5rem;
-}
-
-.uni-Hit-Footer {
-  padding-top: 0.5rem;
 }
 
 .uni-Hit-Currency {

@@ -19,7 +19,7 @@ export function Hit({ hit, insights, view }) {
         </div>
 
         <div className="uni-Hit-Body">
-          <header className="uni-Hit-Header">
+          <header>
             <h2>{[hit.brand, hit.gender].filter(Boolean).join(' · ')}</h2>
 
             <h1>
@@ -28,14 +28,14 @@ export function Hit({ hit, insights, view }) {
           </header>
 
           {view === 'list' && (
-            <p className="uni-Hit-Description">
+            <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Suspendisse placerat lectus non dui suscipit cursus. Ut interdum
               ac nisi eget egestas.
             </p>
           )}
 
-          <footer className="uni-Hit-Footer">
+          <footer>
             <span className="uni-Hit-Currency">£</span>
             <strong>{hit.price.toLocaleString()}</strong>{' '}
           </footer>
