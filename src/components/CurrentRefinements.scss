@@ -4,7 +4,7 @@
 
 .ais-CurrentRefinements-list {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .ais-CurrentRefinements-item {
@@ -13,6 +13,7 @@
   border-radius: 3px;
   color: #fff;
   display: flex;
+  margin: 0.25rem 0;
   white-space: nowrap;
   &:not(:last-of-type) {
     margin-right: 0.5rem;
