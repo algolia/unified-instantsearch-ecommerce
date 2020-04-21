@@ -4,56 +4,61 @@ import Rheostat from 'rheostat';
 
 import './Slider.scss';
 
-export const Slider = connectRange(
-  ({ min, max, currentRefinement, refine, transformValue = (x) => x }) => {
-    const [currentMin, setCurrentMin] = React.useState(null);
-    const [currentMax, setCurrentMax] = React.useState(null);
+import { PanelWrapper } from './Panel';
 
-    function computeMinValue(value) {
-      return Math.min(Math.max(value, min), max);
-    }
+export const Slider = connectRange((props) => {
+  const {
+    min,
+    max,
+    currentRefinement,
+    refine,
+    transformValue = (x) => x,
+  } = props;
+  const [currentMin, setCurrentMin] = React.useState(null);
+  const [currentMax, setCurrentMax] = React.useState(null);
 
-    function computeMaxValue(value) {
-      return Math.max(Math.min(value, max), min);
-    }
+  function computeMinValue(value) {
+    return Math.min(Math.max(value, min), max);
+  }
 
-    function onChange({ values }) {
-      if (
-        currentRefinement.min !== values[0] ||
-        currentRefinement.max !== values[1]
-      ) {
-        let computedMin = computeMinValue(values[0]);
-        let computedMax = computeMaxValue(values[1]);
+  function computeMaxValue(value) {
+    return Math.max(Math.min(value, max), min);
+  }
 
-        if (computedMin === computedMax && computedMin > min) {
-          computedMin -= 1;
-        } else if (computedMin === computedMax && computedMax < max) {
-          computedMax += 1;
-        }
+  function onChange({ values }) {
+    if (
+      currentRefinement.min !== values[0] ||
+      currentRefinement.max !== values[1]
+    ) {
+      let computedMin = computeMinValue(values[0]);
+      let computedMax = computeMaxValue(values[1]);
 
-        refine({
-          min: computedMin,
-          max: computedMax,
-        });
+      if (computedMin === computedMax && computedMin > min) {
+        computedMin -= 1;
+      } else if (computedMin === computedMax && computedMax < max) {
+        computedMax += 1;
       }
+
+      refine({
+        min: computedMin,
+        max: computedMax,
+      });
     }
+  }
 
-    function onValuesUpdated({ values }) {
-      setCurrentMin(computeMinValue(values[0]));
-      setCurrentMax(computeMaxValue(values[1]));
-    }
+  function onValuesUpdated({ values }) {
+    setCurrentMin(computeMinValue(values[0]));
+    setCurrentMax(computeMaxValue(values[1]));
+  }
 
-    // `min` and `max` values are passed as `undefined` on the first render.
-    React.useEffect(() => {
-      setCurrentMin(min);
-      setCurrentMax(max);
-    }, [min, max]);
+  // `min` and `max` values are passed as `undefined` on the first render.
+  React.useEffect(() => {
+    setCurrentMin(min);
+    setCurrentMax(max);
+  }, [min, max]);
 
-    if (min === max) {
-      return null;
-    }
-
-    return (
+  return (
+    <PanelWrapper {...props}>
       <div className="uni-Slider">
         <div className="uni-Slider-bar">
           <Rheostat
@@ -76,6 +81,6 @@ export const Slider = connectRange(
           </div>
         </div>
       </div>
-    );
-  }
-);
+    </PanelWrapper>
+  );
+});
