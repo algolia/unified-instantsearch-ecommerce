@@ -57,6 +57,10 @@ export const Slider = connectRange((props) => {
     setCurrentMax(max);
   }, [min, max]);
 
+  if (min === max) {
+    return <PanelWrapper {...props}>{null}</PanelWrapper>;
+  }
+
   return (
     <PanelWrapper {...props}>
       <div className="uni-Slider">
