@@ -88,6 +88,7 @@ a[class^='ais-'] {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr;
+  margin: 0;
   @media (min-width: $sm) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -101,6 +102,12 @@ a[class^='ais-'] {
 
 /* Menus */
 
+.ais-RefinementList-list,
+.ais-Menu-list {
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
 .ais-RefinementList-item,
 .ais-Menu-item,
 .ais-HierarchicalMenu-item,
@@ -112,7 +119,7 @@ a[class^='ais-'] {
 .ais-Menu-link,
 .ais-RatingMenu-item,
 .ais-RefinementList-label {
-  padding-bottom: 1rem;
+  padding: 0.5rem 0;
 }
 
 .ais-Breadcrumb-item--selected,
@@ -508,6 +515,7 @@ a[class^='ais-'] {
 .ais-Pagination-list {
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 .ais-Pagination-item,
