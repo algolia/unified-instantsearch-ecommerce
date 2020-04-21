@@ -235,9 +235,8 @@ a[class^='ais-'] {
 .ais-Menu-link,
 .ais-RatingMenu-link,
 .ais-RefinementList-label {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
-  white-space: nowrap;
 }
 
 .ais-RefinementList-checkbox {
@@ -246,9 +245,11 @@ a[class^='ais-'] {
   border: 1px solid rgba(65, 66, 71, 0.24);
   border-radius: 2px;
   color: var(--algolia-theme-primary);
+  flex-shrink: 0;
   height: 1rem;
   margin: 0;
   margin-right: 1rem;
+  margin-top: 1px;
   position: relative;
   width: 1rem;
   &:hover {
@@ -294,6 +295,11 @@ a[class^='ais-'] {
   letter-spacing: 1.1px;
   margin-left: 8px;
   padding: 0 4px;
+}
+
+.ais-RefinementList-count,
+.ais-Menu-count {
+  margin-top: 3px;
 }
 
 .ais-HierarchicalMenu-showMore,
