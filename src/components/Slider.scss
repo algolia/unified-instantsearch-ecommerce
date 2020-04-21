@@ -12,6 +12,7 @@
     cursor: pointer;
     height: 3px;
     position: absolute;
+    top: -1px;
     width: 100%;
   }
   .rheostat-progress {
@@ -20,6 +21,7 @@
     cursor: pointer;
     height: 3px;
     position: absolute;
+    top: -1px;
   }
   .rheostat-handle {
     background-image: linear-gradient(to top, #f5f5fa, #fff);
