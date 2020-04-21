@@ -3,7 +3,7 @@ import { Highlight } from 'react-instantsearch-dom';
 
 import './Hit.scss';
 
-export function Hit({ hit, insights }) {
+export function Hit({ hit, insights, view }) {
   return (
     <article
       className="uni-Hit"
@@ -14,22 +14,32 @@ export function Hit({ hit, insights }) {
       }
     >
       <a href={`https://asos.com/${hit.url}`}>
-        <header className="uni-Hit-Header">
+        <div className="uni-Hit-image">
           <img src={hit.image} alt={hit.description} />
-        </header>
-
-        <div className="uni-Hit-Body">
-          <h2>{[hit.brand, hit.gender].filter(Boolean).join(' · ')}</h2>
-
-          <h1>
-            <Highlight attribute="description" tagName="mark" hit={hit} />
-          </h1>
         </div>
 
-        <footer className="uni-Hit-Footer">
-          <span className="uni-Hit-Currency">£</span>
-          <strong>{hit.price.toLocaleString()}</strong>{' '}
-        </footer>
+        <div className="uni-Hit-Body">
+          <header className="uni-Hit-Header">
+            <h2>{[hit.brand, hit.gender].filter(Boolean).join(' · ')}</h2>
+
+            <h1>
+              <Highlight attribute="description" tagName="mark" hit={hit} />
+            </h1>
+          </header>
+
+          {view === 'list' && (
+            <p className="uni-Hit-Description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse placerat lectus non dui suscipit cursus. Ut interdum
+              ac nisi eget egestas.
+            </p>
+          )}
+
+          <footer className="uni-Hit-Footer">
+            <span className="uni-Hit-Currency">£</span>
+            <strong>{hit.price.toLocaleString()}</strong>{' '}
+          </footer>
+        </div>
       </a>
     </article>
   );

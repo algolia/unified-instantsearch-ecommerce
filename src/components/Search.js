@@ -15,9 +15,10 @@ import { HeaderSearchBox } from './SearchBox';
 import { Stats } from './Stats';
 import { CloseIcon } from './CloseIcon';
 import { ProductList } from './ProductList';
+import { Views } from './Views';
 
 export function Search(props) {
-  const { config } = useAppContext();
+  const { config, view } = useAppContext();
 
   return (
     <InstantSearch
@@ -56,15 +57,21 @@ export function Search(props) {
                     <Stats />
                   </div>
 
-                  {config.sorts && config.sorts.length > 0 && (
-                    <div className="uni-BodyHeader-sortBy">
-                      <span className="uni-Label">Sort by</span>
-                      <SortBy
-                        items={config.sorts}
-                        defaultRefinement={config.sorts[0].value}
-                      />
+                  <div className="uni-BodyHeader-extraOptions">
+                    {config.sorts?.length > 0 && (
+                      <div className="uni-BodyHeader-sortBy">
+                        <span className="uni-Label">Sort by</span>
+                        <SortBy
+                          items={config.sorts}
+                          defaultRefinement={config.sorts[0].value}
+                        />
+                      </div>
+                    )}
+
+                    <div>
+                      <Views view={view} setView={props.setView} />
                     </div>
-                  )}
+                  </div>
                 </div>
                 <CurrentRefinements />
               </header>

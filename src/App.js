@@ -17,6 +17,7 @@ export function App({ config, location, history }) {
   );
   const lastSetStateId = React.useRef();
   const topAnchor = React.useRef();
+  const [view, setView] = React.useState('grid');
   const [searchState, setSearchState] = React.useState(
     getStateFromUrl(location)
   );
@@ -70,7 +71,6 @@ export function App({ config, location, history }) {
 
   React.useEffect(() => {
     function onKeydown(event) {
-      console.log(event);
       const element = event.target || event.srcElement;
 
       if (
@@ -108,7 +108,7 @@ export function App({ config, location, history }) {
   }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
 
   return (
-    <AppContext.Provider value={{ config }}>
+    <AppContext.Provider value={{ config, view }}>
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
@@ -128,6 +128,7 @@ export function App({ config, location, history }) {
                 createURL={createURL}
                 hitComponent={hitComponent}
                 onClose={() => setIsOverlayShowing(false)}
+                setView={setView}
               />
             </div>
           </>,

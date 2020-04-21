@@ -1,13 +1,22 @@
 import React from 'react';
 import { connectHits, Pagination } from 'react-instantsearch-dom';
 
+import { useAppContext } from '../hooks';
+
 export const Hits = connectHits((props) => {
+  const { view } = useAppContext();
+
   return (
     <div className="ais-Hits">
-      <ol className="ais-Hits-list">
+      <ol
+        className={[
+          'ais-Hits-list',
+          view === 'grid' ? 'uni-Hits--gridView' : 'uni-Hits--listView',
+        ].join(' ')}
+      >
         {props.hits.map((hit) => (
           <li key={hit.objectID} className="ais-Hits-item">
-            <props.hitComponent hit={hit} />
+            <props.hitComponent hit={hit} view={view} />
           </li>
         ))}
       </ol>
