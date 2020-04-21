@@ -25,6 +25,7 @@ const config = {
       hitsPerPage: 6,
     },
   },
+  getUserToken: () => window.ALGOLIA_USER_TOKEN,
   googleAnalytics: false,
   sorts: [
     { value: 'mika_asos', label: 'Produits recommandés' },

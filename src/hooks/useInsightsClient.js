@@ -1,7 +1,7 @@
 import React from 'react';
 import searchInsights from 'search-insights';
 
-export function useInsightsClient(appId, apiKey) {
+export function useInsightsClient(appId, apiKey, userToken) {
   React.useEffect(() => {
     searchInsights.init({
       appId,
@@ -15,9 +15,16 @@ export function useInsightsClient(appId, apiKey) {
   // Since we use the ESM import to avoid users to load the library on their
   // page, we need to wrap the methods calls in a similar functional interface.
   // See https://github.com/algolia/search-insights.js/blob/76f8bcd6f0ff711465ea5eddf9852045352675e2/lib/_getFunctionalInterface.ts
-  return (functionName, ...functionArguments) => {
-    if (functionName && typeof searchInsights[functionName] === 'function') {
-      searchInsights[functionName](...functionArguments);
+  return (eventName, ...eventsArguments) => {
+    // We enhance the event params with the provided user token so that users
+    // don't have to pass it in their events.
+    const events = eventsArguments.map((eventParams) => ({
+      userToken,
+      ...eventParams,
+    }));
+
+    if (eventName && typeof searchInsights[eventName] === 'function') {
+      searchInsights[eventName](...events);
     }
   };
 }

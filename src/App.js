@@ -10,7 +10,11 @@ export const AppContext = React.createContext(null);
 
 export function App({ config, location, history }) {
   const searchClient = useSearchClient(config.appId, config.searchApiKey);
-  const insightsClient = useInsightsClient(config.appId, config.searchApiKey);
+  const insightsClient = useInsightsClient(
+    config.appId,
+    config.searchApiKey,
+    config.getUserToken()
+  );
   const hitComponent = React.useMemo(
     () => connectHitInsights(insightsClient)(Hit),
     [insightsClient]
