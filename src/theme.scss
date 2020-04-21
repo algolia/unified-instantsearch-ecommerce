@@ -85,10 +85,10 @@ a[class^='ais-'] {
 
 .ais-Hits-list,
 .ais-InfiniteHits-list {
-  margin: 0;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr;
+  margin: 0;
   @media (min-width: $sm) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -104,8 +104,8 @@ a[class^='ais-'] {
 
 .ais-RefinementList-list,
 .ais-Menu-list {
-  margin-top: 0;
   margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 .ais-RefinementList-item,
