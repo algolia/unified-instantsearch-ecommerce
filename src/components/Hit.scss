@@ -2,80 +2,79 @@
   color: #21243d;
   font-size: 14px;
   line-height: 18px;
-  h1 {
-    font-size: 14px;
-    letter-spacing: 0.025rem;
-  }
-  h2 {
-    color: #21243d;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1;
-    opacity: 0.7;
-    padding: 0.5rem 0;
-    text-transform: uppercase;
-  }
-  a {
-    border: 1px solid #fff;
-    border-radius: 3px;
-    color: inherit;
-    padding: 1rem;
-    text-decoration: inherit;
-    &:hover,
-    &:focus {
-      border-color: #ddd;
-      box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
-      h1 {
-        text-decoration: underline;
-      }
-      .ais-Highlight-highlighted,
-      .ais-Snippet-highlighted {
-        border-bottom: 0;
-      }
+}
+
+.uni-Hit-header {
+  display: grid;
+  grid-gap: 0.5rem;
+}
+
+.uni-Hit-title {
+  font-size: 14px;
+  letter-spacing: 0.025rem;
+}
+
+.uni-Hit-category {
+  color: #21243d;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.uni-Hit-inner {
+  border: 1px solid #fff;
+  border-radius: 3px;
+  color: inherit;
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  text-decoration: inherit;
+  &:hover,
+  &:focus {
+    border-color: #ddd;
+    box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
+    .uni-Hit-title {
+      text-decoration: underline;
     }
+    .ais-Highlight-highlighted,
+    .ais-Snippet-highlighted {
+      border-bottom: 0;
+    }
+  }
+}
+
+.uni-Hit-description {
+  color: #777;
+}
+
+.uni-Hit-image {
+  img {
+    width: 100%;
   }
 }
 
 .uni-Hits--gridView {
-  .uni-Hit {
-    a {
-      display: block;
-    }
-  }
   .uni-Hit-image {
-    min-height: 180px;
-    padding-bottom: 0.5rem;
+    min-height: 152px;
   }
 }
 
 .uni-Hits--listView {
-  .uni-Hit {
-    a {
-      display: flex;
-    }
+  .uni-Hit-inner {
+    grid-template-columns: 100px 1fr;
   }
   .uni-Hit-image {
-    max-height: 150px;
-    min-width: 105px;
-    padding-right: 1rem;
-    img {
-      max-height: 160px;
-    }
+    min-height: 130px;
   }
 }
 
 .uni-Hit-Body {
+  display: grid;
+  grid-gap: 0.5rem;
   overflow-wrap: break-word;
   word-break: break-word;
-}
-
-.uni-Hit-Description {
-  color: #777;
-  padding-top: 0.5rem;
-}
-
-.uni-Hit-Footer {
-  padding-top: 0.5rem;
 }
 
 .uni-Hit-Currency {
