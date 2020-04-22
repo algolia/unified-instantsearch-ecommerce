@@ -30,6 +30,7 @@
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
+  position: relative;
   text-decoration: inherit;
   &:hover,
   &:focus {
@@ -55,21 +56,6 @@
   }
 }
 
-.uni-Hits--gridView {
-  .uni-Hit-image {
-    min-height: 152px;
-  }
-}
-
-.uni-Hits--listView {
-  .uni-Hit-inner {
-    grid-template-columns: 100px 1fr;
-  }
-  .uni-Hit-image {
-    min-height: 130px;
-  }
-}
-
 .uni-Hit-Body {
   display: grid;
   grid-gap: 0.5rem;
@@ -82,4 +68,53 @@
   font-size: 13px;
   font-weight: 600;
   padding-right: 2px;
+}
+
+.uni-Hit-Actions {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+}
+
+.uni-Hit-ActionButton {
+  background: none;
+  border: 0;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1;
+  svg {
+    fill: transparent;
+  }
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: var(--algolia-theme-primary);
+    svg {
+      fill: currentColor;
+    }
+  }
+}
+
+.uni-Hits--gridView {
+  .uni-Hit-image {
+    min-height: 152px;
+  }
+  .uni-Hit-Actions {
+    bottom: 1rem;
+  }
+}
+
+.uni-Hits--listView {
+  .uni-Hit-inner {
+    grid-template-columns: 100px 1fr;
+  }
+  .uni-Hit-image {
+    min-height: 130px;
+  }
+  .uni-Hit-Actions {
+    top: 1rem;
+  }
 }
