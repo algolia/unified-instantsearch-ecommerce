@@ -19,7 +19,7 @@ import { Views } from './Views';
 import { FiltersButton } from './FiltersButton';
 
 export function Search(props) {
-  const { config, view, userToken } = useAppContext();
+  const { config, view, userToken, setIsFiltering } = useAppContext();
 
   return (
     <InstantSearch
@@ -50,6 +50,11 @@ export function Search(props) {
         </header>
 
         <div className="uni-Content">
+          <div
+            data-layout="mobile"
+            className="uni-LeftPanel-Overlay"
+            onClick={() => setIsFiltering(false)}
+          />
           <div className="uni-LeftPanel">
             <div className="uni-Refinements">
               <Refinements />
@@ -91,7 +96,11 @@ export function Search(props) {
           </div>
 
           <div data-layout="mobile">
-            <FiltersButton />
+            <FiltersButton
+              onClick={() => {
+                setIsFiltering(true);
+              }}
+            />
           </div>
         </div>
       </div>

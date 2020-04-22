@@ -108,8 +108,10 @@ export function App({ config, location, history }) {
     };
   }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
 
+  const [isFiltering, setIsFiltering] = React.useState(false);
+
   return (
-    <AppContext.Provider value={{ config, view, userToken }}>
+    <AppContext.Provider value={{ config, view, userToken, setIsFiltering }}>
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
@@ -120,7 +122,15 @@ export function App({ config, location, history }) {
               onClick={() => setIsOverlayShowing(false)}
             />
 
-            <div className="uni-Container" ref={topAnchor}>
+            <div
+              className={[
+                'uni-Container',
+                isFiltering === true && 'uni-Container--filtering',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+              ref={topAnchor}
+            >
               <Search
                 searchClient={searchClient}
                 indexName={config.index.indexName}

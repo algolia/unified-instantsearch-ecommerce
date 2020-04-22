@@ -2,9 +2,9 @@ import React from 'react';
 
 import { FilterIcon } from './FilterIcon';
 
-export function FiltersButton() {
+export function FiltersButton({ onClick }) {
   return (
-    <button className="uni-FiltersButton">
+    <button onClick={onClick} className="uni-FiltersButton">
       <FilterIcon />
       Filters
     </button>
