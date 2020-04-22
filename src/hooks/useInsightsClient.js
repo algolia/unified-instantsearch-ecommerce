@@ -13,7 +13,7 @@ const aa = (eventName, ...eventsArguments) => {
   }
 };
 
-export function useInsightsClient(appId, apiKey, userToken) {
+export function useInsightsClient(appId, apiKey, setUserToken) {
   React.useEffect(() => {
     aa('init', {
       appId,
@@ -22,10 +22,14 @@ export function useInsightsClient(appId, apiKey, userToken) {
   }, [appId, apiKey]);
 
   React.useEffect(() => {
-    if (userToken) {
-      aa('setUserToken', userToken);
+    if (!setUserToken) {
+      return;
     }
-  }, [userToken]);
+
+    setUserToken((userToken) => {
+      aa('setUserToken', userToken);
+    });
+  }, [setUserToken]);
 
   return aa;
 }

@@ -13,7 +13,7 @@ export function App({ config, location, history }) {
   const insightsClient = useInsightsClient(
     config.appId,
     config.searchApiKey,
-    config.getUserToken()
+    config.setUserToken
   );
   const hitComponent = React.useMemo(
     () => connectHitInsights(insightsClient)(Hit),
