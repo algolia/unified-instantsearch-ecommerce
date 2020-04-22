@@ -87,10 +87,11 @@ export function Search(props) {
               </main>
             </ScrollTo>
           </div>
+
+          <div data-layout="mobile">
+            <FiltersButton />
+          </div>
         </div>
-      </div>
-      <div data-layout="mobile">
-        <FiltersButton />
       </div>
     </InstantSearch>
   );
