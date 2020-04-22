@@ -1,22 +1,23 @@
-.ais-Panel {
-  .ais-Panel-headerButton {
-    align-items: center;
-    background: none;
-    border: 0;
-    color: #21243d;
-    cursor: pointer;
-    display: flex;
-    font: inherit;
-    font-size: 0.678rem;
-    font-weight: 600;
-    justify-content: space-between;
-    letter-spacing: 0.08rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    padding: 0;
-    text-transform: uppercase;
-    width: 100%;
-  }
+.ais-Panel-headerButton {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: #21243d;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.678rem;
+  font-weight: 600;
+  justify-content: space-between;
+  letter-spacing: 0.08rem;
+  line-height: 1.6;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.ais-Panel-body {
+  margin-top: 1rem;
 }
 
 .ais-Panel-noRefinement {
