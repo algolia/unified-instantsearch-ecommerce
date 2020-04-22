@@ -51,7 +51,9 @@ export function Search(props) {
 
         <div className="uni-Content">
           <div className="uni-LeftPanel">
-            <Refinements />
+            <div className="uni-Refinements">
+              <Refinements />
+            </div>
           </div>
 
           <div className="uni-RightPanel">
