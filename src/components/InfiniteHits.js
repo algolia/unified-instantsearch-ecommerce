@@ -3,7 +3,7 @@ import { connectInfiniteHits } from 'react-instantsearch-dom';
 
 import { useAppContext, useIntersectionObserver } from '../hooks';
 
-export const InfiniteHits = connectInfiniteHits((props) => {
+export const InfiniteHits = connectInfiniteHits(function InfiniteHits(props) {
   const { view } = useAppContext();
   const { setObservedNode } = useIntersectionObserver({
     callback: props.refineNext,
