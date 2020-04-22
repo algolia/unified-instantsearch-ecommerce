@@ -3,18 +3,19 @@ import { createPortal } from 'react-dom';
 import { connectHitInsights } from 'react-instantsearch-dom';
 
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
-import { useSearchClient, useInsightsClient } from './hooks';
+import { useSearchClient, useInsights } from './hooks';
 import { SearchButton, Search, Hit } from './components';
 
 export const AppContext = React.createContext(null);
 
 export function App({ config, location, history }) {
   const searchClient = useSearchClient(config.appId, config.searchApiKey);
-  const insightsClient = useInsightsClient(config.appId, config.searchApiKey);
-  const hitComponent = React.useMemo(
-    () => connectHitInsights(insightsClient)(Hit),
-    [insightsClient]
+  const { aa, userToken } = useInsights(
+    config.appId,
+    config.searchApiKey,
+    config.setUserToken
   );
+  const hitComponent = React.useMemo(() => connectHitInsights(aa)(Hit), [aa]);
   const lastSetStateId = React.useRef();
   const topAnchor = React.useRef();
   const [view, setView] = React.useState('grid');
@@ -108,7 +109,7 @@ export function App({ config, location, history }) {
   }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
 
   return (
-    <AppContext.Provider value={{ config, view }}>
+    <AppContext.Provider value={{ config, view, userToken }}>
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
