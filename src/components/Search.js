@@ -16,6 +16,7 @@ import { Stats } from './Stats';
 import { CloseIcon } from './CloseIcon';
 import { ProductList } from './ProductList';
 import { Views } from './Views';
+import { FiltersButton } from './FiltersButton';
 
 export function Search(props) {
   const { config, view, userToken } = useAppContext();
@@ -87,6 +88,9 @@ export function Search(props) {
             </ScrollTo>
           </div>
         </div>
+      </div>
+      <div data-layout="mobile">
+        <FiltersButton />
       </div>
     </InstantSearch>
   );

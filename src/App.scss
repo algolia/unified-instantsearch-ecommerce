@@ -115,6 +115,7 @@
     color: inherit;
     &::placeholder {
       color: #21243d;
+
       /* Firefox */
       opacity: 1;
     }
@@ -203,6 +204,9 @@
   margin: 0 auto;
   max-width: 1300px;
   padding: 2rem 1rem;
+  @media (max-width: $breakpoint-md) {
+    padding-bottom: 6rem;
+  }
 }
 
 .uni-LeftPanel {
@@ -393,4 +397,52 @@
 .uni-Hits--listView {
   display: flex;
   flex-direction: column;
+}
+
+/* Filters button */
+
+.uni-FiltersButton {
+  align-items: center;
+  background-color: var(--algolia-theme-primary);
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  border: 0;
+  border-radius: 5px;
+  bottom: 4rem;
+  box-shadow: 0 4px 22px 0 rgba(200, 200, 200, 0.5);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: inherit;
+  font-size: 0.875rem;
+  font-weight: inherit;
+  font-weight: bold;
+  height: 40px;
+  justify-content: center;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+  width: 112px;
+  @media (max-width: $breakpoint-sm) {
+    bottom: 2rem;
+  }
+}
+
+.uni-FiltersButton svg {
+  height: 14px;
+  margin-right: 8px;
+  width: 16px;
+}
+
+/* Mobile-only */
+
+[data-layout='mobile'] {
+  display: none;
+  @media (max-width: $breakpoint-md) {
+    display: block;
+  }
 }
