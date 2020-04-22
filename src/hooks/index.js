@@ -1,4 +1,4 @@
 export * from './useAppContext';
 export * from './useIntersectionObserver';
-export * from './useInsightsClient';
+export * from './useInsights';
 export * from './useSearchClient';

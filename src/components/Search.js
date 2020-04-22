@@ -18,7 +18,7 @@ import { ProductList } from './ProductList';
 import { Views } from './Views';
 
 export function Search(props) {
-  const { config, view } = useAppContext();
+  const { config, view, userToken } = useAppContext();
 
   return (
     <InstantSearch
@@ -28,7 +28,11 @@ export function Search(props) {
       onSearchStateChange={props.onSearchStateChange}
       createURL={props.createURL}
     >
-      <Configure {...config.index.searchParameters} />
+      <Configure
+        userToken={userToken}
+        enablePersonalization={Boolean(userToken)}
+        {...config.index.searchParameters}
+      />
       <QueryRulesHandler searchState={props.searchState} />
 
       <div id="uni-Wrapper">
