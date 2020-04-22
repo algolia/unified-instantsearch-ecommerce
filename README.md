@@ -40,6 +40,29 @@ The `src/config.js` file describe the multiple available options to be used with
 | sorts | `object` | No | Set the different Sorts available |
 | translations | `object` | No | Set the different translations to be used |
 
+### Customizing styles
+
+The `src/config.scss` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
+
+| Sass Variables | Comments |
+| $color-primary | The accent color, typically the main color of your branding |
+| $color-secondary | The secondary color, for most of the text content |
+| $font-family | The global font stack |
+| $breakpoint-sm | The breakpoint for small devices |
+| $breakpoint-md | The breakpoint for medium devices |
+| $breakpoint-lg | The breakpoint for large devices |
+
+#### Colors
+
+You can modify the color variables (prefixed with `$color-`) to adapt the design to your needs.
+
+Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) with a static fallback for browsers that don't support it. If you want to leverage CSS custom properties, for example, to implement multiple color themes, you can set the color variables as your initial values (and fallback for older browsers), and override them in the desired context by setting the corresponding CSS custom properties in your own CSS.
+
+| Sass Variable | CSS Custom Property |
+| --- | --- | --- |
+| $color-primary | --algolia-theme-primary |
+| $color-secondary | --algolia-theme-secondary |
+
 ### Disclaimer
 
 > E-Commerce Unified UI is made accessible to you for trial and/or experimentation purposes. You may decide to use it or not. You are aware that use of E-Commerce Unified UI in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).

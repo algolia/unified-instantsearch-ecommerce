@@ -1,4 +1,4 @@
-@import '../media-queries';
+@import '../config';
 
 .uni-Slider {
   display: flex;
@@ -36,7 +36,7 @@
     transform: translate(-50%, -50%);
     width: 16px;
     z-index: 1;
-    @media (max-width: $lg) {
+    @media (max-width: $breakpoint-lg) {
       height: 1.5rem;
       width: 1.5rem;
     }
@@ -46,7 +46,7 @@
 .uni-Slider-bar {
   display: block;
   padding: 0 8px;
-  @media (max-width: $lg) {
+  @media (max-width: $breakpoint-lg) {
     padding: 0 0.75rem;
   }
 }

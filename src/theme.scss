@@ -1,8 +1,8 @@
-@import 'media-queries';
+@import 'config';
 
 :root {
-  --algolia-theme-primary: #d02139;
-  --algolia-theme-secondary: #21243d;
+  --algolia-theme-primary: #{$color-primary};
+  --algolia-theme-secondary: #{$color-secondary};
 }
 
 /* Global */
@@ -89,13 +89,13 @@ a[class^='ais-'] {
   grid-gap: 20px;
   grid-template-columns: 1fr;
   margin: 0;
-  @media (min-width: $sm) {
+  @media (min-width: $breakpoint-sm) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: $md) {
+  @media (min-width: $breakpoint-md) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (min-width: $lg) {
+  @media (min-width: $breakpoint-lg) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
