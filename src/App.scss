@@ -170,6 +170,7 @@
 .uni-Refinements {
   @media (max-width: $breakpoint-md) {
     background: #fff;
+    height: calc(100vh - 4rem);
     padding: 2rem;
     position: relative;
     transform: translateX(120vh);
@@ -489,7 +490,6 @@
         pointer-events: auto;
       }
       .uni-Refinements {
-        height: calc(100vh - 4rem);
         overflow-y: scroll;
         transform: translateX(0);
       }
