@@ -17,6 +17,8 @@ import { CloseIcon } from './CloseIcon';
 import { ProductList } from './ProductList';
 import { Views } from './Views';
 import { FiltersButton } from './FiltersButton';
+import { SeeResultsButton } from './SeeResultsButton';
+import { ResetButton } from './ResetButton';
 
 export function Search(props) {
   const { config, view, userToken, setIsFiltering } = useAppContext();
@@ -57,10 +59,27 @@ export function Search(props) {
           />
           <div className="uni-LeftPanel">
             <div className="uni-Refinements">
-              <span className="uni-Refinements-heading" data-layout="mobile">
-                Filters
-              </span>
-              <Refinements />
+              <div className="uni-Refinements-scrollable">
+                <header
+                  className="uni-Refinements-heading"
+                  data-layout="mobile"
+                >
+                  Filters
+                </header>
+                <Refinements />
+              </div>
+              <footer className="uni-Refinements-footer" data-layout="mobile">
+                <ResetButton
+                  onClick={() => {
+                    setIsFiltering(false);
+                  }}
+                />
+                <SeeResultsButton
+                  onClick={() => {
+                    setIsFiltering(false);
+                  }}
+                />
+              </footer>
             </div>
           </div>
 
@@ -97,14 +116,11 @@ export function Search(props) {
               </main>
             </ScrollTo>
           </div>
-
-          <div data-layout="mobile">
-            <FiltersButton
-              onClick={() => {
-                setIsFiltering(true);
-              }}
-            />
-          </div>
+          <FiltersButton
+            onClick={() => {
+              setIsFiltering(true);
+            }}
+          />
         </div>
       </div>
     </InstantSearch>

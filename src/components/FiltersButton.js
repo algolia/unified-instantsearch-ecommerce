@@ -4,7 +4,11 @@ import { FilterIcon } from './FilterIcon';
 
 export function FiltersButton({ onClick }) {
   return (
-    <button onClick={onClick} className="uni-FiltersButton">
+    <button
+      data-layout="mobile"
+      onClick={onClick}
+      className="uni-FiltersButton"
+    >
       <FilterIcon />
       Filters
     </button>

@@ -171,7 +171,6 @@
   @media (max-width: $breakpoint-md) {
     background: #fff;
     height: calc(100vh - 4rem);
-    padding: 2rem;
     position: relative;
     transform: translateX(120vh);
     transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
@@ -185,10 +184,52 @@
   }
 }
 
+.uni-Refinements-scrollable {
+  height: calc(100% - 111px);
+  padding: 2rem;
+}
+
 .uni-Refinements-heading {
+  display: block;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 1.5rem;
+}
+
+.uni-Refinements-footer {
+  background-color: #fff;
+  border-top: 1px solid #ebecf3;
+  bottom: 0;
+  display: flex;
+  padding: 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.uni-Refinements-button {
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  width: calc(50% - 0.5rem);
+}
+
+.uni-Refinements-resetButton {
+  background-color: #dddcdc;
+  color: var(--algolia-theme-secondary);
+}
+
+.uni-Refinements-resultButton {
+  background-color: var(--algolia-theme-primary);
+  color: #fff;
+  margin-left: 1rem;
 }
 
 /* Containers */
@@ -212,7 +253,7 @@
     left: 6rem;
     margin: 0;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     pointer-events: none;
     position: fixed;
     right: 2rem;
@@ -233,6 +274,7 @@
   background: rgba(0, 0, 0, 0.5);
   bottom: 2rem;
   content: '';
+  display: block;
   left: 2rem;
   opacity: 0;
   position: fixed;
@@ -506,8 +548,11 @@
         pointer-events: auto;
       }
       .uni-Refinements {
-        overflow-y: scroll;
+        overflow-y: hidden;
         transform: translateX(0);
+      }
+      .uni-Refinements-scrollable {
+        overflow-y: scroll;
       }
       .uni-FiltersButton {
         z-index: auto;
@@ -528,8 +573,7 @@
 /* Mobile-only */
 
 [data-layout='mobile'] {
-  display: none;
-  @media (max-width: $breakpoint-md) {
-    display: block;
+  @media (min-width: #{$breakpoint-md + 1px}) {
+    display: none;
   }
 }

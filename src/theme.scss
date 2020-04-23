@@ -26,13 +26,14 @@ a[class^='ais-'] {
   cursor: pointer;
 }
 
+[disabled],
 [class^='ais-'][class$='--disabled'],
 /*
   We need to target all elements for widgets containing
   multiple sub elements (e.g., RangeSlider).
 */
 [class^='ais-'][class$='--disabled'] * {
-  cursor: not-allowed;
+  cursor: not-allowed !important;
   filter: grayscale(1);
   opacity: 0.6;
 }
