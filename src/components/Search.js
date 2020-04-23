@@ -14,6 +14,7 @@ import { Refinements } from './Refinements';
 import { HeaderSearchBox } from './SearchBox';
 import { Stats } from './Stats';
 import { CloseIcon } from './CloseIcon';
+import { NoResultsHandler } from './NoResultsHandler';
 import { ProductList } from './ProductList';
 import { Views } from './Views';
 import { FiltersButton } from './FiltersButton';
@@ -21,7 +22,7 @@ import { SeeResultsButton } from './SeeResultsButton';
 import { ResetButton } from './ResetButton';
 
 export function Search(props) {
-  const { config, view, userToken } = useAppContext();
+  const { config, view, searchParameters } = useAppContext();
   const filtersAnchor = React.useRef();
 
   React.useEffect(() => {
@@ -38,11 +39,7 @@ export function Search(props) {
       onSearchStateChange={props.onSearchStateChange}
       createURL={props.createURL}
     >
-      <Configure
-        userToken={userToken}
-        enablePersonalization={Boolean(userToken)}
-        {...config.index.searchParameters}
-      />
+      <Configure {...searchParameters} />
       <QueryRulesHandler searchState={props.searchState} />
 
       <div id="uni-Wrapper">
@@ -127,7 +124,9 @@ export function Search(props) {
 
               <main className="uni-BodyContent">
                 <Banner />
-                <ProductList hitComponent={props.hitComponent} />
+                <NoResultsHandler>
+                  <ProductList />
+                </NoResultsHandler>
               </main>
             </ScrollTo>
           </div>

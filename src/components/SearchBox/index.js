@@ -1,1 +1,1 @@
-export * from './HeaderSearchBox';
+export * from './ConnectedSearchBox';

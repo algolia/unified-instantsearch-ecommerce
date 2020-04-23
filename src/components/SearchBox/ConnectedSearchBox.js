@@ -1,21 +1,45 @@
 import React from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
 
+import { useAppContext } from '../../hooks';
+import { PredictiveSearchBox } from './PredictiveSearchBox';
 import { SearchBox as SearchBoxComponent } from './SearchBox';
 
-export const ConnectedSearchBox = connectSearchBox(function SearchBox(props) {
+export const HeaderSearchBox = connectSearchBox(function SearchBox(props) {
+  const { config, setSearchContext } = useAppContext();
+
+  React.useEffect(() => {
+    setSearchContext({ setQuery: props.refine });
+  }, [setSearchContext, props.refine]);
+
+  if (config.suggestionsIndex) {
+    return (
+      <div className="uni-SearchBox">
+        <PredictiveSearchBox
+          translations={{
+            placeholder: 'Search for a product, brand, color, …',
+          }}
+          {...props}
+          suggestionsIndex={config.suggestionsIndex}
+        />
+      </div>
+    );
+  }
+
   return (
-    <SearchBoxComponent
-      translations={{ placeholder: 'Search for a product, brand, color, …' }}
-      {...props}
-      onChange={(event) => {
-        props.refine(event.currentTarget.value);
-      }}
-      onKeyDown={() => {}}
-      onSubmit={() => {}}
-      onReset={() => {
-        props.refine('');
-      }}
-    />
+    <div className="uni-SearchBox">
+      <SearchBoxComponent
+        translations={{ placeholder: 'Search for a product, brand, color, …' }}
+        {...props}
+        onChange={(event) => {
+          props.refine(event.currentTarget.value);
+        }}
+        onKeyDown={() => {}}
+        onSubmit={() => {}}
+        onReset={() => {
+          props.refine('');
+        }}
+      />
+    </div>
   );
 });

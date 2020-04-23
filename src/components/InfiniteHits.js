@@ -3,8 +3,8 @@ import { connectInfiniteHits } from 'react-instantsearch-dom';
 
 import { useAppContext, useIntersectionObserver } from '../hooks';
 
-export const InfiniteHits = connectInfiniteHits(function InfiniteHits(props) {
-  const { view } = useAppContext();
+export const InfiniteHits = connectInfiniteHits((props) => {
+  const { view, ConnectedHit } = useAppContext();
   const { setObservedNode } = useIntersectionObserver({
     callback: props.refineNext,
     threshold: 0,
@@ -29,7 +29,7 @@ export const InfiniteHits = connectInfiniteHits(function InfiniteHits(props) {
       >
         {props.hits.map((hit) => (
           <li key={hit.objectID} className="ais-InfiniteHits-item">
-            <props.hitComponent hit={hit} view={view} />
+            <ConnectedHit hit={hit} />
           </li>
         ))}
       </ol>
