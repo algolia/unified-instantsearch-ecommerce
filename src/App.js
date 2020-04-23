@@ -111,7 +111,9 @@ export function App({ config, location, history }) {
   const [isFiltering, setIsFiltering] = React.useState(false);
 
   return (
-    <AppContext.Provider value={{ config, view, userToken, setIsFiltering }}>
+    <AppContext.Provider
+      value={{ config, view, userToken, isFiltering, setIsFiltering }}
+    >
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&

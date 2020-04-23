@@ -21,7 +21,20 @@ import { SeeResultsButton } from './SeeResultsButton';
 import { ResetButton } from './ResetButton';
 
 export function Search(props) {
-  const { config, view, userToken, setIsFiltering } = useAppContext();
+  const {
+    config,
+    view,
+    userToken,
+    isFiltering,
+    setIsFiltering,
+  } = useAppContext();
+  const filtersAnchor = React.useRef();
+
+  React.useEffect(() => {
+    if (filtersAnchor.current && isFiltering) {
+      filtersAnchor.current.scrollTo(0, 0);
+    }
+  }, [isFiltering]);
 
   return (
     <InstantSearch
@@ -59,7 +72,7 @@ export function Search(props) {
           />
           <div className="uni-LeftPanel">
             <div className="uni-Refinements">
-              <div className="uni-Refinements-scrollable">
+              <div className="uni-Refinements-scrollable" ref={filtersAnchor}>
                 <header
                   className="uni-Refinements-heading"
                   data-layout="mobile"
