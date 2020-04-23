@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectStats } from 'react-instantsearch-dom';
 
-export const Stats = connectStats((props) => {
+export const Stats = connectStats(function Stats(props) {
   return (
     <div className="ais-Stats">
       <span className="ais-Stats-text">

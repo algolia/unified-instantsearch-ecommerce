@@ -9,58 +9,60 @@ import {
 import { ReverseHighlight } from '../ReverseHighlight';
 import { SearchBox } from './SearchBox';
 
-export const ConnectedPredictiveSearchBox = connectSearchBox((props) => {
-  const [currentSuggestion, setCurrentSuggestion] = React.useState(null);
+export const ConnectedPredictiveSearchBox = connectSearchBox(
+  function PredictiveSearchBox(props) {
+    const [currentSuggestion, setCurrentSuggestion] = React.useState(null);
 
-  return (
-    <>
-      <SearchBox
-        {...props}
-        completion={
-          props.currentRefinement &&
-          currentSuggestion &&
-          currentSuggestion !== props.currentRefinement
-            ? currentSuggestion
-            : null
-        }
-        onChange={(event) => {
-          setCurrentSuggestion(null);
-          props.refine(event.currentTarget.value);
-        }}
-        onKeyDown={(event) => {
-          // When the user hits the right arrow and is at the end of the
-          // input query, we validate the completion.
-          if (
-            event.key === 'Tab' ||
-            (event.key === 'ArrowRight' &&
-              event.target.selectionStart === props.currentRefinement.length)
-          ) {
-            event.preventDefault();
-            props.refine(currentSuggestion);
+    return (
+      <>
+        <SearchBox
+          {...props}
+          completion={
+            props.currentRefinement &&
+            currentSuggestion &&
+            currentSuggestion !== props.currentRefinement
+              ? currentSuggestion
+              : null
           }
-        }}
-        onSubmit={() => {}}
-        onReset={() => {
-          props.refine('');
-        }}
-      />
-
-      <Index indexName={props.suggestionsIndex.indexName}>
-        <Configure page={0} {...props.suggestionsIndex.searchParameters} />
-        <Suggestions
-          query={props.currentRefinement}
-          onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
-          onClick={(value) => {
-            props.refine(value);
+          onChange={(event) => {
             setCurrentSuggestion(null);
+            props.refine(event.currentTarget.value);
+          }}
+          onKeyDown={(event) => {
+            // When the user hits the right arrow and is at the end of the
+            // input query, we validate the completion.
+            if (
+              event.key === 'Tab' ||
+              (event.key === 'ArrowRight' &&
+                event.target.selectionStart === props.currentRefinement.length)
+            ) {
+              event.preventDefault();
+              props.refine(currentSuggestion);
+            }
+          }}
+          onSubmit={() => {}}
+          onReset={() => {
+            props.refine('');
           }}
         />
-      </Index>
-    </>
-  );
-});
 
-const Suggestions = connectHits((props) => {
+        <Index indexName={props.suggestionsIndex.indexName}>
+          <Configure page={0} {...props.suggestionsIndex.searchParameters} />
+          <Suggestions
+            query={props.currentRefinement}
+            onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
+            onClick={(value) => {
+              props.refine(value);
+              setCurrentSuggestion(null);
+            }}
+          />
+        </Index>
+      </>
+    );
+  }
+);
+
+const Suggestions = connectHits(function Suggestions(props) {
   React.useEffect(() => {
     if (props.hits.length === 0) {
       props.onSuggestion(null);

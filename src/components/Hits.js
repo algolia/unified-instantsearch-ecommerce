@@ -3,7 +3,7 @@ import { connectHits, Pagination } from 'react-instantsearch-dom';
 
 import { useAppContext } from '../hooks';
 
-export const Hits = connectHits((props) => {
+export const Hits = connectHits(function Hits(props) {
   const { view } = useAppContext();
 
   return (

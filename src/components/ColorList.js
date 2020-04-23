@@ -6,7 +6,7 @@ import { FacetSearchBox } from './SearchBox/FacetSearchBox';
 import { PartialHighlight } from './PartialHighlight';
 import { PanelWrapper } from './Panel';
 
-export const ColorList = connectRefinementList((props) => {
+export const ColorList = connectRefinementList(function ColorList(props) {
   const [query, setQuery] = React.useState('');
   const inputRef = React.useRef(null);
 

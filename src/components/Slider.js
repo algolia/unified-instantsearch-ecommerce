@@ -6,7 +6,7 @@ import './Slider.scss';
 
 import { PanelWrapper } from './Panel';
 
-export const Slider = connectRange((props) => {
+export const Slider = connectRange(function Slider(props) {
   const {
     min,
     max,

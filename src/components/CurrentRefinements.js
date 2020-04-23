@@ -62,7 +62,7 @@ function getRefinement(refinement, config) {
 }
 
 export const CurrentRefinements = connectCurrentRefinements(
-  ({ items, refine }) => {
+  function CurrentRefinements({ items, refine }) {
     const { config } = useAppContext();
 
     const refinements = items.reduce((acc, current) => {
