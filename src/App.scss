@@ -185,8 +185,10 @@
 }
 
 .uni-Refinements-scrollable {
-  height: calc(100% - 111px);
-  padding: 2rem;
+  @media (max-width: $breakpoint-md) {
+    height: calc(100% - 111px);
+    padding: 2rem;
+  }
 }
 
 .uni-Refinements-heading {
