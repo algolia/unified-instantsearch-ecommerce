@@ -57,6 +57,9 @@ export function Search(props) {
           />
           <div className="uni-LeftPanel">
             <div className="uni-Refinements">
+              <span className="uni-Refinements-heading" data-layout="mobile">
+                Filters
+              </span>
               <Refinements />
             </div>
           </div>
