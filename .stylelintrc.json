@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "stylelint-prettier"
+    "stylelint-prettier",
+    "stylelint-no-unsupported-browser-features"
   ],
   "extends": [
     "stylelint-config-standard",
@@ -24,7 +25,9 @@
           "media"
         ]
       }
+    ],
+    "plugin/no-unsupported-browser-features": [
+      true
     ]
   }
 }
-
