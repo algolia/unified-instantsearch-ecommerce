@@ -111,9 +111,7 @@ export function App({ config, location, history }) {
   const [isFiltering, setIsFiltering] = React.useState(false);
 
   return (
-    <AppContext.Provider
-      value={{ config, view, userToken, isFiltering, setIsFiltering }}
-    >
+    <AppContext.Provider value={{ config, view, userToken }}>
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
@@ -142,6 +140,8 @@ export function App({ config, location, history }) {
                 hitComponent={hitComponent}
                 onClose={() => setIsOverlayShowing(false)}
                 setView={setView}
+                isFiltering={isFiltering}
+                setIsFiltering={setIsFiltering}
               />
             </div>
           </>,

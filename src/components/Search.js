@@ -21,20 +21,14 @@ import { SeeResultsButton } from './SeeResultsButton';
 import { ResetButton } from './ResetButton';
 
 export function Search(props) {
-  const {
-    config,
-    view,
-    userToken,
-    isFiltering,
-    setIsFiltering,
-  } = useAppContext();
+  const { config, view, userToken } = useAppContext();
   const filtersAnchor = React.useRef();
 
   React.useEffect(() => {
-    if (filtersAnchor.current && isFiltering) {
+    if (filtersAnchor.current && props.isFiltering) {
       filtersAnchor.current.scrollTo(0, 0);
     }
-  }, [isFiltering]);
+  }, [props.isFiltering]);
 
   return (
     <InstantSearch
@@ -68,7 +62,7 @@ export function Search(props) {
           <div
             data-layout="mobile"
             className="uni-LeftPanel-Overlay"
-            onClick={() => setIsFiltering(false)}
+            onClick={() => props.setIsFiltering(false)}
           />
           <div className="uni-LeftPanel">
             <div className="uni-Refinements">
@@ -84,12 +78,12 @@ export function Search(props) {
               <footer className="uni-Refinements-footer" data-layout="mobile">
                 <ResetButton
                   onClick={() => {
-                    setIsFiltering(false);
+                    props.setIsFiltering(false);
                   }}
                 />
                 <SeeResultsButton
                   onClick={() => {
-                    setIsFiltering(false);
+                    props.setIsFiltering(false);
                   }}
                 />
               </footer>
@@ -131,7 +125,7 @@ export function Search(props) {
           </div>
           <FiltersButton
             onClick={() => {
-              setIsFiltering(true);
+              props.setIsFiltering(true);
             }}
           />
         </div>
