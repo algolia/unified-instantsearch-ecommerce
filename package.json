@@ -6,6 +6,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "webpack --mode production",
+    "preview": "yarn react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "run-p -c lint:*",
@@ -57,14 +58,9 @@
     "stylelint-config-prettier": "8.0.1",
     "stylelint-config-sass-guidelines": "7.0.0",
     "stylelint-config-standard": "20.0.0",
+    "stylelint-no-unsupported-browser-features": "4.0.0",
     "stylelint-order": "4.0.0",
     "stylelint-prettier": "1.1.2",
     "webpack-cli": "3.3.11"
-  },
-  "browserslist": [
-    "> 0.2%",
-    "not dead",
-    "not ie < 11",
-    "not op_mini all"
-  ]
+  }
 }
