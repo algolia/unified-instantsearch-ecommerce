@@ -71,7 +71,15 @@ export function Search(props) {
                   className="uni-Refinements-heading"
                   data-layout="mobile"
                 >
-                  Filters
+                  <span>Filters</span>
+                  <button
+                    onClick={() => {
+                      props.setIsFiltering(false);
+                    }}
+                    className="uni-Refinements-button"
+                  >
+                    Close
+                  </button>
                 </header>
                 <Refinements />
               </div>
