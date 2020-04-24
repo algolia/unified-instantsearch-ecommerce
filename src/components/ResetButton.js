@@ -11,7 +11,7 @@ export const ResetButton = connectCurrentRefinements(function ResetButton(
         props.refine(props.items);
         props.onClick();
       }}
-      disabled={!props.items.length}
+      disabled={props.items.length === 0}
     >
       Reset filters
     </button>
