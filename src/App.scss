@@ -202,7 +202,9 @@
   background-color: #fff;
   border-top: 1px solid #ebecf3;
   bottom: 0;
-  display: flex;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
   padding: 2rem;
   position: fixed;
   width: 100%;
@@ -220,7 +222,6 @@
   justify-content: center;
   padding: 1rem;
   text-align: center;
-  width: calc(50% - 0.5rem);
 }
 
 .uni-Refinements-resetButton {
@@ -231,7 +232,6 @@
 .uni-Refinements-resultButton {
   background-color: var(--algolia-theme-primary);
   color: #fff;
-  margin-left: 1rem;
 }
 
 /* Containers */
