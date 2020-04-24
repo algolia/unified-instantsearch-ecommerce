@@ -6,6 +6,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "webpack --mode production",
+    "preview": "yarn react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "run-p -c lint:*",
