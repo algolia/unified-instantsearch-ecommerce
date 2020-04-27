@@ -1,6 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { connectHitInsights } from 'react-instantsearch-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
 import { useSearchClient, useInsights } from './hooks';
@@ -9,7 +10,9 @@ import { SearchButton, Search, Hit } from './components';
 export const AppContext = React.createContext(null);
 export const SearchContext = React.createContext(null);
 
-export function App({ config, location, history }) {
+export function App({ config }) {
+  const history = useHistory();
+  const location = useLocation();
   const searchClient = useSearchClient(config);
   const { aa, userToken } = useInsights(
     config.appId,
@@ -18,10 +21,14 @@ export function App({ config, location, history }) {
   );
   const lastSetStateId = React.useRef();
   const topAnchor = React.useRef();
-  const [view, setView] = React.useState('grid');
   const [searchState, setSearchState] = React.useState(
     getStateFromUrl(location)
   );
+  const [isOverlayShowing, setIsOverlayShowing] = React.useState(
+    Object.keys(searchState).length > 0
+  );
+  const [isFiltering, setIsFiltering] = React.useState(false);
+  const [view, setView] = React.useState('grid');
   const searchContextRef = React.useRef({});
   const searchParameters = {
     userToken,
@@ -57,29 +64,52 @@ export function App({ config, location, history }) {
     setSearchState(nextSearchState);
   }
 
+  // Handle the browser pop state event to open the search overlay if the
+  // next URL maps to a search state.
+  React.useEffect(() => {
+    function onPopState() {
+      if (isOverlayShowing === true) {
+        return;
+      }
+
+      const nextSearchState = getStateFromUrl(window.document.location);
+
+      if (Object.keys(nextSearchState).length > 0) {
+        setIsOverlayShowing(true);
+      }
+    }
+
+    window.addEventListener('popstate', onPopState);
+
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+    };
+  }, [isOverlayShowing, setIsOverlayShowing]);
+
+  // Update the search state when the location changes with the router.
   React.useEffect(() => {
     const nextSearchState = getStateFromUrl(location);
 
-    if (searchState !== nextSearchState) {
+    if (JSON.stringify(searchState) !== JSON.stringify(nextSearchState)) {
       setSearchState(nextSearchState);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, setSearchState]);
-
-  const [isOverlayShowing, setIsOverlayShowing] = React.useState(
-    Object.keys(searchState).length > 0
-  );
 
   React.useEffect(() => {
     if (isOverlayShowing === true) {
       document.body.classList.add('uni--open');
     } else {
       document.body.classList.remove('uni--open');
-      setSearchState(getStateFromUrl(location));
-      history.push('', searchState);
+      const nextSearchState = getStateFromUrl({});
+      setSearchState(nextSearchState);
+
+      if (JSON.stringify(searchState) !== JSON.stringify(nextSearchState)) {
+        history.push('', nextSearchState);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOverlayShowing]);
+  }, [isOverlayShowing, setSearchState, history]);
 
   React.useEffect(() => {
     if (topAnchor.current) {
@@ -124,8 +154,6 @@ export function App({ config, location, history }) {
       window.removeEventListener('keydown', onKeydown);
     };
   }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
-
-  const [isFiltering, setIsFiltering] = React.useState(false);
 
   return (
     <AppContext.Provider
