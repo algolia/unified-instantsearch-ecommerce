@@ -299,12 +299,8 @@ a[class^='ais-'] {
   font-weight: 600;
   letter-spacing: 1.1px;
   margin-left: 8px;
-  padding: 0 4px;
-}
-
-.ais-RefinementList-count,
-.ais-Menu-count {
   margin-top: 3px;
+  padding: 0 4px;
 }
 
 .ais-HierarchicalMenu-showMore,
@@ -333,10 +329,10 @@ a[class^='ais-'] {
     align-items: center;
     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%2390919E' fill-rule='nonzero' d='M0 4l4-4 4 4z'/%3E%3C/svg%3E%0A");
     display: flex;
-    height: 8px;
+    height: 0.5rem;
     justify-content: center;
-    margin-right: 1rem;
-    width: 8px;
+    margin-right: 0.5rem;
+    margin-top: 5px;
   }
 }
 
@@ -355,6 +351,10 @@ a[class^='ais-'] {
       }
     }
   }
+}
+
+.ais-HierarchicalMenu-list--child {
+  margin-left: 1rem;
 }
 
 /* ClearRefinements */
