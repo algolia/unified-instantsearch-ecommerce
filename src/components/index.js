@@ -2,7 +2,6 @@ export * from './Banner';
 export * from './CloseIcon';
 export * from './CurrentRefinements';
 export * from './SearchButton';
-export * from './Hit';
 export * from './ProductList';
 export * from './QueryRulesHandler';
 export * from './Refinements';

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Hit } from './Hit';
+
 const config = {
   inputSelector: '#search-button',
   inputContent: (
@@ -25,6 +27,7 @@ const config = {
       hitsPerPage: 6,
     },
   },
+  hitComponent: Hit,
   googleAnalytics: false,
   sorts: [
     { value: 'mika_asos', label: 'Produits recommandés' },

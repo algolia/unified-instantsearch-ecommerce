@@ -4,7 +4,7 @@ import { connectHitInsights } from 'react-instantsearch-dom';
 
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
 import { useSearchClient, useInsights } from './hooks';
-import { SearchButton, Search, Hit } from './components';
+import { SearchButton, Search } from './components';
 
 export const AppContext = React.createContext(null);
 export const SearchContext = React.createContext(null);
@@ -29,7 +29,10 @@ export function App({ config, location, history }) {
     ...config.index.searchParameters,
   };
   const ConnectedHit = React.useMemo(
-    () => connectHitInsights(aa)((props) => <Hit {...props} view={view} />),
+    () =>
+      connectHitInsights(aa)((props) => (
+        <config.hitComponent {...props} view={view} />
+      )),
     [aa, view]
   );
 

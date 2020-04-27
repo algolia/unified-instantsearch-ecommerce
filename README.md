@@ -42,7 +42,7 @@ The `src/config.js` file describe the multiple available options to be used with
 
 ### Customizing styles
 
-The `src/config.scss` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
+The `src/config/variables.scss` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
 
 | Sass Variables | Comments |
 | $color-primary | The accent color, typically the main color of your branding |
