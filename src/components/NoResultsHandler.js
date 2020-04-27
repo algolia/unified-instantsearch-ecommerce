@@ -160,23 +160,19 @@ const QuerySuggestionsHits = connectHits(function QuerySuggestionsHits(props) {
     <div className="uni-NoResults-Suggestions">
       <span className="uni-NoResults-SuggestionTitle">Search instead:</span>
       <ul className="uni-NoResults-SuggestionList">
-        {props.hits.reduce(
-          (node, hit, index) => [
-            ...node,
-            <li key={hit.objectID} className="uni-NoResults-SuggestionItem">
-              <button
-                className="uni-NoResults-SuggestionButton"
-                onClick={() => {
-                  setQuery(hit.query);
-                }}
-              >
-                {hit.query}
-              </button>
-              {index < props.hits.length - 1 && ','}
-            </li>,
-          ],
-          []
-        )}
+        {props.hits.map((hit, index) => (
+          <li key={hit.objectID} className="uni-NoResults-SuggestionItem">
+            <button
+              className="uni-NoResults-SuggestionButton"
+              onClick={() => {
+                setQuery(hit.query);
+              }}
+            >
+              {hit.query}
+            </button>
+            {index < props.hits.length - 1 && ','}
+          </li>
+        ))}
       </ul>
       .
     </div>
