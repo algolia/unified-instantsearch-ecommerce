@@ -67,7 +67,7 @@ export function App({ config }) {
   // Handle the browser pop state event to open the search overlay if the
   // next URL maps to a search state.
   React.useEffect(() => {
-    window.onpopstate = () => {
+    function onPopState() {
       if (isOverlayShowing === true) {
         return;
       }
@@ -77,6 +77,12 @@ export function App({ config }) {
       if (Object.keys(nextSearchState).length > 0) {
         setIsOverlayShowing(true);
       }
+    }
+
+    window.addEventListener('popstate', onPopState);
+
+    return () => {
+      window.removeEventListener('popstate', onPopState);
     };
   }, [isOverlayShowing, setIsOverlayShowing]);
 
