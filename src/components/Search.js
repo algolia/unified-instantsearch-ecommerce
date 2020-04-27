@@ -16,9 +16,19 @@ import { Stats } from './Stats';
 import { CloseIcon } from './CloseIcon';
 import { ProductList } from './ProductList';
 import { Views } from './Views';
+import { FiltersButton } from './FiltersButton';
+import { SeeResultsButton } from './SeeResultsButton';
+import { ResetButton } from './ResetButton';
 
 export function Search(props) {
   const { config, view, userToken } = useAppContext();
+  const filtersAnchor = React.useRef();
+
+  React.useEffect(() => {
+    if (filtersAnchor.current && props.isFiltering) {
+      filtersAnchor.current.scrollTo(0, 0);
+    }
+  }, [props.isFiltering]);
 
   return (
     <InstantSearch
@@ -49,8 +59,43 @@ export function Search(props) {
         </header>
 
         <div className="uni-Content">
+          <div
+            data-layout="mobile"
+            className="uni-LeftPanel-Overlay"
+            onClick={() => props.setIsFiltering(false)}
+          />
           <div className="uni-LeftPanel">
-            <Refinements />
+            <div className="uni-Refinements">
+              <div className="uni-Refinements-scrollable" ref={filtersAnchor}>
+                <header
+                  className="uni-Refinements-heading"
+                  data-layout="mobile"
+                >
+                  <span>Filters</span>
+                  <button
+                    onClick={() => {
+                      props.setIsFiltering(false);
+                    }}
+                    className="uni-Refinements-button"
+                  >
+                    Close
+                  </button>
+                </header>
+                <Refinements />
+              </div>
+              <footer className="uni-Refinements-footer" data-layout="mobile">
+                <ResetButton
+                  onClick={() => {
+                    props.setIsFiltering(false);
+                  }}
+                />
+                <SeeResultsButton
+                  onClick={() => {
+                    props.setIsFiltering(false);
+                  }}
+                />
+              </footer>
+            </div>
           </div>
 
           <div className="uni-RightPanel">
@@ -86,6 +131,11 @@ export function Search(props) {
               </main>
             </ScrollTo>
           </div>
+          <FiltersButton
+            onClick={() => {
+              props.setIsFiltering(true);
+            }}
+          />
         </div>
       </div>
     </InstantSearch>

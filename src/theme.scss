@@ -26,13 +26,14 @@ a[class^='ais-'] {
   cursor: pointer;
 }
 
+[disabled],
 [class^='ais-'][class$='--disabled'],
 /*
   We need to target all elements for widgets containing
   multiple sub elements (e.g., RangeSlider).
 */
 [class^='ais-'][class$='--disabled'] * {
-  cursor: not-allowed;
+  cursor: not-allowed !important;
   filter: grayscale(1);
   opacity: 0.6;
 }
@@ -207,8 +208,8 @@ a[class^='ais-'] {
 }
 
 .ais-SearchBox-resetIcon {
-  height: 10px;
-  width: 10px;
+  height: 8px;
+  width: 8px;
 }
 
 /* SFFV search box */
@@ -229,10 +230,7 @@ a[class^='ais-'] {
   .ais-SearchBox-loadingIndicator,
   .ais-SearchBox-submit {
     width: 32px;
-  }
-  .ais-SearchBox-submitIcon {
-    height: 14px;
-    width: 14px;
+    padding: 0 0.5rem;
   }
 }
 

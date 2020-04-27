@@ -1,3 +1,5 @@
+@import '../config';
+
 .ais-Panel-headerButton {
   align-items: center;
   background: none;
@@ -14,6 +16,9 @@
   padding: 0;
   text-transform: uppercase;
   width: 100%;
+  @media (max-width: $breakpoint-md) {
+    padding: 1.2rem 0;
+  }
 }
 
 .ais-Panel-body {
