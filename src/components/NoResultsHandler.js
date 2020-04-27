@@ -16,11 +16,7 @@ import {
 export const NoResultsHandler = connectStateResults(function ResultsWrapper(
   props
 ) {
-  if (
-    props.searchState.query &&
-    props.searchResults &&
-    props.searchResults.nbHits === 0
-  ) {
+  if (props.searchState.query && props.searchResults?.nbHits === 0) {
     return (
       <NoResults
         query={props.searchState.query}
