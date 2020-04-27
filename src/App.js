@@ -33,6 +33,7 @@ export function App({ config }) {
   const searchParameters = {
     userToken,
     enablePersonalization: Boolean(userToken),
+    snippetEllipsisText: '…',
     ...config.index.searchParameters,
   };
   const ConnectedHit = React.useMemo(
