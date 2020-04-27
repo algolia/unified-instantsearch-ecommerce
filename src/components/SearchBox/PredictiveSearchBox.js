@@ -42,7 +42,7 @@ export const PredictiveSearchBox = (props) => {
       />
 
       <Index indexName={QUERY_SUGGESTIONS_INDEX_NAME}>
-        <Configure page={0} {...props.suggestionsIndex.searchParameters} />
+        <Configure {...props.suggestionsIndex.searchParameters} />
         <Suggestions
           query={props.currentRefinement}
           onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
