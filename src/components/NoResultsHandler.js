@@ -48,7 +48,7 @@ const NoResults = React.memo(
   },
   function areEqual(_prevProps, nextProps) {
     // Not re-rendering when it's searching allows to avoid inconsistent UIs
-    // where you click on a query suggestion, the "no results" title update
+    // where you click on a Query Suggestion, the "no results" title updates
     // with the clicked query showing that there's no result whereas it's only
     // loading waiting for new results.
     return nextProps.isSearching === true;
@@ -67,7 +67,7 @@ const ResultsInAllCategories = connectCurrentRefinements(function ClearFilters(
   return (
     <>
       <p>
-        Check the spelling, try a more general term or{' '}
+        Check the spelling, try a more general term, or{' '}
         <button
           className="uni-NoResults-ClearButton"
           onClick={(event) => {

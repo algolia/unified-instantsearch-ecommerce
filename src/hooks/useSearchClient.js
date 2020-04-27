@@ -20,7 +20,7 @@ export function useSearchClient(config) {
         const modifiedRequests = requests.map((searchParameters) => {
           // In React InstantSearch, `Index` components inherit search
           // parameters from their parents. However, when displaying results
-          // for result suggestions or query suggestions, we want to reset these
+          // for result suggestions or Query Suggestions, we want to reset these
           // search parameters because we expect different results.
           // We cannot reset these search parameters with React components, we
           // need to use a client proxy.

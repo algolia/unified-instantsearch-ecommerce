@@ -7,7 +7,7 @@ export function useSearchContext() {
 
   if (!context) {
     throw new Error(
-      '`useSearchContext` must be used within the `Search` componenet.'
+      '`useSearchContext` must be used within the `Search` component.'
     );
   }
 
