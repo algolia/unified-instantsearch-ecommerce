@@ -3,8 +3,8 @@ import { connectHits, Pagination } from 'react-instantsearch-dom';
 
 import { useAppContext } from '../hooks';
 
-export const Hits = connectHits(function Hits(props) {
-  const { view } = useAppContext();
+export const Hits = connectHits((props) => {
+  const { view, ConnectedHit } = useAppContext();
 
   return (
     <div className="ais-Hits">
@@ -16,7 +16,7 @@ export const Hits = connectHits(function Hits(props) {
       >
         {props.hits.map((hit) => (
           <li key={hit.objectID} className="ais-Hits-item">
-            <props.hitComponent hit={hit} view={view} />
+            <ConnectedHit hit={hit} />
           </li>
         ))}
       </ol>

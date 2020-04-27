@@ -7,21 +7,38 @@ import { useSearchClient, useInsights } from './hooks';
 import { SearchButton, Search, Hit } from './components';
 
 export const AppContext = React.createContext(null);
+export const SearchContext = React.createContext(null);
 
 export function App({ config, location, history }) {
-  const searchClient = useSearchClient(config.appId, config.searchApiKey);
+  const searchClient = useSearchClient(config);
   const { aa, userToken } = useInsights(
     config.appId,
     config.searchApiKey,
     config.setUserToken
   );
-  const hitComponent = React.useMemo(() => connectHitInsights(aa)(Hit), [aa]);
   const lastSetStateId = React.useRef();
   const topAnchor = React.useRef();
   const [view, setView] = React.useState('grid');
   const [searchState, setSearchState] = React.useState(
     getStateFromUrl(location)
   );
+  const searchContextRef = React.useRef({});
+  const searchParameters = {
+    userToken,
+    enablePersonalization: Boolean(userToken),
+    ...config.index.searchParameters,
+  };
+  const ConnectedHit = React.useMemo(
+    () => connectHitInsights(aa)((props) => <Hit {...props} view={view} />),
+    [aa, view]
+  );
+
+  function setSearchContext(context) {
+    searchContextRef.current = {
+      ...searchContextRef.current,
+      ...context,
+    };
+  }
 
   function onSearchStateChange(nextSearchState) {
     clearTimeout(lastSetStateId.current);
@@ -111,7 +128,17 @@ export function App({ config, location, history }) {
   const [isFiltering, setIsFiltering] = React.useState(false);
 
   return (
-    <AppContext.Provider value={{ config, view, userToken }}>
+    <AppContext.Provider
+      value={{
+        config,
+        view,
+        userToken,
+        searchState,
+        searchParameters,
+        setSearchContext,
+        ConnectedHit,
+      }}
+    >
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
 
       {isOverlayShowing &&
@@ -131,18 +158,19 @@ export function App({ config, location, history }) {
                 .join(' ')}
               ref={topAnchor}
             >
-              <Search
-                searchClient={searchClient}
-                indexName={config.index.indexName}
-                searchState={searchState}
-                onSearchStateChange={onSearchStateChange}
-                createURL={createURL}
-                hitComponent={hitComponent}
-                onClose={() => setIsOverlayShowing(false)}
-                setView={setView}
-                isFiltering={isFiltering}
-                setIsFiltering={setIsFiltering}
-              />
+              <SearchContext.Provider value={searchContextRef.current}>
+                <Search
+                  searchClient={searchClient}
+                  indexName={config.index.indexName}
+                  searchState={searchState}
+                  onSearchStateChange={onSearchStateChange}
+                  createURL={createURL}
+                  onClose={() => setIsOverlayShowing(false)}
+                  setView={setView}
+                  isFiltering={isFiltering}
+                  setIsFiltering={setIsFiltering}
+                />
+              </SearchContext.Provider>
             </div>
           </>,
           document.body

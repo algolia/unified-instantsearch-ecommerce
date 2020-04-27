@@ -576,6 +576,80 @@
   right: 0;
   top: 0;
 }
+/* No Results */
+
+.uni-NoResults {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.uni-NoResults-Title {
+  font-size: 1.2rem;
+  font-weight: normal;
+  em {
+    font-style: normal;
+    font-weight: bold;
+  }
+}
+
+.uni-NoResults-ResultSuggestionTitle {
+  padding: 1rem 0;
+  em {
+    font-style: normal;
+    font-weight: bold;
+  }
+}
+
+.uni-NoResults-ClearButton,
+.uni-NoResults-SuggestionButton {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--algolia-theme-primary);
+  color: var(--algolia-theme-primary);
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.uni-NoResults-Suggestions {
+  display: flex;
+}
+
+.uni-NoResults-SuggestionTitle {
+  margin-right: 0.5rem;
+}
+
+.uni-NoResults-SuggestionList {
+  display: flex;
+  margin: 0;
+}
+
+.uni-NoResults-SuggestionItem:not(:last-of-type) {
+  margin-right: 0.5rem;
+}
+
+.uni-NoResults-SeeAll {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.uni-NoResults-SeeAllButton {
+  background: none;
+  background-color: var(--algolia-theme-primary);
+  border: 1px solid #ddd;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
 
 /* Mobile-only */
 
