@@ -18,6 +18,11 @@ export function useSearchClient(config) {
       ...client,
       search(requests) {
         const modifiedRequests = requests.map((searchParameters) => {
+          const detachedSearchParams = {
+            ...searchParameters.params,
+            facetFilters: [],
+          };
+
           // In React InstantSearch, `Index` components inherit search
           // parameters from their parents. However, when displaying results
           // for result suggestions or Query Suggestions, we want to reset these
@@ -28,10 +33,7 @@ export function useSearchClient(config) {
             return {
               ...searchParameters,
               indexName: config.index.indexName,
-              params: {
-                ...searchParameters.params,
-                facetFilters: [],
-              },
+              params: detachedSearchParams,
             };
           } else if (
             searchParameters.indexName === QUERY_SUGGESTIONS_INDEX_NAME
@@ -39,10 +41,7 @@ export function useSearchClient(config) {
             return {
               ...searchParameters,
               indexName: config.suggestionsIndex.indexName,
-              params: {
-                ...searchParameters.params,
-                facetFilters: [],
-              },
+              params: detachedSearchParams,
             };
           }
 
