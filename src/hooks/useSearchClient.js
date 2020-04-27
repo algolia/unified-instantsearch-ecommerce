@@ -21,6 +21,9 @@ export function useSearchClient(config) {
           const detachedSearchParams = {
             ...searchParameters.params,
             facetFilters: [],
+            numericFilters: [],
+            optionalFilters: [],
+            tagFilters: [],
           };
 
           // In React InstantSearch, `Index` components inherit search
