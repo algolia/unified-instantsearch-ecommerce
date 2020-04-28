@@ -161,7 +161,10 @@ export function App({ config }) {
   }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
 
   React.useEffect(() => {
-    if (window.matchMedia('(min-width: 640px)').matches) {
+    if (
+      window.matchMedia(`(min-width: ${config.styles.breakpoints.sm}px)`)
+        .matches
+    ) {
       setIsMobile(false);
     }
   }, []);
