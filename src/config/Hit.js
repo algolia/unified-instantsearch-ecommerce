@@ -15,7 +15,7 @@ export function Hit({ hit, insights, view }) {
     >
       <a href={`https://asos.com/${hit.url}`} className="uni-Hit-inner">
         <div className="uni-Hit-image">
-          <img src={hit.image} alt={hit.description} />
+          <img src={hit.image} alt={hit.name} />
         </div>
 
         <div className="uni-Hit-Body">
@@ -35,7 +35,7 @@ export function Hit({ hit, insights, view }) {
 
           <footer>
             <span className="uni-Hit-Currency">£</span>
-            <strong>{hit.price.toLocaleString()}</strong>{' '}
+            <strong>{hit.price.toLocaleString()}</strong>
           </footer>
         </div>
 
