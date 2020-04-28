@@ -34,7 +34,7 @@ export function Hit({ hit, insights, view }) {
           )}
 
           <footer>
-            <span className="uni-Hit-Currency">£</span>
+            <span className="uni-Hit-Currency">$</span>
             <strong>{hit.price.toLocaleString()}</strong>
           </footer>
         </div>
