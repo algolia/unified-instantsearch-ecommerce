@@ -145,7 +145,15 @@ Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/d
 
 #### Customizing breakpoints
 
+You can modify the breakpoint variables (prefixed with `$breakpoint-`) to reflect the ones of your website. Because we use these breakpoints in the JavaScript code, you also need to reflect these edits in `src/config/index.js` under the `styles.breakpoints` property.
+
+Please note that we've adapted the design of Unified InstantSearch to the default breakpoints that we've set. If you change them, make sure the layout still works the way you expect.
+
 #### Customizing text
+
+By default, we use system fonts in Unified InstantSearch, but you can tailor this to your needs by changing the `$font-family` variable.
+
+If you want to use the same font stack as your main website, we recommend you change the value to `inherit`.
 
 ### Disclaimer
 
