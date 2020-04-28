@@ -134,7 +134,11 @@ const HitsPreview = connectHits(function MoreHits(props) {
 });
 
 function QuerySuggestions() {
-  const { searchState, searchParameters } = useAppContext();
+  const { config, searchState, searchParameters } = useAppContext();
+
+  if (!config.suggestionsIndex) {
+    return null;
+  }
 
   return (
     <Index indexName={QUERY_SUGGESTIONS_INDEX_NAME}>
