@@ -7,7 +7,7 @@ export function useAppContext() {
 
   if (!context) {
     throw new Error(
-      'The component needs to be wrapped in the `App` componenet.'
+      'The component needs to be wrapped in the `App` component.'
     );
   }
 

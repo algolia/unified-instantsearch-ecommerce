@@ -28,6 +28,7 @@ export function App({ config }) {
     Object.keys(searchState).length > 0
   );
   const [isFiltering, setIsFiltering] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(true);
   const [view, setView] = React.useState('grid');
   const searchContextRef = React.useRef({});
   const searchParameters = {
@@ -159,6 +160,12 @@ export function App({ config }) {
     };
   }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
 
+  React.useEffect(() => {
+    if (window.matchMedia('(min-width: 640px)').matches) {
+      setIsMobile(false);
+    }
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -169,6 +176,7 @@ export function App({ config }) {
         searchParameters,
         setSearchContext,
         ConnectedHit,
+        isMobile,
       }}
     >
       <SearchButton onClick={() => setIsOverlayShowing(true)} />

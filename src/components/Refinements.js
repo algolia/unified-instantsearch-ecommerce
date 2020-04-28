@@ -61,7 +61,7 @@ function RefinementWidget({ type, ...props }) {
 }
 
 export const Refinements = () => {
-  const { config } = useAppContext();
+  const { config, isMobile } = useAppContext();
 
   return config.refinements.map((refinement) => (
     <Panel
@@ -71,7 +71,7 @@ export const Refinements = () => {
           : refinement.options.attribute
       }
       header={refinement.header}
-      isOpened={!refinement.isCollapsed}
+      isOpened={isMobile ? false : !refinement.isCollapsed}
     >
       <RefinementWidget type={refinement.type} {...refinement.options} />
     </Panel>
