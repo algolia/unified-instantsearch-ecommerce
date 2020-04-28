@@ -10,18 +10,19 @@ const config = {
     </>
   ),
   keyboardShortcuts: ['/'],
-  appId: 'E8KS2J9PMC',
-  searchApiKey: '9a2480ff719c1092d2ef9ad3c6d36cf1',
+  appId: 'latency',
+  searchApiKey: '6be0576ff61c053d5f9a3225e2a90f76',
   index: {
-    indexName: 'mika_asos',
+    indexName: 'instant_search',
     searchParameters: {
       analytics: true,
       clickAnalytics: true,
       hitsPerPage: 18,
+      attributesToSnippet: ['description:25'],
     },
   },
   suggestionsIndex: {
-    indexName: 'mika_asos_qs',
+    indexName: 'instant_search_demo_query_suggestions',
     maxSuggestions: 6,
     searchParameters: {
       hitsPerPage: 6,
@@ -30,9 +31,18 @@ const config = {
   hitComponent: Hit,
   googleAnalytics: false,
   sorts: [
-    { value: 'mika_asos', label: 'Produits recommandés' },
-    { value: 'mika_asos_price_asc', label: 'Prix croissant' },
-    { value: 'mika_asos_price_desc', label: 'Prix décroissant' },
+    {
+      label: 'Featured',
+      value: 'instant_search',
+    },
+    {
+      label: 'Price ascending',
+      value: 'instant_search_price_asc',
+    },
+    {
+      label: 'Price descending',
+      value: 'instant_search_price_desc',
+    },
   ],
   refinements: [
     {
@@ -40,7 +50,7 @@ const config = {
       header: 'Categories',
       name: 'Category',
       options: {
-        attribute: 'category',
+        attribute: 'categories',
         searchable: true,
         showMore: true,
         limit: 6,
@@ -60,24 +70,6 @@ const config = {
           showMore: (expanded) =>
             expanded ? '- View fewer brands' : '+ View more brands',
         },
-      },
-    },
-    {
-      type: 'color',
-      header: 'Colors',
-      name: 'Color',
-      options: {
-        attribute: 'colors',
-        searchable: true,
-      },
-    },
-    {
-      type: 'size',
-      header: 'Sizes',
-      name: 'Size',
-      isCollapsed: true,
-      options: {
-        attribute: 'sizes',
       },
     },
     {

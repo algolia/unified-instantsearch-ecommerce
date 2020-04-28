@@ -51,9 +51,9 @@
 }
 
 .uni-Hit-image {
-  img {
-    width: 100%;
-  }
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .uni-Hit-Body {
@@ -122,8 +122,14 @@
 }
 
 .uni-Hits--gridView {
+  .uni-Hit-inner {
+    grid-template-rows: 150px 1fr;
+  }
   .uni-Hit-image {
-    min-height: 152px;
+    height: 150px;
+    img {
+      max-height: 150px;
+    }
   }
   .uni-Hit-Actions {
     bottom: 1rem;
@@ -135,7 +141,10 @@
     grid-template-columns: 100px 1fr;
   }
   .uni-Hit-image {
-    min-height: 130px;
+    height: 130px;
+    img {
+      max-height: 130px;
+    }
   }
   .uni-Hit-Actions {
     top: 1rem;

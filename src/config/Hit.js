@@ -1,5 +1,5 @@
 import React from 'react';
-import { Highlight } from 'react-instantsearch-dom';
+import { Highlight, Snippet } from 'react-instantsearch-dom';
 
 import './Hit.scss';
 
@@ -20,20 +20,16 @@ export function Hit({ hit, insights, view }) {
 
         <div className="uni-Hit-Body">
           <header className="uni-Hit-header">
-            <h2 className="uni-Hit-category">
-              {[hit.brand, hit.gender].filter(Boolean).join(' · ')}
-            </h2>
+            <h2 className="uni-Hit-category">{hit.categories[0]}</h2>
 
             <h1 className="uni-Hit-title">
-              <Highlight attribute="description" tagName="mark" hit={hit} />
+              <Highlight attribute="name" tagName="mark" hit={hit} />
             </h1>
           </header>
 
           {view === 'list' && (
             <p className="uni-Hit-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse placerat lectus non dui suscipit cursus. Ut interdum
-              ac nisi eget egestas.
+              <Snippet attribute="description" tagName="mark" hit={hit} />
             </p>
           )}
 
