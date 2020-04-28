@@ -31,7 +31,18 @@ Follow the few steps described below to start using E-Commerce Unified UI.
 
 #### Commands
 
-// @todo @sarah
+You have access to a handful of [command-line scripts](https://docs.npmjs.com/misc/scripts) to test your project during customization and build it once you're done.
+
+You can run each command with npm or Yarn. For example, to run the `start` command, you can run either `npm run start` or `yarn start`.
+
+| Command Name | Comments                                                                      |
+| ------------ | ----------------------------------------------------------------------------- |
+| `start`      | Run the project in development mode, within a fake e-commerce website.        |
+| `preview`    | Build the project for previewing in the context of a fake e-commerce website. |
+| `export`     | Export the production JavaScript file to include in your website.             |
+| `lint`       | Look for linting issues (useful when customizing the project).                |
+| `lint:js`    | Look for linting issues in the JavaScript code.                               |
+| `lint:css`   | Look for linting issues in the CSS/Sass code.                                 |
 
 ### Configuration options
 
