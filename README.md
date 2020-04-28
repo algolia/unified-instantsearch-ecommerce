@@ -8,23 +8,36 @@
 
 While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need of implementing front-end logic and be able to start using Algolia as quickly as possible.
 
-### How to use
+### Prerequisites
+
+- Node >= 12
+- Yarn
+
+// @todo @sarah
+
+### Getting started
 
 Follow the few steps described below to start using E-Commerce Unified UI.
 
-1. **Push your data to Algolia** (following the required data structure),
-2. **Fork** this Github Repository to your own,
-3. **Copy and replace the `src/config.sample.js` file to `src/config.js`** to better match your needs,
-4. **Run `npm run build` (or `yarn build`)** to build the necessary .js files,
-5. **Host and include .js files** on your front-end and start using!
+1. **Push your data to Algolia** (following the [required data schema](#customizing-the-search-ui)),
+2. [**Fork** this Github repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
+3. **Replace the values in `src/config/index.js`** to better match your needs,
+4. **Run `npm run build` (or `yarn build`)** to build the `unified-instantsearch.js` files,
+5. **Host and include the `unified-instantsearch.js` file** on your front-end and start using!
 
-### Data Format
+#### Instructions
 
-//
+// @todo @sarah
 
-### Configuration Options
+#### Commands
 
-The `src/config.js` file describe the multiple available options to be used with E-Commerce Unified UI.
+// @todo @sarah
+
+### Configuration options
+
+// @todo @francois
+
+The `src/config/index.js` file describe the multiple available options to be used with E-Commerce Unified UI.
 
 | Option Name      | Type     | Required | Comments                                                                             |
 | ---------------- | -------- | -------- | ------------------------------------------------------------------------------------ |
@@ -38,9 +51,64 @@ The `src/config.js` file describe the multiple available options to be used with
 | hits             | `object` | Yes      | Set the Hits option (`hitsPerPage` and `render()`)                                   |
 | refinements      | `object` | No       | Set the different Refinements available                                              |
 | sorts            | `object` | No       | Set the different Sorts available                                                    |
-| translations     | `object` | No       | Set the different translations to be used                                            |
 
-### Customizing styles
+### Customizing the search UI
+
+// @todo @francois
+
+#### Refinements
+
+// @todo @francois
+
+##### Schema
+
+###### Record schema
+
+###### Options
+
+##### Hierarchical
+
+###### Record schema
+
+###### Options
+
+##### Color
+
+###### Record schema
+
+###### Options
+
+##### List
+
+###### Record schema
+
+###### Options
+
+##### Size
+
+###### Record schema
+
+###### Options
+
+##### Slider
+
+###### Record schema
+
+###### Options
+
+##### Category
+
+###### Record schema
+
+###### Options
+
+// @todo @francois
+
+#### Sorting
+
+// @todo @francois
+
+### Adjusting the styling to your theme
 
 The `src/config/variables.scss` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
 
@@ -53,7 +121,7 @@ The `src/config/variables.scss` file lets you adjust E-Commerce Unified UI to yo
 | \$breakpoint-md   | The breakpoint for medium devices                           |
 | \$breakpoint-lg   | The breakpoint for large devices                            |
 
-#### Colors
+#### Customizing colors
 
 You can modify the color variables (prefixed with `$color-`) to adapt the design to your needs.
 
@@ -63,6 +131,10 @@ Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/d
 | ----------------- | ------------------------- |
 | \$color-primary   | --algolia-theme-primary   |
 | \$color-secondary | --algolia-theme-secondary |
+
+#### Customizing breakpoints
+
+#### Customizing text
 
 ### Disclaimer
 
