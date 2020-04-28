@@ -45,7 +45,7 @@ git remote add upstream https://github.com/algolia/ecomm-unified.git
 When you clone the project for the first time, or when you update it with the latest changes, you need to install dependencies. It must happen **before** using any of the provided commands.
 
 ```sh
-yarn
+yarn # or `npm install`
 ```
 
 ##### Running the project locally
@@ -53,7 +53,7 @@ yarn
 If you're customizing the project, you may want to test it out and see if it works before building it and adding it to your production website. We provide a fake e-commerce website in which you can run the project locally. It's useful to see your changes live while you're developing, and test them out before going to production.
 
 ```sh
-yarn start
+yarn start # or `npm run start`
 ```
 
 ##### Previewing the project in production conditions
@@ -61,7 +61,7 @@ yarn start
 When running the project locally (with the `start` command), you're in a development environment that comes with tooling to help you code and debug more quickly. It has an impact on performances, which doesn't give you a realistic idea of how fast and fluid the final experience is. For this reason, we provide a way for you to preview the project in the same way as with the `start` command, but in production conditions.
 
 ```sh
-yarn preview
+yarn preview # or `npm run preview`
 npx serve preview
 open http://localhost:5000/
 ```
@@ -71,7 +71,7 @@ open http://localhost:5000/
 Once you've customized the project and made sure it works properly, you need to export it into a JavaScript file that you then must include on your production website.
 
 ```sh
-yarn export
+yarn export # or `npm run export`
 ```
 
 Then, include the generated `unified-instantsearch.js` file in your project.
