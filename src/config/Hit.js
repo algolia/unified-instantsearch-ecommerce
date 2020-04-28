@@ -15,7 +15,7 @@ export function Hit({ hit, insights, view }) {
     >
       <a href={`https://asos.com/${hit.url}`} className="uni-Hit-inner">
         <div className="uni-Hit-image">
-          <img src={hit.image} alt={hit.description} />
+          <img src={hit.image} alt={hit.description} loading="lazy" />
         </div>
 
         <div className="uni-Hit-Body">
