@@ -1,10 +1,16 @@
+@import '../config/variables';
+
 .ais-CurrentRefinements {
   padding-top: 1.5rem;
+  @media (max-width: $breakpoint-sm) {
+    padding-top: 1rem;
+  }
 }
 
 .ais-CurrentRefinements-list {
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
 }
 
 .ais-CurrentRefinements-item {
