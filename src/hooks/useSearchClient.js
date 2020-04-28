@@ -42,6 +42,12 @@ export function useSearchClient(config) {
           } else if (
             searchParameters.indexName === QUERY_SUGGESTIONS_INDEX_NAME
           ) {
+            if (!config.suggestionsIndex) {
+              throw new Error(
+                'A search request was sent to the Query Suggestions index but the index name is not specified in the user configuration (`suggestionsIndex.indexName`).'
+              );
+            }
+
             return {
               ...searchParameters,
               indexName: config.suggestionsIndex.indexName,
@@ -55,12 +61,7 @@ export function useSearchClient(config) {
         return client.search(modifiedRequests);
       },
     };
-  }, [
-    appId,
-    apiKey,
-    config.index.indexName,
-    config.suggestionsIndex.indexName,
-  ]);
+  }, [appId, apiKey, config.index.indexName, config.suggestionsIndex]);
 
   return searchClient;
 }
