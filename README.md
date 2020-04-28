@@ -1,8 +1,8 @@
 # E-Commerce Unified UI
 
-<!--<p align="center">
+<p align="center">
 <img src="https://cl.ly/c3fa6a6b250a/Screenshot%2525202019-05-27%252520at%25252010.17.35.png" />
-</p>-->
+</p>
 
 **This project aims to be used by any e-commerce website to bootstrap a search experience powered by Algolia the fastest way possible.**
 
