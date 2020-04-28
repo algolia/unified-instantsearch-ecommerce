@@ -1,19 +1,12 @@
 # E-Commerce Unified UI
 
-<p align="center">
+<!--<p align="center">
 <img src="https://cl.ly/c3fa6a6b250a/Screenshot%2525202019-05-27%252520at%25252010.17.35.png" />
-</p>
+</p>-->
 
 **This project aims to be used by any e-commerce website to bootstrap a search experience powered by Algolia the fastest way possible.**
 
 While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need of implementing front-end logic and be able to start using Algolia as quickly as possible.
-
-### Prerequisites
-
-- Node >= 12
-- Yarn
-
-// @todo @sarah
 
 ### Getting started
 
@@ -22,12 +15,78 @@ Follow the few steps described below to start using E-Commerce Unified UI.
 1. **Push your data to Algolia** (following the [required data schema](#customizing-the-search-ui)),
 2. [**Fork** this Github repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
 3. **Replace the values in `src/config/index.js`** to better match your needs,
-4. **Run `npm run build` (or `yarn build`)** to build the `unified-instantsearch.js` files,
+4. **Run `npm run build` (or `yarn build`)** to build the `unified-instantsearch.js` file,
 5. **Host and include the `unified-instantsearch.js` file** on your front-end and start using!
 
 #### Instructions
 
-// @todo @sarah
+##### Prerequisites
+
+To run and build the project, you need:
+- to create a [GitHub account](https://github.com/join/),
+- and to install [Node.js 12.x](https://nodejs.org/en/).
+
+We use [Yarn](https://yarnpkg.com/) and recommend you use it too to install and manage dependencies. If you prefer using [npm CLI](https://docs.npmjs.com/cli/npm) (built-in with Node.js), make sure to delete `yarn.lock` to avoid having conflicting lock files.
+
+>Once you've picked either npm CLI or Yarn, **we recommend you stick to this choice**. Both tools generate different, incompatible lock files, which define what exact version of each dependency the project should use. Using both tools could break your final JavaScript file.
+
+##### Forking and installing the project
+
+We provide Unified InstantSearch as a repository that you can [fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and run on your own.
+
+To do so, you need to navigate to the [main repository](https://github.com/algolia/ecomm-unified/) and click **Fork** at the top-right corner of the page. It creates a tracked copy of the repository on your GitHub account. Go to the fork and click the **Clone or download** to clone the project on your machine. We recommend you clone instead of downloading a ZIP archive so you can later easily [update the project](#updating-the-project).
+
+Once you've cloned the fork on your machine, you can add the original upstream repository to facilitate updates.
+
+```sh
+git remote add upstream https://github.com/algolia/ecomm-unified.git
+```
+
+When you clone the project for the first time, or when you update it with the latest changes, you need to install dependencies. It must happen **before** using any of the provided commands.
+
+```sh
+yarn
+```
+
+##### Running the project locally
+
+If you're customizing the project, you may want to test it out and see if it works before building it and adding it to your production website. We provide a fake e-commerce website in which you can run the project locally. It's useful to see your changes live while you're developing, and test them out before going to production.
+
+```sh
+yarn start
+```
+
+##### Previewing the project in production conditions
+
+When running the project locally (with the `start` command), you're in a development environment that comes with tooling to help you code and debug more quickly. It has an impact on performances, which doesn't give you a realistic idea of how fast and fluid the final experience is. For this reason, we provide a way for you to preview the project in the same way as with the `start` command, but in production conditions.
+
+```sh
+yarn preview
+npx serve preview
+open http://localhost:5000/
+```
+
+##### Exporting the project
+
+Once you've customized the project and made sure it works properly, you need to export it into a JavaScript file that you then must include on your production website.
+
+```sh
+yarn export
+```
+
+Then, include the generated `unified-instantsearch.js` file in your project.
+
+##### Updating the project
+
+Whenever we change the project, you can [sync the latest changes in your fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork).
+
+```sh
+git fetch upstream
+git checkout master
+git merge upstream/master
+```
+
+>**You need to test any change to your project to make sure it still works correctly in every environment where you intend to serve it**. We're versioning the project using the [Semantic Versioning](https://semver.org/) convention, using tags for each release. Before syncing your fork, make sure whether the changes are breaking or not, and whether they are compatible with your changes.
 
 #### Commands
 
