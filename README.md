@@ -39,6 +39,7 @@ You can run each command with npm or Yarn. For example, to run the `start` comma
 | ------------ | ----------------------------------------------------------------------------- |
 | `start`      | Run the project in development mode, within a fake e-commerce website.        |
 | `preview`    | Build the project for previewing in the context of a fake e-commerce website. |
+| `export`     | Export the production JavaScript file to include in your website.             |
 | `lint`       | Look for linting issues (useful when customizing the project).                |
 | `lint:js`    | Look for linting issues in the JavaScript code.                               |
 | `lint:css`   | Look for linting issues in the CSS/Sass code.                                 |

@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "webpack --mode production",
+    "export": "webpack --mode production",
     "preview": "yarn react-scripts build",
     "lint": "run-p -c lint:*",
     "lint:js": "eslint --ext .js .",
