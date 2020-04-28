@@ -7,7 +7,7 @@ export const ProductList = (props) => {
   const [isMobile, setIsMobile] = React.useState(true);
 
   React.useEffect(() => {
-    if (window.matchMedia('(min-width: 600px)').matches) {
+    if (window.matchMedia('(min-width: 640px)').matches) {
       setIsMobile(false);
     }
   }, []);
