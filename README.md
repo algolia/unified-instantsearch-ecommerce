@@ -28,7 +28,7 @@ To run and build the project, you need:
 
 We use [Yarn](https://yarnpkg.com/) and recommend you use it too to install and manage dependencies. If you prefer using [npm CLI](https://docs.npmjs.com/cli/npm) (built-in with Node.js), make sure to delete `yarn.lock` to avoid having conflicting lock files.
 
->Once you've picked either npm CLI or Yarn, **we recommend you stick to this choice**. Both tools generate different, incompatible lock files, which define what exact version of each dependency the project should use. Using both tools could break your final JavaScript file.
+> Once you've picked either npm CLI or Yarn, **we recommend you stick to this choice**. Both tools generate different, incompatible lock files, which define what exact version of each dependency the project should use. Using both tools could break your final JavaScript file.
 
 ##### Forking and installing the project
 
@@ -58,11 +58,11 @@ yarn start # or `npm run start`
 
 ##### Previewing the project in production conditions
 
-When running the project locally (with the `start` command), you're in a development environment that comes with tooling to help you code and debug more quickly. It has an impact on performances, which doesn't give you a realistic idea of how fast and fluid the final experience is. For this reason, we provide a way for you to preview the project in the same way as with the `start` command, but in production conditions.
+When running the project locally (with the `start` command), you're in a development environment that comes with tooling to help you code and debug more quickly. It has an impact on performance, which doesn't give you a realistic idea of how fast and fluid the final experience is. For this reason, we provide a way for you to preview the project in the same way as with the `start` command, but in production conditions.
 
 ```sh
 yarn preview # or `npm run preview`
-npx serve preview
+npx serve --port 5000 preview
 open http://localhost:5000/
 ```
 
@@ -86,7 +86,7 @@ git checkout master
 git merge upstream/master
 ```
 
->**You need to test any change to your project to make sure it still works correctly in every environment where you intend to serve it**. We're versioning the project using the [Semantic Versioning](https://semver.org/) convention, using tags for each release. Before syncing your fork, make sure whether the changes are breaking or not, and whether they are compatible with your changes.
+> **You need to test any change to your project to make sure it still works correctly in every environment where you intend to serve it**. We're versioning the project using the [Semantic Versioning](https://semver.org/) convention, using tags for each release. Before syncing your fork, make sure whether the changes are breaking or not, and whether they are compatible with your changes.
 
 #### Commands
 
