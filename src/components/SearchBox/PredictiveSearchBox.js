@@ -1,6 +1,7 @@
 import React from 'react';
 import { Index, connectHits, Configure } from 'react-instantsearch-dom';
 
+import { QUERY_SUGGESTIONS_INDEX_NAME } from '../../constants';
 import { ReverseHighlight } from '../ReverseHighlight';
 import { SearchBox } from './SearchBox';
 
@@ -40,8 +41,8 @@ export const PredictiveSearchBox = (props) => {
         }}
       />
 
-      <Index indexName={props.suggestionsIndex.indexName}>
-        <Configure page={0} {...props.suggestionsIndex.searchParameters} />
+      <Index indexName={QUERY_SUGGESTIONS_INDEX_NAME}>
+        <Configure {...props.suggestionsIndex.searchParameters} />
         <Suggestions
           query={props.currentRefinement}
           onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
