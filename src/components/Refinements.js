@@ -1,5 +1,9 @@
 import React from 'react';
-import { RefinementList, Menu } from 'react-instantsearch-dom';
+import {
+  RefinementList,
+  HierarchicalMenu,
+  Menu,
+} from 'react-instantsearch-dom';
 
 import { useAppContext } from '../hooks';
 import { Panel } from './Panel';
@@ -18,6 +22,17 @@ function RefinementWidget({ type, ...props }) {
     case 'slider':
       return <Slider {...props} />;
 
+    case 'list':
+      return (
+        <RefinementList
+          translations={{
+            showMore: (expanded) =>
+              expanded ? '- View fewer filters' : '+ View more filters',
+          }}
+          {...props}
+        />
+      );
+
     case 'category':
       return (
         <Menu
@@ -29,16 +44,19 @@ function RefinementWidget({ type, ...props }) {
         />
       );
 
-    default:
+    case 'hierarchical':
       return (
-        <RefinementList
+        <HierarchicalMenu
           translations={{
             showMore: (expanded) =>
-              expanded ? '- View fewer filters' : '+ View more filters',
+              expanded ? '- View fewer categories' : '+ View more categories',
           }}
           {...props}
         />
       );
+
+    default:
+      throw new Error(`The refinement type "${type}" is not supported.`);
   }
 }
 
@@ -47,7 +65,11 @@ export const Refinements = () => {
 
   return config.refinements.map((refinement) => (
     <Panel
-      key={refinement.options.attribute}
+      key={
+        refinement.options.attributes
+          ? refinement.options.attributes.join(':')
+          : refinement.options.attribute
+      }
       header={refinement.header}
       isOpened={!refinement.isCollapsed}
     >

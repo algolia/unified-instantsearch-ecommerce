@@ -46,18 +46,21 @@ const config = {
   ],
   refinements: [
     {
-      type: 'category',
+      type: 'hierarchical',
       header: 'Categories',
       name: 'Category',
       options: {
-        attribute: 'categories',
+        attributes: [
+          'hierarchicalCategories.lvl0',
+          'hierarchicalCategories.lvl1',
+        ],
+        limit: 6,
         searchable: true,
         showMore: true,
-        limit: 6,
-        showMoreLimit: 20,
       },
     },
     {
+      type: 'list',
       header: 'Brands',
       name: 'Brand',
       options: {

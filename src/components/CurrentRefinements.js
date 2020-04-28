@@ -5,8 +5,10 @@ import './CurrentRefinements.scss';
 import { useAppContext } from '../hooks';
 
 function getRefinement(refinement, config) {
-  const refinementConfig = config.refinements.find(
-    (x) => x.options.attribute === refinement.attribute
+  const refinementConfig = config.refinements.find((x) =>
+    x.options.attributes
+      ? x.options.attributes[0] === refinement.attribute
+      : x.options.attribute === refinement.attribute
   );
   const category = refinementConfig.name || refinementConfig.options.attribute;
 
@@ -22,12 +24,21 @@ function getRefinement(refinement, config) {
     }
 
     case 'color':
-    case 'size':
+    case 'size': {
       return refinement.items.map((item) => ({
         category,
         label: item.label.split(';')[0],
         value: item.value,
       }));
+    }
+
+    case 'list': {
+      return refinement.items.map((item) => ({
+        category,
+        label: item.label,
+        value: item.value,
+      }));
+    }
 
     case 'slider': {
       let label = '';
@@ -52,12 +63,21 @@ function getRefinement(refinement, config) {
       ];
     }
 
-    default:
-      return refinement.items.map((item) => ({
-        category,
-        label: item.label,
-        value: item.value,
-      }));
+    case 'hierarchical': {
+      return [
+        {
+          category,
+          label: refinement.currentRefinement,
+          value: refinement.value,
+        },
+      ];
+    }
+
+    default: {
+      throw new Error(
+        `The refinement type "${refinementConfig.type}" is not supported.`
+      );
+    }
   }
 }
 
