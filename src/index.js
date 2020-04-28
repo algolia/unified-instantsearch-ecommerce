@@ -6,8 +6,8 @@ import './reset.scss';
 import './theme.scss';
 import './App.scss';
 
-import { App } from './App';
 import config from './config';
+import { App } from './App';
 
 ReactDOM.render(
   <Router>
