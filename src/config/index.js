@@ -23,7 +23,6 @@ const config = {
   },
   suggestionsIndex: {
     indexName: 'instant_search_demo_query_suggestions',
-    maxSuggestions: 6,
     searchParameters: {
       hitsPerPage: 6,
     },
@@ -48,7 +47,7 @@ const config = {
     {
       type: 'hierarchical',
       header: 'Categories',
-      name: 'Category',
+      label: 'Category',
       options: {
         attributes: [
           'hierarchicalCategories.lvl0',
@@ -62,7 +61,7 @@ const config = {
     {
       type: 'list',
       header: 'Brands',
-      name: 'Brand',
+      label: 'Brand',
       options: {
         attribute: 'brand',
         searchable: true,
@@ -77,8 +76,8 @@ const config = {
     },
     {
       type: 'slider',
-      header: 'Prix',
-      name: 'Prix',
+      header: 'Price',
+      label: 'Price',
       options: {
         attribute: 'price',
         transformValue: (value) => (

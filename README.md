@@ -46,78 +46,383 @@ You can run each command with npm or Yarn. For example, to run the `start` comma
 
 ### Configuration options
 
-// @todo @francois
+The `src/config/index.js` file describes the available options supported by Unified InstantSearch.
 
-The `src/config/index.js` file describe the multiple available options to be used with E-Commerce Unified UI.
+#### `appId`
 
-| Option Name      | Type     | Required | Comments                                                                             |
-| ---------------- | -------- | -------- | ------------------------------------------------------------------------------------ |
-| appId            | `string` | Yes      | Set your Algolia Application ID (accessible from the Dashboard)                      |
-| searchApiKey     | `string` | Yes      | Set your Algolia Search API Key (accessible from the Dashboard)                      |
-| indexName        | `string` | Yes      | Set your Algolia Index name                                                          |
-| inputSelector    | `string` | Yes      | Set the DOM element that triggers the Search Results overlay                         |
-| suggestions      | `object` | No       | Set the Query Suggestions options (`appId`, `apiKey`, `indexName`, `maxSuggestions`) |
-| googleAnalytics  | `bool`   | No       | Enable Google Analytics tracking (Google script need to be included on your page)    |
-| searchParameters | `object` | No       | Parameters to pass to the InstantSearch widget                                       |
-| hits             | `object` | Yes      | Set the Hits option (`hitsPerPage` and `render()`)                                   |
-| refinements      | `object` | No       | Set the different Refinements available                                              |
-| sorts            | `object` | No       | Set the different Sorts available                                                    |
+> `string` | required
+
+Your Algolia Application ID ([find it on your Algolia account](https://www.algolia.com/api-keys)).
+
+#### `apiKey`
+
+> `string` | required
+
+Your Algolia Search-Only API Key ([find it on your Algolia account](https://www.algolia.com/api-keys)).
+
+#### `index`
+
+> `object` | required
+
+Your Algolia index settings:
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `indexName` | `string` | Your Algolia index name. |
+| `searchParameters` | [`SearchParameters`](https://www.algolia.com/doc/api-reference/search-api-parameters/) | The [search parameters](https://www.algolia.com/doc/api-reference/search-api-parameters/) to use. |
+
+#### `suggestionsIndex`
+
+> `object`
+
+Your Algolia [Query Suggestions](https://www.algolia.com/doc/guides/getting-insights-and-analytics/leveraging-analytics-data/query-suggestions/) index:
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `indexName` | `string` | Your Algolia index name. |
+| `searchParameters` | [`SearchParameters`](https://www.algolia.com/doc/api-reference/search-api-parameters/) | The [search parameters](https://www.algolia.com/doc/api-reference/search-api-parameters/) to use. |
+
+The Query Suggestions index is used to display suggestions below the search box and in the "no results" page.
+
+Make sure that Query Suggestions is available on your [Algolia plan](https://www.algolia.com/pricing/).
+
+#### `inputSelector`
+
+> `string` | required
+
+The [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) that targets the DOM element to inject the search button into.
+
+#### `inputContent`
+
+> `string | ReactNode` | required
+
+The content to display in the search button.
+
+#### `keyboardShortcuts`
+
+> `string[]`
+
+The keyboard shortcuts to use to display the search overlay.
+
+#### `hitComponent`
+
+> `(props: { hit: Hit, insights: Insights, view: "grid"|"list" }) => JSX.Element` | required
+
+The hit component to display in the list of hits.
+
+You have access to the following props:
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `hit` | [`Hit`](https://www.algolia.com/doc/guides/building-search-ui/going-further/backend-search/in-depth/understanding-the-api-response/#hits) | The hit returned by Algolia. |
+| `insights` | [`Insights`](https://www.algolia.com/doc/api-client/methods/insights/) | The Insights function bound to the `index`, `userToken`, `queryID`, `objectIDs` and `positions` so that you only have to specify the `eventName`. |
+| `view` | `"grid" | "list"` | The current view mode. |
+
+#### `setUserToken`
+
+> `(setToken: (userToken: string) => void) => void`
+
+Function to set the [`userToken`](https://www.algolia.com/doc/api-reference/api-parameters/userToken/) to allow [Personalization](https://www.algolia.com/doc/guides/getting-insights-and-analytics/personalization/what-is-personalization/).
+
+**Example:**
+
+```js
+const config = {
+  // ...
+  setUserToken(setToken) {
+    // Assuming you store the `userToken` in a global variable
+    setToken(window.ALGOLIA_USER_TOKEN);
+    // Or if you store the `userToken` in an external API
+    fetchTokenAsynchronously().then(({ token }) => setToken(token));
+  },
+};
+```
+
+#### `googleAnalytics`
+
+> `boolean`
+
+Whether to send events to [Google Analytics](https://analytics.google.com/) when queries are triggered.
+
+This assumes that the global Google Analytics object `aa` is available on `window`.
+
+#### `refinements`
+
+See [Refinements](#refinements).
+
+#### `sorts`
+
+See [Sorting](#sorting).
+
+#### `styles`
+
+See [Customizing breakpoints](#customizing-breakpoints).
 
 ### Customizing the search UI
 
-// @todo @francois
+The configuration file allows to customize the search UI: what refinements to display, what sorting strategy to use, etc.
 
 #### Refinements
 
-// @todo @francois
+A refinement acts as a search filter that is added to the left panel of the search UI. Refinements' order follows their declaration order in the configuration file.
 
-##### Schema
+Each refinement object contains the following properties:
 
-###### Record schema
+| Key | Type | Description | Preview |
+| --- | --- | --- | --- |
+| `type` | `"list" | "category" | "hierarchical" | "slider"` | The type of the refinement. |
+| `header` | `string` | The content to display in the refinement panel header. | ![](.github/screenshots/refinement-header.png) |
+| `label` | `string` | The label to display in the active refinements. | ![Label preview](.github/screenshots/refinement-label.png) |
+| `options` | `object` | The refinement options forwarded to the InstantSearch widget |
 
-###### Options
+The attributes provided to the refinements' options must be added in attributes for faceting, either on the [Algolia dashboard](https://www.algolia.com/explorer/display/) or using [`attributesForFaceting`](https://www.algolia.com/doc/api-reference/api-parameters/attributesForFaceting/) with the Algolia API.
+
+**Example:**
+
+```js
+const config = {
+  // ...
+  refinements: [
+    {
+      {
+      type: 'list',
+      header: 'Brands',
+      label: 'Brand',
+      options: {
+        attribute: 'brand',
+      },
+    },
+    }
+  ]
+}
+```
 
 ##### Hierarchical
 
-###### Record schema
-
-###### Options
-
-##### Color
+| Preview |  |
+| --- | --- |
+| ![Hierarchical preview](.github/screenshots/refinement-hierarchical.png) | The hierarchical refinement creates a navigation based on a hierarchy of facet attributes. It is commonly used for categories with subcategories. |
 
 ###### Record schema
 
+The objects to use in the hierarchical menu must follow this structure:
+
+```json
+[
+  {
+    "objectID": "321432",
+    "name": "lemon",
+    "categories.lvl0": "products",
+    "categories.lvl1": "products > fruits"
+  },
+  {
+    "objectID": "8976987",
+    "name": "orange",
+    "categories.lvl0": "products",
+    "categories.lvl1": "products > fruits"
+  }
+]
+```
+
+It’s also possible to provide more than one path for each level:
+
+```json
+[
+  {
+    "objectID": "321432",
+    "name": "lemon",
+    "categories.lvl0": ["products", "goods"],
+    "categories.lvl1": ["products > fruits", "goods > to eat"]
+  }
+]
+```
+
 ###### Options
 
-##### List
+| Key | Type | Description |
+| --- | --- | --- |
+| `type` | `"hierarchical"` | The type of the refinement. |
+| `header` | `string` | The content to display in the refinement panel header. |
+| `label` | `string` | The label to display in the active refinements. |
+| `options` | `object` | The [options forwarded to the `HierarchicalMenu` InstantSearch widget](https://www.algolia.com/doc/api-reference/widgets/hierarchical-menu/react/#props). |
 
-###### Record schema
+**Example:**
 
-###### Options
-
-##### Size
-
-###### Record schema
-
-###### Options
-
-##### Slider
-
-###### Record schema
-
-###### Options
+```js
+const config = {
+  // ...
+  refinements: [
+    {
+      type: 'hierarchical',
+      header: 'Categories',
+      label: 'Category',
+      options: {
+        attributes: [
+          'hierarchicalCategories.lvl0',
+          'hierarchicalCategories.lvl1',
+        ],
+        limit: 6,
+        showMore: true,
+      },
+    },
+  ],
+};
+```
 
 ##### Category
 
-###### Record schema
+| Preview |  |
+| --- | --- |
+| ![Category preview](.github/screenshots/refinement-category.png) | The category refinement displays a menu that lets the user choose a single value for a specific attribute. |
 
 ###### Options
 
-// @todo @francois
+| Key | Type | Description |
+| --- | --- | --- |
+| `type` | `"category"` | The type of the refinement. |
+| `header` | `string` | The content to display in the refinement panel header. |
+| `label` | `string` | The label to display in the active refinements. |
+| `options` | `object` | The [options forwarded to the `Menu` InstantSearch widget](https://www.algolia.com/doc/api-reference/widgets/menu/react/#props). |
+
+**Example:**
+
+```js
+const config = {
+  // ...
+  refinements: [
+    {
+      type: 'category',
+      header: 'Categories',
+      label: 'Category',
+      options: {
+        attribute: 'category',
+        limit: 6,
+        showMore: true,
+      },
+    },
+  ],
+};
+```
+
+##### List
+
+| Preview |  |
+| --- | --- |
+| ![List preview](.github/screenshots/refinement-list.png) | The list refinement is one of the most common widgets that you can find in a search UI. With this widget, the user can filter the dataset based on facet values. The widget only displays the most relevant facets for the current search context. This widget also implements search for facet values, which is a mini search inside the values of the facets. This makes it easy to deal with uncommon facet values. |
+
+###### Options
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `type` | `"list"` | The type of the refinement. |
+| `header` | `string` | The content to display in the refinement panel header. |
+| `label` | `string` | The label to display in the active refinements. |
+| `options` | `object` | The [options forwarded to the `RefinementList` InstantSearch widget](https://www.algolia.com/doc/api-reference/widgets/refinement-list/react/#props). |
+
+**Example:**
+
+```js
+const config = {
+  // ...
+  refinements: [
+    {
+      type: 'list',
+      header: 'Brands',
+      label: 'Brand',
+      options: {
+        attribute: 'brand',
+        searchable: true,
+        showMore: true,
+        limit: 6,
+      },
+    },
+  ],
+};
+```
+
+##### Slider
+
+| Preview |  |
+| --- | --- |
+| ![Slider preview](.github/screenshots/refinement-slider.png) | The slider refinement provides a user-friendly way to filter the results, based on a single numeric range. |
+
+###### Record schema
+
+The values inside `attribute` must be numbers, not strings.
+
+###### Options
+
+###### Options
+
+| Key | Type | Description |
+| --- | --- | --- |
+| `type` | `"slider"` | The type of the refinement. |
+| `header` | `string` | The content to display in the refinement panel header. |
+| `label` | `string` | The label to display in the active refinements. |
+| `options` | `RefinementOptions` | The options of the refinement. |
+
+**RefinementOptions:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `transformValue` | `(value: number) => ReactNode` | Function to transform the min and max values displayed. |
+
+**Example:**
+
+```js
+const config = {
+  // ...
+  refinements: [
+    {
+      type: 'slider',
+      header: 'Price',
+      label: 'Price',
+      options: {
+        attribute: 'price',
+        transformValue: (value) => (
+          <>
+            <span className="uni-Hit-Currency">$</span>
+            {value}
+          </>
+        ),
+      },
+    },
+  ],
+};
+```
 
 #### Sorting
 
-// @todo @francois
+The `sorts` config displays a list of indices, allowing a user to change the way hits are sorting (with [replica indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-your-indices/#replicating-an-index)).
+
+You must define all indices that you pass as replicas of the main index.
+
+| Key     | Type     | Description                         |
+| ------- | -------- | ----------------------------------- |
+| `label` | `string` | The label to display for the index. |
+| `value` | `string` | The Algolia index name to target.   |
+
+**Example:**
+
+```js
+const config = {
+  // ...
+  sorts: [
+    {
+      label: 'Featured',
+      value: 'instant_search',
+    },
+    {
+      label: 'Price ascending',
+      value: 'instant_search_price_asc',
+    },
+    {
+      label: 'Price descending',
+      value: 'instant_search_price_desc',
+    },
+  ],
+};
+```
 
 ### Adjusting the styling to your theme
 
