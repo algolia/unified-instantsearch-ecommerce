@@ -4,7 +4,6 @@ import { connectRefinementList } from 'react-instantsearch-dom';
 import './ColorList.scss';
 import { FacetSearchBox } from './SearchBox/FacetSearchBox';
 import { PartialHighlight } from './PartialHighlight';
-import { PanelWrapper } from './Panel';
 
 export const ColorList = connectRefinementList(function ColorList(props) {
   const [query, setQuery] = React.useState('');
@@ -19,104 +18,100 @@ export const ColorList = connectRefinementList(function ColorList(props) {
   });
 
   return (
-    <PanelWrapper {...props}>
-      <div className="ais-ColorList ais-RefinementList">
-        {props.searchable && (
-          <div className="ais-RefinementList-searchBox">
-            <FacetSearchBox
-              inputRef={inputRef}
-              translations={{ placeholder: 'Search colors' }}
-              query={query}
-              onChange={(event) => {
-                const value = event.currentTarget.value;
-                setQuery(value);
-                props.searchForItems(value);
-              }}
-              onSubmit={(event) => {
-                event.preventDefault();
-                event.stopPropagation();
+    <div className="ais-ColorList ais-RefinementList">
+      {props.searchable && (
+        <div className="ais-RefinementList-searchBox">
+          <FacetSearchBox
+            inputRef={inputRef}
+            translations={{ placeholder: 'Search colors' }}
+            query={query}
+            onChange={(event) => {
+              const value = event.currentTarget.value;
+              setQuery(value);
+              props.searchForItems(value);
+            }}
+            onSubmit={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
 
-                if (props.isFromSearch && props.items.length > 0) {
-                  props.refine(props.items[0].value);
-                  setQuery('');
-                }
-
-                if (inputRef.current) {
-                  inputRef.current.blur();
-                }
-              }}
-              onReset={() => {
+              if (props.isFromSearch && props.items.length > 0) {
+                props.refine(props.items[0].value);
                 setQuery('');
-                props.searchForItems('');
-
-                if (inputRef.current) {
-                  inputRef.current.focus();
-                }
-              }}
-            />
-          </div>
-        )}
-
-        <div className="uni-RefinementList-ListContainer">
-          {props.isFromSearch && props.items.length === 0 && (
-            <p>No colors found.</p>
-          )}
-
-          <ul className="ais-RefinementList-list">
-            {props.items.map((item) => {
-              const labelParts = item.label.split(';');
-
-              if (labelParts.length !== 2) {
-                throw new Error(
-                  `The Color widget expects colors with the following format: "Aluminium;#7f8084". Received "${item.label}".`
-                );
               }
 
-              const [colorName, colorCode] = labelParts;
+              if (inputRef.current) {
+                inputRef.current.blur();
+              }
+            }}
+            onReset={() => {
+              setQuery('');
+              props.searchForItems('');
 
-              return (
-                <li
-                  key={item.label}
-                  className={[
-                    'ais-RefinementList-item',
-                    item.isRefined && 'ais-RefinementList-item--selected',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                >
-                  <label className="ais-RefinementList-label">
-                    <input
-                      className="ais-RefinementList-checkbox"
-                      style={{
-                        color: colorCode,
-                        backgroundColor: colorCode,
-                      }}
-                      type="checkbox"
-                      value={item.value}
-                      checked={item.isRefined}
-                      onChange={(event) => {
-                        event.preventDefault();
-                        props.refine(item.value);
-                        setQuery('');
-                      }}
-                    />
-                    <span className="ais-RefinementList-labelText">
-                      {props.isFromSearch ? (
-                        <PartialHighlight hit={item} attribute="label" />
-                      ) : (
-                        colorName
-                      )}
-                    </span>
-                    <span className="ais-RefinementList-count">
-                      {item.count}
-                    </span>
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
+              if (inputRef.current) {
+                inputRef.current.focus();
+              }
+            }}
+          />
         </div>
+      )}
+
+      <div className="uni-RefinementList-ListContainer">
+        {props.isFromSearch && props.items.length === 0 && (
+          <p>No colors found.</p>
+        )}
+
+        <ul className="ais-RefinementList-list">
+          {props.items.map((item) => {
+            const labelParts = item.label.split(';');
+
+            if (labelParts.length !== 2) {
+              throw new Error(
+                `The Color widget expects colors with the following format: "Aluminium;#7f8084". Received "${item.label}".`
+              );
+            }
+
+            const [colorName, colorCode] = labelParts;
+
+            return (
+              <li
+                key={item.label}
+                className={[
+                  'ais-RefinementList-item',
+                  item.isRefined && 'ais-RefinementList-item--selected',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+              >
+                <label className="ais-RefinementList-label">
+                  <input
+                    className="ais-RefinementList-checkbox"
+                    style={{
+                      color: colorCode,
+                      backgroundColor: colorCode,
+                    }}
+                    type="checkbox"
+                    value={item.value}
+                    checked={item.isRefined}
+                    onChange={(event) => {
+                      event.preventDefault();
+                      props.refine(item.value);
+                      setQuery('');
+                    }}
+                  />
+                  <span className="ais-RefinementList-labelText">
+                    {props.isFromSearch ? (
+                      <PartialHighlight hit={item} attribute="label" />
+                    ) : (
+                      colorName
+                    )}
+                  </span>
+                  <span className="ais-RefinementList-count">{item.count}</span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </PanelWrapper>
+    </div>
   );
 });
