@@ -319,6 +319,12 @@ a[class^='ais-'] {
   text-transform: uppercase;
 }
 
+.ais-HierarchicalMenu-showMore--disabled,
+.ais-Menu-showMore--disabled,
+.ais-RefinementList-showMore--disabled {
+  display: none;
+}
+
 .ais-Menu-list,
 .ais-HierarchicalMenu-list {
   font-weight: normal;
