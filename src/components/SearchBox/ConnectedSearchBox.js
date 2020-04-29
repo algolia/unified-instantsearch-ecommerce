@@ -12,6 +12,10 @@ export const HeaderSearchBox = connectSearchBox(function SearchBox(props) {
     setSearchContext({ setQuery: props.refine });
   }, [setSearchContext, props.refine]);
 
+  React.useEffect(() => {
+    setSearchContext({ isSearchStalled: props.isSearchStalled });
+  }, [setSearchContext, props.isSearchStalled]);
+
   if (config.suggestionsIndex) {
     return (
       <div className="uni-SearchBox">

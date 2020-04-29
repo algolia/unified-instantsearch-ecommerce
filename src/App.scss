@@ -1,5 +1,49 @@
 @import './config/variables';
 
+/* Loading */
+
+.uni-LoadingProgress {
+  background: #fff;
+  bottom: 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
+  height: 4px;
+  position: absolute;
+  width: 100%;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .uni-LoadingProgress {
+    display: none;
+  }
+}
+
+.uni-LoadingProgress::after {
+  animation: loadingProgress 6s cubic-bezier(0.2, 0.7, 0.4, 1) forwards;
+  background: var(--algolia-theme-primary);
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.3);
+  content: '';
+  height: 4px;
+  opacity: 0.5;
+  position: absolute;
+  transform-origin: left;
+  width: 100%;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .uni-LoadingProgress::after {
+    animation: none;
+  }
+}
+
+@keyframes loadingProgress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(95%);
+  }
+}
+
 /* Search box */
 
 .ais-SearchBox-submit,

@@ -23,6 +23,36 @@
   text-transform: uppercase;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  .uni-Hit-placeholder {
+    animation: none;
+  }
+}
+
+.uni-Hit-placeholder {
+  animation: loadingGradient 1.5s ease infinite;
+  background: linear-gradient(to right, #fff 50%, #f3f1f1);
+  background-size: 150%;
+  border: 1px solid #f3f1f1;
+  border-radius: 3px;
+  color: inherit;
+  display: block;
+  height: 180px;
+  padding: 1rem;
+}
+
+@keyframes loadingGradient {
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 100% 80%;
+  }
+  100% {
+    background-position: 0% 20%;
+  }
+}
+
 .uni-Hit-inner {
   border: 1px solid #fff;
   border-radius: 3px;

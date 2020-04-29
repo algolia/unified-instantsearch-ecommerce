@@ -6,7 +6,7 @@ import {
   ScrollTo,
 } from 'react-instantsearch-dom';
 
-import { useAppContext } from '../hooks';
+import { useAppContext, useSearchContext } from '../hooks';
 import { Banner } from './Banner';
 import { CurrentRefinements } from './CurrentRefinements';
 import { QueryRulesHandler } from './QueryRulesHandler';
@@ -23,6 +23,8 @@ import { ResetButton } from './ResetButton';
 
 export function Search(props) {
   const { config, view, searchParameters } = useAppContext();
+  const { isSearchStalled } = useSearchContext();
+
   const filtersAnchor = React.useRef();
 
   React.useEffect(() => {
@@ -53,6 +55,8 @@ export function Search(props) {
           >
             <CloseIcon />
           </button>
+
+          {isSearchStalled && <div className="uni-LoadingProgress" />}
         </header>
 
         <div className="uni-Content">

@@ -16,12 +16,38 @@ import {
 export const NoResultsHandler = connectStateResults(function ResultsWrapper(
   props
 ) {
+  const { view } = useAppContext();
+
   if (props.searchState.query && props.searchResults?.nbHits === 0) {
     return (
       <NoResults
         query={props.searchState.query}
         isSearching={props.searching}
       />
+    );
+  }
+
+  if (
+    props.isSearchStalled &&
+    (!props.searchResults || props.searchResults.nbHits === 0)
+  ) {
+    return (
+      <div className="ais-Hits">
+        <ol
+          className={[
+            'ais-Hits-list',
+            view === 'grid' ? 'uni-Hits--gridView' : 'uni-Hits--listView',
+          ].join(' ')}
+        >
+          {Array.from({ length: 12 }, (_, i) => i).map((index) => (
+            <li key={index} className="ais-Hits-item">
+              <article className="uni-Hit">
+                <div className="uni-Hit-placeholder" />
+              </article>
+            </li>
+          ))}
+        </ol>
+      </div>
     );
   }
 

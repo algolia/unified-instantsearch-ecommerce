@@ -30,7 +30,9 @@ export function App({ config }) {
   const [isFiltering, setIsFiltering] = React.useState(false);
   const [isMobile, setIsMobile] = React.useState(true);
   const [view, setView] = React.useState('grid');
-  const searchContextRef = React.useRef({});
+  const [searchContext, setInternalSearchContext] = React.useState({
+    isSearchStalled: false,
+  });
   const searchParameters = {
     userToken,
     enablePersonalization: Boolean(userToken),
@@ -45,12 +47,15 @@ export function App({ config }) {
     [aa, view]
   );
 
-  function setSearchContext(context) {
-    searchContextRef.current = {
-      ...searchContextRef.current,
+  const setSearchContext = React.useCallback(function setSearchContext(
+    context
+  ) {
+    setInternalSearchContext((prevSearchContext) => ({
+      ...prevSearchContext,
       ...context,
-    };
-  }
+    }));
+  },
+  []);
 
   function onSearchStateChange(nextSearchState) {
     clearTimeout(lastSetStateId.current);
@@ -198,7 +203,7 @@ export function App({ config }) {
                 .join(' ')}
               ref={topAnchor}
             >
-              <SearchContext.Provider value={searchContextRef.current}>
+              <SearchContext.Provider value={searchContext}>
                 <Search
                   searchClient={searchClient}
                   indexName={config.index.indexName}
