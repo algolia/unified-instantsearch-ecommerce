@@ -4,8 +4,6 @@ import Rheostat from 'rheostat';
 
 import './Slider.scss';
 
-import { PanelWrapper } from './Panel';
-
 export const Slider = connectRange(function Slider(props) {
   const {
     min,
@@ -58,33 +56,31 @@ export const Slider = connectRange(function Slider(props) {
   }, [min, max]);
 
   if (min === max) {
-    return <PanelWrapper {...props}>{null}</PanelWrapper>;
+    return null;
   }
 
   return (
-    <PanelWrapper {...props}>
-      <div className="uni-Slider">
-        <div className="uni-Slider-bar">
-          <Rheostat
-            className="uni-Rheostat"
-            min={min}
-            max={max}
-            snap={true}
-            values={[currentRefinement.min, currentRefinement.max]}
-            onChange={onChange}
-            onValuesUpdated={onValuesUpdated}
-          />
-        </div>
+    <div className="uni-Slider">
+      <div className="uni-Slider-bar">
+        <Rheostat
+          className="uni-Rheostat"
+          min={min}
+          max={max}
+          snap={true}
+          values={[currentRefinement.min, currentRefinement.max]}
+          onChange={onChange}
+          onValuesUpdated={onValuesUpdated}
+        />
+      </div>
 
-        <div className="uni-Slider-values">
-          <div className="uni-Slider-value uni-Slider-value--min">
-            {transformValue(currentMin)}
-          </div>
-          <div className="uni-Slider-value uni-Slider-value--max">
-            {transformValue(currentMax)}
-          </div>
+      <div className="uni-Slider-values">
+        <div className="uni-Slider-value uni-Slider-value--min">
+          {transformValue(currentMin)}
+        </div>
+        <div className="uni-Slider-value uni-Slider-value--max">
+          {transformValue(currentMax)}
         </div>
       </div>
-    </PanelWrapper>
+    </div>
   );
 });

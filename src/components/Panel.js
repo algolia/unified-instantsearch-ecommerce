@@ -2,18 +2,6 @@ import React from 'react';
 
 import './Panel.scss';
 
-const PanelContext = React.createContext();
-
-function usePanelContext() {
-  const context = React.useContext(PanelContext);
-
-  if (!context) {
-    throw new Error('`usePanelContext` must be used within a Panel.');
-  }
-
-  return context;
-}
-
 export function Panel({
   isOpened: initialIsOpened = true,
   header,
@@ -22,14 +10,12 @@ export function Panel({
   ...rest
 }) {
   const [isOpened, setIsOpened] = React.useState(initialIsOpened);
-  const [canRefine, setCanRefine] = React.useState(true);
 
   return (
     <div
       className={[
         'ais-Panel',
         'ais-Panel--collapsible',
-        canRefine === false && 'ais-Panel-noRefinement',
         isOpened === false && 'ais-Panel--collapsed',
       ]
         .filter(Boolean)
@@ -62,22 +48,9 @@ export function Panel({
         </button>
       </div>
 
-      <div className="ais-Panel-body">
-        <PanelContext.Provider value={{ setCanRefine }}>
-          {children}
-        </PanelContext.Provider>
-      </div>
+      <div className="ais-Panel-body">{children}</div>
 
       {footer && <div className="ais-Panel-footer">{footer}</div>}
     </div>
   );
 }
-export const PanelWrapper = (props) => {
-  const { setCanRefine } = usePanelContext();
-
-  React.useEffect(() => {
-    setCanRefine(props.canRefine);
-  }, [setCanRefine, props.canRefine, props.isFromSearch]);
-
-  return props.children;
-};
