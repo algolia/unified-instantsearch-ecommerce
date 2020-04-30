@@ -23,12 +23,6 @@
   text-transform: uppercase;
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
-  .uni-Hit-placeholder {
-    animation: none;
-  }
-}
-
 .uni-Hit-placeholder {
   animation: loadingGradient 1.5s ease infinite;
   background: linear-gradient(to right, #fff 50%, #f3f1f1);
@@ -39,6 +33,9 @@
   display: block;
   height: 180px;
   padding: 1rem;
+  @media screen and (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 @keyframes loadingGradient {
