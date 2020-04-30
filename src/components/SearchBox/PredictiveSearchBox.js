@@ -73,7 +73,7 @@ const Suggestions = connectHits(function Suggestions({
     if (firstSuggestion.toLocaleLowerCase().startsWith(query.toLowerCase())) {
       // We correct any case mismatch between the query and the suggestion.
       // Example:
-      // If the query typed has a different case than the suggestion, we want
+      // If the typed query has a different casing than the suggestion, we want
       // to show the completion matching the case of the query. This makes both
       // strings overlap correctly.
       //  - query: 'Gui'
