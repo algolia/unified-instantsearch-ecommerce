@@ -2,7 +2,6 @@
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
-const postcssCustomMedia = require('postcss-custom-media');
 const postcssInjectCssVariables = require('postcss-inject-css-variables');
 
 const {
@@ -59,6 +58,9 @@ module.exports = {
             options: {
               plugins: [
                 postcssPresetEnv({
+                  features: {
+                    'custom-media-queries': true
+                  },
                   importFrom: () => {
                     const customProperties = {
                       ...generateCustomProperties(colors, {
@@ -69,23 +71,13 @@ module.exports = {
                       }),
                     };
 
-                    return { customProperties };
-                  },
-                }),
-                /**
-                 * This should normally be handled by PostCSS Preset Env.
-                 * https://github.com/csstools/postcss-preset-env/issues/175
-                 * Until the issue is solved, this plugin is necessary.
-                 */
-                postcssCustomMedia({
-                  importFrom: () => {
                     const customMedia = {
                       ...generateCustomMedia(breakpoints, {
                         namespace: CUSTOM_PROPERTIES_NAMESPACE,
                       }),
                     };
 
-                    return { customMedia };
+                    return { customProperties, customMedia };
                   },
                 }),
               ],
