@@ -55,7 +55,7 @@ export function App({ config }) {
       ...context,
     }));
   },
-  []);
+    []);
 
   function onSearchStateChange(nextSearchState) {
     clearTimeout(lastSetStateId.current);
