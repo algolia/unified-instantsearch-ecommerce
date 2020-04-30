@@ -15,8 +15,8 @@ Follow the few steps described below to start using E-Commerce Unified UI.
 1. **Push your data to Algolia** (following the [required data schema](#customizing-the-search-ui)),
 2. [**Fork** this Github repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
 3. **Replace the values in `src/config/index.js`** to better match your needs,
-4. **Run `npm run build` (or `yarn build`)** to build the `unified-instantsearch.js` file,
-5. **Host and include the `unified-instantsearch.js` file** on your front-end and start using!
+4. **Run `npm run build` (or `yarn build`)** to build the main JS and CSS files,
+5. **Host and include the main JS and CSS files** on your front-end and start using!
 
 #### Instructions
 
@@ -74,7 +74,7 @@ Once you've customized the project and made sure it works properly, you need to 
 yarn export # or `npm run export`
 ```
 
-Then, include the generated `unified-instantsearch.js` file in your project.
+Then, include the generated `main.js` and `main.css` files in your project.
 
 ##### Updating the project
 
