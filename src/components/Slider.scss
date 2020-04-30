@@ -16,7 +16,7 @@
     width: 100%;
   }
   .rheostat-progress {
-    background-color: var(--algolia-theme-primary);
+    background-color: var(--algolia-theme-color-primary);
     border-radius: 3px;
     cursor: pointer;
     height: 3px;
@@ -36,7 +36,7 @@
     transform: translate(-50%, -50%);
     width: 16px;
     z-index: 1;
-    @media (max-width: $breakpoint-lg) {
+    @media (--algolia-theme-breakpoint-lg-max) {
       height: 1.5rem;
       width: 1.5rem;
     }
@@ -46,7 +46,7 @@
 .uni-Slider-bar {
   display: block;
   padding: 0 8px;
-  @media (max-width: $breakpoint-lg) {
+  @media (--algolia-theme-breakpoint-lg-max) {
     padding: 0 0.75rem;
   }
 }

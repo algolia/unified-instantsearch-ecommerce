@@ -1,20 +1,15 @@
 @import './config/variables';
 
-:root {
-  --algolia-theme-primary: #{$color-primary};
-  --algolia-theme-secondary: #{$color-secondary};
-}
-
 /* Global */
 
 [class^='ais-'] {
   box-sizing: border-box;
   font-size: 0.9rem;
-  outline-color: var(--algolia-theme-primary);
+  outline-color: var(--algolia-theme-color-primary);
 }
 
 a[class^='ais-'] {
-  color: var(--algolia-theme-secondary);
+  color: var(--algolia-theme-color-secondary);
   text-decoration: none;
 }
 
@@ -67,7 +62,7 @@ a[class^='ais-'] {
 .ais-HitsPerPage-select,
 .ais-Stats,
 .ais-ToggleRefinement {
-  color: var(--algolia-theme-secondary);
+  color: var(--algolia-theme-color-secondary);
   font-size: 0.75rem;
 }
 
@@ -76,8 +71,8 @@ a[class^='ais-'] {
 .ais-Highlight-highlighted,
 .ais-Snippet-highlighted {
   background: none;
-  border-bottom: 1px solid var(--algolia-theme-primary);
-  color: var(--algolia-theme-primary);
+  border-bottom: 1px solid var(--algolia-theme-color-primary);
+  color: var(--algolia-theme-color-primary);
   font-style: normal;
   font-weight: bold;
 }
@@ -90,13 +85,13 @@ a[class^='ais-'] {
   grid-gap: 20px;
   grid-template-columns: 1fr;
   margin: 0;
-  @media (min-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-min) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-min) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (min-width: $breakpoint-lg) {
+  @media (--algolia-theme-breakpoint-lg-min) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -130,7 +125,7 @@ a[class^='ais-'] {
 }
 
 .ais-RatingMenu-starIcon--full {
-  fill: var(--algolia-theme-primary);
+  fill: var(--algolia-theme-color-primary);
 }
 
 .ais-RatingMenu-starIcon--empty {
@@ -249,7 +244,7 @@ a[class^='ais-'] {
   background-color: rgba(65, 66, 71, 0.08);
   border: 1px solid rgba(65, 66, 71, 0.24);
   border-radius: 2px;
-  color: var(--algolia-theme-primary);
+  color: var(--algolia-theme-color-primary);
   flex-shrink: 0;
   height: 1rem;
   margin: 0;
@@ -269,7 +264,7 @@ a[class^='ais-'] {
 .ais-RefinementList-item--selected {
   font-weight: bold;
   .ais-RefinementList-checkbox {
-    background-color: var(--algolia-theme-primary);
+    background-color: var(--algolia-theme-color-primary);
     &::after {
       background-color: #fff;
       border-radius: 4px;
@@ -308,7 +303,7 @@ a[class^='ais-'] {
 .ais-RefinementList-showMore {
   background: none;
   border: 0;
-  color: var(--algolia-theme-secondary);
+  color: var(--algolia-theme-color-secondary);
   cursor: pointer;
   font-size: 0.75rem;
   font-weight: 500;
@@ -399,7 +394,7 @@ a[class^='ais-'] {
     transform: translateX(100%);
   }
   &:checked {
-    background: var(--algolia-theme-primary);
+    background: var(--algolia-theme-color-primary);
   }
   @media screen and (prefers-reduced-motion: reduce) {
     appearance: none;
@@ -442,7 +437,7 @@ a[class^='ais-'] {
   appearance: none;
   background: none;
   border: 0;
-  color: var(--algolia-theme-secondary);
+  color: var(--algolia-theme-color-secondary);
   font-family: inherit;
 }
 
@@ -460,7 +455,7 @@ a[class^='ais-'] {
     height: 3px;
   }
   .rheostat-progress {
-    background-color: var(--algolia-theme-primary);
+    background-color: var(--algolia-theme-color-primary);
     border-radius: 3px;
     height: 3px;
     top: 0;
@@ -488,7 +483,7 @@ a[class^='ais-'] {
   background: none;
   border: 0;
   border-bottom: 1px solid #ebecf3;
-  color: var(--algolia-theme-secondary);
+  color: var(--algolia-theme-color-secondary);
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 600;
@@ -547,7 +542,7 @@ a[class^='ais-'] {
 }
 
 .ais-Pagination-item--selected {
-  background-color: var(--algolia-theme-primary);
+  background-color: var(--algolia-theme-color-primary);
   background-image: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.34),
