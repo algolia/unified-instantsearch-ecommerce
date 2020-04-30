@@ -34,7 +34,9 @@ function generateCustomMedia(
     ...Object.keys(values).map((value) => {
       return {
         [`${hyphens ? '--' : ''}${namespace}-breakpoint-${value}-min`]: `(min-width: ${values[value]}px)`,
+        [`${hyphens ? '--' : ''}${namespace}-breakpoint-above-${value}`]: `(min-width: ${values[value] + 1}px)`,
         [`${hyphens ? '--' : ''}${namespace}-breakpoint-${value}-max`]: `(max-width: ${values[value]}px)`,
+        [`${hyphens ? '--' : ''}${namespace}-breakpoint-below-${value}-max`]: `(max-width: ${values[value] - 1}px)`,
       };
     })
   );

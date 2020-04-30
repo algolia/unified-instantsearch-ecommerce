@@ -1,5 +1,3 @@
-@import './config/variables';
-
 /* Loading */
 
 .uni-LoadingProgress {
@@ -707,7 +705,7 @@
 /* Mobile-only */
 
 [data-layout='mobile'] {
-  @media (min-width: #{$breakpoint-md + 1px}) {
+  @media (--algolia-theme-breakpoint-above-md) {
     display: none;
   }
 }
