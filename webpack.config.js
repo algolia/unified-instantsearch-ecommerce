@@ -5,45 +5,13 @@ const postcssPresetEnv = require('postcss-preset-env');
 const postcssCustomMedia = require('postcss-custom-media');
 const postcssInjectCssVariables = require('postcss-inject-css-variables');
 
+const {
+  generateCustomProperties,
+  generateCustomMedia,
+} = require('./webpack/utils');
 const { colors, text, breakpoints } = require('./src/config/styles');
 
 const CUSTOM_PROPERTIES_NAMESPACE = 'algolia-theme';
-
-function generateCustomProperties(
-  values,
-  { namespace = '', hyphens = true } = {}
-) {
-  const properties = Object.assign(
-    {},
-    ...Object.keys(values).map((value) => {
-      return {
-        [`${hyphens ? '--' : ''}${namespace}-${value}`]: values[value],
-      };
-    })
-  );
-
-  return properties;
-}
-
-function generateCustomMedia(
-  values,
-  { namespace = '', hyphens = true } = {}
-) {
-  const properties = Object.assign(
-    {},
-    ...Object.keys(values).map((value) => {
-      return {
-        [`${hyphens ? '--' : ''}${namespace}-breakpoint-${value}-min`]: `(min-width: ${values[value]}px)`,
-        [`${hyphens ? '--' : ''}${namespace}-breakpoint-above-${value}`]: `(min-width: ${values[value] + 1}px)`,
-        [`${hyphens ? '--' : ''}${namespace}-breakpoint-${value}-max`]: `(max-width: ${values[value]}px)`,
-        [`${hyphens ? '--' : ''}${namespace}-breakpoint-below-${value}-max`]: `(max-width: ${values[value] - 1}px)`,
-      };
-    })
-  );
-
-  return properties;
-}
-
 
 module.exports = {
   plugins: [new MiniCssExtractPlugin()],
@@ -119,7 +87,7 @@ module.exports = {
 
                     return { customMedia };
                   },
-                })
+                }),
               ],
             },
           },
