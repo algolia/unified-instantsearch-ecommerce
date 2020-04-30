@@ -1,3 +1,5 @@
+/* eslint-disable import/no-commonjs */
+
 const styles = {
   colors: {
     primary: '#d02139',
