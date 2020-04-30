@@ -60,20 +60,53 @@ function RefinementWidget({ type, ...props }) {
   }
 }
 
-export const Refinements = () => {
-  const { config, isMobile } = useAppContext();
+function getPanelId(refinement) {
+  return refinement.options.attributes
+    ? refinement.options.attributes.join(':')
+    : refinement.options.attribute;
+}
 
-  return config.refinements.map((refinement) => (
-    <Panel
-      key={
-        refinement.options.attributes
-          ? refinement.options.attributes.join(':')
-          : refinement.options.attribute
-      }
-      header={refinement.header}
-      isOpened={isMobile ? false : !refinement.isCollapsed}
-    >
-      <RefinementWidget type={refinement.type} {...refinement.options} />
-    </Panel>
-  ));
-};
+export function Refinements() {
+  const { config, isMobile } = useAppContext();
+  const [panels, setPanels] = React.useState(
+    config.refinements.reduce(
+      (acc, current) => ({
+        ...acc,
+        [getPanelId(current)]: isMobile ? false : !current.isCollapsed,
+      }),
+      {}
+    )
+  );
+
+  function onToggle(panelId) {
+    setPanels((prevPanels) => {
+      // We want to close other panels on mobile to have an accordion effect.
+      const otherPanels = isMobile
+        ? Object.keys(prevPanels).reduce(
+            (acc, panelKey) => ({ ...acc, [panelKey]: false }),
+            {}
+          )
+        : prevPanels;
+
+      return {
+        ...otherPanels,
+        [panelId]: !prevPanels[panelId],
+      };
+    });
+  }
+
+  return config.refinements.map((refinement) => {
+    const panelId = getPanelId(refinement);
+
+    return (
+      <Panel
+        key={panelId}
+        header={refinement.header}
+        isOpened={panels[panelId]}
+        onToggle={() => onToggle(panelId)}
+      >
+        <RefinementWidget type={refinement.type} {...refinement.options} />
+      </Panel>
+    );
+  });
+}
