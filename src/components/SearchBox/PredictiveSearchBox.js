@@ -6,7 +6,7 @@ import { ReverseHighlight } from '../ReverseHighlight';
 import { SearchBox } from './SearchBox';
 
 export const PredictiveSearchBox = (props) => {
-  const [currentSuggestion, setSuggestion] = React.useState(null);
+  const [suggestion, setSuggestion] = React.useState(null);
 
   return (
     <>
@@ -14,9 +14,9 @@ export const PredictiveSearchBox = (props) => {
         {...props}
         completion={
           props.currentRefinement &&
-          currentSuggestion &&
-          currentSuggestion !== props.currentRefinement
-            ? currentSuggestion
+          suggestion &&
+          suggestion !== props.currentRefinement
+            ? suggestion
             : null
         }
         onChange={(event) => {
@@ -32,7 +32,7 @@ export const PredictiveSearchBox = (props) => {
               event.target.selectionStart === props.currentRefinement.length)
           ) {
             event.preventDefault();
-            props.refine(currentSuggestion);
+            props.refine(suggestion);
           }
         }}
         onSubmit={() => {}}
