@@ -4,7 +4,7 @@ import { connectHitInsights } from 'react-instantsearch-dom';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
-import { useSearchClient, useInsights } from './hooks';
+import { useSearchClient, useInsights, useMatchMedia } from './hooks';
 import { SearchButton, Search } from './components';
 
 export const AppContext = React.createContext(null);
@@ -19,6 +19,7 @@ export function App({ config }) {
     config.searchApiKey,
     config.setUserToken
   );
+  const { isMobile } = useMatchMedia(config);
   const lastSetStateId = React.useRef();
   const topAnchor = React.useRef();
   const [searchState, setSearchState] = React.useState(
@@ -28,7 +29,6 @@ export function App({ config }) {
     Object.keys(searchState).length > 0
   );
   const [isFiltering, setIsFiltering] = React.useState(false);
-  const [isMobile, setIsMobile] = React.useState(true);
   const [view, setView] = React.useState('grid');
   const searchContextRef = React.useRef({});
   const searchParameters = {
@@ -159,15 +159,6 @@ export function App({ config }) {
       window.removeEventListener('keydown', onKeydown);
     };
   }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
-
-  React.useEffect(() => {
-    if (
-      window.matchMedia(`(min-width: ${config.styles.breakpoints.sm}px)`)
-        .matches
-    ) {
-      setIsMobile(false);
-    }
-  }, []);
 
   return (
     <AppContext.Provider
