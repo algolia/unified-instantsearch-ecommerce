@@ -2,9 +2,10 @@
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
+const postcssCustomMedia = require('postcss-custom-media');
 const postcssInjectCssVariables = require('postcss-inject-css-variables');
 
-const { colors, text } = require('./src/config/styles');
+const { colors, text, breakpoints } = require('./src/config/styles');
 
 const CUSTOM_PROPERTIES_NAMESPACE = 'algolia-theme';
 
@@ -17,6 +18,23 @@ function generateCustomProperties(
     ...Object.keys(values).map((value) => {
       return {
         [`${hyphens ? '--' : ''}${namespace}-${value}`]: values[value],
+      };
+    })
+  );
+
+  return properties;
+}
+
+function generateCustomMedia(
+  values,
+  { namespace = '', hyphens = true } = {}
+) {
+  const properties = Object.assign(
+    {},
+    ...Object.keys(values).map((value) => {
+      return {
+        [`${hyphens ? '--' : ''}${namespace}-breakpoint-${value}-min`]: `(min-width: ${values[value]}px)`,
+        [`${hyphens ? '--' : ''}${namespace}-breakpoint-${value}-max`]: `(max-width: ${values[value]}px)`,
       };
     })
   );
@@ -84,6 +102,22 @@ module.exports = {
                     return { customProperties };
                   },
                 }),
+                /**
+                 * This should normally be handled by PostCSS Preset Env.
+                 * https://github.com/csstools/postcss-preset-env/issues/175
+                 * Until the issue is solved, this plugin is necessary.
+                 */
+                postcssCustomMedia({
+                  importFrom: () => {
+                    const customMedia = {
+                      ...generateCustomMedia(breakpoints, {
+                        namespace: CUSTOM_PROPERTIES_NAMESPACE,
+                      }),
+                    };
+
+                    return { customMedia };
+                  },
+                })
               ],
             },
           },
