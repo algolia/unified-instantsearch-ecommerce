@@ -6,7 +6,7 @@ import { ReverseHighlight } from '../ReverseHighlight';
 import { SearchBox } from './SearchBox';
 
 export const PredictiveSearchBox = (props) => {
-  const [currentSuggestion, setCurrentSuggestion] = React.useState(null);
+  const [currentSuggestion, setSuggestion] = React.useState(null);
 
   return (
     <>
@@ -20,7 +20,7 @@ export const PredictiveSearchBox = (props) => {
             : null
         }
         onChange={(event) => {
-          setCurrentSuggestion(null);
+          setSuggestion(null);
           props.refine(event.currentTarget.value);
         }}
         onKeyDown={(event) => {
@@ -45,10 +45,10 @@ export const PredictiveSearchBox = (props) => {
         <Configure {...props.suggestionsIndex.searchParameters} />
         <Suggestions
           query={props.currentRefinement}
-          onSuggestion={(suggestion) => setCurrentSuggestion(suggestion)}
+          onSuggestion={setSuggestion}
           onClick={(value) => {
             props.refine(value);
-            setCurrentSuggestion(null);
+            setSuggestion(null);
           }}
         />
       </Index>
@@ -56,45 +56,53 @@ export const PredictiveSearchBox = (props) => {
   );
 };
 
-const Suggestions = connectHits(function Suggestions(props) {
+const Suggestions = connectHits(function Suggestions({
+  query,
+  hits,
+  onSuggestion,
+  onClick,
+}) {
+  const firstSuggestion = hits[0]?.query;
+
   React.useEffect(() => {
-    if (props.hits.length === 0) {
-      props.onSuggestion(null);
+    if (!firstSuggestion || !query) {
+      onSuggestion(null);
       return;
     }
 
-    const firstSuggestion = props.hits[0].query;
-
-    if (
-      firstSuggestion &&
-      firstSuggestion.toLocaleLowerCase().startsWith(props.query.toLowerCase())
-    ) {
-      const suggestion =
-        props.query + firstSuggestion.slice(props.query.length);
-      props.onSuggestion(suggestion);
+    if (firstSuggestion.toLocaleLowerCase().startsWith(query.toLowerCase())) {
+      // We correct any case mismatch between the query and the suggestion.
+      // Example:
+      // If the query typed has a different case than the suggestion, we want
+      // to show the completion matching the case of the query. This makes both
+      // strings overlap correctly.
+      //  - query: 'Gui'
+      //  - suggestion: 'guitar'
+      //  => Query completion: 'Guitar'
+      const suggestion = query + firstSuggestion.slice(query.length);
+      onSuggestion(suggestion);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.hits]);
+  }, [firstSuggestion, query, onSuggestion]);
 
   return (
     <div
       className={[
         'uni-QuerySuggestions',
-        props.hits.length === 0 && 'uni-QuerySuggestions--empty',
+        hits.length === 0 && 'uni-QuerySuggestions--empty',
       ]
         .filter(Boolean)
         .join(' ')}
     >
       <span className="uni-QuerySuggestions-label">Suggestions</span>
 
-      {props.hits.length > 0 && (
+      {hits.length > 0 && (
         <ol className="uni-QuerySuggestions-list">
-          {props.hits.map((hit) => {
+          {hits.map((hit) => {
             return (
               <li key={hit.objectID} className="uni-QuerySuggestions-item">
                 <button
                   className="uni-QuerySuggestions-button"
-                  onClick={() => props.onClick(hit.query)}
+                  onClick={() => onClick(hit.query)}
                 >
                   <ReverseHighlight hit={hit} attribute="query" />
                 </button>
