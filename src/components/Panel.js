@@ -3,14 +3,13 @@ import React from 'react';
 import './Panel.scss';
 
 export function Panel({
-  isOpened: initialIsOpened = true,
+  isOpened,
   header,
   footer,
+  onToggle,
   children,
   ...rest
 }) {
-  const [isOpened, setIsOpened] = React.useState(initialIsOpened);
-
   return (
     <div
       className={[
@@ -26,7 +25,7 @@ export function Panel({
         <button
           className="ais-Panel-headerButton"
           aria-expanded={isOpened}
-          onClick={() => setIsOpened((prevValue) => !prevValue)}
+          onClick={onToggle}
         >
           <div>{header}</div>
 
