@@ -82,13 +82,20 @@ const ResultsInAllCategories = connectCurrentRefinements(function ClearFilters(
           query={searchState.query}
           hitsPerPage={4}
         />
-        <HitsPreview
-          onSeeAllClick={(event) => {
+        <HitsPreview />
+      </Index>
+
+      <div className="uni-NoResults-SeeAll">
+        <button
+          className="uni-NoResults-SeeAllButton"
+          onClick={(event) => {
             event.preventDefault();
             props.refine(props.items);
           }}
-        />
-      </Index>
+        >
+          See results in all categories
+        </button>
+      </div>
     </>
   );
 });
@@ -119,15 +126,6 @@ const HitsPreview = connectHits(function MoreHits(props) {
             </li>
           ))}
         </ol>
-      </div>
-
-      <div className="uni-NoResults-SeeAll">
-        <button
-          className="uni-NoResults-SeeAllButton"
-          onClick={props.onSeeAllClick}
-        >
-          See results in all categories
-        </button>
       </div>
     </div>
   );
