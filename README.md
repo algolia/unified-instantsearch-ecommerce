@@ -494,7 +494,7 @@ The `src/config/index.js` file also lets you adjust E-Commerce Unified UI to you
 | Key | Type | Description |
 | --- | --- | --- |
 | `primary` | `string` | The accent color, typically the main color of your branding. |
-| `primary` | `string` | The secondary color, for most of the text content. |
+| `secondary` | `string` | The secondary color, for most of the text content. |
 
 > Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) with a static fallback for browsers that don't support it. If you want to leverage CSS custom properties, for example, to implement multiple color themes, you can set the color variables as your initial values (and fallback for older browsers), and override them in the desired context by setting the corresponding CSS custom properties in your own CSS.
 
