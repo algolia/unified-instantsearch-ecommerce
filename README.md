@@ -485,7 +485,7 @@ const config = {
 
 ### Adjusting the styling to your theme
 
-The `src/config/styles.js` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
+The `src/config/index.js` file also lets you adjust E-Commerce Unified UI to your branding and the style of your website. All available options are under the `styles` property.
 
 #### `colors`
 
