@@ -18,6 +18,7 @@ export default {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './public',
+    hot: true,
   },
   plugins: [
     new MiniCssExtractPlugin(),
@@ -37,6 +38,7 @@ export default {
       {
         test: /\.(scss)$/,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
