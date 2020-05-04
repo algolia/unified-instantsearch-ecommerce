@@ -15,8 +15,8 @@ Follow the few steps described below to start using E-Commerce Unified UI.
 1. **Push your data to Algolia** (following the [required data schema](#customizing-the-search-ui)),
 2. [**Fork** this Github repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
 3. **Replace the values in `src/config/index.js`** to better match your needs,
-4. **Run `npm run build` (or `yarn build`)** to build the `unified-instantsearch.js` file,
-5. **Host and include the `unified-instantsearch.js` file** on your front-end and start using!
+4. **Run `npm run build` (or `yarn build`)** to build the main JS and CSS files,
+5. **Host and include the main JS and CSS files** on your front-end and start using!
 
 #### Instructions
 
@@ -74,7 +74,7 @@ Once you've customized the project and made sure it works properly, you need to 
 yarn export # or `npm run export`
 ```
 
-Then, include the generated `unified-instantsearch.js` file in your project.
+Then, include the generated `main.js` and `main.css` files in your project.
 
 ##### Updating the project
 
@@ -485,39 +485,40 @@ const config = {
 
 ### Adjusting the styling to your theme
 
-The `src/config/variables.scss` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
+The `src/config/index.js` file also lets you adjust E-Commerce Unified UI to your branding and the style of your website. All available options are under the `styles` property.
 
-| Sass Variables    | Comments                                                    |
-| ----------------- | ----------------------------------------------------------- |
-| \$color-primary   | The accent color, typically the main color of your branding |
-| \$color-secondary | The secondary color, for most of the text content           |
-| \$font-family     | The global font stack                                       |
-| \$breakpoint-sm   | The breakpoint for small devices                            |
-| \$breakpoint-md   | The breakpoint for medium devices                           |
-| \$breakpoint-lg   | The breakpoint for large devices                            |
+#### `colors`
 
-#### Customizing colors
+> `object` | required
 
-You can modify the color variables (prefixed with `$color-`) to adapt the design to your needs.
+| Key | Type | Description |
+| --- | --- | --- |
+| `primary` | `string` | The accent color, typically the main color of your branding. |
+| `secondary` | `string` | The secondary color, for most of the text content. |
 
-Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) with a static fallback for browsers that don't support it. If you want to leverage CSS custom properties, for example, to implement multiple color themes, you can set the color variables as your initial values (and fallback for older browsers), and override them in the desired context by setting the corresponding CSS custom properties in your own CSS.
+> Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) with a static fallback for browsers that don't support it. If you want to leverage CSS custom properties, for example, to implement multiple color themes, you can set the color variables as your initial values (and fallback for older browsers), and override them in the desired context by setting the corresponding CSS custom properties in your own CSS.
 
-| Sass Variable     | CSS Custom Property       |
-| ----------------- | ------------------------- |
-| \$color-primary   | --algolia-theme-primary   |
-| \$color-secondary | --algolia-theme-secondary |
+#### `text`
 
-#### Customizing breakpoints
+> `object` | required
 
-You can modify the breakpoint variables (prefixed with `$breakpoint-`) to reflect the ones of your website. Because we use these breakpoints in the JavaScript code, you also need to reflect these edits in `src/config/index.js` under the `styles.breakpoints` property.
+| Key | Type | Description |
+| --- | --- | --- |
+| `fontFamily` | `string` | The global font stack. |
 
-Please note that we've adapted the design of Unified InstantSearch to the default breakpoints that we've set. If you change them, make sure the layout still works the way you expect.
+> If you want to use the same font stack as your main website, we recommend you change the value to `inherit`.
 
-#### Customizing text
+#### `breakpoints`
 
-By default, we use system fonts in Unified InstantSearch, but you can tailor this to your needs by changing the `$font-family` variable.
+> `object` | required
 
-If you want to use the same font stack as your main website, we recommend you change the value to `inherit`.
+| Key | Type | Description |
+| --- | --- | --- |
+| `sm` | `number` | The breakpoint for small devices. |
+| `md` | `number` | The breakpoint for medium devices. |
+| `lg` | `number` | The breakpoint for large devices. |
+
+> We've adapted the design of Unified InstantSearch to the default breakpoints. If you change them, make sure the layout still works the way you expect.
 
 ### Disclaimer
 
