@@ -1,5 +1,3 @@
-@import './config/variables';
-
 .uni--open {
   overflow: hidden;
 }
@@ -51,7 +49,7 @@
 }
 
 .ais-SearchBox-submit {
-  color: var(--algolia-theme-primary);
+  color: var(--algolia-theme-color-primary);
 }
 
 .ais-SearchBox-reset {
@@ -71,7 +69,7 @@
 
 .uni-Header {
   align-items: center;
-  background: var(--algolia-theme-primary);
+  background: var(--algolia-theme-color-primary);
   background-image: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 54%,
@@ -159,7 +157,7 @@
   justify-content: flex-start;
   padding-top: 1.5rem;
   width: 100%;
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     padding-top: 1rem;
   }
   * {
@@ -184,7 +182,7 @@
   font-weight: bold;
   margin: 0.25rem 0;
   padding-right: 1rem;
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     display: none;
   }
 }
@@ -200,7 +198,7 @@
   margin: 0.25rem 0;
   &:not(:last-of-type) {
     margin-right: 1rem;
-    @media (max-width: $breakpoint-sm) {
+    @media (--algolia-theme-breakpoint-sm-max) {
       margin-right: 0.5rem;
     }
   }
@@ -214,7 +212,7 @@
   letter-spacing: 0.03rem;
   padding: 0;
   white-space: nowrap;
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 9999px;
     padding: 0.25rem 0.75rem;
@@ -224,7 +222,7 @@
 /* Refinements */
 
 .uni-Refinements {
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     background: #fff;
     box-shadow: -30px 0 50px 0 rgba(0, 0, 0, 0.4);
     display: flex;
@@ -238,13 +236,13 @@
       transition: none;
     }
   }
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     height: 100%;
   }
 }
 
 .uni-Refinements-scrollable {
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     flex-grow: 1;
     padding: 1rem 1.5rem;
   }
@@ -277,7 +275,7 @@
   background-color: #dddcdc;
   border: 0;
   border-radius: 8px;
-  color: var(--algolia-theme-secondary);
+  color: var(--algolia-theme-color-secondary);
   cursor: pointer;
   display: flex;
   flex-shrink: 0;
@@ -289,7 +287,7 @@
 }
 
 .uni-Refinements-resultButton {
-  background-color: var(--algolia-theme-primary);
+  background-color: var(--algolia-theme-color-primary);
   color: #fff;
 }
 
@@ -301,7 +299,7 @@
   max-width: 1300px;
   overflow-x: hidden;
   padding: 2rem 1rem;
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     padding-bottom: 6rem;
   }
 }
@@ -310,7 +308,7 @@
   flex: 1;
   margin-right: 60px;
   max-width: 260px;
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     height: 100%;
     left: 6rem;
     margin: 0;
@@ -322,7 +320,7 @@
     width: calc(100% - 8rem);
     z-index: 2;
   }
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     bottom: 0;
     left: 3rem;
     right: 0;
@@ -347,10 +345,10 @@
   @media screen and (prefers-reduced-motion: reduce) {
     transition: none;
   }
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     pointer-events: none;
   }
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     bottom: 0;
     left: 0;
     right: 0;
@@ -371,7 +369,7 @@
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -394,7 +392,7 @@
 .uni-BodyHeader-sortBy {
   align-items: flex-start;
   margin-left: 1rem;
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     margin-left: 0;
   }
   .uni-Label {
@@ -408,7 +406,7 @@
 
 .uni-BodyHeader-extraOptions {
   align-items: center;
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     justify-content: space-between;
     padding-top: 0.2rem;
     width: 100%;
@@ -439,7 +437,7 @@
   &:not([disabled]):focus {
     border-color: #ddd;
     box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
-    color: var(--algolia-theme-primary);
+    color: var(--algolia-theme-color-primary);
   }
 }
 
@@ -456,7 +454,7 @@
 .ais-Panel {
   border-top: 1px solid #ebecf3;
   padding: 2rem 0;
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     padding: 0;
   }
 }
@@ -470,13 +468,13 @@
 .ais-Stats-text {
   font-size: 20px;
   font-weight: bold;
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     font-size: 18px;
   }
 }
 
 .ais-Stats-mainText {
-  color: var(--algolia-theme-primary);
+  color: var(--algolia-theme-color-primary);
   font: inherit;
 }
 
@@ -505,7 +503,7 @@
   }
   &:checked {
     &::before {
-      color: var(--algolia-theme-primary);
+      color: var(--algolia-theme-color-primary);
       content: 'Yes';
     }
   }
@@ -545,7 +543,7 @@
 
 .uni-FiltersButton {
   align-items: center;
-  background-color: var(--algolia-theme-primary);
+  background-color: var(--algolia-theme-color-primary);
   background-image: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 10%,
@@ -567,7 +565,7 @@
   transform: translateX(-50%);
   width: 112px;
   z-index: 3;
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     bottom: 2rem;
   }
 }
@@ -586,7 +584,7 @@
   bottom: 0;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.62),
     inset 0 0 1px rgba(255, 255, 255, 0.9);
-  font-family: $font-family;
+  font-family: var(--algolia-theme-text-fontFamily);
   -webkit-font-smoothing: antialiased;
   left: 0;
   overflow-x: hidden;
@@ -594,13 +592,13 @@
   position: fixed;
   right: 0;
   top: 0;
-  @media (min-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-min) {
     margin: 2rem;
   }
   * {
-    outline-color: var(--algolia-theme-primary);
+    outline-color: var(--algolia-theme-color-primary);
   }
-  @media (max-width: $breakpoint-md) {
+  @media (--algolia-theme-breakpoint-md-max) {
     &.uni-Container--filtering {
       overflow: hidden;
       .uni-LeftPanel {
@@ -661,8 +659,8 @@
 .uni-NoResults-SuggestionButton {
   background: none;
   border: 0;
-  border-bottom: 1px solid var(--algolia-theme-primary);
-  color: var(--algolia-theme-primary);
+  border-bottom: 1px solid var(--algolia-theme-color-primary);
+  color: var(--algolia-theme-color-primary);
   cursor: pointer;
   font: inherit;
   font-weight: bold;
@@ -696,7 +694,7 @@
 
 .uni-NoResults-SeeAllButton {
   background: none;
-  background-color: var(--algolia-theme-primary);
+  background-color: var(--algolia-theme-color-primary);
   border: 1px solid #ddd;
   border: 0;
   border-radius: 3px;
@@ -711,7 +709,7 @@
 /* Mobile-only */
 
 [data-layout='mobile'] {
-  @media (min-width: #{$breakpoint-md + 1px}) {
+  @media (--algolia-theme-breakpoint-above-md) {
     display: none;
   }
 }

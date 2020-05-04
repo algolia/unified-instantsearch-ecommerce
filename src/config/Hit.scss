@@ -91,7 +91,7 @@
 }
 
 .uni-Hit-Currency {
-  color: var(--algolia-theme-primary);
+  color: var(--algolia-theme-color-primary);
   font-size: 13px;
   font-weight: 600;
   padding-right: 2px;
@@ -126,7 +126,7 @@
   &:hover,
   &:focus,
   &:active {
-    color: var(--algolia-theme-primary);
+    color: var(--algolia-theme-color-primary);
   }
   &:focus {
     transform: scale(1);
