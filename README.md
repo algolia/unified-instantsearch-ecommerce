@@ -308,7 +308,7 @@ const config = {
 
 | Preview |  |
 | --- | --- |
-| ![List preview](.github/screenshots/refinement-list.png) | The list refinement is one of the most common widgets that you can find in a search UI. With this widget, the user can filter the dataset based on facet values. The widget only displays the most relevant facets for the current search context. This widget also implements search for facet values, which is a mini search inside the values of the facets. This makes it easy to deal with uncommon facet values. |
+| ![List preview](.github/screenshots/refinement-list.png) | The list refinement displays a list that lets the user choose multiple values for a specific attribute. |
 
 ###### Options
 
@@ -349,8 +349,6 @@ const config = {
 ###### Record schema
 
 The values inside `attribute` **must be numbers, not strings**.
-
-###### Options
 
 ###### Options
 
