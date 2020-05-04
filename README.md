@@ -124,6 +124,8 @@ You have access to the following props:
 
 Function to set the [`userToken`](https://www.algolia.com/doc/api-reference/api-parameters/userToken/) to allow [Personalization](https://www.algolia.com/doc/guides/getting-insights-and-analytics/personalization/what-is-personalization/).
 
+Make sure you have access to Personalization on your [Algolia plan](https://www.algolia.com/pricing/).
+
 **Example:**
 
 ```js
