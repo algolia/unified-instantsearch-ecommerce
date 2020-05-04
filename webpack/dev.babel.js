@@ -7,6 +7,7 @@ export default merge(base, {
   devServer: {
     contentBase: './public',
     hot: true,
+    port: 3000,
   },
   module: {
     rules: [
