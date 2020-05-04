@@ -487,6 +487,8 @@ const config = {
 
 The `src/config/index.js` file also lets you adjust E-Commerce Unified UI to your branding and the style of your website. All available options are under the `styles` property.
 
+> **NOTE:** if you change these values while in [development mode](#running-the-project-locally), you must to re-start the server to see your changes.
+
 #### `colors`
 
 > `object` | required
