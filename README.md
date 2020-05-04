@@ -58,7 +58,7 @@ Your Algolia Application ID ([find it on your Algolia account](https://www.algol
 
 > `string` | required
 
-Your Algolia Search-Only API Key ([find it on your Algolia account](https://www.algolia.com/api-keys)).
+Your Algolia Search-Only API key ([find it on your Algolia account](https://www.algolia.com/api-keys)).
 
 #### `index`
 
@@ -84,7 +84,7 @@ Your Algolia [Query Suggestions](https://www.algolia.com/doc/guides/getting-insi
 
 The Query Suggestions index is used to display suggestions below the search box and in the "no results" page.
 
-Make sure that Query Suggestions is available on your [Algolia plan](https://www.algolia.com/pricing/).
+Make sure you have access to Query Suggestions on your [Algolia plan](https://www.algolia.com/pricing/).
 
 #### `inputSelector`
 
@@ -116,7 +116,7 @@ You have access to the following props:
 | --- | --- | --- |
 | `hit` | [`Hit`](https://www.algolia.com/doc/guides/building-search-ui/going-further/backend-search/in-depth/understanding-the-api-response/#hits) | The hit returned by Algolia. |
 | `insights` | [`Insights`](https://www.algolia.com/doc/api-client/methods/insights/) | The Insights function bound to the `index`, `userToken`, `queryID`, `objectIDs` and `positions` so that you only have to specify the `eventName`. |
-| `view` | `"grid" | "list"` | The current view mode. |
+| `view` | `"grid" \| "list"` | The current view mode. |
 
 #### `setUserToken`
 
@@ -144,11 +144,11 @@ const config = {
 
 Whether to send events to [Google Analytics](https://analytics.google.com/) when queries are triggered.
 
-This assumes that the global Google Analytics object `aa` is available on `window`.
+This assumes that the global Google Analytics object `ga` is available on `window`.
 
 #### `refinements`
 
-See [Refinements](#refinements).
+See [Refinements](#refinements-1).
 
 #### `sorts`
 
@@ -160,22 +160,22 @@ See [Customizing breakpoints](#customizing-breakpoints).
 
 ### Customizing the search UI
 
-The configuration file allows to customize the search UI: what refinements to display, what sorting strategy to use, etc.
+The configuration file lets you customize the search UI: what refinements to display, what sorting strategy to use, etc.
 
 #### Refinements
 
-A refinement acts as a search filter that is added to the left panel of the search UI. Refinements' order follows their declaration order in the configuration file.
+A refinement acts as a search filter on the search UI's left panel. The order of each refinement follows the declaration order in the configuration file.
 
 Each refinement object contains the following properties:
 
 | Key | Type | Description | Preview |
 | --- | --- | --- | --- |
-| `type` | `"list" | "category" | "hierarchical" | "slider"` | The type of the refinement. |
+| `type` | `"list" \| "category" \| "hierarchical" \| "slider"` | The type of the refinement. | N/A |
 | `header` | `string` | The content to display in the refinement panel header. | ![](.github/screenshots/refinement-header.png) |
 | `label` | `string` | The label to display in the active refinements. | ![Label preview](.github/screenshots/refinement-label.png) |
-| `options` | `object` | The refinement options forwarded to the InstantSearch widget |
+| `options` | `object` | The refinement options forwarded to the InstantSearch widget | N/A |
 
-The attributes provided to the refinements' options must be added in attributes for faceting, either on the [Algolia dashboard](https://www.algolia.com/explorer/display/) or using [`attributesForFaceting`](https://www.algolia.com/doc/api-reference/api-parameters/attributesForFaceting/) with the Algolia API.
+> You need to add the attributes that you provide to the refinements' options as [attributes for faceting](https://www.algolia.com/doc/guides/managing-results/refine-results/faceting/how-to/declaring-attributes-for-faceting/), either on the [Algolia dashboard](https://www.algolia.com/explorer/display/) or using [`attributesForFaceting`](https://www.algolia.com/doc/api-reference/api-parameters/attributesForFaceting/) with the Algolia API.
 
 **Example:**
 
@@ -205,7 +205,7 @@ const config = {
 
 ###### Record schema
 
-The objects to use in the hierarchical menu must follow this structure:
+The records to use in the hierarchical menu must follow this structure:
 
 ```json
 [
@@ -224,7 +224,7 @@ The objects to use in the hierarchical menu must follow this structure:
 ]
 ```
 
-It’s also possible to provide more than one path for each level:
+You can also provide more than one path for each level:
 
 ```json
 [
@@ -348,7 +348,7 @@ const config = {
 
 ###### Record schema
 
-The values inside `attribute` must be numbers, not strings.
+The values inside `attribute` **must be numbers, not strings**.
 
 ###### Options
 
@@ -361,11 +361,11 @@ The values inside `attribute` must be numbers, not strings.
 | `label` | `string` | The label to display in the active refinements. |
 | `options` | `RefinementOptions` | The options of the refinement. |
 
-**RefinementOptions:**
+###### RefinementOptions
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `transformValue` | `(value: number) => ReactNode` | Function to transform the min and max values displayed. |
+| `transformValue` | `(value: number) => ReactNode` | Function to transform the minimum and maximum displayed values. |
 
 **Example:**
 
@@ -393,7 +393,7 @@ const config = {
 
 #### Sorting
 
-The `sorts` config displays a list of indices, allowing a user to change the way hits are sorting (with [replica indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-your-indices/#replicating-an-index)).
+The `sorts` configuration displays a list of indices, allowing a user to change the way hits are sorted (with [replica indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-your-indices/#replicating-an-index)).
 
 You must define all indices that you pass as replicas of the main index.
 
