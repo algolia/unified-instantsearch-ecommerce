@@ -10,13 +10,12 @@ function getRefinement(refinement, config) {
       ? x.options.attributes[0] === refinement.attribute
       : x.options.attribute === refinement.attribute
   );
-  const category = refinementConfig.name || refinementConfig.options.attribute;
 
   switch (refinementConfig.type) {
     case 'category': {
       return [
         {
-          category,
+          category: refinementConfig.label,
           label: refinement.currentRefinement,
           value: refinement.value,
         },
@@ -26,7 +25,7 @@ function getRefinement(refinement, config) {
     case 'color':
     case 'size': {
       return refinement.items.map((item) => ({
-        category,
+        category: refinementConfig.label,
         label: item.label.split(';')[0],
         value: item.value,
       }));
@@ -34,7 +33,7 @@ function getRefinement(refinement, config) {
 
     case 'list': {
       return refinement.items.map((item) => ({
-        category,
+        category: refinementConfig.label,
         label: item.label,
         value: item.value,
       }));
@@ -56,7 +55,7 @@ function getRefinement(refinement, config) {
 
       return [
         {
-          category,
+          category: refinementConfig.label,
           label,
           value: refinement.value,
         },
@@ -66,7 +65,7 @@ function getRefinement(refinement, config) {
     case 'hierarchical': {
       return [
         {
-          category,
+          category: refinementConfig.label,
           label: refinement.currentRefinement,
           value: refinement.value,
         },
