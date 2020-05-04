@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './SearchButton.scss';
 import { useAppContext } from '../hooks';
 
 export const SearchButton = ({ onClick }) => {
@@ -15,10 +16,38 @@ export const SearchButton = ({ onClick }) => {
         onClick();
       }}
     >
-      {config.inputContent}
+      <SearchIcon />
+
+      <div>{config.inputContent}</div>
+
+      {config.keyboardShortcuts?.length > 0 && (
+        <kbd className="uni-SearchButton-Shortcut">
+          {config.keyboardShortcuts[0]}
+        </kbd>
+      )}
     </button>,
     document.querySelector(config.inputSelector)
   );
 };
 
-export default SearchButton;
+function SearchIcon(props) {
+  return (
+    <svg
+      className="uni-SearchButton-Icon"
+      width={20}
+      height={20}
+      viewBox="0 0 20 20"
+      strokeWidth="1.4"
+      {...props}
+    >
+      <path
+        d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z"
+        stroke="currentColor"
+        fill="none"
+        fillRule="evenodd"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
