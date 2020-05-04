@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  background-image: url('/resources/images/fake_body.jpg');
+  background-image: url('resources/images/fake_body.jpg');
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,7 +44,7 @@ kbd {
 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
   body {
-    background-image: url('/resources/images/fake_body_mobile.jpg');
+    background-image: url('resources/images/fake_body_mobile.jpg');
   }
 
   #search-button {
