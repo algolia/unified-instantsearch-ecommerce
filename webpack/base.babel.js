@@ -1,4 +1,3 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 export default {
@@ -6,10 +5,7 @@ export default {
   output: {
     filename: 'main.js',
   },
-  plugins: [
-    new MiniCssExtractPlugin(),
-    new CleanWebpackPlugin(),
-  ],
+  plugins: [new CleanWebpackPlugin()],
   module: {
     rules: [
       {

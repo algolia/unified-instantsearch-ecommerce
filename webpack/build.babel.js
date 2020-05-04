@@ -3,7 +3,9 @@ import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserJSPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+
 import base from './base.babel';
+import scss from './loaders/scss';
 
 export default merge(base, {
   mode: 'production',
@@ -13,17 +15,16 @@ export default merge(base, {
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
-  module: {
-    rules: [
-      {
-        test: /\.(scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-    ],
-  },
+  plugins: [new MiniCssExtractPlugin()],
+  module: merge.smart(
+    {
+      rules: [
+        {
+          test: /\.(scss)$/,
+          use: [MiniCssExtractPlugin.loader],
+        },
+      ],
+    },
+    scss
+  ),
 });
