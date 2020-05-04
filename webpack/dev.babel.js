@@ -2,7 +2,7 @@ import merge from 'webpack-merge';
 
 import base from './base.babel';
 import scss from './loaders/scss';
-import htmlWebpackPlugin from './plugins/html-webpack-plugin';
+import files from './plugins/files';
 
 export default merge(base, {
   mode: 'development',
@@ -12,7 +12,7 @@ export default merge(base, {
     hot: true,
     port: 3000,
   },
-  plugins: htmlWebpackPlugin,
+  plugins: files,
   module: merge.smart(
     {
       rules: [
