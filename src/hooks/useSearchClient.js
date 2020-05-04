@@ -12,7 +12,7 @@ export function useSearchClient(config) {
   const apiKey = config.searchApiKey;
   const searchClient = React.useMemo(() => {
     const client = algoliasearch(appId, apiKey);
-    client.addAlgoliaAgent(`unified-ui (${version})`);
+    client.addAlgoliaAgent(`unified-ecommerce (${version})`);
 
     return {
       ...client,
