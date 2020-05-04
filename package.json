@@ -9,7 +9,9 @@
     "preview": "yarn react-scripts build && mv build preview",
     "lint": "run-p -c lint:*",
     "lint:js": "eslint --ext .js .",
-    "lint:css": "stylelint '**/*.(s)css'"
+    "lint:css": "stylelint '**/*.(s)css'",
+    "release:prepare": "shipjs prepare",
+    "release:trigger": "shipjs trigger"
   },
   "dependencies": {
     "algoliasearch": "4.1.0",
@@ -50,6 +52,7 @@
     "prettier": "2.0.4",
     "prop-types": "15.7.2",
     "sass-loader": "8.0.2",
+    "shipjs": "0.18.2",
     "style-loader": "1.1.4",
     "stylelint": "13.3.2",
     "stylelint-a11y": "1.2.3",
