@@ -115,7 +115,7 @@ You have access to the following props:
 | Prop | Type | Description |
 | --- | --- | --- |
 | `hit` | [`Hit`](https://www.algolia.com/doc/guides/building-search-ui/going-further/backend-search/in-depth/understanding-the-api-response/#hits) | The hit returned by Algolia. |
-| `insights` | [`Insights`](https://www.algolia.com/doc/api-client/methods/insights/) | The Insights function bound to the `index`, `userToken`, `queryID`, `objectIDs` and `positions` so that you only have to specify the `eventName`. |
+| `insights` | [`Insights`](https://www.algolia.com/doc/api-client/methods/insights/?language=javascript) | The Insights function, already bound to the `index`, `userToken`, `queryID`, `objectIDs` and `positions` so that you only have to specify the `eventName`. |
 | `view` | `"grid" \| "list"` | The current view mode. |
 
 #### `setUserToken`
