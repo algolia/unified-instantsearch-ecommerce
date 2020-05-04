@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 export default {
+  mode: 'development',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -13,6 +14,10 @@ export default {
   },
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './public',
   },
   plugins: [
     new MiniCssExtractPlugin(),
