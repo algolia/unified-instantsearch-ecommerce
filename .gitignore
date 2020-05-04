@@ -10,8 +10,9 @@
 /coverage
 
 # production
-/build
 /dist
+/build
+/export
 /preview
 
 # misc
