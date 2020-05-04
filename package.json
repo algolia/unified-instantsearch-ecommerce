@@ -4,9 +4,9 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "export": "webpack --mode production",
-    "preview": "yarn react-scripts build && mv build preview",
+    "start": "webpack-dev-server --open --config webpack/dev.babel.js",
+    "export": "webpack --config webpack/build.babel.js",
+    "preview": "webpack --config webpack/preview.babel.js",
     "lint": "run-p -c lint:*",
     "lint:js": "eslint --ext .js .",
     "lint:css": "stylelint '**/*.(s)css'"
@@ -70,6 +70,7 @@
     "terser-webpack-plugin": "2.3.6",
     "webpack": "4.43.0",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.10.3"
+    "webpack-dev-server": "3.10.3",
+    "webpack-merge": "4.2.2"
   }
 }
