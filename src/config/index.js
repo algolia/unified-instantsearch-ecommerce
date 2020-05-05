@@ -4,11 +4,7 @@ import { Hit } from './Hit';
 
 const config = {
   inputSelector: '#search-button',
-  inputContent: (
-    <>
-      <span>Search for a product, brand, color, …</span> <kbd>/</kbd>
-    </>
-  ),
+  inputContent: 'Search for products',
   keyboardShortcuts: ['/'],
   appId: 'latency',
   searchApiKey: '6be0576ff61c053d5f9a3225e2a90f76',

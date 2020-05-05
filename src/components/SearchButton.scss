@@ -1,0 +1,43 @@
+.uni-SearchButton {
+  align-items: center;
+  background-color: #e8e8e8;
+  border: none;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-weight: 500;
+  height: 40px;
+  margin: 0 0 0 16px;
+  padding: 0 12px;
+  transition: border-color 100ms ease-out;
+  user-select: none;
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+  &:hover {
+    border: 2px solid var(--algolia-theme-primary);
+  }
+  &:active,
+  &:focus {
+    background-color: #e4e4e4;
+    box-shadow: inset 0 2px 2px rgba(100, 100, 100, 0.08);
+    outline: none;
+  }
+}
+
+.uni-SearchButton-Icon {
+  margin-right: 0.5rem;
+}
+
+.uni-SearchButton-Shortcut {
+  background-color: #fff;
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 1px rgba(100, 100, 100, 0.12);
+  color: #666;
+  margin-left: 0.5rem;
+  padding: 3px 5px;
+}

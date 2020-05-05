@@ -12,34 +12,12 @@ body {
   background-size: cover;
 }
 
-kbd {
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  color: #777;
-  font-weight: bold;
-  margin-left: 6px;
-  padding: 2px 4px;
-}
-
 #search-button {
   position: absolute;
   right: 172px;
   text-align: right;
   top: 118px;
-}
-
-#search-button > button {
-  border: none;
-  border: 2px solid #e4e4e4;
-  color: #646464;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 6px 8px;
-}
-
-#search-button > button:hover {
-  border-color: #bbb;
+  font-family: sans-serif;
 }
 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
