@@ -151,7 +151,7 @@ Make sure you have access to Query Suggestions on your [Algolia plan](https://ww
 
 The [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) or [HTML element](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) that targets the DOM element to inject the search button into.
 
-This selector must **point to a container** (e.g., `div`), not an `input`.
+> This selector **must refer to a container** (e.g., `<div>`), not an `<input>`. Unified InstantSearch generates the `<input>` for you.
 
 #### `inputContent`
 
