@@ -10,7 +10,7 @@ While you would still have to push your data to Algolia, the goal of E-Commerce 
 
 ## Getting started
 
-Follow the few steps described below to start using E-Commerce Unified UI.
+Follow the few steps described below to start using Unified InstantSearch E-Commerce.
 
 1. **Push your data to Algolia** (following the [required data schema](#customizing-the-search-ui)),
 2. [**Fork** this Github repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
@@ -32,7 +32,7 @@ We use [Yarn](https://yarnpkg.com/) and recommend you use it too to install and 
 
 #### Forking and installing the project
 
-We provide Unified InstantSearch as a repository that you can [fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and run on your own.
+We provide Unified InstantSearch E-Commerce as a repository that you can [fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and run on your own.
 
 To do so, you need to navigate to the [main repository](https://github.com/algolia/ecomm-unified/) and click **Fork** at the top-right corner of the page. It creates a tracked copy of the repository on your GitHub account. Go to the fork and click the **Clone or download** to clone the project on your machine. We recommend you clone instead of downloading a ZIP archive so you can later easily [update the project](#updating-the-project).
 
@@ -105,7 +105,7 @@ You can run each command with npm or Yarn. For example, to run the `start` comma
 
 ## Configuration options
 
-The `src/config/index.js` file describes the available options supported by Unified InstantSearch.
+The `src/config/index.js` file describes the available options supported by Unified InstantSearch E-Commerce.
 
 ### `appId`
 
@@ -487,7 +487,7 @@ const config = {
 
 ## Adjusting the styling to your theme
 
-The `src/config/variables.scss` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
+The `src/config/variables.scss` file lets you adjust Unified InstantSearch E-Commerce to your branding and the style of your website.
 
 | Sass Variables    | Comments                                                    |
 | ----------------- | ----------------------------------------------------------- |
@@ -513,18 +513,18 @@ Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/d
 
 You can modify the breakpoint variables (prefixed with `$breakpoint-`) to reflect the ones of your website. Because we use these breakpoints in the JavaScript code, you also need to reflect these edits in `src/config/index.js` under the `styles.breakpoints` property.
 
-Please note that we've adapted the design of Unified InstantSearch to the default breakpoints that we've set. If you change them, make sure the layout still works the way you expect.
+Please note that we've adapted the design of Unified InstantSearch E-Commerce to the default breakpoints that we've set. If you change them, make sure the layout still works the way you expect.
 
 ### Customizing text
 
-By default, we use system fonts in Unified InstantSearch, but you can tailor this to your needs by changing the `$font-family` variable.
+By default, we use system fonts in Unified InstantSearch E-Commerce, but you can tailor this to your needs by changing the `$font-family` variable.
 
 If you want to use the same font stack as your main website, we recommend you change the value to `inherit`.
 
 ## Disclaimer
 
-> E-Commerce Unified UI is made accessible to you for trial and/or experimentation purposes. You may decide to use it or not. You are aware that use of E-Commerce Unified UI in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).
+> Unified InstantSearch E-Commerce is made accessible to you for trial and/or experimentation purposes. You may decide to use it or not. You are aware that use of Unified InstantSearch E-Commerce in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).
 
-> Algolia does not support E-Commerce Unified UI, and may discontinue it at any time at its sole discretion; configurations and/or customisations entered by you into E-Commerce Unified UI may be permanently lost. Any feedback (including source code) you may provide to us regarding E-Commerce Unified UI may be used by Algolia to improve the Service.
+> Algolia does not support Unified InstantSearch E-Commerce, and may discontinue it at any time at its sole discretion; configurations and/or customisations entered by you into Unified InstantSearch E-Commerce may be permanently lost. Any feedback (including source code) you may provide to us regarding Unified InstantSearch E-Commerce may be used by Algolia to improve the Service.
 
-> E-Commerce Unified UI source code is provided “as is” and “as available” without any warranty of any kind. Algolia disclaims all obligation and liability for any harm or damage arising out of or in connection with E-Commerce Unified UI. For purposes of our [SLA](https://www.algolia.com/policies/sla), the E-Commerce Unified UI is not an “API Client”.
+> Unified InstantSearch E-Commerce source code is provided “as is” and “as available” without any warranty of any kind. Algolia disclaims all obligation and liability for any harm or damage arising out of or in connection with Unified InstantSearch E-Commerce. For purposes of our [SLA](https://www.algolia.com/policies/sla), the Unified InstantSearch E-Commerce is not an “API Client”.
