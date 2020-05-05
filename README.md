@@ -1,4 +1,4 @@
-# E-Commerce Unified UI
+# Unified InstantSearch E-Commerce
 
 <p align="center">
 <img src="https://cl.ly/c3fa6a6b250a/Screenshot%2525202019-05-27%252520at%25252010.17.35.png" />
