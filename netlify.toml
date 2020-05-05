@@ -1,0 +1,6 @@
+[build]
+  command="yarn run preview"
+  publish="preview"
+
+[build.environment]
+  YARN_VERSION = "1.22.4"
