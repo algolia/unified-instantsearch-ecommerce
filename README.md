@@ -145,11 +145,13 @@ The Query Suggestions index is used to display suggestions below the search box 
 
 Make sure you have access to Query Suggestions on your [Algolia plan](https://www.algolia.com/pricing/).
 
-#### `inputSelector`
+#### `inputContainer`
 
-> `string` | required
+> `string | HTMLElement` | required
 
-The [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) that targets the DOM element to inject the search button into.
+The [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) or [HTML element](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) that targets the DOM element to inject the search button into.
+
+> This selector **must refer to a container** (e.g., `<div>`), not an `<input>`. Unified InstantSearch generates the `<input>` for you.
 
 #### `inputContent`
 

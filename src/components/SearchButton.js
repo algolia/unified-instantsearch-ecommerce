@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './SearchButton.scss';
 import { useAppContext } from '../hooks';
+import { getDomElement } from '../utils';
 
 export const SearchButton = ({ onClick }) => {
   const { config } = useAppContext();
@@ -26,7 +27,7 @@ export const SearchButton = ({ onClick }) => {
         </kbd>
       )}
     </button>,
-    document.querySelector(config.inputSelector)
+    getDomElement(config.inputContainer)
   );
 };
 
