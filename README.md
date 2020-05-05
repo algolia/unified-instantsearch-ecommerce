@@ -8,7 +8,7 @@
 
 While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need of implementing front-end logic and be able to start using Algolia as quickly as possible.
 
-### Getting started
+## Getting started
 
 Follow the few steps described below to start using E-Commerce Unified UI.
 
@@ -18,9 +18,9 @@ Follow the few steps described below to start using E-Commerce Unified UI.
 4. **Run `npm run build` (or `yarn build`)** to build the `unified-instantsearch.js` file,
 5. **Host and include the `unified-instantsearch.js` file** on your front-end and start using!
 
-#### Instructions
+### Instructions
 
-##### Prerequisites
+#### Prerequisites
 
 To run and build the project, you need:
 - to create a [GitHub account](https://github.com/join/),
@@ -30,7 +30,7 @@ We use [Yarn](https://yarnpkg.com/) and recommend you use it too to install and 
 
 > Once you've picked either npm CLI or Yarn, **we recommend you stick to this choice**. Both tools generate different, incompatible lock files, which define what exact version of each dependency the project should use. Using both tools could break your final JavaScript file.
 
-##### Forking and installing the project
+#### Forking and installing the project
 
 We provide Unified InstantSearch as a repository that you can [fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and run on your own.
 
@@ -48,7 +48,7 @@ When you clone the project for the first time, or when you update it with the la
 yarn # or `npm install`
 ```
 
-##### Running the project locally
+#### Running the project locally
 
 If you're customizing the project, you may want to test it out and see if it works before building it and adding it to your production website. We provide a fake e-commerce website in which you can run the project locally. It's useful to see your changes live while you're developing, and test them out before going to production.
 
@@ -56,7 +56,7 @@ If you're customizing the project, you may want to test it out and see if it wor
 yarn start # or `npm run start`
 ```
 
-##### Previewing the project in production conditions
+#### Previewing the project in production conditions
 
 When running the project locally (with the `start` command), you're in a development environment that comes with tooling to help you code and debug more quickly. It has an impact on performance, which doesn't give you a realistic idea of how fast and fluid the final experience is. For this reason, we provide a way for you to preview the project in the same way as with the `start` command, but in production conditions.
 
@@ -66,7 +66,7 @@ npx serve --port 5000 preview
 open http://localhost:5000/
 ```
 
-##### Exporting the project
+#### Exporting the project
 
 Once you've customized the project and made sure it works properly, you need to export it into a JavaScript file that you then must include on your production website.
 
@@ -76,7 +76,7 @@ yarn export # or `npm run export`
 
 Then, include the generated `unified-instantsearch.js` file in your project.
 
-##### Updating the project
+#### Updating the project
 
 Whenever we change the project, you can [sync the latest changes in your fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork).
 
@@ -88,7 +88,7 @@ git merge upstream/master
 
 > **You need to test any change to your project to make sure it still works correctly in every environment where you intend to serve it**. We're versioning the project using the [Semantic Versioning](https://semver.org/) convention, using tags for each release. Before syncing your fork, make sure whether the changes are breaking or not, and whether they are compatible with your changes.
 
-#### Commands
+### Commands
 
 You have access to a handful of [command-line scripts](https://docs.npmjs.com/misc/scripts) to test your project during customization and build it once you're done.
 
@@ -103,23 +103,23 @@ You can run each command with npm or Yarn. For example, to run the `start` comma
 | `lint:js`    | Look for linting issues in the JavaScript code.                               |
 | `lint:css`   | Look for linting issues in the CSS/Sass code.                                 |
 
-### Configuration options
+## Configuration options
 
 The `src/config/index.js` file describes the available options supported by Unified InstantSearch.
 
-#### `appId`
+### `appId`
 
 > `string` | required
 
 Your Algolia Application ID ([find it on your Algolia account](https://www.algolia.com/api-keys)).
 
-#### `apiKey`
+### `apiKey`
 
 > `string` | required
 
 Your Algolia Search-Only API key ([find it on your Algolia account](https://www.algolia.com/api-keys)).
 
-#### `index`
+### `index`
 
 > `object` | required
 
@@ -130,7 +130,7 @@ Your Algolia index settings:
 | `indexName` | `string` | Your Algolia index name. |
 | `searchParameters` | [`SearchParameters`](https://www.algolia.com/doc/api-reference/search-api-parameters/) | The [search parameters](https://www.algolia.com/doc/api-reference/search-api-parameters/) to use. |
 
-#### `suggestionsIndex`
+### `suggestionsIndex`
 
 > `object`
 
@@ -145,7 +145,7 @@ The Query Suggestions index is used to display suggestions below the search box 
 
 Make sure you have access to Query Suggestions on your [Algolia plan](https://www.algolia.com/pricing/).
 
-#### `inputContainer`
+### `inputContainer`
 
 > `string | HTMLElement` | required
 
@@ -153,19 +153,19 @@ The [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selector
 
 > This selector **must refer to a container** (e.g., `<div>`), not an `<input>`. Unified InstantSearch generates the `<input>` for you.
 
-#### `inputContent`
+### `inputContent`
 
 > `string | ReactNode` | required
 
 The content to display in the search button.
 
-#### `keyboardShortcuts`
+### `keyboardShortcuts`
 
 > `string[]`
 
 The keyboard shortcuts to use to display the search overlay.
 
-#### `hitComponent`
+### `hitComponent`
 
 > `(props: { hit: Hit, insights: Insights, view: "grid"|"list" }) => JSX.Element` | required
 
@@ -179,7 +179,7 @@ You have access to the following props:
 | `insights` | [`Insights`](https://www.algolia.com/doc/api-client/methods/insights/?language=javascript) | The Insights function, already bound to the `index`, `userToken`, `queryID`, `objectIDs` and `positions` so that you only have to specify the `eventName`. |
 | `view` | `"grid" \| "list"` | The current view mode. |
 
-#### `setUserToken`
+### `setUserToken`
 
 > `(setToken: (userToken: string) => void) => void`
 
@@ -201,7 +201,7 @@ const config = {
 };
 ```
 
-#### `googleAnalytics`
+### `googleAnalytics`
 
 > `boolean`
 
@@ -209,23 +209,23 @@ Whether to send events to [Google Analytics](https://analytics.google.com/) when
 
 This assumes that the global Google Analytics object `ga` is available on `window`.
 
-#### `refinements`
+### `refinements`
 
 See [Refinements](#refinements-1).
 
-#### `sorts`
+### `sorts`
 
 See [Sorting](#sorting).
 
-#### `styles`
+### `styles`
 
 See [Customizing breakpoints](#customizing-breakpoints).
 
-### Customizing the search UI
+## Customizing the search UI
 
 The configuration file lets you customize the search UI: what refinements to display, what sorting strategy to use, etc.
 
-#### Refinements
+### Refinements
 
 A refinement acts as a search filter on the search UI's left panel. The order of each refinement follows the declaration order in the configuration file.
 
@@ -260,13 +260,13 @@ const config = {
 }
 ```
 
-##### Hierarchical
+#### Hierarchical
 
 | Preview |  |
 | --- | --- |
 | ![Hierarchical preview](.github/screenshots/refinement-hierarchical.png) | The hierarchical refinement creates a navigation based on a hierarchy of facet attributes. It is commonly used for categories with subcategories. |
 
-###### Record schema
+##### Record schema
 
 The records to use in the hierarchical menu must follow this structure:
 
@@ -300,7 +300,7 @@ You can also provide more than one path for each level:
 ]
 ```
 
-###### Options
+##### Options
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -332,13 +332,13 @@ const config = {
 };
 ```
 
-##### Category
+#### Category
 
 | Preview |  |
 | --- | --- |
 | ![Category preview](.github/screenshots/refinement-category.png) | The category refinement displays a menu that lets the user choose a single value for a specific attribute. |
 
-###### Options
+##### Options
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -367,13 +367,13 @@ const config = {
 };
 ```
 
-##### List
+#### List
 
 | Preview |  |
 | --- | --- |
 | ![List preview](.github/screenshots/refinement-list.png) | The list refinement displays a list that lets the user choose multiple values for a specific attribute. |
 
-###### Options
+##### Options
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -403,17 +403,17 @@ const config = {
 };
 ```
 
-##### Slider
+#### Slider
 
 | Preview |  |
 | --- | --- |
 | ![Slider preview](.github/screenshots/refinement-slider.png) | The slider refinement provides a user-friendly way to filter the results, based on a single numeric range. |
 
-###### Record schema
+##### Record schema
 
 The values inside `attribute` **must be numbers, not strings**.
 
-###### Options
+##### Options
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -422,7 +422,7 @@ The values inside `attribute` **must be numbers, not strings**.
 | `label` | `string` | The label to display in the active refinements. |
 | `options` | `RefinementOptions` | The options of the refinement. |
 
-###### RefinementOptions
+##### RefinementOptions
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -452,7 +452,7 @@ const config = {
 };
 ```
 
-#### Sorting
+### Sorting
 
 The `sorts` configuration displays a list of indices, allowing a user to change the way hits are sorted (with [replica indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-your-indices/#replicating-an-index)).
 
@@ -485,7 +485,7 @@ const config = {
 };
 ```
 
-### Adjusting the styling to your theme
+## Adjusting the styling to your theme
 
 The `src/config/variables.scss` file lets you adjust E-Commerce Unified UI to your branding and the style of your website.
 
@@ -498,7 +498,7 @@ The `src/config/variables.scss` file lets you adjust E-Commerce Unified UI to yo
 | \$breakpoint-md   | The breakpoint for medium devices                           |
 | \$breakpoint-lg   | The breakpoint for large devices                            |
 
-#### Customizing colors
+### Customizing colors
 
 You can modify the color variables (prefixed with `$color-`) to adapt the design to your needs.
 
@@ -509,19 +509,19 @@ Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/d
 | \$color-primary   | --algolia-theme-primary   |
 | \$color-secondary | --algolia-theme-secondary |
 
-#### Customizing breakpoints
+### Customizing breakpoints
 
 You can modify the breakpoint variables (prefixed with `$breakpoint-`) to reflect the ones of your website. Because we use these breakpoints in the JavaScript code, you also need to reflect these edits in `src/config/index.js` under the `styles.breakpoints` property.
 
 Please note that we've adapted the design of Unified InstantSearch to the default breakpoints that we've set. If you change them, make sure the layout still works the way you expect.
 
-#### Customizing text
+### Customizing text
 
 By default, we use system fonts in Unified InstantSearch, but you can tailor this to your needs by changing the `$font-family` variable.
 
 If you want to use the same font stack as your main website, we recommend you change the value to `inherit`.
 
-### Disclaimer
+## Disclaimer
 
 > E-Commerce Unified UI is made accessible to you for trial and/or experimentation purposes. You may decide to use it or not. You are aware that use of E-Commerce Unified UI in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).
 
