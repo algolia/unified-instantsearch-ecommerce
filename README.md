@@ -485,7 +485,7 @@ const config = {
 };
 ```
 
-## Adjusting the styling to your theme
+## Adjusting the styling
 
 The `src/config/variables.scss` file lets you adjust Unified InstantSearch E-Commerce to your branding and the style of your website.
 
