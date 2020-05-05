@@ -17,7 +17,7 @@ export default merge(base, {
     {
       rules: [
         {
-          test: /\.(scss)$/,
+          test: /\.(s?css)$/,
           use: ['style-loader'],
         },
       ],
