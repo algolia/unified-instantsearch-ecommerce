@@ -10,7 +10,7 @@ export default [
     },
   ]),
   new HtmlWebpackPlugin({
-    title: 'E-Comm Unified UI',
+    title: 'Unified InstantSearch E-commerce',
     template: 'public/index.html',
   }),
 ];
