@@ -1,3 +1,5 @@
+@import '../config/variables';
+
 .uni-SearchButton {
   align-items: center;
   background-color: #e8e8e8;
@@ -10,10 +12,13 @@
   font: inherit;
   font-weight: 500;
   height: 40px;
-  margin: 0 0 0 16px;
   padding: 0 12px;
   transition: border-color 100ms ease-out;
   user-select: none;
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 8px;
+    width: 40px;
+  }
   @media screen and (prefers-reduced-motion: reduce) {
     transition: none;
   }
@@ -28,8 +33,11 @@
   }
 }
 
-.uni-SearchButton-Icon {
-  margin-right: 0.5rem;
+.uni-SearchButton-InputContent {
+  margin-left: 0.5rem;
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
 }
 
 .uni-SearchButton-Shortcut {
@@ -40,4 +48,7 @@
   color: #666;
   margin-left: 0.5rem;
   padding: 3px 5px;
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
 }

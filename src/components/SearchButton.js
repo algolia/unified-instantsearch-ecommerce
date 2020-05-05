@@ -12,6 +12,7 @@ export const SearchButton = ({ onClick }) => {
     <button
       type="button"
       className="uni-SearchButton"
+      title="Search"
       onClick={(event) => {
         event.target.blur();
         onClick();
@@ -19,7 +20,7 @@ export const SearchButton = ({ onClick }) => {
     >
       <SearchIcon />
 
-      <div>{config.inputContent}</div>
+      <div className="uni-SearchButton-InputContent">{config.inputContent}</div>
 
       {config.keyboardShortcuts?.length > 0 && (
         <kbd className="uni-SearchButton-Shortcut">
