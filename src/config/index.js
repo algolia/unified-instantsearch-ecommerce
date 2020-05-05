@@ -3,7 +3,7 @@ import React from 'react';
 import { Hit } from './Hit';
 
 const config = {
-  inputSelector: '#search-button',
+  inputContainer: '#search-button',
   inputContent: 'Search for products',
   keyboardShortcuts: ['/'],
   appId: 'latency',

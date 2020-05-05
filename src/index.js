@@ -8,10 +8,11 @@ import './App.scss';
 
 import config from './config';
 import { App } from './App';
+import { getDomElement } from './utils';
 
 ReactDOM.render(
   <Router>
     <Route path="*" component={(props) => <App {...props} config={config} />} />
   </Router>,
-  document.querySelector(config.inputSelector)
+  getDomElement(config.inputContainer)
 );
