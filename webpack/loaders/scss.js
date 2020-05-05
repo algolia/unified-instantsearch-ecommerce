@@ -1,7 +1,7 @@
 export default {
   rules: [
     {
-      test: /\.(scss)$/,
+      test: /\.(s?css)$/,
       use: ['css-loader', 'postcss-loader', 'sass-loader'],
     },
   ],

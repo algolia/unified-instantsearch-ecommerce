@@ -7,6 +7,8 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import base from './base.babel';
 import scss from './loaders/scss';
 
+import config from './config';
+
 export default merge(base, {
   mode: 'production',
   output: {
@@ -15,7 +17,11 @@ export default merge(base, {
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: `${config.filename}.css`,
+    }),
+  ],
   module: merge.smart(
     {
       rules: [

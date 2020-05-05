@@ -1,9 +1,11 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
+import config from './config';
+
 export default {
   entry: './src/index.js',
   output: {
-    filename: 'main.js',
+    filename: `${config.filename}.js`,
   },
   plugins: [new CleanWebpackPlugin()],
   module: {

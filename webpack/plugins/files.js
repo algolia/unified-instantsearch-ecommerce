@@ -6,7 +6,7 @@ export default [
     {
       from: '**/*',
       ignore: ['index.html'],
-      context: './public/'
+      context: './public/',
     },
   ]),
   new HtmlWebpackPlugin({

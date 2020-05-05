@@ -74,7 +74,7 @@ Once you've customized the project and made sure it works properly, you need to 
 yarn export # or `npm run export`
 ```
 
-Then, include the generated `main.js` and `main.css` files in your project.
+Then, include the generated `search.js` and `search.css` files in your project.
 
 ##### Updating the project
 
