@@ -8,6 +8,39 @@
 
 While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need of implementing front-end logic and be able to start using Algolia as quickly as possible.
 
+- [Unified InstantSearch E-Commerce](#unified-instantsearch-e-commerce)
+  - [Getting started](#getting-started)
+    - [Instructions](#instructions)
+    - [Commands](#commands)
+  - [Configuration options](#configuration-options)
+    - [`appId`](#appid)
+    - [`apiKey`](#apikey)
+    - [`index`](#index)
+    - [`suggestionsIndex`](#suggestionsindex)
+    - [`inputSelector`](#inputselector)
+    - [`inputContent`](#inputcontent)
+    - [`keyboardShortcuts`](#keyboardshortcuts)
+    - [`hitComponent`](#hitcomponent)
+    - [`setUserToken`](#setusertoken)
+    - [`googleAnalytics`](#googleanalytics)
+    - [`refinements`](#refinements)
+    - [`sorts`](#sorts)
+    - [`styles`](#styles)
+  - [Customizing the search UI](#customizing-the-search-ui)
+    - [Refinements](#refinements-1)
+        - [Record schema](#record-schema)
+        - [Options](#options)
+        - [Options](#options-1)
+        - [Options](#options-2)
+        - [Record schema](#record-schema-1)
+        - [Options](#options-3)
+    - [Sorting](#sorting)
+  - [Adjusting the styling](#adjusting-the-styling)
+    - [Customizing colors](#customizing-colors)
+    - [Customizing breakpoints](#customizing-breakpoints)
+    - [Customizing text](#customizing-text)
+  - [Disclaimer](#disclaimer)
+
 ## Getting started
 
 Follow the few steps described below to start using Unified InstantSearch E-Commerce.
@@ -20,7 +53,7 @@ Follow the few steps described below to start using Unified InstantSearch E-Comm
 
 ### Instructions
 
-#### Prerequisites
+#### Prerequisites <!-- omit in toc -->
 
 To run and build the project, you need:
 - to create a [GitHub account](https://github.com/join/),
@@ -30,7 +63,7 @@ We use [Yarn](https://yarnpkg.com/) and recommend you use it too to install and 
 
 > Once you've picked either npm CLI or Yarn, **we recommend you stick to this choice**. Both tools generate different, incompatible lock files, which define what exact version of each dependency the project should use. Using both tools could break your final JavaScript file.
 
-#### Forking and installing the project
+#### Forking and installing the project <!-- omit in toc -->
 
 We provide Unified InstantSearch E-Commerce as a repository that you can [fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and run on your own.
 
@@ -48,7 +81,7 @@ When you clone the project for the first time, or when you update it with the la
 yarn # or `npm install`
 ```
 
-#### Running the project locally
+#### Running the project locally <!-- omit in toc -->
 
 If you're customizing the project, you may want to test it out and see if it works before building it and adding it to your production website. We provide a fake e-commerce website in which you can run the project locally. It's useful to see your changes live while you're developing, and test them out before going to production.
 
@@ -56,7 +89,7 @@ If you're customizing the project, you may want to test it out and see if it wor
 yarn start # or `npm run start`
 ```
 
-#### Previewing the project in production conditions
+#### Previewing the project in production conditions <!-- omit in toc -->
 
 When running the project locally (with the `start` command), you're in a development environment that comes with tooling to help you code and debug more quickly. It has an impact on performance, which doesn't give you a realistic idea of how fast and fluid the final experience is. For this reason, we provide a way for you to preview the project in the same way as with the `start` command, but in production conditions.
 
@@ -66,7 +99,7 @@ npx serve --port 5000 preview
 open http://localhost:5000/
 ```
 
-#### Exporting the project
+#### Exporting the project <!-- omit in toc -->
 
 Once you've customized the project and made sure it works properly, you need to export it into a JavaScript file that you then must include on your production website.
 
@@ -76,7 +109,7 @@ yarn export # or `npm run export`
 
 Then, include the generated `unified-instantsearch.js` file in your project.
 
-#### Updating the project
+#### Updating the project <!-- omit in toc -->
 
 Whenever we change the project, you can [sync the latest changes in your fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork).
 
@@ -260,7 +293,7 @@ const config = {
 }
 ```
 
-#### Hierarchical
+#### Hierarchical <!-- omit in toc -->
 
 | Preview |  |
 | --- | --- |
@@ -332,7 +365,7 @@ const config = {
 };
 ```
 
-#### Category
+#### Category <!-- omit in toc -->
 
 | Preview |  |
 | --- | --- |
@@ -367,7 +400,7 @@ const config = {
 };
 ```
 
-#### List
+#### List <!-- omit in toc -->
 
 | Preview |  |
 | --- | --- |
@@ -403,7 +436,7 @@ const config = {
 };
 ```
 
-#### Slider
+#### Slider <!-- omit in toc -->
 
 | Preview |  |
 | --- | --- |
@@ -422,7 +455,7 @@ The values inside `attribute` **must be numbers, not strings**.
 | `label` | `string` | The label to display in the active refinements. |
 | `options` | `RefinementOptions` | The options of the refinement. |
 
-##### RefinementOptions
+##### RefinementOptions <!-- omit in toc -->
 
 | Name | Type | Description |
 | --- | --- | --- |
