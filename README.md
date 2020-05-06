@@ -13,9 +13,9 @@ While you would still have to push your data to Algolia, the goal of E-Commerce 
 Follow the few steps described below to start using E-Commerce Unified UI.
 
 1. **Push your data to Algolia** (following the required data structure),
-2. **Fork** this Github Repository to your own,
+2. **Fork** this GitHub Repository to your own,
 3. **Copy and replace the `src/config.example.js` file to `src/config.js`** to better match your needs,
-4. **Run `npm run buil` (or `yarn build`)** to build the necessary .js files,
+4. **Run `npm run build` (or `yarn build`)** to build the necessary .js files,
 5. **Host and include .js files** on your front-end and start using!
 
 ### Data Format
@@ -26,18 +26,18 @@ Follow the few steps described below to start using E-Commerce Unified UI.
 
 The `src/config.js` file describe the multiple available options to be used with E-Commerce Unified UI.
 
-| Option Name              | Type     | Required | Comments                                                                             |
-|--------------------------|----------|----------|--------------------------------------------------------------------------------------|
-| appId                    | `string` | Yes      | Set your Algolia Application ID (accessible from the Dashboard)                      |
-| searchApiKey             | `string` | Yes      | Set your Algolia Search API Key (accessible from the Dashboard)                      |
-| indexName                | `string` | Yes      | Set your Algolia Index name                                                          |
-| placeholderId            | `string` | Yes      | Set the DOM element that triggers the Search Results overlay                         |
-| querySuggestions         | `bool`   | No       | Enable the Query Suggestions feature                                                 |
-| suggestions              | `object` | No       | Set the Query Suggestions options (`appId`, `apiKey`, `indexName`, `maxSuggestions`) |
-| googleAnalytics          | `bool`   | No       | Enable Google Analytics tracking (Google script need to be included on your page)    |
-| instantSearchConfigure   | `object` | No       | Parameters to pass to the InstantSearch widget                                       |
-| hits                     | `object` | Yes      | Set the Hits option (`hitsPerPage` and `render()`)                                   |
-| refinements              | `object` | No       | Set the different Refinements available                                              |
+| Option Name              | Type      | Required | Comments                                                                             |
+|--------------------------|-----------|----------|--------------------------------------------------------------------------------------|
+| appId                    | `string`  | Yes      | Set your Algolia Application ID (accessible from the Dashboard)                      |
+| searchApiKey             | `string`  | Yes      | Set your Algolia Search API Key (accessible from the Dashboard)                      |
+| indexName                | `string`  | Yes      | Set your Algolia Index name                                                          |
+| placeholderId            | `string`  | Yes      | Set the DOM element that triggers the Search Results overlay                         |
+| querySuggestions         | `boolean` | No       | Enable the Query Suggestions feature                                                 |
+| suggestions              | `object`  | No       | Set the Query Suggestions options (`appId`, `apiKey`, `indexName`, `maxSuggestions`) |
+| googleAnalytics          | `bool`    | No       | Enable Google Analytics tracking (Google script needs to be included on your page)    |
+| instantSearchConfigure   | `object`  | No       | Parameters to pass to the InstantSearch widget                                       |
+| hits                     | `object`  | Yes      | Set the Hits option (`hitsPerPage` and `render()`)                                   |
+| refinements              | `object`  | No       | Set the different Refinements available                                              |
 | sorts                    | `object` | No       | Set the different Sorts available                                              |
 | translations             | `object` | No       | Set the different translations to be used                                            |
 
