@@ -1,3 +1,4 @@
+import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import config from './config';
@@ -16,5 +17,15 @@ export default {
         use: ['babel-loader'],
       },
     ],
+  },
+  resolve: {
+    alias: {
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
+      'react-fast-compare': path.resolve(
+        __dirname,
+        './aliases/react-fast-compare'
+      ),
+    },
   },
 };
