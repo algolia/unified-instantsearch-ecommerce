@@ -258,19 +258,6 @@
   margin-bottom: 1rem;
 }
 
-.uni-Refinements-footer {
-  background-color: #fff;
-  border-top: 1px solid #ebecf3;
-  display: grid;
-  flex-grow: 0;
-  flex-shrink: 0;
-  grid-gap: 1rem;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem 1.5rem;
-  width: 100%;
-  z-index: 2;
-}
-
 .uni-Refinements-button {
   background-color: #dddcdc;
   border: 0;
@@ -289,6 +276,21 @@
 .uni-Refinements-resultButton {
   background-color: var(--algolia-theme-color-primary);
   color: #fff;
+  margin-left: 1rem;
+}
+
+.uni-Refinements-footer {
+  background-color: #fff;
+  border-top: 1px solid #ebecf3;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  z-index: 2;
+  .uni-Refinements-button {
+    flex-grow: 1;
+  }
 }
 
 /* Containers */
