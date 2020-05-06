@@ -28,7 +28,7 @@ export const PredictiveSearchBox = (props) => {
           // input query, we validate the completion.
           if (
             event.key === 'Tab' ||
-            (event.key === 'ArrowRight' &&
+            (event.keyCode === 39 &&
               event.target.selectionStart === props.currentRefinement.length)
           ) {
             event.preventDefault();
