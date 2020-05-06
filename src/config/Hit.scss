@@ -7,6 +7,7 @@
 .uni-Hit-header {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
 }
 
 .uni-Hit-title {
@@ -93,10 +94,6 @@
   flex-direction: column;
   overflow-wrap: break-word;
   word-break: break-word;
-}
-
-.uni-Hit-header {
-  margin-bottom: 0.5rem;
 }
 
 .uni-Hit-Currency {

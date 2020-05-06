@@ -6,6 +6,7 @@
   outline-color: var(--algolia-theme-color-primary);
 }
 
+/* stylelint-disable-next-line selector-no-qualifying-type */
 a[class^='ais-'] {
   color: var(--algolia-theme-color-secondary);
   text-decoration: none;
@@ -328,8 +329,8 @@ a[class^='ais-'] {
   .ais-HierarchicalMenu-item {
     &:not(.ais-HierarchicalMenu-item--selected) {
       .ais-HierarchicalMenu-link {
-        &::before {
-          transform: rotate(0);
+        &::before { /* stylelint-disable-line */
+          transform: rotate(0); /* stylelint-disable-line max-nesting-depth */
         }
       }
     }

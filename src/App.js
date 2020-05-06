@@ -108,9 +108,9 @@ export function App({ config }) {
 
   React.useEffect(() => {
     if (isOverlayShowing === true) {
-      document.body.classList.add('uni--open');
+      document.body.classList.add('uni-App--open');
     } else {
-      document.body.classList.remove('uni--open');
+      document.body.classList.remove('uni-App--open');
       const nextSearchState = getStateFromUrl({});
       setSearchState(nextSearchState);
 
