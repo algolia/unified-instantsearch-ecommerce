@@ -81,7 +81,7 @@ export default function isEqual(a, b) {
         // React-specific: avoid traversing React elements' _owner.
         //  _owner contains circular references
         // and is not needed when comparing the actual elements (and not their owners)
-        // .$$typeof and ._store on just reasonable markers of a react element
+        // .$$typeof and ._store on just reasonable markers of a React element.
         continue;
       }
 
@@ -115,7 +115,7 @@ function isCyclic(object) {
 
       // If 'obj' hasn't been seen, add it to 'seenObjects'.
       // Since 'obj' is used as a key, the value of 'seenObjects[obj]'
-      // is irrelevent and can be set as literally anything you want. I
+      // is irrelevant and can be set as literally anything you want. I
       // just went with 'undefined'.
       seenObjects.set(obj, undefined);
 
@@ -126,7 +126,7 @@ function isCyclic(object) {
         }
       }
 
-      // If 'obj' is an array, check if any of it's elements are
+      // If 'obj' is an array, check if any of its elements are
       // an object that has been seen already.
     } else if (Array.isArray(obj)) {
       for (const i in obj) {
