@@ -41,7 +41,7 @@ While you would still have to push your data to Algolia, the goal of E-Commerce 
 Follow the few steps described below to start using Unified InstantSearch E-Commerce.
 
 1. **Push your data to Algolia** (following the [required data schema](#customizing-the-search-ui)),
-2. [**Fork** this Github repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
+2. [**Fork** this GitHub repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
 3. **Replace the values in `src/config/index.js`** to better match your needs,
 4. **Run `npm run build` (or `yarn build`)** to build the `unified-instantsearch.js` file,
 5. **Host and include the `unified-instantsearch.js` file** on your front-end and start using!
