@@ -15,24 +15,33 @@ export const Slider = connectRange(function Slider(props) {
   const [currentMin, setCurrentMin] = React.useState(currentRefinement.min);
   const [currentMax, setCurrentMax] = React.useState(currentRefinement.max);
 
-  function computeMinValue(value) {
-    return Math.min(Math.max(value, min), max);
-  }
+  const computeMinValue = React.useCallback(
+    function computeMinValue(value) {
+      return Math.max(value, min);
+    },
+    [min]
+  );
 
-  function computeMaxValue(value) {
-    return Math.max(Math.min(value, max), min);
-  }
+  const computeMaxValue = React.useCallback(
+    function computeMaxValue(value) {
+      return Math.min(value, max);
+    },
+    [max]
+  );
 
   function onChange({ values }) {
-    if (
-      currentRefinement.min !== values[0] ||
-      currentRefinement.max !== values[1]
-    ) {
-      refine({
-        min: currentMin,
-        max: currentMax,
-      });
+    const nextCurrentMin = computeMinValue(values[0]);
+    const nextCurrentMax = computeMaxValue(values[1]);
+
+    if (currentMin !== nextCurrentMin) {
+      setCurrentMin(nextCurrentMin);
     }
+
+    if (currentMax !== nextCurrentMax) {
+      setCurrentMax(nextCurrentMax);
+    }
+
+    refine({ min: nextCurrentMin, max: nextCurrentMax });
   }
 
   function onValuesUpdated({ values }) {
@@ -40,16 +49,17 @@ export const Slider = connectRange(function Slider(props) {
     setCurrentMax(computeMaxValue(values[1]));
   }
 
-  // `min` and `max` values are passed as `undefined` on the first render.
   React.useEffect(() => {
-    if (currentMin === undefined) {
-      setCurrentMin(min);
-    }
-
-    if (currentMax === undefined) {
-      setCurrentMax(max);
-    }
-  }, [min, max, currentMin, currentMax, setCurrentMin, setCurrentMax]);
+    setCurrentMin(computeMinValue(currentRefinement.min));
+    setCurrentMax(computeMaxValue(currentRefinement.max));
+  }, [
+    currentRefinement.min,
+    currentRefinement.max,
+    setCurrentMin,
+    setCurrentMax,
+    computeMinValue,
+    computeMaxValue,
+  ]);
 
   if (min === max) {
     return null;
@@ -63,7 +73,10 @@ export const Slider = connectRange(function Slider(props) {
           min={min}
           max={max}
           snap={true}
-          values={[currentRefinement.min, currentRefinement.max]}
+          values={[
+            computeMinValue(currentRefinement.min),
+            computeMaxValue(currentRefinement.max),
+          ]}
           onChange={onChange}
           onValuesUpdated={onValuesUpdated}
         />
