@@ -9,6 +9,7 @@
   bottom: 0;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
   height: 4px;
+  left: 0;
   position: absolute;
   width: 100%;
   @media screen and (prefers-reduced-motion: reduce) {
@@ -68,7 +69,6 @@
 /* Header */
 
 .uni-Header {
-  align-items: center;
   background: var(--algolia-theme-color-primary);
   background-image: linear-gradient(
     180deg,
@@ -76,10 +76,6 @@
     rgba(0, 0, 0, 0.1) 100%
   );
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -127,6 +123,16 @@
       opacity: 1;
     }
   }
+}
+
+.uni-Header-inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  width: 100%;
 }
 
 .uni-CloseButton {

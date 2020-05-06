@@ -46,17 +46,19 @@ export function Search(props) {
 
       <div id="uni-Wrapper">
         <header className="uni-Header">
-          <HeaderSearchBox />
+          <div className="uni-Header-inner">
+            <HeaderSearchBox />
 
-          <button
-            className="uni-CloseButton"
-            title="Press Esc to close"
-            onClick={props.onClose}
-          >
-            <CloseIcon />
-          </button>
+            <button
+              className="uni-CloseButton"
+              title="Press Esc to close"
+              onClick={props.onClose}
+            >
+              <CloseIcon />
+            </button>
 
-          {isSearchStalled && <div className="uni-LoadingProgress" />}
+            {isSearchStalled && <div className="uni-LoadingProgress" />}
+          </div>
         </header>
 
         <div className="uni-Content">
