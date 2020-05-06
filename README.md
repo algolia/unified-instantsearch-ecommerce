@@ -6,7 +6,7 @@
 
 **This project aims to be used by any e-commerce website to bootstrap a search experience powered by Algolia the fastest way possible.**
 
-While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need of implementing front-end logic and be able to start using Algolia as quickly as possible.
+While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need to implement front-end logic and be able to start using Algolia as quickly as possible.
 
 ## Table of contents <!-- omit in toc -->
 
@@ -41,7 +41,7 @@ While you would still have to push your data to Algolia, the goal of E-Commerce 
 Follow the few steps described below to start using Unified InstantSearch E-Commerce.
 
 1. **Push your data to Algolia** (following the [required data schema](#customizing-the-search-ui)),
-2. [**Fork** this GitHub repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
+2. [**Fork this GitHub repository**](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
 3. **Replace the values in `src/config/index.js`** to better match your needs,
 4. **Run `npm run export` (or `yarn export`)** to build the JS and CSS files,
 5. **Host and include the generated JS and CSS files** on your front-end and start using!
@@ -62,7 +62,7 @@ We use [Yarn](https://yarnpkg.com/) and recommend you use it too to install and 
 
 We provide Unified InstantSearch E-Commerce as a repository that you can [fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and run on your own.
 
-To do so, you need to navigate to the [main repository](https://github.com/algolia/ecomm-unified/) and click **Fork** at the top-right corner of the page. It creates a tracked copy of the repository on your GitHub account. Go to the fork and click the **Clone or download** to clone the project on your machine. We recommend you clone instead of downloading a ZIP archive so you can later easily [update the project](#updating-the-project).
+To do so, you need to navigate to the [original repository](https://github.com/algolia/ecomm-unified/) and click **Fork** at the top-right corner of the page. It creates a tracked copy of the repository on your GitHub account. Go to the fork and click the **Clone or download** to clone the project on your machine. We recommend you clone instead of downloading a ZIP archive so you can later easily [update the project](#updating-the-project).
 
 Once you've cloned the fork on your machine, you can add the original upstream repository to facilitate updates.
 
@@ -118,7 +118,7 @@ git merge upstream/master
 
 ### Commands
 
-You have access to a handful of [command-line scripts](https://docs.npmjs.com/misc/scripts) to test your project during customization and build it once you're done.
+You have access to a handful of [command-line scripts](https://docs.npmjs.com/misc/scripts) to test your project during customization and build it once done.
 
 You can run each command with npm or Yarn. For example, to run the `start` command, you can run either `npm run start` or `yarn start`.
 
@@ -235,7 +235,7 @@ const config = {
 
 Whether to send events to [Google Analytics](https://analytics.google.com/) when queries are triggered.
 
-This assumes that the global Google Analytics object `ga` is available on `window`.
+It assumes that the global Google Analytics object `ga` is available on `window`.
 
 ### `refinements`
 
@@ -434,7 +434,7 @@ const config = {
 
 | Preview |  |
 | --- | --- |
-| ![Slider preview](.github/screenshots/refinement-slider.png) | The slider refinement provides a user-friendly way to filter the results, based on a single numeric range. |
+| ![Slider preview](.github/screenshots/refinement-slider.png) | The slider refinement provides a user-friendly way to filter the results based on a single numeric range. |
 
 ##### Record schema <!-- omit in toc -->
 
@@ -516,7 +516,7 @@ const config = {
 
 The `src/config/index.js` file also lets you adjust Unified InstantSearch E-Commerce to your branding and the style of your website. All available options are under the `styles` property.
 
-> **NOTE:** if you change these values while in [development mode](#running-the-project-locally), you must to re-start the server to see your changes.
+> **NOTE:** if you change these values while in [development mode](#running-the-project-locally), you must restart the server to see your changes.
 
 #### `colors`
 
@@ -527,7 +527,7 @@ The `src/config/index.js` file also lets you adjust Unified InstantSearch E-Comm
 | `primary` | `string` | The accent color, typically the main color of your branding. |
 | `secondary` | `string` | The secondary color, for most of the text content. |
 
-> Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) with a static fallback for browsers that don't support it. If you want to leverage CSS custom properties, for example, to implement multiple color themes, you can set the color variables as your initial values (and fallback for older browsers), and override them in the desired context by setting the corresponding CSS custom properties in your own CSS.
+> Internally, we use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) with a static fallback for browsers that don't support it. If you want to leverage CSS custom properties (e.g., to implement multiple color themes), you can set the color variables as your initial values (and fallback for older browsers). Then, you can override them in the desired context by setting the corresponding CSS custom properties in your website's CSS.
 
 #### `text`
 
@@ -553,8 +553,8 @@ The `src/config/index.js` file also lets you adjust Unified InstantSearch E-Comm
 
 ## Disclaimer
 
-> Unified InstantSearch E-Commerce is made accessible to you for trial and/or experimentation purposes. You may decide to use it or not. You are aware that use of Unified InstantSearch E-Commerce in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).
+> Unified InstantSearch E-Commerce is made accessible to you for trial and experimentation purposes. You may decide to use it or not. You are aware that the use of Unified InstantSearch E-Commerce in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).
 
-> Algolia does not support Unified InstantSearch E-Commerce, and may discontinue it at any time at its sole discretion; configurations and/or customisations entered by you into Unified InstantSearch E-Commerce may be permanently lost. Any feedback (including source code) you may provide to us regarding Unified InstantSearch E-Commerce may be used by Algolia to improve the Service.
+> Algolia does not support Unified InstantSearch E-Commerce, and may discontinue it at any time at its sole discretion; configurations and customizations entered by you into Unified InstantSearch E-Commerce may be permanently lost. Any feedback (including source code) you may provide to us regarding Unified InstantSearch E-Commerce may be used by Algolia to improve the Service.
 
-> Unified InstantSearch E-Commerce source code is provided “as is” and “as available” without any warranty of any kind. Algolia disclaims all obligation and liability for any harm or damage arising out of or in connection with Unified InstantSearch E-Commerce. For purposes of our [SLA](https://www.algolia.com/policies/sla), the Unified InstantSearch E-Commerce is not an “API Client”.
+> Unified InstantSearch E-Commerce source code is provided "as is" and "as available" without any warranty of any kind. Algolia disclaims all obligation and liability for any harm or damage arising out of or in connection with Unified InstantSearch E-Commerce. For purposes of our [SLA](https://www.algolia.com/policies/sla), the Unified InstantSearch E-Commerce is not an "API Client".
