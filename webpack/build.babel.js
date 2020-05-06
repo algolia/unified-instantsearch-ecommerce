@@ -20,7 +20,7 @@ export default merge(base, {
       new TerserJSPlugin({
         terserOptions: {
           output: {
-            comments: new RegExp(config.licenserBanner),
+            comments: new RegExp(config.licenseBanner),
           },
         },
         extractComments: false,
@@ -30,7 +30,7 @@ export default merge(base, {
   },
   plugins: [
     new webpack.BannerPlugin({
-      banner: config.licenserBanner,
+      banner: config.licenseBanner,
     }),
     new MiniCssExtractPlugin({
       filename: `${config.filename}.css`,
