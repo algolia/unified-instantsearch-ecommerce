@@ -108,7 +108,7 @@ function isCyclic(object) {
   function detectCycle(obj) {
     // If 'obj' is an actual object (i.e., has the form of '{}'), check
     // if it's been seen already.
-    if (Object.prototype.toString.call(obj) == '[object Object]') {
+    if (Object.prototype.toString.call(obj) === '[object Object]') {
       if (seenObjects.has(obj)) {
         return true;
       }
