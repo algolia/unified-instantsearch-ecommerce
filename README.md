@@ -44,7 +44,7 @@ Follow the few steps described below to start using Unified InstantSearch E-Comm
 2. [**Fork** this Github repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
 3. **Replace the values in `src/config/index.js`** to better match your needs,
 4. **Run `npm run build` (or `yarn build`)** to build the main JS and CSS files,
-5. **Host and include the main JS and CSS files** on your front-end and start using!
+5. **Host and include the generated JS and CSS files** on your front-end and start using!
 
 ### Instructions
 
