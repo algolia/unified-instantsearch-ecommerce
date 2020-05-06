@@ -29,7 +29,7 @@ export function Search(props) {
 
   React.useEffect(() => {
     if (filtersAnchor.current && props.isFiltering) {
-      filtersAnchor.current.scrollTo(0, 0);
+      filtersAnchor.current.scrollTop = 0;
     }
   }, [props.isFiltering]);
 

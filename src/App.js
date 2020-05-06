@@ -123,7 +123,7 @@ export function App({ config }) {
 
   React.useEffect(() => {
     if (topAnchor.current) {
-      topAnchor.current.scrollTo(0, 0);
+      topAnchor.current.scrollTop = 0;
     }
   }, [searchState.query]);
 
