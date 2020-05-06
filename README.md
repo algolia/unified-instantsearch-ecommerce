@@ -288,7 +288,6 @@ const config = {
         attribute: 'brand',
       },
     },
-    }
   ]
 }
 ```
