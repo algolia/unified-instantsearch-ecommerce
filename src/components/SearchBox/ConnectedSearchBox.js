@@ -38,7 +38,12 @@ export const HeaderSearchBox = connectSearchBox(function SearchBox(props) {
         onChange={(event) => {
           props.refine(event.currentTarget.value);
         }}
-        onKeyDown={() => {}}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            props.refine('');
+          }
+        }}
         onSubmit={() => {}}
         onReset={() => {
           props.refine('');
