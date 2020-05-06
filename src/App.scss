@@ -16,7 +16,7 @@
   }
   &::after {
     animation: loadingProgress 6s cubic-bezier(0.2, 0.7, 0.4, 1) forwards;
-    background: var(--algolia-theme-primary);
+    background: var(--algolia-theme-color-primary);
     box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.3);
     content: '';
     height: 4px;
