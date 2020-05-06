@@ -33,6 +33,9 @@ export const PredictiveSearchBox = (props) => {
           ) {
             event.preventDefault();
             props.refine(suggestion);
+          } else if (event.keyCode === 27) {
+            event.preventDefault();
+            props.refine('');
           }
         }}
         onSubmit={() => {}}
