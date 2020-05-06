@@ -1,4 +1,4 @@
-# Unified InstantSearch E-Commerce
+# Unified InstantSearch E-Commerce <!-- omit in toc -->
 
 <p align="center">
 <img src="https://cl.ly/c3fa6a6b250a/Screenshot%2525202019-05-27%252520at%25252010.17.35.png" />
@@ -8,38 +8,33 @@
 
 While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need of implementing front-end logic and be able to start using Algolia as quickly as possible.
 
-- [Unified InstantSearch E-Commerce](#unified-instantsearch-e-commerce)
-  - [Getting started](#getting-started)
-    - [Instructions](#instructions)
-    - [Commands](#commands)
-  - [Configuration options](#configuration-options)
-    - [`appId`](#appid)
-    - [`apiKey`](#apikey)
-    - [`index`](#index)
-    - [`suggestionsIndex`](#suggestionsindex)
-    - [`inputSelector`](#inputselector)
-    - [`inputContent`](#inputcontent)
-    - [`keyboardShortcuts`](#keyboardshortcuts)
-    - [`hitComponent`](#hitcomponent)
-    - [`setUserToken`](#setusertoken)
-    - [`googleAnalytics`](#googleanalytics)
-    - [`refinements`](#refinements)
-    - [`sorts`](#sorts)
-    - [`styles`](#styles)
-  - [Customizing the search UI](#customizing-the-search-ui)
-    - [Refinements](#refinements-1)
-        - [Record schema](#record-schema)
-        - [Options](#options)
-        - [Options](#options-1)
-        - [Options](#options-2)
-        - [Record schema](#record-schema-1)
-        - [Options](#options-3)
-    - [Sorting](#sorting)
-  - [Adjusting the styling](#adjusting-the-styling)
-    - [Customizing colors](#customizing-colors)
-    - [Customizing breakpoints](#customizing-breakpoints)
-    - [Customizing text](#customizing-text)
-  - [Disclaimer](#disclaimer)
+## Table of contents <!-- omit in toc -->
+
+- [Getting started](#getting-started)
+  - [Instructions](#instructions)
+  - [Commands](#commands)
+- [Configuration options](#configuration-options)
+  - [`appId`](#appid)
+  - [`apiKey`](#apikey)
+  - [`index`](#index)
+  - [`suggestionsIndex`](#suggestionsindex)
+  - [`inputSelector`](#inputselector)
+  - [`inputContent`](#inputcontent)
+  - [`keyboardShortcuts`](#keyboardshortcuts)
+  - [`hitComponent`](#hitcomponent)
+  - [`setUserToken`](#setusertoken)
+  - [`googleAnalytics`](#googleanalytics)
+  - [`refinements`](#refinements)
+  - [`sorts`](#sorts)
+  - [`styles`](#styles)
+- [Customizing the search UI](#customizing-the-search-ui)
+  - [Refinements](#refinements-1)
+  - [Sorting](#sorting)
+- [Adjusting the styling](#adjusting-the-styling)
+  - [Customizing colors](#customizing-colors)
+  - [Customizing breakpoints](#customizing-breakpoints)
+  - [Customizing text](#customizing-text)
+- [Disclaimer](#disclaimer)
 
 ## Getting started
 
@@ -298,7 +293,7 @@ const config = {
 | --- | --- |
 | ![Hierarchical preview](.github/screenshots/refinement-hierarchical.png) | The hierarchical refinement creates a navigation based on a hierarchy of facet attributes. It is commonly used for categories with subcategories. |
 
-##### Record schema
+##### Record schema <!-- omit in toc -->
 
 The records to use in the hierarchical menu must follow this structure:
 
@@ -332,7 +327,7 @@ You can also provide more than one path for each level:
 ]
 ```
 
-##### Options
+##### Options <!-- omit in toc -->
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -370,7 +365,7 @@ const config = {
 | --- | --- |
 | ![Category preview](.github/screenshots/refinement-category.png) | The category refinement displays a menu that lets the user choose a single value for a specific attribute. |
 
-##### Options
+##### Options <!-- omit in toc -->
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -405,7 +400,7 @@ const config = {
 | --- | --- |
 | ![List preview](.github/screenshots/refinement-list.png) | The list refinement displays a list that lets the user choose multiple values for a specific attribute. |
 
-##### Options
+##### Options <!-- omit in toc -->
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -441,11 +436,11 @@ const config = {
 | --- | --- |
 | ![Slider preview](.github/screenshots/refinement-slider.png) | The slider refinement provides a user-friendly way to filter the results, based on a single numeric range. |
 
-##### Record schema
+##### Record schema <!-- omit in toc -->
 
 The values inside `attribute` **must be numbers, not strings**.
 
-##### Options
+##### Options <!-- omit in toc -->
 
 | Key | Type | Description |
 | --- | --- | --- |
