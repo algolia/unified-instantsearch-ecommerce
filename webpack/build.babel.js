@@ -1,5 +1,6 @@
 import merge from 'webpack-merge';
 import path from 'path';
+import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserJSPlugin from 'terser-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
@@ -19,7 +20,7 @@ export default merge(base, {
       new TerserJSPlugin({
         terserOptions: {
           output: {
-            comments: false,
+            comments: new RegExp(config.licenserBanner),
           },
         },
         extractComments: false,
@@ -28,6 +29,9 @@ export default merge(base, {
     ],
   },
   plugins: [
+    new webpack.BannerPlugin({
+      banner: config.licenserBanner,
+    }),
     new MiniCssExtractPlugin({
       filename: `${config.filename}.css`,
     }),
