@@ -27,7 +27,10 @@
       }
     ],
     "plugin/no-unsupported-browser-features": [
-      true
+      true,
+      {
+        "severity": "warning"
+      }
     ]
   }
 }
