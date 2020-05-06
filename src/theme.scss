@@ -75,25 +75,6 @@ a[class^='ais-'] {
   font-weight: bold;
 }
 
-/* Hits */
-
-.ais-Hits-list,
-.ais-InfiniteHits-list {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr;
-  margin: 0;
-  @media (--algolia-theme-breakpoint-sm-min) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (--algolia-theme-breakpoint-md-min) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media (--algolia-theme-breakpoint-lg-min) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 /* Menus */
 
 .ais-RefinementList-list,

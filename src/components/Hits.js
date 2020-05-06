@@ -10,12 +10,12 @@ export const Hits = connectHits((props) => {
     <div className="ais-Hits">
       <ol
         className={[
-          'ais-Hits-list',
+          'ais-Hits-list uni-Hits',
           view === 'grid' ? 'uni-Hits--gridView' : 'uni-Hits--listView',
         ].join(' ')}
       >
         {props.hits.map((hit) => (
-          <li key={hit.objectID} className="ais-Hits-item">
+          <li key={hit.objectID} className="ais-Hits-item uni-Hits-item">
             <ConnectedHit hit={hit} />
           </li>
         ))}

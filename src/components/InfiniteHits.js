@@ -23,12 +23,15 @@ export const InfiniteHits = connectInfiniteHits((props) => {
 
       <ol
         className={[
-          'ais-InfiniteHits-list',
+          'ais-InfiniteHits-list uni-Hits',
           view === 'grid' ? 'uni-Hits--gridView' : 'uni-Hits--listView',
         ].join(' ')}
       >
         {props.hits.map((hit) => (
-          <li key={hit.objectID} className="ais-InfiniteHits-item">
+          <li
+            key={hit.objectID}
+            className="ais-InfiniteHits-item uni-InfiniteHits-item"
+          >
             <ConnectedHit hit={hit} />
           </li>
         ))}

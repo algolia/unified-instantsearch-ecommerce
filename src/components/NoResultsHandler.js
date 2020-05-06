@@ -35,12 +35,12 @@ export const NoResultsHandler = connectStateResults(function ResultsWrapper(
       <div className="ais-Hits">
         <ol
           className={[
-            'ais-Hits-list',
+            'ais-Hits-list uni-Hits',
             view === 'grid' ? 'uni-Hits--gridView' : 'uni-Hits--listView',
           ].join(' ')}
         >
           {Array.from({ length: 12 }, (_, i) => i).map((index) => (
-            <li key={index} className="ais-Hits-item">
+            <li key={index} className="ais-Hits-item uni-Hits-item">
               <article className="uni-Hit">
                 <div className="uni-Hit-placeholder" />
               </article>

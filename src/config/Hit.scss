@@ -5,8 +5,8 @@
 }
 
 .uni-Hit-header {
-  display: grid;
-  grid-gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .uni-Hit-title {
@@ -19,6 +19,7 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 1;
+  margin-bottom: 0.5rem;
   opacity: 0.7;
   text-transform: uppercase;
 }
@@ -54,8 +55,7 @@
   border: 1px solid #fff;
   border-radius: 3px;
   color: inherit;
-  display: grid;
-  grid-gap: 1rem;
+  display: block;
   padding: 1rem;
   position: relative;
   text-decoration: inherit;
@@ -75,19 +75,28 @@
 
 .uni-Hit-description {
   color: #777;
+  margin-bottom: 0.5rem;
 }
 
 .uni-Hit-image {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-bottom: 1rem;
+  img {
+    flex-shrink: 0;
+  }
 }
 
 .uni-Hit-Body {
-  display: grid;
-  grid-gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+.uni-Hit-header {
+  margin-bottom: 0.5rem;
 }
 
 .uni-Hit-Currency {
@@ -110,6 +119,7 @@
   border: 0;
   color: #999;
   cursor: pointer;
+  line-height: 1;
   padding: 0;
   transition: all 300ms ease-out;
   z-index: 1;
@@ -148,9 +158,30 @@
   }
 }
 
+.uni-Hits {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  overflow-x: hidden;
+  .uni-Hits-item {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}
+
 .uni-Hits--gridView {
-  .uni-Hit-inner {
-    grid-template-rows: 150px 1fr;
+  margin: 0 -10px;
+  .uni-Hits-item {
+    margin: 0 10px 20px;
+    @media (--algolia-theme-breakpoint-sm-min) {
+      width: calc(50% - 20px);
+    }
+    @media (--algolia-theme-breakpoint-md-min) {
+      width: calc(100% / 3 - 20px);
+    }
+    @media (--algolia-theme-breakpoint-lg-min) {
+      width: calc(25% - 20px);
+    }
   }
   .uni-Hit-image {
     height: 150px;
@@ -165,10 +196,14 @@
 
 .uni-Hits--listView {
   .uni-Hit-inner {
-    grid-template-columns: 100px 1fr;
+    display: flex;
   }
   .uni-Hit-image {
+    flex-grow: 0;
+    flex-shrink: 0;
     height: 130px;
+    margin-right: 1rem;
+    width: 100px;
     img {
       max-height: 130px;
     }
