@@ -39,7 +39,7 @@ export const HeaderSearchBox = connectSearchBox(function SearchBox(props) {
           props.refine(event.currentTarget.value);
         }}
         onKeyDown={(event) => {
-          if (event.key === 'Escape') {
+          if (event.keyCode === 27) {
             event.preventDefault();
             props.refine('');
           }

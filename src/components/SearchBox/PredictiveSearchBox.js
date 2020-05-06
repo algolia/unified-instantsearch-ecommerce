@@ -33,7 +33,7 @@ export const PredictiveSearchBox = (props) => {
           ) {
             event.preventDefault();
             props.refine(suggestion);
-          } else if (event.key === 'Escape') {
+          } else if (event.keyCode === 27) {
             event.preventDefault();
             props.refine('');
           }

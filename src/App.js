@@ -141,7 +141,7 @@ export function App({ config }) {
       }
 
       if (isOverlayShowing) {
-        if (event.key === 'Escape') {
+        if (event.keyCode === 27) {
           event.stopPropagation();
           event.preventDefault();
           setIsOverlayShowing(false);
