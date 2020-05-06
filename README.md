@@ -6,7 +6,7 @@
 
 **This project aims to be used by any e-commerce website to bootstrap a search experience powered by Algolia the fastest way possible.**
 
-While you would still have to push your data to Algolia, the goal of E-Commerce Unified is to remove the need to implement front-end logic and be able to start using Algolia as quickly as possible.
+While you would still have to push your data to Algolia, the goal of Unified InstantSearch E-Commerce is to remove the need to implement front-end logic and be able to start using Algolia as quickly as possible.
 
 ## Table of contents <!-- omit in toc -->
 
@@ -32,9 +32,9 @@ While you would still have to push your data to Algolia, the goal of E-Commerce 
   - [Refinements](#refinements-1)
   - [Sorting](#sorting)
 - [Adjusting the styling](#adjusting-the-styling)
-  - [`colors`](#colors)
-  - [`text`](#text)
-  - [`breakpoints`](#breakpoints)
+    - [`colors`](#colors)
+    - [`text`](#text)
+    - [`breakpoints`](#breakpoints)
 - [Disclaimer](#disclaimer)
 
 ## Getting started
