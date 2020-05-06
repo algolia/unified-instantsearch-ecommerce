@@ -48,6 +48,7 @@ body {
   display: flex;
   justify-content: center;
   min-height: 150px;
+  padding: 60px;
 }
 
 .content::after {
@@ -66,4 +67,5 @@ body {
   color: #d02139;
   color: var(--algolia-theme-color-primary);
   max-width: 400px;
+  width: 100%;
 }
