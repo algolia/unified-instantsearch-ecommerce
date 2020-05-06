@@ -163,7 +163,8 @@
   flex-wrap: wrap;
   margin: 0;
   overflow-x: hidden;
-  .uni-Hits-item {
+  .uni-Hits-item,
+  .uni-InfiniteHits-item {
     flex-grow: 0;
     flex-shrink: 0;
   }
@@ -171,8 +172,12 @@
 
 .uni-Hits--gridView {
   margin: 0 -10px;
-  .uni-Hits-item {
+  .uni-Hits-item,
+  .uni-InfiniteHits-item {
     margin: 0 10px 20px;
+    @media (--algolia-theme-breakpoint-below-sm-max) {
+      width: calc(100% - 20px);
+    }
     @media (--algolia-theme-breakpoint-sm-min) {
       width: calc(50% - 20px);
     }
