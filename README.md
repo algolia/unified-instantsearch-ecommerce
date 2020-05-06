@@ -12,6 +12,7 @@ While you would still have to push your data to Algolia, the goal of E-Commerce 
 
 - [Getting started](#getting-started)
   - [Instructions](#instructions)
+  - [Browser support](#browser-support)
   - [Commands](#commands)
 - [Configuration options](#configuration-options)
   - [`appId`](#appid)
@@ -31,9 +32,9 @@ While you would still have to push your data to Algolia, the goal of E-Commerce 
   - [Refinements](#refinements-1)
   - [Sorting](#sorting)
 - [Adjusting the styling](#adjusting-the-styling)
-    - [`colors`](#colors)
-    - [`text`](#text)
-    - [`breakpoints`](#breakpoints)
+  - [`colors`](#colors)
+  - [`text`](#text)
+  - [`breakpoints`](#breakpoints)
 - [Disclaimer](#disclaimer)
 
 ## Getting started
@@ -115,6 +116,16 @@ git merge upstream/master
 ```
 
 > **You need to test any change to your project to make sure it still works correctly in every environment where you intend to serve it**. We're versioning the project using the [Semantic Versioning](https://semver.org/) convention, using tags for each release. Before syncing your fork, make sure whether the changes are breaking or not, and whether they are compatible with your changes.
+
+### Browser support
+
+We support the last two versions of major browsers (Chrome, Edge, Firefox, Safari).
+
+To support [Internet Explorer 11](https://en.wikipedia.org/wiki/Internet_Explorer_11), we recommend using [polyfill.io](https://polyfill.io/v3/). Add this script to your page to conditionally load polyfills:
+
+```html
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default,Array.prototype.find,Array.prototype.includes,Promise,Object.assign,Object.entries,Object.values,IntersectionObserver"></script>
+```
 
 ### Commands
 
