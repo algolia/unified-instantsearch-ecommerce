@@ -1,9 +1,6 @@
-@import '../config/variables';
-
 .uni-SearchButton {
   align-items: center;
   background-color: #e8e8e8;
-  border: none;
   border: 2px solid transparent;
   border-radius: 20px;
   color: #000;
@@ -15,7 +12,7 @@
   padding: 0 12px;
   transition: border-color 100ms ease-out;
   user-select: none;
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     padding: 0 8px;
     width: 40px;
   }
@@ -23,7 +20,7 @@
     transition: none;
   }
   &:hover {
-    border: 2px solid var(--algolia-theme-primary);
+    border: 2px solid var(--algolia-theme-color-primary);
   }
   &:active,
   &:focus {
@@ -35,7 +32,7 @@
 
 .uni-SearchButton-InputContent {
   margin-left: 0.5rem;
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     display: none;
   }
 }
@@ -48,7 +45,7 @@
   color: #666;
   margin-left: 0.5rem;
   padding: 3px 5px;
-  @media (max-width: $breakpoint-sm) {
+  @media (--algolia-theme-breakpoint-sm-max) {
     display: none;
   }
 }

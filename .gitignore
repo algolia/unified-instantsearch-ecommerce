@@ -10,8 +10,9 @@
 /coverage
 
 # production
-/build
 /dist
+/build
+/export
 /preview
 
 # misc
@@ -24,6 +25,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# demo
-/public/search.js

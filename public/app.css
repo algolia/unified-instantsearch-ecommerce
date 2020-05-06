@@ -56,6 +56,6 @@ body {
 }
 
 .illustration {
-  color: var(--algolia-theme-primary);
+  color: var(--algolia-theme-color-primary);
   max-width: 400px;
 }
