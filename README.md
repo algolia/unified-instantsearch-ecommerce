@@ -102,7 +102,7 @@ Once you've customized the project and made sure it works properly, you need to 
 yarn export # or `npm run export`
 ```
 
-Then, include the generated `main.js` and `main.css` files in your project.
+Then, include the generated `search.js` and `search.css` files in your project.
 
 #### Updating the project <!-- omit in toc -->
 
@@ -515,6 +515,8 @@ const config = {
 ## Adjusting the styling
 
 The `src/config/index.js` file also lets you adjust Unified InstantSearch E-Commerce to your branding and the style of your website. All available options are under the `styles` property.
+
+> **NOTE:** if you change these values while in [development mode](#running-the-project-locally), you must to re-start the server to see your changes.
 
 #### `colors`
 
