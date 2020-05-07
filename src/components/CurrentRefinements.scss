@@ -1,10 +1,14 @@
 .ais-CurrentRefinements {
-  padding-top: 1.5rem;
+  padding-top: 1rem;
+  @media (--algolia-theme-breakpoint-sm-max) {
+    padding-top: 0.5rem;
+  }
 }
 
 .ais-CurrentRefinements-list {
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
 }
 
 .ais-CurrentRefinements-item {
