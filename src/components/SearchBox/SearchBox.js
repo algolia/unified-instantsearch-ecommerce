@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const SearchBox = (props) => {
-  const inputRef = React.createRef(null);
+  const inputRef = React.useRef(null);
 
   function onSubmit(event) {
     event.preventDefault();
