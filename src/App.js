@@ -176,6 +176,7 @@ export function App({ config }) {
         setSearchContext,
         ConnectedHit,
         isMobile,
+        topAnchor,
       }}
     >
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
