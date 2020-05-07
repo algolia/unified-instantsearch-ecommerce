@@ -17,10 +17,10 @@ module.exports = {
   },
   buildCommand() {
     // We don't build the project before releasing.
-    return null;
+    return 'echo "No build needed."';
   },
   publishCommand() {
     // We don't publish to npm.
-    return null;
+    return 'echo "No publish needed."';
   },
 };
