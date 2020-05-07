@@ -109,6 +109,7 @@
   .ais-SearchBox-input,
   .ais-SearchBox-completion {
     background: none;
+    border-bottom: 1px solid transparent;
     height: 100%;
     padding: 0 48px;
     position: absolute;
@@ -642,14 +643,10 @@
 
 /* No Results */
 
-.uni-NoResults {
-  display: grid;
-  grid-gap: 1rem;
-}
-
 .uni-NoResults-Title {
   font-size: 1.2rem;
   font-weight: normal;
+  margin-bottom: 1rem;
   em {
     font-style: normal;
     font-weight: bold;

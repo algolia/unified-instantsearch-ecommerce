@@ -35,6 +35,7 @@ While you would still have to push your data to Algolia, the goal of Unified Ins
     - [`colors`](#colors)
     - [`text`](#text)
     - [`breakpoints`](#breakpoints)
+    - [`baseZIndex`](#basezindex)
 - [Disclaimer](#disclaimer)
 
 ## Getting started
@@ -45,13 +46,28 @@ Follow the few steps described below to start using Unified InstantSearch E-Comm
 2. [**Fork this GitHub repository**](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to your own,
 3. **Replace the values in `src/config/index.js`** to better match your needs,
 4. **Run `yarn export` (or `npm run export`)** to build the JS and CSS files,
-5. **Host and include the generated JS and CSS files** on your front-end and start using!
+5. **Host and include the generated JS and CSS files** on your front-end:
+
+```html
+<html>
+  <head>
+    <link href="search.css" rel="stylesheet" />
+    <script src="search.js" defer></script>
+  </head>
+
+  <body>
+     <!-- The `inputContainer` where to inject the search box -->
+    <div id="search-button"></div>
+  </body>
+</html>
+```
 
 ### Instructions
 
 #### Prerequisites <!-- omit in toc -->
 
 To run and build the project, you need:
+
 - to create a [GitHub account](https://github.com/join/),
 - and to install [Node.js 12.x](https://nodejs.org/en/).
 
@@ -561,6 +577,14 @@ The `src/config/index.js` file also lets you adjust Unified InstantSearch E-Comm
 | `lg` | `number` | The breakpoint for large devices. |
 
 > We've adapted the design of Unified InstantSearch to the default breakpoints. If you change them, make sure the layout still works the way you expect.
+
+#### `baseZIndex`
+
+> `number` | required
+
+The base `z-index` for the entire search UI.
+
+> Make sure to set a value that's higher than any `z-index` you've set in the CSS of your website so that the search UI is always on top of it.
 
 ## Disclaimer
 
