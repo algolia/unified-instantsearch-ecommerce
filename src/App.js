@@ -184,11 +184,13 @@ export function App({ config }) {
         createPortal(
           <>
             <div
+              style={{ zIndex: config.styles.baseZIndex }}
               className="uni-Overlay"
               onClick={() => setIsOverlayShowing(false)}
             />
 
             <div
+              style={{ zIndex: config.styles.baseZIndex }}
               className={[
                 'uni-Container',
                 isFiltering === true && 'uni-Container--filtering',
