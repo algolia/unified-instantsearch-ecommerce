@@ -99,6 +99,7 @@ ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
       md: 768,
       lg: 1024,
     },
+    baseZIndex: 100,
   },
 };
 

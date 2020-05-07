@@ -35,6 +35,7 @@ While you would still have to push your data to Algolia, the goal of Unified Ins
     - [`colors`](#colors)
     - [`text`](#text)
     - [`breakpoints`](#breakpoints)
+    - [`baseZIndex`](#basezindex)
 - [Disclaimer](#disclaimer)
 
 ## Getting started
@@ -561,6 +562,14 @@ The `src/config/index.js` file also lets you adjust Unified InstantSearch E-Comm
 | `lg` | `number` | The breakpoint for large devices. |
 
 > We've adapted the design of Unified InstantSearch to the default breakpoints. If you change them, make sure the layout still works the way you expect.
+
+#### `baseZIndex`
+
+> `number` | required
+
+The base `z-index` for the entire search UI.
+
+> Make sure to set a value that's higher than any `z-index` you've set in the CSS of your website so that the search UI is always on top of it.
 
 ## Disclaimer
 
