@@ -158,7 +158,7 @@
 /* Query Suggestions */
 
 .uni-QuerySuggestions {
-  align-items: flex-start;
+  align-items: center;
   color: #fff;
   display: flex;
   justify-content: flex-start;
@@ -204,26 +204,19 @@
   line-height: 1;
   margin: 0.25rem 0;
   &:not(:last-of-type) {
-    margin-right: 1rem;
-    @media (--algolia-theme-breakpoint-sm-max) {
-      margin-right: 0.5rem;
-    }
+    margin-right: 0.5rem;
   }
 }
 
 .uni-QuerySuggestions-button {
-  background: none;
+  background: rgba(255, 255, 255, 0.3);
   border: 0;
+  border-radius: 9999px;
   color: inherit;
   cursor: pointer;
   letter-spacing: 0.03rem;
-  padding: 0;
+  padding: 0.25rem 0.75rem;
   white-space: nowrap;
-  @media (--algolia-theme-breakpoint-sm-max) {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 9999px;
-    padding: 0.25rem 0.75rem;
-  }
 }
 
 /* Refinements */
