@@ -1,0 +1,36 @@
+{
+  "plugins": [
+    "stylelint-prettier",
+    "stylelint-no-unsupported-browser-features"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-order",
+    "stylelint-a11y/recommended",
+    "stylelint-prettier/recommended"
+  ],
+  "rules": {
+    "selector-class-pattern": [
+      "^(?:ais-|uni-)[A-Z][a-zA-Z0-9]+[-a-zA-Z0-9]+$|^(?!ais-|uni-)(?:[a-z][a-z0-9]+)(?:-[a-z0-9]+)+$"
+    ],
+    "prettier/prettier": true,
+    "max-nesting-depth": [
+      2,
+      {
+        "ignore": [
+          "pseudo-classes"
+        ],
+        "ignoreAtRules": [
+          "media"
+        ]
+      }
+    ],
+    "plugin/no-unsupported-browser-features": [
+      null,
+      {
+        "severity": "warning"
+      }
+    ]
+  }
+}

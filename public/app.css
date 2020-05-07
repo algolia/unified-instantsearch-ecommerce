@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen,
+    ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header,
+.footer {
+  align-items: center;
+  display: flex;
+  padding: 1rem;
+  min-height: 64px;
+  background: #fff;
+}
+
+.header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+  font-size: 0.9rem;
+  justify-content: space-between;
+}
+
+.header-title {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.header-title h1 {
+  font-weight: bold;
+}
+
+.header-title img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.footer {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
+  justify-content: center;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 150px;
+  padding: 60px;
+}
+
+.content::after {
+  content: '';
+  display: block;
+  min-height: inherit;
+  font-size: 0;
+}
+
+.content:nth-child(2n + 1) {
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
+}
+
+.illustration {
+  color: #d02139;
+  color: var(--algolia-theme-color-primary);
+  max-width: 400px;
+  width: 100%;
+}

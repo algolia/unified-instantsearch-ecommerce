@@ -10,10 +10,14 @@
 /coverage
 
 # production
+/dist
 /build
+/export
+/preview
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local

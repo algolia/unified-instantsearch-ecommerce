@@ -1,0 +1,28 @@
+.ais-Panel-headerButton {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: #21243d;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.678rem;
+  font-weight: 600;
+  justify-content: space-between;
+  letter-spacing: 0.08rem;
+  line-height: 1.6;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
+  @media (--algolia-theme-breakpoint-md-max) {
+    padding: 1.2rem 0;
+  }
+}
+
+.ais-Panel-body {
+  margin-top: 1rem;
+}
+
+.ais-Panel-noRefinement {
+  display: none;
+}

@@ -1,0 +1,57 @@
+.uni-Slider {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  position: relative;
+  width: 100%;
+  .rheostat-background {
+    background-color: rgba(65, 66, 71, 0.08);
+    border-radius: 3px;
+    cursor: pointer;
+    height: 3px;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+  }
+  .rheostat-progress {
+    background-color: var(--algolia-theme-color-primary);
+    border-radius: 3px;
+    cursor: pointer;
+    height: 3px;
+    position: absolute;
+    top: -1px;
+  }
+  .rheostat-handle {
+    background-image: linear-gradient(to top, #f5f5fa, #fff);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
+      0 2px 3px 0 rgba(93, 100, 148, 0.2);
+    cursor: grab;
+    height: 16px;
+    outline: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    z-index: 1;
+    @media (--algolia-theme-breakpoint-lg-max) {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+}
+
+.uni-Slider-bar {
+  display: block;
+  padding: 0 8px;
+  @media (--algolia-theme-breakpoint-lg-max) {
+    padding: 0 0.75rem;
+  }
+}
+
+.uni-Slider-values {
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+}
