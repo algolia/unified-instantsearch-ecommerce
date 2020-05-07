@@ -3,7 +3,7 @@ import React from 'react';
 export function useMatchMedia(config) {
   const [isMobile, setIsMobile] = React.useState(
     () =>
-      !window.matchMedia(`(min-width: ${config.styles.breakpoints.sm}px)`)
+      !window.matchMedia(`(min-width: ${config.styles.breakpoints.md}px)`)
         .matches
   );
 
@@ -13,7 +13,7 @@ export function useMatchMedia(config) {
     }
 
     const mediaQuery = window.matchMedia(
-      `(min-width: ${config.styles.breakpoints.sm}px)`
+      `(min-width: ${config.styles.breakpoints.md}px)`
     );
 
     mediaQuery.addListener(onChange);
@@ -21,7 +21,7 @@ export function useMatchMedia(config) {
     return () => {
       mediaQuery.removeListener(onChange);
     };
-  }, [config.styles.breakpoints.sm]);
+  }, [config.styles.breakpoints.md]);
 
   return { isMobile };
 }

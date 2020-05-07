@@ -234,7 +234,7 @@
     box-shadow: -30px 0 50px 0 rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
-    height: calc(100% - 4rem);
+    height: 100%;
     position: relative;
     transform: translateX(120vh);
     transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
@@ -242,9 +242,6 @@
     @media screen and (prefers-reduced-motion: reduce) {
       transition: none;
     }
-  }
-  @media (--algolia-theme-breakpoint-sm-max) {
-    height: 100%;
   }
 }
 
@@ -318,36 +315,34 @@
   margin-right: 60px;
   max-width: 260px;
   @media (--algolia-theme-breakpoint-md-max) {
+    bottom: 0;
     height: 100%;
     left: 6rem;
     margin: 0;
     max-width: 100%;
     pointer-events: none;
     position: fixed;
-    right: 2rem;
-    top: 2rem;
-    width: calc(100% - 8rem);
+    right: 0;
+    top: 0;
+    width: calc(100% - 6rem);
     z-index: 2;
   }
   @media (--algolia-theme-breakpoint-sm-max) {
-    bottom: 0;
     left: 3rem;
-    right: 0;
-    top: 0;
     width: calc(100% - 3rem);
   }
 }
 
 .uni-LeftPanel-Overlay {
   background: rgba(0, 0, 0, 0.5);
-  bottom: 2rem;
+  bottom: 0;
   content: '';
   display: block;
-  left: 2rem;
+  left: 0;
   opacity: 0;
   position: fixed;
-  right: 2rem;
-  top: 2rem;
+  right: 0;
+  top: 0;
   transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
   will-change: opacity;
   z-index: 2;
@@ -356,12 +351,6 @@
   }
   @media (--algolia-theme-breakpoint-md-max) {
     pointer-events: none;
-  }
-  @media (--algolia-theme-breakpoint-sm-max) {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
   }
 }
 
@@ -597,18 +586,17 @@
   font-family: var(--algolia-theme-text-fontFamily);
   -webkit-font-smoothing: antialiased;
   left: 0;
+  margin: 2rem;
   overflow-x: hidden;
   overflow-y: scroll;
   position: fixed;
   right: 0;
   top: 0;
-  @media (--algolia-theme-breakpoint-sm-min) {
-    margin: 2rem;
-  }
   * {
     outline-color: var(--algolia-theme-color-primary);
   }
   @media (--algolia-theme-breakpoint-md-max) {
+    margin: 0;
     &.uni-Container--filtering {
       overflow: hidden;
       .uni-LeftPanel {
