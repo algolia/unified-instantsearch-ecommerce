@@ -144,7 +144,12 @@ export function App({ config }) {
         if (event.keyCode === 27) {
           event.stopPropagation();
           event.preventDefault();
-          setIsOverlayShowing(false);
+
+          if (isFiltering) {
+            setIsFiltering(false);
+          } else {
+            setIsOverlayShowing(false);
+          }
         }
       } else if (!isOverlayShowing) {
         if (
@@ -163,7 +168,12 @@ export function App({ config }) {
     return () => {
       window.removeEventListener('keydown', onKeydown);
     };
-  }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
+  }, [
+    isOverlayShowing,
+    isFiltering,
+    setIsOverlayShowing,
+    config.keyboardShortcuts,
+  ]);
 
   return (
     <AppContext.Provider
