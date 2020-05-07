@@ -642,14 +642,10 @@
 
 /* No Results */
 
-.uni-NoResults {
-  display: grid;
-  grid-gap: 1rem;
-}
-
 .uni-NoResults-Title {
   font-size: 1.2rem;
   font-weight: normal;
+  margin-bottom: 1rem;
   em {
     font-style: normal;
     font-weight: bold;
