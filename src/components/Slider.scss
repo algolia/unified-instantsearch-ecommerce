@@ -34,7 +34,7 @@
     transform: translate(-50%, -50%);
     width: 16px;
     z-index: 1;
-    @media (--algolia-theme-breakpoint-lg-max) {
+    @media (--algolia-theme-breakpoint-md-max) {
       height: 1.5rem;
       width: 1.5rem;
     }
@@ -44,7 +44,7 @@
 .uni-Slider-bar {
   display: block;
   padding: 0 8px;
-  @media (--algolia-theme-breakpoint-lg-max) {
+  @media (--algolia-theme-breakpoint-md-max) {
     padding: 0 0.75rem;
   }
 }
