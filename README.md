@@ -55,6 +55,7 @@ Follow the few steps described below to start using Unified InstantSearch E-Comm
   </head>
 
   <body>
+     <!-- The `inputContainer` where to inject the search box -->
     <div id="search-button"></div>
   </body>
 </html>
