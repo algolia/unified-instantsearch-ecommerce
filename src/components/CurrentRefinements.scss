@@ -1,7 +1,7 @@
 .ais-CurrentRefinements {
   padding-top: 1rem;
-  @media (--algolia-theme-breakpoint-sm-max) {
-    padding-top: 0.5rem;
+  @media (--algolia-theme-breakpoint-md-max) {
+    padding: 0 0 1rem;
   }
 }
 
@@ -26,11 +26,17 @@
 
 .ais-CurrentRefinements-label {
   padding: 4px 4px 4px 8px;
+  @media (--algolia-theme-breakpoint-md-max) {
+    padding: 0.5rem;
+  }
 }
 
 .ais-CurrentRefinements-categoryLabel {
   font-weight: bold;
   padding: 4px 6px 4px 0;
+  @media (--algolia-theme-breakpoint-md-max) {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
 }
 
 .ais-CurrentRefinements-delete {
@@ -41,4 +47,7 @@
   cursor: pointer;
   height: 100%;
   padding: 0 6px;
+  @media (--algolia-theme-breakpoint-md-max) {
+    padding: 0 0.5rem;
+  }
 }
