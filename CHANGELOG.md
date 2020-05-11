@@ -1,3 +1,7 @@
+# [0.1.0-beta.2](https://github.com/algolia/ecomm-unified/compare/v0.1.0-beta.0...v0.1.0-beta.2) (2020-05-11)
+
+
+
 # [0.1.0-beta.1](https://github.com/algolia/ecomm-unified/compare/v0.1.0-beta.0...v0.1.0-beta.1) (2020-05-11)
 
 
