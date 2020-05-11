@@ -61,7 +61,7 @@
     "prettier": "2.0.4",
     "prop-types": "15.7.2",
     "sass-loader": "8.0.2",
-    "shipjs": "0.18.3",
+    "shipjs": "0.18.4",
     "style-loader": "1.2.1",
     "stylelint": "13.3.2",
     "stylelint-a11y": "1.2.3",
