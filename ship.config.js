@@ -15,6 +15,10 @@ module.exports = {
       `export const version = '${version}';\n`
     );
   },
+  beforeCommitChanges: ({ exec }) => {
+    exec('git config user.email "shipjs@test.com"');
+    exec('git config user.name "shipjs"');
+  },
   buildCommand() {
     // We don't build the project before releasing.
     return 'echo "No build needed."';
