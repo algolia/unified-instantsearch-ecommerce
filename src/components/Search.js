@@ -17,7 +17,7 @@ import { SeeResultsButton } from './SeeResultsButton';
 import { ResetButton } from './ResetButton';
 
 export function Search(props) {
-  const { config, view, searchParameters } = useAppContext();
+  const { config, view, searchParameters, isMobile } = useAppContext();
   const { isSearchStalled } = useSearchContext();
 
   const filtersAnchor = React.useRef();
@@ -79,6 +79,7 @@ export function Search(props) {
                     Close
                   </button>
                 </header>
+                {isMobile && <CurrentRefinements />}
                 <Refinements />
               </div>
               <footer className="uni-Refinements-footer" data-layout="mobile">
@@ -119,7 +120,7 @@ export function Search(props) {
                   </div>
                 </div>
               </div>
-              <CurrentRefinements />
+              {!isMobile && <CurrentRefinements />}
             </header>
 
             <main className="uni-BodyContent">

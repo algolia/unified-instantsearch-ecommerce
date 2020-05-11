@@ -20,7 +20,10 @@
 }
 
 .ais-Panel-body {
-  margin-top: 1rem;
+  padding-top: 1rem;
+  @media (--algolia-theme-breakpoint-md-max) {
+    padding: 1rem 0;
+  }
 }
 
 .ais-Panel-noRefinement {

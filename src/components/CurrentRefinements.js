@@ -82,11 +82,17 @@ function getRefinement(refinement, config) {
 
 export const CurrentRefinements = connectCurrentRefinements(
   function CurrentRefinements({ items, refine }) {
-    const { config } = useAppContext();
+    const { config, setSearchContext } = useAppContext();
 
     const refinements = items.reduce((acc, current) => {
       return [...acc, ...getRefinement(current, config)];
     }, []);
+
+    React.useEffect(() => {
+      setSearchContext({
+        refinementCount: refinements.length,
+      });
+    }, [setSearchContext, refinements.length]);
 
     if (refinements.length === 0) {
       return null;

@@ -1,8 +1,11 @@
 import React from 'react';
 
 import { FilterIcon } from './FilterIcon';
+import { useSearchContext } from '../hooks';
 
 export function FiltersButton({ onClick }) {
+  const { refinementCount } = useSearchContext();
+
   return (
     <button
       data-layout="mobile"
@@ -11,6 +14,9 @@ export function FiltersButton({ onClick }) {
     >
       <FilterIcon />
       Filters
+      {refinementCount > 0 && (
+        <span className="uni-FiltersButton-Count">{refinementCount}</span>
+      )}
     </button>
   );
 }

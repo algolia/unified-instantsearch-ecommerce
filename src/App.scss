@@ -554,9 +554,9 @@
   height: 40px;
   justify-content: center;
   left: 50%;
+  min-width: 112px;
   position: fixed;
   transform: translateX(-50%);
-  width: 112px;
   z-index: 3;
   @media (--algolia-theme-breakpoint-sm-max) {
     bottom: 2rem;
@@ -567,6 +567,14 @@
   height: 14px;
   margin-right: 8px;
   width: 16px;
+}
+
+.uni-FiltersButton-Count {
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 9999px;
+  margin-left: 0.5rem;
+  min-width: 22px;
+  padding: 2px 6px;
 }
 
 /* Container & Overlay */
