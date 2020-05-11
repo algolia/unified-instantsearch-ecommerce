@@ -37,7 +37,10 @@ jobs:
       - save_cache: *save_yarn_cache
       - run:
           name: Try to Release
-          command: yarn release:trigger
+          command: |
+            git config --global user.email "bot@shipjs.com"
+            git config --global user.name "shipjs"
+            yarn release:trigger
 workflows:
   version: 2
   ci:
