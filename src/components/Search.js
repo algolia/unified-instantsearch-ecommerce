@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  InstantSearch,
-  Configure,
-  SortBy,
-  ScrollTo,
-} from 'react-instantsearch-dom';
+import { InstantSearch, Configure, SortBy } from 'react-instantsearch-dom';
 
 import { useAppContext, useSearchContext } from '../hooks';
 import { Banner } from './Banner';
@@ -22,7 +17,7 @@ import { SeeResultsButton } from './SeeResultsButton';
 import { ResetButton } from './ResetButton';
 
 export function Search(props) {
-  const { config, view, searchParameters } = useAppContext();
+  const { config, view, searchParameters, isMobile } = useAppContext();
   const { isSearchStalled } = useSearchContext();
 
   const filtersAnchor = React.useRef();
@@ -84,6 +79,7 @@ export function Search(props) {
                     Close
                   </button>
                 </header>
+                {isMobile && <CurrentRefinements />}
                 <Refinements />
               </div>
               <footer className="uni-Refinements-footer" data-layout="mobile">
@@ -102,39 +98,37 @@ export function Search(props) {
           </div>
 
           <div className="uni-RightPanel">
-            <ScrollTo>
-              <header className="uni-BodyHeader">
-                <div className="uni-BodyHeader-heading">
-                  <div className="uni-BodyHeader-stats">
-                    <Stats />
-                  </div>
+            <header className="uni-BodyHeader">
+              <div className="uni-BodyHeader-heading">
+                <div className="uni-BodyHeader-stats">
+                  <Stats />
+                </div>
 
-                  <div className="uni-BodyHeader-extraOptions">
-                    {config.sorts?.length > 0 && (
-                      <div className="uni-BodyHeader-sortBy">
-                        <span className="uni-Label">Sort by</span>
-                        <SortBy
-                          items={config.sorts}
-                          defaultRefinement={config.sorts[0].value}
-                        />
-                      </div>
-                    )}
-
-                    <div>
-                      <Views view={view} setView={props.setView} />
+                <div className="uni-BodyHeader-extraOptions">
+                  {config.sorts?.length > 0 && (
+                    <div className="uni-BodyHeader-sortBy">
+                      <span className="uni-Label">Sort by</span>
+                      <SortBy
+                        items={config.sorts}
+                        defaultRefinement={config.sorts[0].value}
+                      />
                     </div>
+                  )}
+
+                  <div>
+                    <Views view={view} setView={props.setView} />
                   </div>
                 </div>
-                <CurrentRefinements />
-              </header>
+              </div>
+              {!isMobile && <CurrentRefinements />}
+            </header>
 
-              <main className="uni-BodyContent">
-                <Banner />
-                <NoResultsHandler>
-                  <ProductList />
-                </NoResultsHandler>
-              </main>
-            </ScrollTo>
+            <main className="uni-BodyContent">
+              <Banner />
+              <NoResultsHandler>
+                <ProductList />
+              </NoResultsHandler>
+            </main>
           </div>
           <FiltersButton
             onClick={() => {

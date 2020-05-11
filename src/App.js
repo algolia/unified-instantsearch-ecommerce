@@ -144,7 +144,12 @@ export function App({ config }) {
         if (event.keyCode === 27) {
           event.stopPropagation();
           event.preventDefault();
-          setIsOverlayShowing(false);
+
+          if (isFiltering) {
+            setIsFiltering(false);
+          } else {
+            setIsOverlayShowing(false);
+          }
         }
       } else if (!isOverlayShowing) {
         if (
@@ -163,7 +168,12 @@ export function App({ config }) {
     return () => {
       window.removeEventListener('keydown', onKeydown);
     };
-  }, [isOverlayShowing, setIsOverlayShowing, config.keyboardShortcuts]);
+  }, [
+    isOverlayShowing,
+    isFiltering,
+    setIsOverlayShowing,
+    config.keyboardShortcuts,
+  ]);
 
   return (
     <AppContext.Provider
@@ -176,6 +186,7 @@ export function App({ config }) {
         setSearchContext,
         ConnectedHit,
         isMobile,
+        topAnchor,
       }}
     >
       <SearchButton onClick={() => setIsOverlayShowing(true)} />
@@ -184,11 +195,13 @@ export function App({ config }) {
         createPortal(
           <>
             <div
+              style={{ zIndex: config.styles.baseZIndex }}
               className="uni-Overlay"
               onClick={() => setIsOverlayShowing(false)}
             />
 
             <div
+              style={{ zIndex: config.styles.baseZIndex }}
               className={[
                 'uni-Container',
                 isFiltering === true && 'uni-Container--filtering',

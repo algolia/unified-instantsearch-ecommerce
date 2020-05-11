@@ -12,6 +12,7 @@
 
 .uni-Hit-title {
   font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.025rem;
 }
 
@@ -96,11 +97,15 @@
   word-break: break-word;
 }
 
-.uni-Hit-Currency {
+.uni-Hit-currency {
   color: var(--algolia-theme-color-primary);
   font-size: 13px;
   font-weight: 600;
   padding-right: 2px;
+}
+
+.uni-Hit-price {
+  font-weight: 600;
 }
 
 .uni-Hit-Actions {

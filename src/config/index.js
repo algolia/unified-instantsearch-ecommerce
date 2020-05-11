@@ -78,7 +78,7 @@ const config = {
         attribute: 'price',
         transformValue: (value) => (
           <>
-            <span className="uni-Hit-Currency">$</span>
+            <span className="uni-Hit-currency">$</span>
             {value}
           </>
         ),
@@ -99,6 +99,7 @@ ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
       md: 768,
       lg: 1024,
     },
+    baseZIndex: 100,
   },
 };
 

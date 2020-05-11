@@ -23,6 +23,12 @@ export const SearchBox = (props) => {
     props.onReset();
   }
 
+  React.useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [inputRef]);
+
   return (
     <div className="ais-SearchBox">
       <form
@@ -102,7 +108,6 @@ export const SearchBox = (props) => {
             autoCapitalize="off"
             spellCheck={false}
             maxLength={512}
-            autoFocus
             placeholder={props.translations.placeholder}
             value={props.currentRefinement}
             onChange={props.onChange}
