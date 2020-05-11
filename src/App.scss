@@ -158,7 +158,7 @@
 /* Query Suggestions */
 
 .uni-QuerySuggestions {
-  align-items: center;
+  align-items: flex-start;
   color: #fff;
   display: flex;
   justify-content: flex-start;
@@ -189,6 +189,7 @@
   font-weight: bold;
   margin: 0.25rem 0;
   padding-right: 1rem;
+  padding-top: 5px;
   @media (--algolia-theme-breakpoint-sm-max) {
     display: none;
   }
