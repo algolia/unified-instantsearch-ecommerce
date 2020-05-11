@@ -12,6 +12,8 @@ export default merge(base, {
     contentBase: './public',
     hot: true,
     port: 3000,
+    host: '0.0.0.0',
+    disableHostCheck: true,
   },
   plugins: [...files, new DashboardPlugin()],
   module: merge.smart(

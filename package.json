@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dashboard -- webpack-dev-server --open --config webpack/dev.babel.js",
+    "start": "webpack-dashboard -- webpack-dev-server --config webpack/dev.babel.js",
     "export": "webpack --config webpack/build.babel.js",
     "preview": "webpack --config webpack/preview.babel.js",
     "lint": "run-p -c lint:*",
