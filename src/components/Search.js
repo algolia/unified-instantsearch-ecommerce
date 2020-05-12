@@ -74,9 +74,10 @@ export function Search(props) {
                     onClick={() => {
                       props.setIsFiltering(false);
                     }}
-                    className="uni-Refinements-button"
+                    className="uni-Refinements-closeButton"
+                    title="Close filters"
                   >
-                    Close
+                    <CloseIcon />
                   </button>
                 </header>
                 {isMobile && <CurrentRefinements />}
