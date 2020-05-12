@@ -13,7 +13,7 @@ export const ResetButton = connectCurrentRefinements(function ResetButton(
       }}
       disabled={props.items.length === 0}
     >
-      Reset filters
+      Clear all
     </button>
   );
 });
