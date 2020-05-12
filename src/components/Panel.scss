@@ -22,7 +22,8 @@
 .ais-Panel-body {
   padding-top: 1rem;
   @media (--algolia-theme-breakpoint-md-max) {
-    padding: 1rem 0;
+    padding-bottom: 1rem;
+    padding-top: 0;
   }
 }
 

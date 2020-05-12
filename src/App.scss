@@ -242,7 +242,7 @@
 .uni-Refinements-scrollable {
   @media (--algolia-theme-breakpoint-md-max) {
     flex-grow: 1;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
   }
 }
 
@@ -256,6 +256,19 @@
   margin-bottom: 1rem;
 }
 
+.uni-Refinements-closeButton {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  margin-right: -0.5rem;
+  padding: 0.5rem;
+  svg {
+    height: auto;
+    width: 20px;
+  }
+}
+
 .uni-Refinements-button {
   background-color: #dddcdc;
   border: 0;
@@ -263,6 +276,7 @@
   color: var(--algolia-theme-color-secondary);
   cursor: pointer;
   display: flex;
+  flex: 1;
   flex-shrink: 0;
   font-size: 0.75rem;
   font-weight: bold;
@@ -274,21 +288,19 @@
 .uni-Refinements-resultButton {
   background-color: var(--algolia-theme-color-primary);
   color: #fff;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .uni-Refinements-footer {
   background-color: #fff;
   border-top: 1px solid #ebecf3;
+  box-shadow: 0 0 4px rgba(150, 150, 150, 0.24);
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem;
   width: 100%;
   z-index: 2;
-  .uni-Refinements-button {
-    flex-grow: 1;
-  }
 }
 
 /* Containers */
