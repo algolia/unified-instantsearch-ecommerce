@@ -8,6 +8,14 @@ import { getDomElement } from '../utils';
 export const SearchButton = ({ onClick }) => {
   const { config } = useAppContext();
 
+  const inputSelector = getDomElement(config.inputContainer);
+
+  if (inputSelector instanceof HTMLInputElement) {
+    throw new Error(
+      'The `inputContainer` option must refer to a container (e.g., <div>), not an <input>.'
+    );
+  }
+
   return ReactDOM.createPortal(
     <button
       type="button"
@@ -28,7 +36,7 @@ export const SearchButton = ({ onClick }) => {
         </kbd>
       )}
     </button>,
-    getDomElement(config.inputContainer)
+    inputSelector
   );
 };
 
