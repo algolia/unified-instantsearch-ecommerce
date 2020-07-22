@@ -41,18 +41,18 @@ export function Hit({ hit, insights, view }) {
 
         <div className="uni-Hit-Actions">
           <button
-            title="Like this product"
+            title="Add to cart"
             className="uni-Hit-ActionButton"
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
 
               insights('convertedObjectIDsAfterSearch', {
-                eventName: 'Product Liked',
+                eventName: 'Product Added to Cart',
               });
             }}
           >
-            <LikeIcon />
+            <CartIcon />
           </button>
         </div>
       </a>
@@ -60,17 +60,19 @@ export function Hit({ hit, insights, view }) {
   );
 }
 
-function LikeIcon(props) {
+function CartIcon(props) {
   return (
     <svg
       viewBox="0 0 24 24"
       width={20}
       height={20}
       stroke="currentColor"
-      strokeWidth={2}
+      stroke-width={2}
       {...props}
     >
-      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      <circle cx="9" cy="21" r="1" />
+      <circle cx="20" cy="21" r="1" />
+      <path d="M5 1H1l0 0H5l2.7 13.4c0.2 1 1 1.6 2 1.6h9.7c1 0 1.8-0.7 2-1.6L23 6H6" />
     </svg>
   );
 }
