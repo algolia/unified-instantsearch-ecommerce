@@ -1,5 +1,4 @@
 import merge from 'webpack-merge';
-import DashboardPlugin from 'webpack-dashboard/plugin';
 
 import base from './base.babel';
 import scss from './loaders/scss';
@@ -15,7 +14,7 @@ export default merge(base, {
     host: '0.0.0.0',
     disableHostCheck: true,
   },
-  plugins: [...files, new DashboardPlugin()],
+  plugins: [...files],
   module: merge.smart(
     {
       rules: [
