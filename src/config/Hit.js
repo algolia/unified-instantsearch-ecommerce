@@ -67,7 +67,7 @@ function CartIcon(props) {
       width={20}
       height={20}
       stroke="currentColor"
-      stroke-width={2}
+      strokeWidth={2}
       {...props}
     >
       <circle cx="9" cy="21" r="1" />
