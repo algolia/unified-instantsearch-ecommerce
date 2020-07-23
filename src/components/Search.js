@@ -114,7 +114,7 @@ export function Search(props) {
                 </div>
 
                 <div className="uni-BodyHeader-extraOptions">
-                  {sorts?.length > 1 && (
+                  {sorts.length > 1 && (
                     <div className="uni-BodyHeader-sortBy">
                       <span className="uni-Label">Sort by</span>
                       <SortBy
