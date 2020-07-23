@@ -27,10 +27,6 @@ const config = {
   googleAnalytics: false,
   sorts: [
     {
-      label: 'Featured',
-      value: 'instant_search',
-    },
-    {
       label: 'Price ascending',
       value: 'instant_search_price_asc',
     },
