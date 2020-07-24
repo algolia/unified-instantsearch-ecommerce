@@ -4,9 +4,9 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config webpack/dev.babel.js",
-    "export": "webpack --config webpack/build.babel.js",
-    "preview": "webpack --config webpack/preview.babel.js",
+    "start": "NODE_ENV=development webpack-dev-server --config webpack/dev.babel.js",
+    "export": "NODE_ENV=production webpack --config webpack/build.babel.js",
+    "preview": "NODE_ENV=production webpack --config webpack/preview.babel.js",
     "lint": "run-p -c lint:*",
     "lint:js": "eslint --ext .js .",
     "lint:css": "stylelint '**/*.(s)css'",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "algoliasearch": "4.1.0",
+    "invariant": "2.2.4",
     "node-sass": "4.13.1",
     "qs": "6.9.3",
     "react": "16.13.1",
@@ -34,6 +35,7 @@
     "@babel/runtime": "7.9.6",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.1.0",
+    "babel-plugin-strip-invariant": "1.0.0",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
     "clean-webpack-plugin": "3.0.0",
     "copy-webpack-plugin": "5.1.1",

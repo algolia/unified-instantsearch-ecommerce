@@ -9,5 +9,12 @@
         "ignoreFilenames": ["node_modules"]
       }
     ]
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "babel-plugin-strip-invariant"
+      ]
+    }
+  }
 }
