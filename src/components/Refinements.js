@@ -56,7 +56,7 @@ function RefinementWidget({ type, ...props }) {
       );
 
     default:
-      throw new Error(`The refinement type "${type}" is not supported.`);
+      return null;
   }
 }
 

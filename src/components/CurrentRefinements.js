@@ -73,9 +73,7 @@ function getRefinement(refinement, config) {
     }
 
     default: {
-      throw new Error(
-        `The refinement type "${refinementConfig.type}" is not supported.`
-      );
+      return null;
     }
   }
 }
