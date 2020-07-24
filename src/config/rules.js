@@ -17,7 +17,7 @@ const rules = {
 
       return response;
     },
-    errorMessage(_, context) {
+    errorMessage(context) {
       if (!context?.isElement) {
         return 'The `inputContainer` option must refer to a valid HTML element.';
       }
@@ -44,7 +44,7 @@ const rules = {
 
       return response;
     },
-    errorMessage(_, context) {
+    errorMessage(context) {
       return `The refinement type "${context?.unknownType?.type}" is not supported.`;
     },
   },

@@ -37,7 +37,7 @@ const config = {
   ],
   refinements: [
     {
-      type: 'hierarchical',
+      type: 'hierarchicall',
       header: 'Categories',
       label: 'Category',
       options: {

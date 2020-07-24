@@ -66,7 +66,7 @@ export function validateConfig(config, rules) {
     if (rule) {
       const { valid, context } = rule.validate(input);
 
-      invariant(valid, rule.errorMessage(input, context));
+      invariant(valid, rule.errorMessage({ ...context, input }));
     }
   });
 }
