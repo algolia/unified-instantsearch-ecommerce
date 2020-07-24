@@ -5,7 +5,6 @@ import scss from './loaders/scss';
 import files from './plugins/files';
 
 export default merge(base, {
-  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './public',
