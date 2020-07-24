@@ -1906,6 +1906,11 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
+babel-plugin-strip-invariant@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-strip-invariant/-/babel-plugin-strip-invariant-1.0.0.tgz#09d1046a0bf818f558535a4d7a87cbc4a6136d11"
+  integrity sha512-ZQcVDBlxcpKiayFfGq+YQs4JdR6E8k78JCFXaMpu33DL5pddrpAsYxv1Qm5Is1daT5OUdoNr7yuuTaRcSFn7GQ==
+
 babel-plugin-transform-react-remove-prop-types@0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
