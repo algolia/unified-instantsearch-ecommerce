@@ -4,6 +4,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import config from './config';
 
 export default {
+  mode: process.env.NODE_ENV,
   entry: './src/index.js',
   output: {
     filename: `${config.filename}.js`,

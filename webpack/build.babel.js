@@ -11,7 +11,6 @@ import scss from './loaders/scss';
 import config from './config';
 
 export default merge(base, {
-  mode: 'production',
   output: {
     path: path.resolve('./export'),
   },
