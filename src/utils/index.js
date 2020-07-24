@@ -1,3 +1,5 @@
+import invariant from 'invariant';
+
 export function parseAttribute({
   highlightPreTag,
   highlightPostTag,
@@ -54,4 +56,17 @@ export function getDomElement(value) {
   const isSelectorString = typeof value === 'string';
 
   return isSelectorString ? document.querySelector(value) : value;
+}
+
+export function validateConfig(config, rules) {
+  Object.keys(config).forEach((optionName) => {
+    const input = config[optionName];
+    const rule = rules[optionName];
+
+    if (rule) {
+      const { valid, context } = rule.validate(input);
+
+      invariant(valid, rule.errorMessage(input, context));
+    }
+  });
 }
