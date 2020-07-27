@@ -10,6 +10,7 @@
 | Unless mandatory, if you don't use a setting, feel free to comment it out.
 |
 | View the full documentation at http://alg.li/unified/doc
+|
 */
 
 import React from 'react';
