@@ -7,8 +7,11 @@ import './theme.scss';
 import './App.scss';
 
 import config from './config';
+import rules from './config/rules';
 import { App } from './App';
-import { getDomElement } from './utils';
+import { getDomElement, validateConfig } from './utils';
+
+validateConfig(config, rules);
 
 ReactDOM.render(
   <Router>

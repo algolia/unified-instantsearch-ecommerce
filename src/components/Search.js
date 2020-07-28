@@ -22,6 +22,14 @@ export function Search(props) {
 
   const filtersAnchor = React.useRef();
 
+  const defaultSort = [
+    {
+      label: 'Featured',
+      value: config.index.indexName,
+    },
+  ];
+  const sorts = defaultSort.concat(config.sorts);
+
   React.useEffect(() => {
     if (filtersAnchor.current && props.isFiltering) {
       filtersAnchor.current.scrollTop = 0;
@@ -74,9 +82,10 @@ export function Search(props) {
                     onClick={() => {
                       props.setIsFiltering(false);
                     }}
-                    className="uni-Refinements-button"
+                    className="uni-Refinements-closeButton"
+                    title="Close filters"
                   >
-                    Close
+                    <CloseIcon />
                   </button>
                 </header>
                 {isMobile && <CurrentRefinements />}
@@ -105,12 +114,12 @@ export function Search(props) {
                 </div>
 
                 <div className="uni-BodyHeader-extraOptions">
-                  {config.sorts?.length > 0 && (
+                  {sorts.length > 1 && (
                     <div className="uni-BodyHeader-sortBy">
                       <span className="uni-Label">Sort by</span>
                       <SortBy
-                        items={config.sorts}
-                        defaultRefinement={config.sorts[0].value}
+                        items={sorts}
+                        defaultRefinement={sorts[0].value}
                       />
                     </div>
                   )}
