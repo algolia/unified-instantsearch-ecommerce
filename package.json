@@ -18,8 +18,6 @@
     "invariant": "2.2.4",
     "preact": "10.4.0",
     "qs": "6.9.3",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
     "react-instantsearch-dom": "6.4.0",
     "react-router-dom": "5.1.2",
     "rheostat": "2.2.0",
