@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 
 import { Hits } from './Hits';
 import { InfiniteHits } from './InfiniteHits';

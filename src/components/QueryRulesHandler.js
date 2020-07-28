@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { QueryRuleContext } from 'react-instantsearch-dom';
 
 const getRulesContextFromSearchState = ({ refinementList = {}, menu = {} }) => {

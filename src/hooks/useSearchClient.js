@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import algoliasearch from 'algoliasearch/lite';
 
 import { version } from '../version';

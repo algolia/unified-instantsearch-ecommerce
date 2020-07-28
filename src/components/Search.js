@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { InstantSearch, Configure, SortBy } from 'react-instantsearch-dom';
 
 import { useAppContext, useSearchContext } from '../hooks';

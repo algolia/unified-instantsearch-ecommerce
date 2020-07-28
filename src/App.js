@@ -1,5 +1,4 @@
-import React from 'react';
-import { createPortal } from 'react-dom';
+import React, { createPortal } from 'preact/compat';
 import { connectHitInsights } from 'react-instantsearch-dom';
 import { useHistory, useLocation } from 'react-router-dom';
 
