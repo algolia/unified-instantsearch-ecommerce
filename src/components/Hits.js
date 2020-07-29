@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { connectHits } from 'react-instantsearch-dom';
 
 import { useAppContext } from '../hooks';

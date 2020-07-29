@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { connectInfiniteHits } from 'react-instantsearch-dom';
 
 import { useAppContext, useIntersectionObserver } from '../hooks';

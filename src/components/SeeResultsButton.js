@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { connectStats } from 'react-instantsearch-dom';
 
 export const SeeResultsButton = connectStats(function SeeResultsButton(props) {

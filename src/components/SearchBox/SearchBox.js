@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 
 export const SearchBox = (props) => {
   const inputRef = React.useRef(null);

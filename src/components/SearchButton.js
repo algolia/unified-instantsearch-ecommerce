@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { createPortal } from 'preact/compat';
 
 import './SearchButton.scss';
 import { useAppContext } from '../hooks';
@@ -8,7 +7,7 @@ import { getDomElement } from '../utils';
 export const SearchButton = ({ onClick }) => {
   const { config } = useAppContext();
 
-  return ReactDOM.createPortal(
+  return createPortal(
     <button
       type="button"
       className="uni-SearchButton"

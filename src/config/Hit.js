@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { Highlight, Snippet } from 'react-instantsearch-dom';
 
 import './Hit.scss';

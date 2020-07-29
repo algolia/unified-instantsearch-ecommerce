@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { Index, connectHits, Configure } from 'react-instantsearch-dom';
 
 import { QUERY_SUGGESTIONS_INDEX_NAME } from '../../constants';

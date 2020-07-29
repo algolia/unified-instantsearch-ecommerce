@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import searchInsights from 'search-insights';
 
 // When Search Insights is available on the global scope (`window.aa`), it
