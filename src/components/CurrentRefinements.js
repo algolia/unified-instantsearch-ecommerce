@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
 
 import './CurrentRefinements.scss';

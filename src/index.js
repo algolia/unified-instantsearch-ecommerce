@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { render } from 'preact/compat';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './reset.scss';
@@ -13,7 +12,7 @@ import { getDomElement, validateConfig } from './utils';
 
 validateConfig(config, rules);
 
-ReactDOM.render(
+render(
   <Router>
     <Route path="*" component={(props) => <App {...props} config={config} />} />
   </Router>,

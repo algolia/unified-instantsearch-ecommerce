@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 
 export function useMatchMedia(config) {
   const [isMobile, setIsMobile] = React.useState(

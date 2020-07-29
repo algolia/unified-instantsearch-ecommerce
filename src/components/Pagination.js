@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { connectPagination } from 'react-instantsearch-dom';
 
 export const Pagination = connectPagination(function Pagination(props) {

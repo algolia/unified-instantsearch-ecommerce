@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 

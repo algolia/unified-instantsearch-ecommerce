@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { QueryRuleCustomData } from 'react-instantsearch-dom';
 
 import './Banner.scss';

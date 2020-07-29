@@ -1,5 +1,6 @@
 /* eslint-disable import/no-commonjs */
 
+require('module-alias/register');
 require('ignore-styles');
 const postcssPresetEnv = require('postcss-preset-env');
 const postcssInjectCssVariables = require('postcss-inject-css-variables');

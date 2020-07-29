@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 import { connectCurrentRefinements } from 'react-instantsearch-dom';
 
 export const ResetButton = connectCurrentRefinements(function ResetButton(
