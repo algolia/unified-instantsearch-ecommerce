@@ -10,8 +10,7 @@
     "lint": "run-p -c lint:*",
     "lint:js": "eslint --ext .js .",
     "lint:css": "stylelint '**/*.(s)css'",
-    "release:prepare": "shipjs prepare",
-    "release:trigger": "shipjs trigger"
+    "release": "shipjs prepare"
   },
   "dependencies": {
     "algoliasearch": "4.1.0",
@@ -56,7 +55,7 @@
     "postcss-preset-env": "6.7.0",
     "prettier": "2.0.4",
     "sass-loader": "8.0.2",
-    "shipjs": "0.18.4",
+    "shipjs": "0.21.0",
     "style-loader": "1.2.1",
     "stylelint": "13.3.2",
     "stylelint-a11y": "1.2.3",

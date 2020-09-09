@@ -4,11 +4,6 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-  mergeStrategy: {
-    toReleaseBranch: {
-      next: 'master',
-    },
-  },
   versionUpdated({ version, dir }) {
     fs.writeFileSync(
       path.resolve(dir, 'src', 'version.js'),
@@ -17,10 +12,9 @@ module.exports = {
   },
   buildCommand() {
     // We don't build the project before releasing.
-    return 'echo "No build needed."';
+    return null;
   },
   publishCommand() {
-    // We don't publish to npm.
-    return 'echo "No publish needed."';
+    return 'git checkout master && git rebase next';
   },
 };
