@@ -30,6 +30,8 @@ export function Search(props) {
   ];
   const sorts = defaultSort.concat(config.sorts);
 
+  const hasRefinements = Boolean(config.refinements.length);
+
   React.useEffect(() => {
     if (filtersAnchor.current && props.isFiltering) {
       filtersAnchor.current.scrollTop = 0;
@@ -65,46 +67,56 @@ export function Search(props) {
         </header>
 
         <div className="uni-Content">
-          <div
-            data-layout="mobile"
-            className="uni-LeftPanel-Overlay"
-            onClick={() => props.setIsFiltering(false)}
-          />
-          <div className="uni-LeftPanel">
-            <div className="uni-Refinements">
-              <div className="uni-Refinements-scrollable" ref={filtersAnchor}>
-                <header
-                  className="uni-Refinements-heading"
-                  data-layout="mobile"
-                >
-                  <span>Filters</span>
-                  <button
-                    onClick={() => {
-                      props.setIsFiltering(false);
-                    }}
-                    className="uni-Refinements-closeButton"
-                    title="Close filters"
+          {hasRefinements && (
+            <>
+              <div
+                data-layout="mobile"
+                className="uni-LeftPanel-Overlay"
+                onClick={() => props.setIsFiltering(false)}
+              />
+              <div className="uni-LeftPanel">
+                <div className="uni-Refinements">
+                  <div
+                    className="uni-Refinements-scrollable"
+                    ref={filtersAnchor}
                   >
-                    <CloseIcon />
-                  </button>
-                </header>
-                {isMobile && <CurrentRefinements />}
-                <Refinements />
+                    <header
+                      className="uni-Refinements-heading"
+                      data-layout="mobile"
+                    >
+                      <span>Filters</span>
+                      <button
+                        onClick={() => {
+                          props.setIsFiltering(false);
+                        }}
+                        className="uni-Refinements-closeButton"
+                        title="Close filters"
+                      >
+                        <CloseIcon />
+                      </button>
+                    </header>
+                    {isMobile && <CurrentRefinements />}
+                    <Refinements />
+                  </div>
+                  <footer
+                    className="uni-Refinements-footer"
+                    data-layout="mobile"
+                  >
+                    <ResetButton
+                      onClick={() => {
+                        props.setIsFiltering(false);
+                      }}
+                    />
+                    <SeeResultsButton
+                      onClick={() => {
+                        props.setIsFiltering(false);
+                      }}
+                    />
+                  </footer>
+                </div>
               </div>
-              <footer className="uni-Refinements-footer" data-layout="mobile">
-                <ResetButton
-                  onClick={() => {
-                    props.setIsFiltering(false);
-                  }}
-                />
-                <SeeResultsButton
-                  onClick={() => {
-                    props.setIsFiltering(false);
-                  }}
-                />
-              </footer>
-            </div>
-          </div>
+            </>
+          )}
 
           <div className="uni-RightPanel">
             <header className="uni-BodyHeader">
@@ -139,11 +151,13 @@ export function Search(props) {
               </NoResultsHandler>
             </main>
           </div>
-          <FiltersButton
-            onClick={() => {
-              props.setIsFiltering(true);
-            }}
-          />
+          {hasRefinements && (
+            <FiltersButton
+              onClick={() => {
+                props.setIsFiltering(true);
+              }}
+            />
+          )}
         </div>
       </div>
     </InstantSearch>
