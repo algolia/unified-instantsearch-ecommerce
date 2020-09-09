@@ -46,3 +46,7 @@ workflows:
   ci:
     jobs:
       - release_if_needed
+          filters:
+            branches:
+              only:
+                - next
