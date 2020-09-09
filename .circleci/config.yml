@@ -45,7 +45,7 @@ workflows:
   version: 2
   ci:
     jobs:
-      - release_if_needed
+      - release_if_needed:
           filters:
             branches:
               only:
