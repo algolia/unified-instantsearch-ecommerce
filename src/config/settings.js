@@ -112,7 +112,6 @@ export const refinements = [
         'hierarchicalCategories.lvl1',
       ],
       limit: 6,
-      searchable: true,
       showMore: true,
     },
   },
