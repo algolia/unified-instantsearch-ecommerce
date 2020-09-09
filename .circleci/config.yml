@@ -40,7 +40,7 @@ jobs:
           command: |
             git config --global user.email "bot@shipjs.com"
             git config --global user.name "shipjs"
-            yarn release:trigger
+            yarn shipjs trigger
 workflows:
   version: 2
   ci:
