@@ -1,6 +1,5 @@
 import 'module-alias/register';
 import path from 'path';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import config from './config';
 
@@ -9,8 +8,8 @@ export default {
   entry: './src/index.js',
   output: {
     filename: `${config.filename}.js`,
+    clean: true,
   },
-  plugins: [new CleanWebpackPlugin()],
   module: {
     rules: [
       {

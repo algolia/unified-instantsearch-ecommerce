@@ -6,13 +6,17 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import config from '../../src/config/index';
 
 export default [
-  new CopyPlugin([
-    {
-      from: '**/*',
-      ignore: ['index.ejs'],
-      context: './public/',
-    },
-  ]),
+  new CopyPlugin({
+    patterns: [
+      {
+        from: '**/*',
+        context: './public/',
+        globOptions: {
+          ignore: ['index.ejs'],
+        },
+      },
+    ],
+  }),
   new HtmlWebpackPlugin({
     title: 'Unified InstantSearch E-commerce',
     template: 'public/index.ejs',

@@ -1,4 +1,4 @@
-import merge from 'webpack-merge';
+import { merge, mergeWithRules } from 'webpack-merge';
 
 import base from './base.babel';
 import scss from './loaders/scss';
@@ -7,14 +7,19 @@ import files from './plugins/files';
 export default merge(base, {
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './public',
+    static: './public',
     hot: true,
     port: 3000,
     host: '0.0.0.0',
-    disableHostCheck: true,
+    allowedHosts: 'all',
   },
   plugins: [...files],
-  module: merge.smart(
+  module: mergeWithRules({
+    rules: {
+      test: 'match',
+      use: 'append',
+    },
+  })(
     {
       rules: [
         {
