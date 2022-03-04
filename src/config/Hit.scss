@@ -27,7 +27,7 @@
 }
 
 .uni-Hit-placeholder {
-  animation: loadingGradient 1.5s ease infinite;
+  animation: loading-gradient 1.5s ease infinite;
   background: linear-gradient(to right, #fff 50%, #f3f1f1);
   background-size: 150%;
   border: 1px solid #f3f1f1;
@@ -41,13 +41,15 @@
   }
 }
 
-@keyframes loadingGradient {
+@keyframes loading-gradient {
   0% {
     background-position: 0% 20%;
   }
+
   50% {
     background-position: 100% 80%;
   }
+
   100% {
     background-position: 0% 20%;
   }
@@ -61,13 +63,16 @@
   padding: 1rem;
   position: relative;
   text-decoration: inherit;
+
   &:hover,
   &:focus {
     border-color: #ddd;
     box-shadow: 0 2px 6px rgba(200, 200, 200, 0.24);
+
     .uni-Hit-title {
       text-decoration: underline;
     }
+
     .ais-Highlight-highlighted,
     .ais-Snippet-highlighted {
       border-bottom: 0;
@@ -85,6 +90,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+
   img {
     flex-shrink: 0;
   }
@@ -131,23 +137,29 @@
       transition: none;
     }
   }
+
   svg {
     fill: transparent;
     transition: all 150ms ease-out;
   }
+
   &:hover,
   &:focus,
   &:active {
     color: var(--algolia-theme-color-primary);
   }
+
   &:focus {
     transform: scale(1);
   }
+
   &:hover {
     transform: scale(1.1);
   }
+
   &:active {
     transform: scale(1.3);
+
     svg {
       fill: currentColor;
     }
@@ -165,6 +177,7 @@
   flex-wrap: wrap;
   margin: 0;
   overflow-x: hidden;
+
   .uni-Hits-item,
   .uni-InfiniteHits-item {
     flex-grow: 0;
@@ -174,6 +187,7 @@
 
 .uni-Hits--gridView {
   margin: 0 -10px;
+
   .uni-Hits-item,
   .uni-InfiniteHits-item {
     margin: 0 10px 20px;
@@ -190,12 +204,15 @@
       width: calc(25% - 20px);
     }
   }
+
   .uni-Hit-image {
     height: 150px;
+
     img {
       max-height: 150px;
     }
   }
+
   .uni-Hit-Actions {
     bottom: 1rem;
   }
@@ -205,16 +222,19 @@
   .uni-Hit-inner {
     display: flex;
   }
+
   .uni-Hit-image {
     flex-grow: 0;
     flex-shrink: 0;
     height: 130px;
     margin-right: 1rem;
     width: 100px;
+
     img {
       max-height: 130px;
     }
   }
+
   .uni-Hit-Actions {
     top: 1rem;
   }
