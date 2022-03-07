@@ -4,10 +4,10 @@ export const FacetSearchBox = (props) => {
   return (
     <div className="ais-SearchBox">
       <form
+        noValidate
         className="ais-SearchBox-form"
         action=""
         role="search"
-        noValidate
         onSubmit={props.onSubmit}
         onReset={props.onReset}
       >

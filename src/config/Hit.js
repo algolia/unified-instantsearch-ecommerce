@@ -5,6 +5,7 @@ import './Hit.scss';
 
 export function Hit({ hit, insights, view }) {
   return (
+    /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */
     <article
       className="uni-Hit"
       onClick={() =>
@@ -41,6 +42,7 @@ export function Hit({ hit, insights, view }) {
 
         <div className="uni-Hit-Actions">
           <button
+            type="button"
             title="Add to cart"
             className="uni-Hit-ActionButton"
             onClick={(event) => {

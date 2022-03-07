@@ -195,6 +195,7 @@ export function App({ config }) {
             <div
               style={{ zIndex: config.styles.baseZIndex }}
               className="uni-Overlay"
+              aria-hidden="true"
               onClick={() => setIsOverlayShowing(false)}
             />
 
@@ -213,12 +214,12 @@ export function App({ config }) {
                   searchClient={searchClient}
                   indexName={config.index.indexName}
                   searchState={searchState}
-                  onSearchStateChange={onSearchStateChange}
                   createURL={createURL}
-                  onClose={() => setIsOverlayShowing(false)}
                   setView={setView}
                   isFiltering={isFiltering}
                   setIsFiltering={setIsFiltering}
+                  onSearchStateChange={onSearchStateChange}
+                  onClose={() => setIsOverlayShowing(false)}
                 />
               </SearchContext.Provider>
             </div>

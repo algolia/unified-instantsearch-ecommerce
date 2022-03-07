@@ -6,12 +6,13 @@ export const ResetButton = connectCurrentRefinements(function ResetButton(
 ) {
   return (
     <button
+      type="button"
       className="uni-Refinements-button uni-Refinements-resetButton"
+      disabled={props.items.length === 0}
       onClick={() => {
         props.refine(props.items);
         props.onClick();
       }}
-      disabled={props.items.length === 0}
     >
       Clear all
     </button>

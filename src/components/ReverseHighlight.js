@@ -28,6 +28,7 @@ export function ReverseHighlight({
         if (part.isHighlighted) {
           return React.createElement(
             tagName,
+            // eslint-disable-next-line react/no-array-index-key
             { key: index, className: 'ais-Highlight-highlighted' },
             part.value
           );
@@ -35,6 +36,7 @@ export function ReverseHighlight({
 
         return React.createElement(
           'span',
+          // eslint-disable-next-line react/no-array-index-key
           { key: index, className: 'ais-Highlight-nonHighlighted' },
           part.value
         );

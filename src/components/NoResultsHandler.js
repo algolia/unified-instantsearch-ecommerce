@@ -1,4 +1,4 @@
-import React from 'preact/compat';
+import React, { memo } from 'preact/compat';
 import {
   Index,
   Configure,
@@ -54,7 +54,7 @@ export const NoResultsHandler = connectStateResults(function ResultsWrapper(
   return props.children;
 });
 
-const NoResults = React.memo(
+const NoResults = memo(
   function NoResults(props) {
     return (
       <div className="uni-NoResults">
@@ -91,6 +91,7 @@ const ResultsInAllCategories = connectCurrentRefinements(function ClearFilters(
       <p>
         Check the spelling, try a more general term, or{' '}
         <button
+          type="button"
           className="uni-NoResults-ClearButton"
           onClick={(event) => {
             event.preventDefault();
@@ -113,6 +114,7 @@ const ResultsInAllCategories = connectCurrentRefinements(function ClearFilters(
 
       <div className="uni-NoResults-SeeAll">
         <button
+          type="button"
           className="uni-NoResults-SeeAllButton"
           onClick={(event) => {
             event.preventDefault();
@@ -191,6 +193,7 @@ const QuerySuggestionsHits = connectHits(function QuerySuggestionsHits(props) {
         {props.hits.map((hit, index) => (
           <li key={hit.objectID} className="uni-NoResults-SuggestionItem">
             <button
+              type="button"
               className="uni-NoResults-SuggestionButton"
               onClick={() => {
                 setQuery(hit.query);
