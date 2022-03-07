@@ -1,7 +1,7 @@
 # Unified InstantSearch E-Commerce
 
 <p align="center">
-<img src="https://cl.ly/c3fa6a6b250a/Screenshot%2525202019-05-27%252520at%25252010.17.35.png" />
+<a href="https://www.algolia.com/doc/guides/building-search-ui/resources/unified-instantsearch/react/"><img src="./.github/unified-instantsearch-ecommerce.png" alt="Unified InstantSearch E-Commerce" width="1280" /></a>
 </p>
 
 **This project aims to be used by any e-commerce website to bootstrap a search experience powered by Algolia the fastest way possible.**
