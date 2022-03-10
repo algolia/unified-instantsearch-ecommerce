@@ -7107,10 +7107,10 @@ scss-tokenizer@^0.3.0:
     js-base64 "^2.4.3"
     source-map "^0.7.1"
 
-search-insights@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/search-insights/-/search-insights-2.2.1.tgz#9c93344fbae5fbf2f88c1a81b46b4b5d888c11f7"
-  integrity sha512-JDfVGZbKqTtiKVZjAVbkNw9C9f0ib80yx6Ea17M3z4RvPmuD0GYWXuFwA9++dpbreBEMH4TC3lQ29Zq7O4b5oA==
+search-insights@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/search-insights/-/search-insights-1.4.0.tgz#c1fc228e91eaff55f8dd86c2cc760cf41c4c8588"
+  integrity sha512-bFI1P/K9dkK3qAoeIT1qoBPiiCE+YVozetPz1PXKUVyVuzTFGmcLtVxKmkOorVYr1C+d2DZ2/mQlL3rMuwZx8g==
 
 select-hose@^2.0.0:
   version "2.0.0"
