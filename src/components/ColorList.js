@@ -13,6 +13,7 @@ export const ColorList = connectRefinementList(function ColorList(props) {
     if (a.label < b.label) {
       return -1;
     }
+
     return 1;
   });
 

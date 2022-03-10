@@ -5,16 +5,16 @@ import './Hit.scss';
 
 export function Hit({ hit, insights, view }) {
   return (
-    /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */
-    <article
-      className="uni-Hit"
-      onClick={() =>
-        insights('clickedObjectIDsAfterSearch', {
-          eventName: 'Product Clicked',
-        })
-      }
-    >
-      <a href={hit.url} className="uni-Hit-inner">
+    <article className="uni-Hit">
+      <a
+        href={hit.url}
+        className="uni-Hit-inner"
+        onClick={() =>
+          insights('clickedObjectIDsAfterSearch', {
+            eventName: 'Product Clicked',
+          })
+        }
+      >
         <div className="uni-Hit-image">
           <img src={hit.image} alt={hit.name} loading="lazy" />
         </div>

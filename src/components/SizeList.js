@@ -12,6 +12,7 @@ export const SizeList = connectRefinementList(function SizeList(props) {
     if (a.label < b.label) {
       return -1;
     }
+
     return 1;
   });
 
