@@ -1,9 +1,9 @@
 import React from 'preact/compat';
 
+import { useAppContext } from '../hooks';
+
 import { Hits } from './Hits';
 import { InfiniteHits } from './InfiniteHits';
-
-import { useAppContext } from '../hooks';
 
 export const ProductList = (props) => {
   const { isMobile } = useAppContext();

@@ -1,9 +1,10 @@
 import React from 'preact/compat';
 
-import { FilterIcon } from './FilterIcon';
 import { useSearchContext } from '../hooks';
 
-export function FiltersButton({ onClick }) {
+import { FilterIcon } from './FilterIcon';
+
+export const FiltersButton = ({ onClick }) => {
   const { refinementCount } = useSearchContext();
 
   return (
@@ -20,4 +21,4 @@ export function FiltersButton({ onClick }) {
       )}
     </button>
   );
-}
+};

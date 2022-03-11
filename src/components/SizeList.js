@@ -1,8 +1,8 @@
 import React from 'preact/compat';
 import { connectRefinementList } from 'react-instantsearch-dom';
 
-import { FacetSearchBox } from './SearchBox/FacetSearchBox';
 import { PartialHighlight } from './PartialHighlight';
+import { FacetSearchBox } from './SearchBox/FacetSearchBox';
 
 export const SizeList = connectRefinementList(function SizeList(props) {
   const [query, setQuery] = React.useState('');

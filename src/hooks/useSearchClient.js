@@ -1,11 +1,11 @@
-import React from 'preact/compat';
 import algoliasearch from 'algoliasearch/lite';
+import React from 'preact/compat';
 
-import { version } from '../version';
 import {
   NO_RESULTS_INDEX_NAME,
   QUERY_SUGGESTIONS_INDEX_NAME,
 } from '../constants';
+import { version } from '../version';
 
 export function useSearchClient(config) {
   const appId = config.appId;

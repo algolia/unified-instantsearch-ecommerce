@@ -6,12 +6,13 @@ import {
 } from 'react-instantsearch-dom';
 
 import { useAppContext } from '../hooks';
-import { Panel } from './Panel';
-import { ColorList } from './ColorList';
-import { Slider } from './Slider';
-import { SizeList } from './SizeList';
 
-function RefinementWidget({ type, ...props }) {
+import { ColorList } from './ColorList';
+import { Panel } from './Panel';
+import { SizeList } from './SizeList';
+import { Slider } from './Slider';
+
+const RefinementWidget = ({ type, ...props }) => {
   switch (type) {
     case 'color':
       return <ColorList {...props} />;
@@ -58,7 +59,7 @@ function RefinementWidget({ type, ...props }) {
     default:
       return null;
   }
-}
+};
 
 function getPanelId(refinement) {
   return refinement.options.attributes

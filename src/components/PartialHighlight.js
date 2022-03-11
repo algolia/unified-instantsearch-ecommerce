@@ -2,12 +2,12 @@ import React from 'preact/compat';
 
 import { getAttributeValueByPath, parseAttribute } from '../utils';
 
-export function PartialHighlight({
+export const PartialHighlight = ({
   hit,
   attribute,
   tagName = 'mark',
   ...rest
-}) {
+}) => {
   let parts = [];
 
   try {
@@ -43,7 +43,7 @@ export function PartialHighlight({
       })}
     </span>
   );
-}
+};
 
 function parsePartialHighlightedAttribute({
   hit,

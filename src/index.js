@@ -5,9 +5,9 @@ import './reset.scss';
 import './theme.scss';
 import './App.scss';
 
+import { App } from './App';
 import config from './config';
 import rules from './config/rules';
-import { App } from './App';
 import { getDomElement, validateConfig } from './utils';
 
 validateConfig(config, rules);

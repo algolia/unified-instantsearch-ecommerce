@@ -1,6 +1,6 @@
 import React from 'preact/compat';
 
-export function CloseIcon(props) {
+export const CloseIcon = (props) => {
   return (
     <svg viewBox="0 0 31 32" width="31" height="32" {...props}>
       <path
@@ -13,4 +13,4 @@ export function CloseIcon(props) {
       />
     </svg>
   );
-}
+};

@@ -2,21 +2,22 @@ import React from 'preact/compat';
 import { InstantSearch, Configure, SortBy } from 'react-instantsearch-dom';
 
 import { useAppContext, useSearchContext } from '../hooks';
+
 import { Banner } from './Banner';
-import { CurrentRefinements } from './CurrentRefinements';
-import { QueryRulesHandler } from './QueryRulesHandler';
-import { Refinements } from './Refinements';
-import { HeaderSearchBox } from './SearchBox';
-import { Stats } from './Stats';
 import { CloseIcon } from './CloseIcon';
+import { CurrentRefinements } from './CurrentRefinements';
+import { FiltersButton } from './FiltersButton';
 import { NoResultsHandler } from './NoResultsHandler';
 import { ProductList } from './ProductList';
-import { Views } from './Views';
-import { FiltersButton } from './FiltersButton';
-import { SeeResultsButton } from './SeeResultsButton';
+import { QueryRulesHandler } from './QueryRulesHandler';
+import { Refinements } from './Refinements';
 import { ResetButton } from './ResetButton';
+import { HeaderSearchBox } from './SearchBox';
+import { SeeResultsButton } from './SeeResultsButton';
+import { Stats } from './Stats';
+import { Views } from './Views';
 
-export function Search(props) {
+export const Search = (props) => {
   const { config, view, searchParameters, isMobile } = useAppContext();
   const { isSearchStalled } = useSearchContext();
 
@@ -165,4 +166,4 @@ export function Search(props) {
       </div>
     </InstantSearch>
   );
-}
+};

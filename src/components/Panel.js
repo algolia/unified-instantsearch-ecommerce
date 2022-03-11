@@ -2,14 +2,14 @@ import React from 'preact/compat';
 
 import './Panel.scss';
 
-export function Panel({
+export const Panel = ({
   isOpened,
   header,
   footer,
   onToggle,
   children,
   ...rest
-}) {
+}) => {
   return (
     <div
       className={[
@@ -53,4 +53,4 @@ export function Panel({
       {footer && <div className="ais-Panel-footer">{footer}</div>}
     </div>
   );
-}
+};

@@ -2,6 +2,7 @@ import React from 'preact/compat';
 import { connectHits } from 'react-instantsearch-dom';
 
 import { useAppContext } from '../hooks';
+
 import { Pagination } from './Pagination';
 
 export const Hits = connectHits((props) => {

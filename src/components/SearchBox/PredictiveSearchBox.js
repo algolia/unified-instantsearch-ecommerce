@@ -3,6 +3,7 @@ import { Index, connectHits, Configure } from 'react-instantsearch-dom';
 
 import { QUERY_SUGGESTIONS_INDEX_NAME } from '../../constants';
 import { ReverseHighlight } from '../ReverseHighlight';
+
 import { SearchBox } from './SearchBox';
 
 export const PredictiveSearchBox = (props) => {

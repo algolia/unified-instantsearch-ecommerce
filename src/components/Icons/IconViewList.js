@@ -1,6 +1,6 @@
 import React from 'preact/compat';
 
-export function IconViewList(props) {
+export const IconViewList = (props) => {
   return (
     <svg width={16} height={16} viewBox="0 0 14 14" {...props}>
       <path
@@ -10,4 +10,4 @@ export function IconViewList(props) {
       />
     </svg>
   );
-}
+};

@@ -7,11 +7,11 @@ import {
   connectHits,
 } from 'react-instantsearch-dom';
 
-import { useAppContext, useSearchContext } from '../hooks';
 import {
   NO_RESULTS_INDEX_NAME,
   QUERY_SUGGESTIONS_INDEX_NAME,
 } from '../constants';
+import { useAppContext, useSearchContext } from '../hooks';
 
 export const NoResultsHandler = connectStateResults(function ResultsWrapper(
   props
@@ -159,7 +159,7 @@ const HitsPreview = connectHits(function MoreHits(props) {
   );
 });
 
-function QuerySuggestions() {
+const QuerySuggestions = () => {
   const { config, searchState, searchParameters } = useAppContext();
 
   if (!config.suggestionsIndex) {
@@ -177,7 +177,7 @@ function QuerySuggestions() {
       <QuerySuggestionsHits />
     </Index>
   );
-}
+};
 
 const QuerySuggestionsHits = connectHits(function QuerySuggestionsHits(props) {
   const { setQuery } = useSearchContext();

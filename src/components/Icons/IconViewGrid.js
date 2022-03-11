@@ -1,6 +1,6 @@
 import React from 'preact/compat';
 
-export function IconViewGrid(props) {
+export const IconViewGrid = (props) => {
   return (
     <svg width={16} height={16} viewBox="0 0 16 16" {...props}>
       <path
@@ -10,4 +10,4 @@ export function IconViewGrid(props) {
       />
     </svg>
   );
-}
+};

@@ -2,14 +2,14 @@ import React, { createPortal } from 'preact/compat';
 import { connectHitInsights } from 'react-instantsearch-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { getUrlFromState, getStateFromUrl, createURL } from './router';
-import { useSearchClient, useInsights, useMatchMedia } from './hooks';
 import { SearchButton, Search } from './components';
+import { useSearchClient, useInsights, useMatchMedia } from './hooks';
+import { getUrlFromState, getStateFromUrl, createURL } from './router';
 
 export const AppContext = React.createContext(null);
 export const SearchContext = React.createContext(null);
 
-export function App({ config }) {
+export const App = ({ config }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const searchClient = useSearchClient(config);
@@ -228,4 +228,4 @@ export function App({ config }) {
         )}
     </AppContext.Provider>
   );
-}
+};
