@@ -8,9 +8,10 @@ export function FiltersButton({ onClick }) {
 
   return (
     <button
+      type="button"
       data-layout="mobile"
-      onClick={onClick}
       className="uni-FiltersButton"
+      onClick={onClick}
     >
       <FilterIcon />
       Filters

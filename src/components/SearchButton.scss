@@ -19,9 +19,11 @@
   @media screen and (prefers-reduced-motion: reduce) {
     transition: none;
   }
+
   &:hover {
     border: 2px solid var(--algolia-theme-color-primary);
   }
+
   &:active,
   &:focus {
     background-color: #e4e4e4;

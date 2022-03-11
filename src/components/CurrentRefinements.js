@@ -114,6 +114,7 @@ export const CurrentRefinements = connectCurrentRefinements(
                   </span>
                 </div>
                 <button
+                  type="button"
                   className="ais-CurrentRefinements-delete"
                   onClick={(event) => {
                     event.preventDefault();

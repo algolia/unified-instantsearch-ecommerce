@@ -19,6 +19,7 @@
   display: flex;
   margin: 0.25rem 0;
   white-space: nowrap;
+
   &:not(:last-of-type) {
     margin-right: 0.5rem;
   }

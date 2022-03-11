@@ -11,9 +11,9 @@
     "stylelint-prettier/recommended"
   ],
   "rules": {
-    "selector-class-pattern": [
-      "^(?:ais-|uni-)[A-Z][a-zA-Z0-9]+[-a-zA-Z0-9]+$|^(?!ais-|uni-)(?:[a-z][a-z0-9]+)(?:-[a-z0-9]+)+$"
-    ],
+    "alpha-value-notation": "number",
+    "color-function-notation": "legacy",
+    "selector-class-pattern": "^(?:ais-|uni-)[A-Z][a-zA-Z0-9]+[-a-zA-Z0-9]+$|^(?!ais-|uni-)(?:[a-z][a-z0-9]+)(?:-[a-z0-9]+)+$",
     "prettier/prettier": true,
     "max-nesting-depth": [
       2,
@@ -30,6 +30,12 @@
       null,
       {
         "severity": "warning"
+      }
+    ],
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreKeywords": ["currentColor", "optimizeSpeed"]
       }
     ]
   }

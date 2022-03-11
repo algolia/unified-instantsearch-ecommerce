@@ -43,8 +43,8 @@ export function Search(props) {
       searchClient={props.searchClient}
       indexName={props.indexName}
       searchState={props.searchState}
-      onSearchStateChange={props.onSearchStateChange}
       createURL={props.createURL}
+      onSearchStateChange={props.onSearchStateChange}
     >
       <Configure {...searchParameters} />
       <QueryRulesHandler searchState={props.searchState} />
@@ -55,6 +55,7 @@ export function Search(props) {
             <HeaderSearchBox />
 
             <button
+              type="button"
               className="uni-CloseButton"
               title="Press Esc to close"
               onClick={props.onClose}
@@ -72,6 +73,7 @@ export function Search(props) {
               <div
                 data-layout="mobile"
                 className="uni-LeftPanel-Overlay"
+                aria-hidden="true"
                 onClick={() => props.setIsFiltering(false)}
               />
               <div className="uni-LeftPanel">
@@ -86,11 +88,12 @@ export function Search(props) {
                     >
                       <span>Filters</span>
                       <button
+                        type="button"
+                        className="uni-Refinements-closeButton"
+                        title="Close filters"
                         onClick={() => {
                           props.setIsFiltering(false);
                         }}
-                        className="uni-Refinements-closeButton"
-                        title="Close filters"
                       >
                         <CloseIcon />
                       </button>

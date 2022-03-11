@@ -104,6 +104,7 @@ const Suggestions = connectHits(function Suggestions({
             return (
               <li key={hit.objectID} className="uni-QuerySuggestions-item">
                 <button
+                  type="button"
                   className="uni-QuerySuggestions-button"
                   onClick={() => onClick(hit.query)}
                 >

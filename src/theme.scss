@@ -144,16 +144,19 @@ a[class^='ais-'] {
   outline: none;
   padding-left: 56px;
   width: 100%;
+
   &::placeholder {
     color: rgba(33, 36, 61, 0.5);
     opacity: 1; /* Firefox */
   }
+
   &::-webkit-search-decoration,
   &::-webkit-search-cancel-button,
   &::-webkit-search-results-button,
   &::-webkit-search-results-decoration {
     display: none;
   }
+
   &::-ms-clear {
     display: none;
   }
@@ -199,6 +202,7 @@ a[class^='ais-'] {
   .ais-SearchBox-form {
     margin-bottom: 1rem;
   }
+
   .ais-SearchBox-input {
     border-radius: 3px;
     color: rgba(33, 36, 61, 0.8);
@@ -206,6 +210,7 @@ a[class^='ais-'] {
     min-height: 40px;
     padding: 0 32px;
   }
+
   .ais-SearchBox-reset,
   .ais-SearchBox-loadingIndicator,
   .ais-SearchBox-submit {
@@ -237,9 +242,11 @@ a[class^='ais-'] {
   margin-top: 1px;
   position: relative;
   width: 1rem;
+
   &:hover {
     border: 1px solid currentColor;
   }
+
   &:focus {
     box-shadow: 0 0 0 1px #fff, 0 0 2px 2px currentColor;
     outline: none;
@@ -248,8 +255,10 @@ a[class^='ais-'] {
 
 .ais-RefinementList-item--selected {
   font-weight: bold;
+
   .ais-RefinementList-checkbox {
     background-color: var(--algolia-theme-color-primary);
+
     &::after {
       background-color: #fff;
       border-radius: 4px;
@@ -328,6 +337,7 @@ a[class^='ais-'] {
       transform: rotate(180deg);
     }
   }
+
   .ais-HierarchicalMenu-item {
     &:not(.ais-HierarchicalMenu-item--selected) {
       .ais-HierarchicalMenu-link {
@@ -371,16 +381,20 @@ a[class^='ais-'] {
   margin-right: 16px;
   min-width: 30px;
   transition: background 150ms ease-out;
+
   &:focus {
     box-shadow: 0 0 0 1px #fff, 0 0 2px 2px currentColor;
     outline: none;
   }
+
   &::after {
     transform: translateX(100%);
   }
+
   &:checked {
     background: var(--algolia-theme-color-primary);
   }
+
   @media screen and (prefers-reduced-motion: reduce) {
     appearance: none;
     background: rgba(65, 66, 71, 0.08);
@@ -391,6 +405,7 @@ a[class^='ais-'] {
     margin-right: 16px;
     min-width: 30px;
     transition: none;
+
     &::after {
       background-image: linear-gradient(to top, #f5f5fa, #fff);
       border-radius: 100%;
@@ -410,6 +425,7 @@ a[class^='ais-'] {
 .ais-SortBy,
 .ais-HitsPerPage {
   position: relative;
+
   &::after {
     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M14-5v16H-2V-5z'/%3E%3Cpath fill='%23000' stroke='%23FFF' stroke-width='.5' d='M2.228 1.332a.664.664 0 0 0-.942.001.665.665 0 0 0-.002.941l4.247 4.247c.259.26.679.26.938 0l4.247-4.247a.664.664 0 0 0-.002-.94.666.666 0 0 0-.942-.002L6 5.105 2.228 1.332z'/%3E%3C/g%3E%3C/svg%3E%0A");
     display: flex;
@@ -433,22 +449,26 @@ a[class^='ais-'] {
     cursor: pointer;
     width: calc(100% - 10px);
   }
+
   .rheostat-background {
     background-color: rgba(65, 66, 71, 0.08);
     border: 0;
     border-radius: 3px;
     height: 3px;
   }
+
   .rheostat-progress {
     background-color: var(--algolia-theme-color-primary);
     border-radius: 3px;
     height: 3px;
     top: 0;
   }
+
   .rheostat-tooltip {
     font-weight: bold;
     user-select: none;
   }
+
   .rheostat-handle {
     background-image: linear-gradient(to top, #f5f5fa, #fff);
     border: 0;
@@ -457,6 +477,7 @@ a[class^='ais-'] {
     margin-left: -5px;
     top: -9px;
   }
+
   .rheostat-marker {
     background-color: rgba(65, 66, 71, 0.08);
   }
@@ -481,6 +502,7 @@ a[class^='ais-'] {
   &:first-of-type {
     margin-right: 6px;
   }
+
   &:last-of-type {
     margin-left: 6px;
   }
@@ -515,12 +537,15 @@ a[class^='ais-'] {
   color: #414247;
   height: 38px;
   width: 38px;
+
   &.ais-Pagination-item--page {
     margin-right: 4px;
   }
+
   &.ais-Pagination-item--previousPage {
     margin-right: 1rem;
   }
+
   &.ais-Pagination-item--nextPage {
     margin-left: calc(1rem - 4px);
   }

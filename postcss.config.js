@@ -1,9 +1,5 @@
 /* eslint-disable import/no-commonjs, no-global-assign */
 
-// When the configuration file refers to `window`, we need to shim it so it
-// doesn't break when processed with Node during the build step.
-window = global;
-
 require('module-alias/register');
 require('ignore-styles');
 

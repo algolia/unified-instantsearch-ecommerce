@@ -39,9 +39,9 @@ export function useSearchClient(config) {
               indexName: config.index.indexName,
               params: detachedSearchParams,
             };
-          } else if (
-            searchParameters.indexName === QUERY_SUGGESTIONS_INDEX_NAME
-          ) {
+          }
+
+          if (searchParameters.indexName === QUERY_SUGGESTIONS_INDEX_NAME) {
             if (!config.suggestionsIndex) {
               throw new Error(
                 'A search request was sent to the Query Suggestions index but the index name is not specified in the user configuration (`suggestionsIndex.indexName`).'

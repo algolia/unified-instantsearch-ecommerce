@@ -1,5 +1,5 @@
 import React, { render } from 'preact/compat';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './reset.scss';
 import './theme.scss';
@@ -14,7 +14,9 @@ validateConfig(config, rules);
 
 render(
   <Router>
-    <Route path="*" component={(props) => <App {...props} config={config} />} />
+    <Routes>
+      <Route path="*" element={<App config={config} />} />
+    </Routes>
   </Router>,
   getDomElement(config.inputContainer)
 );

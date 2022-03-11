@@ -12,9 +12,9 @@ export const ColorList = connectRefinementList(function ColorList(props) {
   props.items.sort((a, b) => {
     if (a.label < b.label) {
       return -1;
-    } else {
-      return 1;
     }
+
+    return 1;
   });
 
   return (

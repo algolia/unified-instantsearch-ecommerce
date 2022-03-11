@@ -1,6 +1,6 @@
 import React, { createPortal } from 'preact/compat';
 import { connectHitInsights } from 'react-instantsearch-dom';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { getUrlFromState, getStateFromUrl, createURL } from './router';
 import { useSearchClient, useInsights, useMatchMedia } from './hooks';
@@ -10,7 +10,7 @@ export const AppContext = React.createContext(null);
 export const SearchContext = React.createContext(null);
 
 export function App({ config }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const searchClient = useSearchClient(config);
   const { aa, userToken } = useInsights(
@@ -60,10 +60,9 @@ export function App({ config }) {
     clearTimeout(lastSetStateId.current);
 
     lastSetStateId.current = setTimeout(() => {
-      history.push(
-        getUrlFromState({ location }, nextSearchState),
-        nextSearchState
-      );
+      navigate(getUrlFromState({ location }, nextSearchState), {
+        state: nextSearchState,
+      });
 
       if (config.googleAnalytics) {
         window.ga('send', 'pageView', `?query=${nextSearchState.query}`);
@@ -114,11 +113,11 @@ export function App({ config }) {
       setSearchState(nextSearchState);
 
       if (JSON.stringify(searchState) !== JSON.stringify(nextSearchState)) {
-        history.push('', nextSearchState);
+        navigate('', { state: nextSearchState });
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOverlayShowing, setSearchState, history]);
+  }, [isOverlayShowing, setSearchState, navigate]);
 
   React.useEffect(() => {
     if (topAnchor.current) {
@@ -196,6 +195,7 @@ export function App({ config }) {
             <div
               style={{ zIndex: config.styles.baseZIndex }}
               className="uni-Overlay"
+              aria-hidden="true"
               onClick={() => setIsOverlayShowing(false)}
             />
 
@@ -214,12 +214,12 @@ export function App({ config }) {
                   searchClient={searchClient}
                   indexName={config.index.indexName}
                   searchState={searchState}
-                  onSearchStateChange={onSearchStateChange}
                   createURL={createURL}
-                  onClose={() => setIsOverlayShowing(false)}
                   setView={setView}
                   isFiltering={isFiltering}
                   setIsFiltering={setIsFiltering}
+                  onSearchStateChange={onSearchStateChange}
+                  onClose={() => setIsOverlayShowing(false)}
                 />
               </SearchContext.Provider>
             </div>

@@ -23,6 +23,7 @@ export function Panel({
     >
       <div className="ais-Panel-header">
         <button
+          type="button"
           className="ais-Panel-headerButton"
           aria-expanded={isOpened}
           onClick={onToggle}

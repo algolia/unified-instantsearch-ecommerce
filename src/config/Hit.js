@@ -5,15 +5,16 @@ import './Hit.scss';
 
 export function Hit({ hit, insights, view }) {
   return (
-    <article
-      className="uni-Hit"
-      onClick={() =>
-        insights('clickedObjectIDsAfterSearch', {
-          eventName: 'Product Clicked',
-        })
-      }
-    >
-      <a href={hit.url} className="uni-Hit-inner">
+    <article className="uni-Hit">
+      <a
+        href={hit.url}
+        className="uni-Hit-inner"
+        onClick={() =>
+          insights('clickedObjectIDsAfterSearch', {
+            eventName: 'Product Clicked',
+          })
+        }
+      >
         <div className="uni-Hit-image">
           <img src={hit.image} alt={hit.name} loading="lazy" />
         </div>
@@ -41,6 +42,7 @@ export function Hit({ hit, insights, view }) {
 
         <div className="uni-Hit-Actions">
           <button
+            type="button"
             title="Add to cart"
             className="uni-Hit-ActionButton"
             onClick={(event) => {

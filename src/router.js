@@ -11,9 +11,7 @@ function removeEmptyValues(object) {
       return acc;
     }
 
-    acc[key] = value;
-
-    return acc;
+    return { ...acc, [key]: value };
   }, {});
 }
 

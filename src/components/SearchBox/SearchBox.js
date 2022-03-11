@@ -32,9 +32,9 @@ export const SearchBox = (props) => {
   return (
     <div className="ais-SearchBox">
       <form
+        noValidate
         action=""
         role="search"
-        noValidate
         className="ais-SearchBox-form"
         onSubmit={onSubmit}
         onReset={onReset}

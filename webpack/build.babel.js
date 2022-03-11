@@ -1,9 +1,9 @@
-import merge from 'webpack-merge';
+import { merge, mergeWithRules } from 'webpack-merge';
 import path from 'path';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserJSPlugin from 'terser-webpack-plugin';
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import CSSMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
 import base from './base.babel';
 import scss from './loaders/scss';
@@ -15,6 +15,7 @@ export default merge(base, {
     path: path.resolve('./export'),
   },
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserJSPlugin({
         terserOptions: {
@@ -24,8 +25,11 @@ export default merge(base, {
         },
         extractComments: false,
       }),
-      new OptimizeCSSAssetsPlugin({}),
+      new CSSMinimizerPlugin(),
     ],
+  },
+  performance: {
+    hints: false,
   },
   plugins: [
     new webpack.BannerPlugin({
@@ -35,7 +39,12 @@ export default merge(base, {
       filename: `${config.filename}.css`,
     }),
   ],
-  module: merge.smart(
+  module: mergeWithRules({
+    rules: {
+      test: 'match',
+      use: 'append',
+    },
+  })(
     {
       rules: [
         {
