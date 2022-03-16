@@ -7,11 +7,11 @@ import {
   connectHits,
 } from 'react-instantsearch-dom';
 
-import { useAppContext, useSearchContext } from '../hooks';
 import {
   NO_RESULTS_INDEX_NAME,
   QUERY_SUGGESTIONS_INDEX_NAME,
 } from '../constants';
+import { useAppContext, useSearchContext } from '../hooks';
 
 export const NoResultsHandler = connectStateResults(function ResultsWrapper(
   props

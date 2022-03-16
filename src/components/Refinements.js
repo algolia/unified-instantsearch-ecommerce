@@ -6,10 +6,11 @@ import {
 } from 'react-instantsearch-dom';
 
 import { useAppContext } from '../hooks';
-import { Panel } from './Panel';
+
 import { ColorList } from './ColorList';
-import { Slider } from './Slider';
+import { Panel } from './Panel';
 import { SizeList } from './SizeList';
+import { Slider } from './Slider';
 
 function RefinementWidget({ type, ...props }) {
   switch (type) {

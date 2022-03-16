@@ -2,8 +2,8 @@ import React from 'preact/compat';
 import { connectRefinementList } from 'react-instantsearch-dom';
 
 import './ColorList.scss';
-import { FacetSearchBox } from './SearchBox/FacetSearchBox';
 import { PartialHighlight } from './PartialHighlight';
+import { FacetSearchBox } from './SearchBox/FacetSearchBox';
 
 export const ColorList = connectRefinementList(function ColorList(props) {
   const [query, setQuery] = React.useState('');

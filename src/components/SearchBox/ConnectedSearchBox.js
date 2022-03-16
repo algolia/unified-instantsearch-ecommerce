@@ -2,6 +2,7 @@ import React from 'preact/compat';
 import { connectSearchBox } from 'react-instantsearch-dom';
 
 import { useAppContext } from '../../hooks';
+
 import { PredictiveSearchBox } from './PredictiveSearchBox';
 import { SearchBox as SearchBoxComponent } from './SearchBox';
 

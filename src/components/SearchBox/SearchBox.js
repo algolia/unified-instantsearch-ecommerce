@@ -1,6 +1,6 @@
 import React from 'preact/compat';
 
-export const SearchBox = (props) => {
+export function SearchBox(props) {
   const inputRef = React.useRef(null);
 
   function onSubmit(event) {
@@ -138,4 +138,4 @@ export const SearchBox = (props) => {
       </form>
     </div>
   );
-};
+}

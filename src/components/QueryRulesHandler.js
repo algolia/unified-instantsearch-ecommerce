@@ -21,7 +21,7 @@ const getRulesContextFromSearchState = ({ refinementList = {}, menu = {} }) => {
   }, {});
 };
 
-export const QueryRulesHandler = (props) => {
+export function QueryRulesHandler(props) {
   const ruleContexts = getRulesContextFromSearchState(props.searchState);
 
   if (Object.keys(ruleContexts).length === 0) {
@@ -29,4 +29,4 @@ export const QueryRulesHandler = (props) => {
   }
 
   return <QueryRuleContext trackedFilters={ruleContexts} />;
-};
+}

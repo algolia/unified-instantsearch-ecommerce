@@ -14,6 +14,7 @@
 */
 
 import React from 'preact/compat';
+
 import { Hit } from './Hit';
 
 /*

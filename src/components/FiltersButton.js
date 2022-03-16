@@ -1,7 +1,8 @@
 import React from 'preact/compat';
 
-import { FilterIcon } from './FilterIcon';
 import { useSearchContext } from '../hooks';
+
+import { FilterIcon } from './FilterIcon';
 
 export function FiltersButton({ onClick }) {
   const { refinementCount } = useSearchContext();

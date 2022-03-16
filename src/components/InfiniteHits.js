@@ -16,7 +16,7 @@ export const InfiniteHits = connectInfiniteHits((props) => {
         <button
           type="button"
           className="ais-InfiniteHits-loadPrevious"
-          onClick={props.refinePrevious}
+          onClick={() => props.refinePrevious()}
         >
           Show previous
         </button>
