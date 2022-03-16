@@ -6,7 +6,7 @@ import { ReverseHighlight } from '../ReverseHighlight';
 
 import { SearchBox } from './SearchBox';
 
-export const PredictiveSearchBox = (props) => {
+export function PredictiveSearchBox(props) {
   const [suggestion, setSuggestion] = React.useState(null);
 
   return (
@@ -58,7 +58,7 @@ export const PredictiveSearchBox = (props) => {
       </Index>
     </>
   );
-};
+}
 
 const Suggestions = connectHits(function Suggestions({
   query,

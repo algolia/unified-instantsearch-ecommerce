@@ -3,7 +3,7 @@ import { QueryRuleCustomData } from 'react-instantsearch-dom';
 
 import './Banner.scss';
 
-export const Banner = () => {
+export function Banner() {
   return (
     <QueryRuleCustomData>
       {({ items }) => {
@@ -23,4 +23,4 @@ export const Banner = () => {
       }}
     </QueryRuleCustomData>
   );
-};
+}

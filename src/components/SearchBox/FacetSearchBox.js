@@ -1,6 +1,6 @@
 import React from 'preact/compat';
 
-export const FacetSearchBox = (props) => {
+export function FacetSearchBox(props) {
   return (
     <div className="ais-SearchBox">
       <form
@@ -59,4 +59,4 @@ export const FacetSearchBox = (props) => {
       </form>
     </div>
   );
-};
+}

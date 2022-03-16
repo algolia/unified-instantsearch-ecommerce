@@ -3,7 +3,7 @@ import { Highlight, Snippet } from 'react-instantsearch-dom';
 
 import './Hit.scss';
 
-export const Hit = ({ hit, insights, view }) => {
+export function Hit({ hit, insights, view }) {
   return (
     <article className="uni-Hit">
       <a
@@ -60,9 +60,9 @@ export const Hit = ({ hit, insights, view }) => {
       </a>
     </article>
   );
-};
+}
 
-const CartIcon = (props) => {
+function CartIcon(props) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -77,4 +77,4 @@ const CartIcon = (props) => {
       <path d="M5 1H1l0 0H5l2.7 13.4c0.2 1 1 1.6 2 1.6h9.7c1 0 1.8-0.7 2-1.6L23 6H6" />
     </svg>
   );
-};
+}

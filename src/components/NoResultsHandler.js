@@ -159,7 +159,7 @@ const HitsPreview = connectHits(function MoreHits(props) {
   );
 });
 
-const QuerySuggestions = () => {
+function QuerySuggestions() {
   const { config, searchState, searchParameters } = useAppContext();
 
   if (!config.suggestionsIndex) {
@@ -177,7 +177,7 @@ const QuerySuggestions = () => {
       <QuerySuggestionsHits />
     </Index>
   );
-};
+}
 
 const QuerySuggestionsHits = connectHits(function QuerySuggestionsHits(props) {
   const { setQuery } = useSearchContext();

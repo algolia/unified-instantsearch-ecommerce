@@ -9,7 +9,7 @@ import { getUrlFromState, getStateFromUrl, createURL } from './router';
 export const AppContext = React.createContext(null);
 export const SearchContext = React.createContext(null);
 
-export const App = ({ config }) => {
+export function App({ config }) {
   const navigate = useNavigate();
   const location = useLocation();
   const searchClient = useSearchClient(config);
@@ -228,4 +228,4 @@ export const App = ({ config }) => {
         )}
     </AppContext.Provider>
   );
-};
+}

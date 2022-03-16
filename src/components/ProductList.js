@@ -5,7 +5,7 @@ import { useAppContext } from '../hooks';
 import { Hits } from './Hits';
 import { InfiniteHits } from './InfiniteHits';
 
-export const ProductList = (props) => {
+export function ProductList(props) {
   const { isMobile } = useAppContext();
 
   if (isMobile) {
@@ -13,4 +13,4 @@ export const ProductList = (props) => {
   }
 
   return <Hits {...props} />;
-};
+}

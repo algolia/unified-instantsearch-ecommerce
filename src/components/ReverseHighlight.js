@@ -2,12 +2,12 @@ import React from 'preact/compat';
 
 import { getAttributeValueByPath, parseAttribute } from '../utils';
 
-export const ReverseHighlight = ({
+export function ReverseHighlight({
   hit,
   attribute,
   tagName = 'mark',
   ...rest
-}) => {
+}) {
   let parts = [];
 
   try {
@@ -43,7 +43,7 @@ export const ReverseHighlight = ({
       })}
     </span>
   );
-};
+}
 
 function parseReverseHighlightedAttribute({
   hit,

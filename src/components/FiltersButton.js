@@ -4,7 +4,7 @@ import { useSearchContext } from '../hooks';
 
 import { FilterIcon } from './FilterIcon';
 
-export const FiltersButton = ({ onClick }) => {
+export function FiltersButton({ onClick }) {
   const { refinementCount } = useSearchContext();
 
   return (
@@ -21,4 +21,4 @@ export const FiltersButton = ({ onClick }) => {
       )}
     </button>
   );
-};
+}

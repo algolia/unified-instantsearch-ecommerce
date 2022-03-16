@@ -2,7 +2,7 @@ import React from 'preact/compat';
 
 import { IconViewGrid, IconViewList } from './Icons';
 
-export const Views = (props) => {
+export function Views(props) {
   return (
     <ul className="uni-BodyHeader-view">
       <button
@@ -36,4 +36,4 @@ export const Views = (props) => {
       </button>
     </ul>
   );
-};
+}

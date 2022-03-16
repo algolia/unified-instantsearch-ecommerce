@@ -17,7 +17,7 @@ import { SeeResultsButton } from './SeeResultsButton';
 import { Stats } from './Stats';
 import { Views } from './Views';
 
-export const Search = (props) => {
+export function Search(props) {
   const { config, view, searchParameters, isMobile } = useAppContext();
   const { isSearchStalled } = useSearchContext();
 
@@ -166,4 +166,4 @@ export const Search = (props) => {
       </div>
     </InstantSearch>
   );
-};
+}

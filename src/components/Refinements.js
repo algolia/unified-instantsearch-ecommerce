@@ -12,7 +12,7 @@ import { Panel } from './Panel';
 import { SizeList } from './SizeList';
 import { Slider } from './Slider';
 
-const RefinementWidget = ({ type, ...props }) => {
+function RefinementWidget({ type, ...props }) {
   switch (type) {
     case 'color':
       return <ColorList {...props} />;
@@ -59,7 +59,7 @@ const RefinementWidget = ({ type, ...props }) => {
     default:
       return null;
   }
-};
+}
 
 function getPanelId(refinement) {
   return refinement.options.attributes

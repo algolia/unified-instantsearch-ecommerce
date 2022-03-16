@@ -1,6 +1,6 @@
 import React from 'preact/compat';
 
-export const FilterIcon = (props) => {
+export function FilterIcon(props) {
   return (
     <svg viewBox="0 0 16 14" {...props}>
       <path
@@ -14,4 +14,4 @@ export const FilterIcon = (props) => {
       ></path>
     </svg>
   );
-};
+}

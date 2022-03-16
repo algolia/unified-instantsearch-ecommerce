@@ -2,6 +2,13 @@ module.exports = {
   extends: ['algolia', 'algolia/react'],
   rules: {
     'eslint-comments/disable-enable-pair': 0,
+    // Enforce function declaration for components
+    'react/function-component-definition': [
+      'error',
+      {
+        'named-components': 'function-declaration',
+      },
+    ],
     // Allow boolean props without explicit values
     'react/jsx-boolean-value': 0,
     // Allow JSX content in .js files

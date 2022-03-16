@@ -31,7 +31,7 @@ export const SearchButton = ({ onClick }) => {
   );
 };
 
-const SearchIcon = (props) => {
+function SearchIcon(props) {
   return (
     <svg
       className="uni-SearchButton-Icon"
@@ -51,4 +51,4 @@ const SearchIcon = (props) => {
       />
     </svg>
   );
-};
+}
