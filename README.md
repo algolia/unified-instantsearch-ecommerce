@@ -5,7 +5,9 @@
 
 ---
 
-Unified InstantSearch for Ecommerce combines the most essential widgets and best practices of a great search experience while retaining the customizability of [InstantSearch](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/). And it requires only a few steps to get up and running with a production-level search solution.
+Unified InstantSearch for Ecommerce combines the most essential widgets and best practices of a great search experience while retaining the customizability of [InstantSearch](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/).
+
+It only requires a few steps to get up and running with a production-level search solution.
 
 <a href="https://unified-instantsearch-ecommerce.netlify.app" target="_blank">
   <img src="./.github/unified-instantsearch-ecommerce.png" alt="Unified InstantSearch for Ecommerce" width="1280" />
