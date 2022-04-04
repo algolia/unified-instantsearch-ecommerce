@@ -32,9 +32,7 @@ The [documentation](https://www.algolia.com/doc/guides/building-search-ui/resour
 
 > Unified InstantSearch for Ecommerce is made accessible to you for trial and experimentation purposes. You may decide to use it or not. You are aware that the use of Unified InstantSearch for Ecommerce in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).
 > 
-> Algolia does not support Unified InstantSearch for Ecommerce, and may discontinue it at any time at its sole discretion; configurations and customizations entered by you into Unified InstantSearch for Ecommerce may be permanently lost. Any feedback (including source code) you may provide to us regarding Unified InstantSearch for Ecommerce may be used by Algolia to improve the Service.
-> 
-> Unified InstantSearch for Ecommerce source code is provided "as is" and "as available" without any warranty of any kind. Algolia disclaims all obligation and liability for any harm or damage arising out of or in connection with Unified InstantSearch for Ecommerce. For purposes of our [SLA](https://www.algolia.com/policies/sla), the Unified InstantSearch for Ecommerce is not an "API Client".
+> Unified InstantSearch for Ecommerce source code is provided "as is" and "as available" without any support or warranty of any kind. For purposes of our [SLA](https://www.algolia.com/policies/sla), the Unified InstantSearch for Ecommerce is not an "API Client".
 
 ## License
 
