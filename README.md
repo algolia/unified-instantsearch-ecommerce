@@ -1,13 +1,22 @@
 <div align="center">
   <h1>Unified InstantSearch for Ecommerce</h1>
-  <p><strong>A ready-to-use, fully functional search interface on top of InstantSearch</strong></p>
+  <p><strong>A ready-to-use, fully functional Search & Discovery UI on top of InstantSearch</strong></p>
 </div>
 
 ---
 
-Unified InstantSearch for Ecommerce combines the most essential widgets and best practices of a great search experience while retaining the customizability of [InstantSearch](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/).
+Build your Ecommerce Search & Discovery experience in no time using this framework-agnostic prebuilt UI that offers out-of-the-box a robust as-you-type InstantSearch experience, while retaining the customizability of [Algolia InstantSearch](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/).
 
-It only requires a few steps to get up and running with a production-level search solution.
+Designed to accelerate your Algolia integration, this mobile-optimised UI has been created to best fit any website UI via its full page overlay and offers a direct access to the following Algolia key features:
+
+- Typo proof as-you-type InstantSearch experience
+- Query Suggestions
+- Advanced Analytics with A/B testing
+- Dynamic Re-ranking
+- Personalization
+- Merchandising capabilities, including banners via Rules
+
+On the frontend side, once compiled, the total package weighs under 300kb and runs on any existing website, regardless of the framework used (see [Browser support](#browser-support)). Its impact on Core Vitals is almost transparent.
 
 <a href="https://unified-instantsearch-ecommerce.netlify.app" target="_blank">
   <img src="./.github/unified-instantsearch-ecommerce.png" alt="Unified InstantSearch for Ecommerce" width="1280" />
@@ -35,6 +44,20 @@ The [documentation](https://www.algolia.com/doc/guides/building-search-ui/resour
 > Unified InstantSearch for Ecommerce is made accessible to you for trial and experimentation purposes. You may decide to use it or not. You are aware that the use of Unified InstantSearch for Ecommerce in production may increase your consumption of the Service, including [Queries Per Second](https://www.algolia.com/doc/faq/monitoring/which-queries-are-counted-as-part-of-the-max-qps-computations/).
 > 
 > Unified InstantSearch for Ecommerce source code is provided "as is" and "as available" without any support or warranty of any kind. For purposes of our [SLA](https://www.algolia.com/policies/sla), the Unified InstantSearch for Ecommerce is not an "API Client".
+
+## Browser support
+
+Unified InstantSearch for Ecommerce supports the **last two versions of the major browsers** (Chrome, Edge, Firefox, Safari) as well as Internet Explorer 11.
+
+## How to contribute
+
+We welcome all contributors, from casual to regular :blue_heart:. See [CONTRIBUTING](CONTRIBUTING.md) for more information about the contribution process.
+
+- **Bug report**. Is something not working as expected? [Send a bug report](https://github.com/algolia/unified-instantsearch-ecommerce/issues/new?template=Bug_report.md).
+- **Feature request.** Would you like to add something? [Send a feature request](https://github.com/algolia/unified-instantsearch-ecommerce/issues/new?title=Feature%20request%3A).
+- **Documentation.** Did you find a typo in the doc? [Open an issue](https://github.com/algolia/unified-instantsearch-ecommerce/issues/new).
+
+See [Installation](CONTRIBUTING.md#installation) for instructions on how to install the project.
 
 ## License
 
