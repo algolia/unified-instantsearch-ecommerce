@@ -18,17 +18,11 @@ Designed to accelerate your Algolia integration, this mobile-optimised UI has be
 
 On the frontend side, once compiled, the total package weighs under 300kb and runs on any existing website, regardless of the framework used (see [Browser support](#browser-support)). Its impact on Core Vitals is almost transparent.
 
+#### [**See Live Demo ↗**](https://unified-instantsearch-ecommerce.netlify.app)
+
 <a href="https://unified-instantsearch-ecommerce.netlify.app" target="_blank">
   <img src="./.github/unified-instantsearch-ecommerce.png" alt="Unified InstantSearch for Ecommerce" width="1280" />
 </a>
-
-<p align="center">
-  <strong>
-  <a href="https://www.algolia.com/doc/guides/building-search-ui/resources/unified-instantsearch/react/">Documentation</a> •
-  <a href="https://github.com/algolia/unified-instantsearch-ecommerce/wiki/Configuration-options">Configuration</a> •
-  <a href="https://unified-instantsearch-ecommerce.netlify.app/">Live Demo</a>
-  </strong>
-</p>
 
 ## Documentation
 
@@ -38,6 +32,8 @@ The [documentation](https://www.algolia.com/doc/guides/building-search-ui/resour
 - Find out how to [Use Your Own Data](https://www.algolia.com/doc/guides/building-search-ui/resources/unified-instantsearch/tutorials/using-your-own-data/react/) by formatting it specifically for Unified InstantSearch and pushing it to Algolia
 - Learn how to [Customize the UI](https://www.algolia.com/doc/guides/building-search-ui/resources/unified-instantsearch/tutorials/customizing-your-ui/react/) to make it blend with your website's branding
 - Setup advanced [Merchandising and Rules](https://www.algolia.com/doc/guides/building-search-ui/resources/unified-instantsearch/tutorials/merchandising-and-rules/react/) to promote items and add banners
+
+You can also go to the wiki to access the full [Configuration options](https://github.com/algolia/unified-instantsearch-ecommerce/wiki/Configuration-options) reference.
 
 ## Disclaimer
 
