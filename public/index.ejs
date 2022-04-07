@@ -493,5 +493,16 @@
     </footer>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default,Array.prototype.find,Array.prototype.includes,Promise,Object.assign,Object.entries,Object.values,IntersectionObserver"></script>
+    <% if (netlify) { %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32446386-48"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-32446386-48');
+    </script>
+    <% } %>
   </body>
 </html>

@@ -22,6 +22,7 @@ export default [
     template: 'public/index.ejs',
     templateParameters: {
       appId: config.appId,
+      netlify: process.env.NETLIFY || false,
     },
   }),
 ];
