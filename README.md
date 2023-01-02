@@ -58,3 +58,4 @@ See [Installation](CONTRIBUTING.md#installation) for instructions on how to inst
 ## License
 
 Unified InstantSearch for Ecommerce is [Apache-2.0 licensed](LICENSE).
+test
