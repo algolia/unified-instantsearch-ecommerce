@@ -6468,10 +6468,10 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.0.0"
 
-search-insights@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/search-insights/-/search-insights-1.4.0.tgz#c1fc228e91eaff55f8dd86c2cc760cf41c4c8588"
-  integrity sha512-bFI1P/K9dkK3qAoeIT1qoBPiiCE+YVozetPz1PXKUVyVuzTFGmcLtVxKmkOorVYr1C+d2DZ2/mQlL3rMuwZx8g==
+search-insights@1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/search-insights/-/search-insights-1.10.0.tgz#cb05d7aaa4c295b5ef5ab31daff789735ec36872"
+  integrity sha512-tl+BINReavk49wOE4F0i+ecKgOQxQSuxDrYZvmJavQ7+pj5FWZ/ybOBTZFNzkbndQYY6rCH0z5Xw/lB+e+JoNg==
 
 select-hose@^2.0.0:
   version "2.0.0"
