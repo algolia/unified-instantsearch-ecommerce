@@ -13,7 +13,7 @@
     "release": "shipjs prepare"
   },
   "dependencies": {
-    "algoliasearch": "4.12.2",
+    "algoliasearch": "4.22.1",
     "invariant": "2.2.4",
     "preact": "10.6.6",
     "qs": "6.10.3",
