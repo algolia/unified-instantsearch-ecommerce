@@ -23,11 +23,11 @@
     "search-insights": "1.4.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.5",
-    "@babel/eslint-parser": "7.17.0",
-    "@babel/preset-env": "7.16.11",
-    "@babel/preset-react": "7.16.7",
-    "@babel/register": "7.17.0",
+    "@babel/core": "7.24.3",
+    "@babel/eslint-parser": "7.24.1",
+    "@babel/preset-env": "7.24.3",
+    "@babel/preset-react": "7.24.1",
+    "@babel/register": "7.23.7",
     "babel-loader": "8.2.3",
     "babel-plugin-strip-invariant": "1.0.0",
     "copy-webpack-plugin": "10.2.4",
